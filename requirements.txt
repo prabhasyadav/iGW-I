@@ -1,0 +1,15 @@
+jupyter-book
+matplotlib
+numpy
+nbinteract
+pandas
+panel
+ipywidgets
+scipy
+xlrd
+ipysheet
+ipympl
+rise
+jupyter-contrib-nbextensions
+jupytext>=0.16 
+

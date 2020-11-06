@@ -1,0 +1,23 @@
+- file: intro
+
+- part: Background
+  chapters:
+  - file: contents/background/00_general
+  - file: contents/background/01_python
+  - file: contents/background/02_jupyter
+  - file: contents/background/03_basic_hydrogeology
+
+- part: Flow
+  chapters:
+  - file: contents/flow/12_subsurface_structure
+
+- part: Tools
+  chapters:
+  - file: contents/tools/decay
+  - file: contents/tools/sieve_analysis
+
+- part: Question pool
+  chapters:
+  - file: contents/questions/GW_exam_2019_20
+
+
