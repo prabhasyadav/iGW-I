@@ -6,6 +6,8 @@ latex:
 parse:
   myst_extended_syntax: true
   myst_url_schemes          : [mailto, http, https]  
+  
+
 
 
 #######################################################################################
@@ -16,7 +18,7 @@ parse:
 #######################################################################################
 # Book settings
 title                       : Groundwater I  # The title of the book. Will be placed in the left navbar.
-author                      : P. K. Yadav, T. Reimann and many others  # The author of the book
+author                      : P. K. Yadav, T. Reimann and several others  # The author of the book
 copyright                   : CC 4.0  # Copyright year to be placed in the footer
 logo                        : images/logo/logo3.png  # A path to the book logo
 exclude_patterns            : [_build, recycle,]  # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
@@ -51,7 +53,7 @@ launch_buttons:
   binderhub_url             : https://mybinder.org  # The URL of the BinderHub (e.g., https://mybinder.org)
   jupyterhub_url            : ""  # The URL of the JupyterHub (e.g., https://datahub.berkeley.edu)
   thebe                     : true  # Add a thebelab button to pages (requires the repository to run on Binder)
-  colab_url: https://colab.research.google.com
+ # colab_url: https://colab.research.google.com
 
 repository:
   url                       : https://github.com/prabhasyadav/iGW-I  # The URL to your book's repository
@@ -71,6 +73,7 @@ sphinx:
   config:
     html_show_copyright: false
     myst_amsmath_enable: true
+    
     
 sphinx:
   extra_extensions:

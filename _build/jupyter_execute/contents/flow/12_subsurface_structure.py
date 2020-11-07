@@ -45,10 +45,9 @@ import warnings; warnings.simplefilter('ignore')
 # - ${V_{v}}$= voids volume
 # - ${V_{T}}$= total volume
 
-# **Sample question**
-# 
+# ```{admonition} Sample question
 # If the total volume of a media is 254 cubic meters, and the volume of the void is 27 cubic meters, what is the porosity (give as a percent)?
-# 
+# ```
 
 # In[2]:
 
@@ -79,8 +78,11 @@ print(" Total porosity is: {0:0.2f}%".format(n) )
 # 
 
 # ### Total porosity of natural unconsolidated porous media:
+# 
 # In the subsurface (natural unconsolidated porous media) there are grains of different size and total porosity depends on the grain size distribution.
 # 
+# 
+# ```{tabbed} Porosity - Unconolidated media
 # 
 # |               | grain  diameter  (mm) | Total  Porosity (%) |
 # |---------------|-----------------------|---------------------|
@@ -90,7 +92,9 @@ print(" Total porosity is: {0:0.2f}%".format(n) )
 # | Fine sand     | 0.006 - 0.2           | 26 - 53             |
 # | Silt          | 0.002 - 0.06          | 34 - 61             |
 # | Clay          | < 0.002               | 34 - 60             |
+# ```
 # 
+# ```{tabbed} Porosity - Conolidated media
 # 
 # |           | Total  Porosity (%) |
 # |-----------|---------------------|
@@ -101,11 +105,10 @@ print(" Total porosity is: {0:0.2f}%".format(n) )
 # | Limestone | 1 - 10              |
 # | Shale     | < 10                |
 # | Granite   | < 1                 |
-# 
+# ```
 # 
 # Total porosity of consolidated porous media (rocks) is usually smaller than total porosity of unconsolidated porous media. However, weathering effect may lead to increase the value of porosity.
 # only for unconsolidated porous media, total porosity tends to increase with decreasing grain size.
-# 
 
 # # Grain size distribution of unconsolidated porous media
 # Unconsolidated porous media are able to store and transmit water that can be influenced by grain size distribution. Therefore, the grain size distribution is frequently determined in laboratory experiments in order to deduce important flow properties. 
@@ -118,9 +121,11 @@ print(" Total porosity is: {0:0.2f}%".format(n) )
 # <img src="images/L02_fig7.png" alt="grain size distribution" class="bg-primary" width="600px">
 # 
 # 
-# _USDA: United States Department of Agriculture_, _ISSS: International Soil Science Society (ISSS)_, _MIT: Massachusetts Institute of Technology_, _ASTM: American Society for Testing and Materials_, _AASHTO: American Association of State Highway and Transportation Officials_, _FAA: Federal Aviation Administration_   
-# 
 # As can be observed that there exist several standards. These are often based on local requirements e.g., based on countries. In Germany the DIN standards are used. 
+# 
+# :::{admonition,dropdown,tip} Click for the abbreviation
+# _USDA: United States Department of Agriculture_, _ISSS: International Soil Science Society (ISSS)_, _MIT: Massachusetts Institute of Technology_, _ASTM: American Society for Testing and Materials_, _AASHTO: American Association of State Highway and Transportation Officials_, _FAA: Federal Aviation Administration_  
+# :::
 
 # ## Sieve analysis:
 # The results from a sample consist of different grain size fractions should be transferred on granulometric curve. This curve provides cumulative information; vertical axis shows the mass fraction, and horizontal axis shows the grain diameter. For example, if 1mm grain diameter has 80% of cumulative mass fraction it means that 80% of this sample contains 1mm grain diameter or less than 1 mm (see the picture below).
@@ -148,11 +153,8 @@ print(" Total porosity is: {0:0.2f}%".format(n) )
 # 
 # The subsurface can be regarded as a three-phase system consisting of a solid phase (soil particles), a water phase, and a gas phase. a schematic illustration for voids or pores in an unconsolidated porous medium is given in the figure below. Each phase has similar density and other properties. Sometimes it is possible for the fourth phase which is contamination.Voids are filled with water and gas. The volumetric ratio of water in voids can be calculated by water content.
 # 
-# ```{image} images/L02_fig10.png
-# :height: 200px
-# :align: center
-# :name: subterranean water
-# ```
+# 
+# <img src="images/L02_fig10.png" alt="subterranean water" class="bg-primary" width="500px">
 # 
 # ## Water content:
 # 
@@ -177,8 +179,31 @@ print(" Total porosity is: {0:0.2f}%".format(n) )
 # The degree of saturation is equal to $\frac{θ}{n}$ . S can vary between 0 to 1 (or between 0% to 100%), S=0 means no water in the voids, whereas S=100 means voids are completely filled with water.
 # 
 
-# **sample question**
-# 
+# ```{admonition} sample question
+# The voids volume and the total air in the subsurface sample (0.2 m$^3$) was found to be 0.02 m$^3$ and 0.001 m$^3$, respectively. How much water does the sample contain and what is the degree of saturation?
+# ```
+
+# In[3]:
+
+
+# solution
+
+V_T = 0.2 # m^3, Total sample.
+V_v = 0.06 # m^3, volume of voids
+V_a = 0.004 # m^3, volume of air
+
+# interim calculation
+V_w = V_v - V_a # m^3, Vol. water,  the remaining volume
+
+# calculation
+
+Theta = V_w/V_T # -, water content
+S = V_w/V_v # # -, degree of saturation
+
+# print
+print("The water content of the sample is: {0:.0%}".format(Theta),"\n")
+print("The degree of saturation of the sample is: {0:.0%}".format(S))
+
 
 # ## Forcing act on subterranean water:
 # 
@@ -227,10 +252,11 @@ print(" Total porosity is: {0:0.2f}%".format(n) )
 # Left sketch shows the capillary rise in a perfectly sorted material which all the pores have the same size. So capillary rise is similar in every single pores. The right sketch, shows a real situation of subsurface. There are different grain size and then different pore channels, which results in various capillary rise.
 # 
 
-# **Sample question**
-#  For water at at a tube with a redius R, the surface tension is 73$\frac{g}{s^2}$, the density is 0.999 $\frac{g}{cm^3}$. Compute the rise of water in the capillary tube
+# ```{admonition} Sample question
+#  For water at at a tube with a radius _R_, the surface tension is 73$\frac{g}{s^2}$, the density is 0.999 $\frac{g}{cm^3}$. Compute the rise of water in the capillary tube
+# ```
 
-# In[3]:
+# In[4]:
 
 
 # input data
@@ -243,10 +269,4 @@ h_c=(2*sigma)/(rho*g)
 
 #output
 print("The maximum water rise in this tube is: {0:0.2f} 1/R cm".format(h_c))
-
-
-# In[ ]:
-
-
-
 
