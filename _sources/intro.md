@@ -16,7 +16,7 @@ The _lecture_ parts are combination of **texts** and **simpler** numerical examp
 The _tutorial_ are mostly **numerical** examples. This aims at teaching also the basic of Python coding. The focus remains on illustrating lecture contents. _Self-learning tools_ are interactive tools that supports the lecture and tutorial components and enhances understanding. The codes of the tools can require higher knowledge in Python programming. Therefore, codes are hidden.
 
 All codes and contents provided in this interactive book are licensed under [Creative Commons BY 4.0](https://creativecommons.org/licenses/by/4.0/) 
-Codes are available at this [GitHUB repository](https://github.com/prabhasyadav/Groundwater-I)
+Codes are available at this [GitHUB repository](https://github.com/prabhasyadav/iGW-I)
 
 
 > **The development of the book in based on the **wonderful** work of the [JUPYTER Book Team](https://jupyterbook.org/intro.html)**
