@@ -20,19 +20,14 @@ import warnings; warnings.simplefilter('ignore')
 
 # ## Types of porous media in the subsurface
 
-# ```{image} images/L02_fig1.png
-# :height: 400px
-# :align: center
-# :name: Unconsolidated porous medium
-# ```
+# 
+# <img src="images/L02_fig1.png" alt="Unconsolidated porous medium" class="bg-primary" width="300px">
+# 
 # 
 # 1. **unconsolidated porous medium (Sediments)**: it is non-cemented porous media and the grains can be taken away. The formation of such porous media is due to deposition of solid material mostly by water.
 # 
-# ```{image} images/L02_fig3.png
-# :height: 300px
-# :align: center
-# :name: Unconsolidated porous medium
-# ```
+# 
+# <img src="images/L02_fig3.png" alt="Unconsolidated porous medium" class="bg-primary" width="600px">
 # 
 # 2. **Consolidated porous medium (Rocks)**: the formation is due to increased pressure acting together with thermal and chemical processes. It has two types:
 # 
@@ -40,12 +35,7 @@ import warnings; warnings.simplefilter('ignore')
 # 
 # > Karstified porous media
 # 
-# ```{image} images/L02_fig4.png
-# :height: 600px
-# :align: center
-# :name: Consolidated porous medium
-# ```
-# 
+# <img src="images/L02_fig4.png" alt="Unconsolidated porous medium" class="bg-primary" width="800px">
 
 # ## Porosity (Total porosity):
 # Is defined as the volumetric share of voids in a porous media. It is a number between 0 and 1 and can be expressed as percentage (0%: no voids, 100%:no solid)
@@ -71,18 +61,14 @@ V_v=27 #m^3 voids volume
 n=(V_v/V_T)*100
 
 # Output
-print(" Total porosity is:", n, "%" )
+print(" Total porosity is: {0:0.2f}%".format(n) )
 
 
 # ### Total porosity of artificial porous media: 
 # If “grains” have identical shape and are regularly arranged, it is possible to exactly compute total porosity, the pores should have the same size.
 # 
+# <img src="images/L02_fig5.png" alt="Total porosity of artificial porous media" class="bg-primary" width="300px">
 # 
-# ```{image} images/L02_fig5.png
-# :height: 300px
-# :align: center
-# :name: Total porosity of artificial porous media
-# ```
 # 
 # 
 # - Loose packing(first picture): each hole placed on top of the hole underneath
@@ -129,13 +115,8 @@ print(" Total porosity is:", n, "%" )
 # ## Classification schemes:
 # The diagrams below include a couple of classification schemes to define ranges of grain diameter for clay, silt, sand, and gravel:
 # 
+# <img src="images/L02_fig7.png" alt="grain size distribution" class="bg-primary" width="600px">
 # 
-# 
-# ```{image} images/L02_fig7.png
-# :height: 400px
-# :align: center
-# :name: grain size distribution
-# ```
 # 
 # _USDA: United States Department of Agriculture_, _ISSS: International Soil Science Society (ISSS)_, _MIT: Massachusetts Institute of Technology_, _ASTM: American Society for Testing and Materials_, _AASHTO: American Association of State Highway and Transportation Officials_, _FAA: Federal Aviation Administration_   
 # 
@@ -147,26 +128,15 @@ print(" Total porosity is:", n, "%" )
 # **How to get granulometric curve?**
 # In order to perform sieve analysis we can use sieve machine. Sieve machine consist of sets of sieves from coarse sieve on top to fine sieve and a cup at the bottom. The mechanism is to shake the set. Finally, each sieve consists of grain sizes which are bigger than the sieve.
 # 
+# <img src="images/L02_fig15.png" alt="grain size distribution" class="bg-primary" width="600px">
 # 
-# ```{image} images/L02_fig15.png
-# :height: 400px
-# :align: center
-# :sieve machine
-# ```
 # 
-# ```{image} images/L02_fig8.png
-# :height: 400px
-# :align: center
-# :name: grain size distribution
-# ```
+# <img src="images/L02_fig8.png" alt="grain size distribution" class="bg-primary" width="600px">
+# 
 # 
 # **dx and U**: From the granulometric curve, several parameters can be determined in order to characterize the sample. ${d_{x}}$   denotes the grain diameter for which x% (in mass or weight, not volume) of the sieve material is smaller than this diameter.
 # 
-#  ```{image} images/L02_fig9.png
-# :height: 400px
-# :align: center
-# :name: grain size distribution
-# ```
+# <img src="images/L02_fig9.png" alt="grain size distribution" class="bg-primary" width="400px">
 # 
 #   Grain diameters ${d_{10}}, {d_{60}}, {d_{75}}$ are of practical importance with regard to groundwater flow properties. The     ratio of d60 and d10 is called **coefficient of uniformity, U**:
 #   
@@ -218,11 +188,8 @@ print(" Total porosity is:", n, "%" )
 # - attractive forces between the water molecules (cohesion)
 # - attractive forces between water and solids (adhesion)
 # 
-# ```{image} images/L02_fig11.png
-# :height: 250px
-# :align: center
-# :name: Forces on subterranean water
-# ```
+# <img src="images/L02_fig11.png" alt="Forces on subterranean water" class="bg-primary" width="450px">
+# 
 # 
 # In the figure above, dotted area represent the solid phase. In the pore channel the dominant force is gravity, shown as G. getting closer to the solid surface, adhesive force become more important. The numbers indicate the required pressure to remove the corresponding layer of water from the solid surface. As an example, in order to remove the last layer of water from the solid surface, 31 bar pressure needs to be applied. Another easy way to remove the water is boiling the sample in the oven.
 # 
@@ -230,23 +197,15 @@ print(" Total porosity is:", n, "%" )
 # 
 # Cohesive forces acting on water molecules compensate each other if the molecule is not located near water-air or water-solid interface. This is no longer true at an interface: cohesive interaction is reduced on one side. The resulting force tends to minimize the interface area. Macroscopically, this effect is parametrized by the “surface tension”, which is defined as the energy needed to increase the area of the interface by one unit.
 # 
+# <img src="images/L02_fig12.png" alt="surface tension" class="bg-primary" width="300px">
 # 
-# ```{image} images/L02_fig12.png
-# :height: 300px
-# :align: center
-# :name: surface tension
-# ```
 # 
 # Common units of the surface tension σ are $\frac{J}{m^2}$ or $\frac{N}{m}$ (Its dimension is $\frac{M}{T^2}$). The surface tension of water is about 7.5 . 10 -2 $\frac{N}{m}$ at 10 ֯C.
 # 
 # ## Capillary action:
 # 
+# <img src="images/L02_fig13.png" alt="capillary action" class="bg-primary" width="200px">
 # 
-# ```{image} images/L02_fig13.png
-# :height: 300px
-# :align: center
-# :name: capillary action
-# ```
 # 
 # Water is subject to capillary action when adhesion is strongr than cohesion. The capillary rise of water in a tube depends on the surface tension and the tube redius. The maximum capillary rise is given by:
 # 
@@ -263,18 +222,13 @@ print(" Total porosity is:", n, "%" )
 # 
 # Capillary actions play a dominant role in the subsurface. The capillaries are given by individual pore channels. Poor channels in poorly sorted material may strongly differ in diameter, such that a certain variability in capillary rise is observed.
 # 
-# 
-# ```{image} images/L02_fig14.png
-# :height: 400px
-# :align: center
-# :name: capillary action in the subsurface
-# ```
+# <img src="images/L02_fig14.png" alt="capillary action in the subsurface" class="bg-primary" width="600px">
 # 
 # Left sketch shows the capillary rise in a perfectly sorted material which all the pores have the same size. So capillary rise is similar in every single pores. The right sketch, shows a real situation of subsurface. There are different grain size and then different pore channels, which results in various capillary rise.
 # 
 
 # **Sample question**
-#  For water at at a tube with reduce of R, the surface tension is 73$\frac{g}{s^2}$, the density is 0.999 $\frac{g}{cm^3}$. Compute the rise of water in the capillary tube
+#  For water at at a tube with a redius R, the surface tension is 73$\frac{g}{s^2}$, the density is 0.999 $\frac{g}{cm^3}$. Compute the rise of water in the capillary tube
 
 # In[3]:
 
@@ -288,7 +242,7 @@ g=980 #cm/s^2 acceleration of gravity
 h_c=(2*sigma)/(rho*g)
 
 #output
-print("the maximum water rise in this tube is:", h_c,"1/R",  "cm")
+print("The maximum water rise in this tube is: {0:0.2f} 1/R cm".format(h_c))
 
 
 # In[ ]:

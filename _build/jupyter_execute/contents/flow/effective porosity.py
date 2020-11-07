@@ -17,7 +17,7 @@ df = pd.read_csv("dataset.csv")
 df.head(5)
 
 
-# In[3]:
+# In[5]:
 
 
 
@@ -73,7 +73,7 @@ fig.text(0.52,-0.02 , 'Sand', ha='left', va='top', size=12, fontweight='bold')
 fig.text(0.7,-0.02 , 'Gravel', ha='left', va='top', size=12, fontweight='bold')
 
 
-# In[4]:
+# In[ ]:
 
 
 ax2.sexlabel[0].set_visible(False)
