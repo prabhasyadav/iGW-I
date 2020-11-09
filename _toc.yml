@@ -3,13 +3,19 @@
 - part: Background
   chapters:
   - file: contents/background/00_general
-  - file: contents/background/01_python
-  - file: contents/background/02_jupyter
   - file: contents/background/03_basic_hydrogeology
 
 - part: Flow
   chapters:
-  - file: contents/flow/12_subsurface_structure
+  - file: contents/flow/lecture_02/12_subsurface_structure
+  - file: contents/flow/lecture_03/13_gw_storage
+
+
+- part: Tutorials
+  chapters:
+  - file: contents/tutorials/tutorial_01/01_python
+  - file: contents/tutorials/tutorial_01/02_jupyter
+  - file: contents/tutorials/tutorial_02
 
 - part: Tools
   chapters:

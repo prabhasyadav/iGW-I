@@ -18,7 +18,7 @@ import ipywidgets as widgets
 #warnings.filterwarnings('ignore')
 
 
-# ## Course Introduction - Groundwater I ## 
+# ## Lecture 1 - Course Introduction/Water Cycle ## 
 # 
 
 # ### Contents of “Groundwater Module ” ###
@@ -188,12 +188,7 @@ pn.Row(pn1, fig5)
 # **So how much water do we have?**<br>
 # It is estimated* that the total volume of water on Earth amounts to ca. 1 358 710 150 km$^3$ ($\approx$ 1018 m$^3$).
 # 
-# 
-# ```{image} images/L01_f_6.png
-# :height: 200px
-# :align: center
-# :name: Water volume in Earth
-# ```
+# <img src="images/L01_f_6.png" alt="Water volume in Earth" class="bg-primary" width="200px">
 # 
 # The total volume of fresh water on Earth amounts to ca. $38\times 10^6$ km$^3$ ($\approx$ 1016 m$^3$).<br><br>
 # 
@@ -209,22 +204,15 @@ pn.Row(pn1, fig5)
 # 
 # It is estimated* that the total volume of available fresh water (liquid) on Earth amounts to ca. 8 831 600 km$^3$ ($\approx$ 1016 m$^3$).
 # 
+# <img src="images/L01_f_7.png" alt="Fresh water volume in Earth" class="bg-primary" width="200px">
 # 
-# ```{image} images/L01_f_7.png
-# :height: 200px
-# :align: center
-# :name: Fresh water volume in Earth
-# ```
 # 
 # _*Gleick P. (1996): Water re-sources, in: Schneider S. H. (ed.), Encyclopedia of climate and weather 2, Oxford Univ. Press._
 
 # ### Continental distribution of fresh water components  ### 
 # 
-# ```{image} images/L01_f_8.png
-# :height: 500px
-# :align: center
-# :name: Fresh water in different continents
-# ```
+# <img src="images/L01_f_8.png" alt="Fresh water in different continents" class="bg-primary" width="500px">
+# 
 
 # ### Volume and Mass Budget
 # 
