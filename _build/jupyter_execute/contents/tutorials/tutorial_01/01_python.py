@@ -101,10 +101,4 @@ pn.Row(p4, p3)
 # 
 # In this course the _codes_ can are written in a way so that it can be easily read. In addition, this interactive book will allow quite many of the _code_ to be edited and executed in the book itself. For more advanced learning the popular notebook interface **JUPYTER** is to be used. 
 # 
-# **JUPYTER** interface, on which interface this book is developed, is very briefly explained in the next section. 
-
-# In[ ]:
-
-
-
-
+# **JUPYTER** interface, on which interface this book is developed, is very briefly explained in the next presentation. 

@@ -1,21 +1,18 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# ## Simulating Seive Analysis ##
+
 # In[1]:
 
 
-import matplotlib.pyplot as plt
-import numpy as np
-import pandas as pd
-import ipywidgets as widgets
+# used Python library
+import numpy as np # for calculation 
+import matplotlib.pyplot as plt  # for plotting
+import pandas as pd  # for data table
+import ipywidgets as widgets # for widgets
 get_ipython().run_line_magic('matplotlib', 'widget')
 import warnings; warnings.simplefilter('ignore')
-
-
-# ## Simulating Seive Analysis ##
-
-# In[2]:
-
 
 print("Please provide the seive data in the boxes:  ")
 
@@ -67,7 +64,9 @@ Inter=widgets.interact_manual(SA,
                        ml= widgets.FloatText(description="0.01 mm", style=style))
 
 
-# In[3]:
+# **The plot shown is interactive use the pointer and others tools in the graph to obtain d10 and d60 for the next step**
+
+# In[2]:
 
 
 def SA2(d10, d60, t):

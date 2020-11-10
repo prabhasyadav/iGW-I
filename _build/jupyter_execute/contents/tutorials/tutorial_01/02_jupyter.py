@@ -38,6 +38,11 @@
 # 
 # Also, for better computing and learning, installing **JUPYTER** locally in personal system is encouraged. This can be done using the instructions provided [here](https://jupyter.readthedocs.io/en/latest/install.html).
 
+# ## Installing Python and JUPYTER notebook in your system ##
+# 
+# The document from [here](https://github.com/prabhasyadav/iGW-I/blob/main/Install_Python_JUPYTER.pdf) provide details of installing Python and JUPYTER notebook in your system.
+# 
+
 # In[ ]:
 
 

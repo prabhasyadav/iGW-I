@@ -1,21 +1,18 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# ## Simulating Mass budget ##
+
 # In[1]:
 
 
-import numpy as np
-from scipy.integrate import odeint
-import matplotlib.pyplot as plt 
-import pandas as pd 
-import panel as pn
-import ipywidgets as widgets
+# Used library
+import numpy as np # for calculation
+import matplotlib.pyplot as plt # for plots
+import pandas as pd  # for table
+import ipywidgets as widgets  # for widgets
 
-
-# ## Simulating Mass budget ##
-
-# In[2]:
-
+# The main function
 
 def mass_bal(n_simulation, MA, MB, MC, R_A, R_B):
     
@@ -44,6 +41,8 @@ def mass_bal(n_simulation, MA, MB, MC, R_A, R_B):
     plt.show() # display plot
     
     return print(df.round(2)) 
+
+# Widgets and interactive
 
 N = widgets.BoundedIntText(value=20,min=0,max=100,step=1,description= '&Delta; t (day)',disabled=False)
 

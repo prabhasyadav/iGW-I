@@ -1,7 +1,6 @@
 jupyter-book
 matplotlib
 numpy
-nbinteract
 pandas
 panel
 ipywidgets

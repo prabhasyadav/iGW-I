@@ -26,23 +26,22 @@ Codes are available at this [GitHUB repository](https://github.com/prabhasyadav/
 
 The contents are developed by (not in any order):
 - Prof. Rudolf Liedl (TU Dresden)
-- Prof Charles Werth (Uni-Texas Austin, US)
+- Prof. Peter Dietrich (UFZ Leipzig/Uni-Tübingen)
 - Prof. B. R. Chahar (Indian Institute of Technology Delhi, Delhi)
+- Prof Charles Werth (Uni-Texas Austin, US)
 - Dr.rer. nat. Prabhas K Yadav (TU Dresden)
 - Dr. Ing. Thomas Reimann (TU Dresden)
 - M.Sc. Hanieh Mehrdad (Student Assistant/Numerical contents- TU Dresden)
-- Anton Köhler (Student Assistant/Model contents - TU Dresden)
-- Abiral Poudel (Student Assistant/CS-IT support  - TU Dresden)
-- Sophie Pförtner (Student Assistant/Numerical content - TU Dresden)
-- Anne  Pförtner (Student Assistant/Numerical content - TU Dresden)
-- Alexander Oy (Student Assistant/Numerical content and CS-IT Support - TU Dresden)
+
+and several students: Anton, Abhiral, Anne, Sophie, Alexander
+
 
 
 ### Acknowledgments 
 
-This work is partly supported:
+This work is partly supported by:
 1. The [Multimediafonds, TU-Dresden][Multimediafonds, TU-Dresden] 
-2. The [ESTIMATE, project, DFG][DFG]
+2. The [ESTIMATE (LI 727/29-1), project, DFG][DFG]
 
 
 
