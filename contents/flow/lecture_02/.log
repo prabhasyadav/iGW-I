@@ -17,3 +17,9 @@
 2020-11-09 13:08:44,886 [8040] DEBUG    matplotlib.pyplot:289: [JupyterRequire] Loaded backend module://ipykernel.pylab.backend_inline version unknown.
 2020-11-09 13:08:45,141 [8040] DEBUG    matplotlib.pyplot:289: [JupyterRequire] Loaded backend module://ipympl.backend_nbagg version unknown.
 2020-11-09 13:11:34,356 [8040] DEBUG    matplotlib.pyplot:289: [JupyterRequire] Loaded backend module://ipympl.backend_nbagg version unknown.
+2020-11-10 20:53:26,371 [19526] DEBUG    root:75: [JupyterRequire] Loading Jupyter Require extension.
+2020-11-10 20:53:26,383 [19526] DEBUG    root:93: [JupyterRequire] Initializing comms.
+2020-11-10 20:53:26,383 [19526] INFO     root:247: [JupyterRequire] Initializing comms.
+2020-11-10 20:53:26,386 [19526] DEBUG    root:195: [JupyterRequire] Configuration requested: {'paths': {}, 'shim': None}
+2020-11-10 20:53:26,387 [19526] INFO     root:271: [JupyterRequire] Comms have been successfully initialized.
+2020-11-10 20:53:26,387 [19526] DEBUG    root:97: [JupyterRequire] Registering comm targets.

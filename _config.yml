@@ -8,7 +8,7 @@ parse:
   myst_url_schemes          : [mailto, http, https]  
   
 
-
+favicon_path: "images/logo/logo3.png"
 
 #######################################################################################
 # A default configuration that will be loaded for all jupyter books
@@ -22,14 +22,17 @@ author                      : P. K. Yadav, T. Reimann and several others  # The 
 copyright                   : CC 4.0  # Copyright year to be placed in the footer
 logo                        : images/logo/logo3.png  # A path to the book logo
 exclude_patterns            : [_build, recycle,]  # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
+textbook_logo_link        : https://prabhasyadav.github.io/iGW-I/  # A link for the logo.
+collapse_inactive_chapters: true  # Whether to collapse the inactive chapters in the sidebar
+collapse_inactive_sections: true  # Whether to collapse the sub-sections within a non-active section in the sidebar
 
 #######################################################################################
 # Execution settings
 execute:
-  execute_notebooks         : force  # Whether to execute notebooks at build time. Must be one of ("auto", "force", "cache", "off")
+  execute_notebooks         : cache  # Whether to execute notebooks at build time. Must be one of ("auto", "force", "cache", "off")
   cache                     : ""  # A path to the jupyter cache that will be used to store execution artifacs. Defaults to `_build/.jupyter_cache/`
   exclude_patterns          : []  # A list of patterns to *skip* in execution (e.g. a notebook that takes a really long time)
-  execute_notebooks         : cache
+
 
 #######################################################################################
 # HTML-specific settings
@@ -40,8 +43,9 @@ html:
   extra_footer              : ""  # Will be displayed underneath the footer.
   google_analytics_id       : ""  # A GA id that can be used to track book views.
   home_page_in_navbar       : true  # Whether to include your home page in the left Navigation Bar
-  use_edit_page_button      : false  # Whether to add an "edit this page" button to pages. If `true`, repository information in repository: must be filled in
-  baseurl                   : https://tu-dresden.de/bu/umwelt/hydro/igw  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
+  use_edit_page_button      : false  # Whether to add an "edit this page" button to pages. If `true`, repository information in repository must be filled in
+  baseurl                   : https://prabhasyadav.github.io/iGW-I/   
+# The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
   comments:
     hypothesis              : false # at the end make this true
 
@@ -60,9 +64,13 @@ repository:
   #path_to_book             : ""  # A path to your book's folder, relative to the repository root.
   branch                    : main   # Which branch of the repository should be used when creating links
 
+codemirror_theme                 : "abcdef"  # Theme for codemirror cells, for options see https://codemirror.net/doc/manual.html#config
+
 html:
   use_issues_button: true
   use_repository_button: true
+
+
 #######################################################################################
 # Advanced and power-user settings
 #sphinx:
@@ -73,8 +81,14 @@ sphinx:
   config:
     html_show_copyright: false
     myst_amsmath_enable: true
+    html_js_files:       https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
     
     
-sphinx:
-  extra_extensions:
-#  - sphinx_tabs.tabs
+
+
+
+
+
+
+
+

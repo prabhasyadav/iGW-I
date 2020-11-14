@@ -1,6 +1,7 @@
 jupyter-book
 matplotlib
 numpy
+nbinteract
 pandas
 panel
 ipywidgets
@@ -11,4 +12,5 @@ ipympl
 rise
 jupyter-contrib-nbextensions
 jupytext>=0.16 
+
 

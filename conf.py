@@ -3,6 +3,11 @@ extensions = [
     "myst_nb"
 ]
 
+extensions = [
+    ...,
+    "jupyter_sphinx.execute"
+]
+
 # inside conf.py
 latex_elements = {
     'preamble': r'''

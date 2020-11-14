@@ -250,11 +250,9 @@ print("The degree of saturation of the sample is: {0:.0%}".format(S))
 # Left sketch shows the capillary rise in a perfectly sorted material which all the pores have the same size. So capillary rise is similar in every single pores. The right sketch, shows a real situation of subsurface. There are different grain size and then different pore channels, which results in various capillary rise.
 # 
 
-# ```{admonition} Sample question
-#  For water at at a tube with a radius _R_, the surface tension is 73$\frac{g}{s^2}$, the density is 0.999 $\frac{g}{cm^3}$. Compute the rise of water in the capillary tube
-# ```
-
 # #### Example Problem ####
+# 
+# For water at a tube with a radius _R_, the surface tension is 73 $\frac{g}{s^2}$, the density is 0.999 $\frac{g}{cm^3}$. Compute the rise of water in the capillary tube
 
 # In[4]:
 
