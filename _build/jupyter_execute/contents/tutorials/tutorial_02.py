@@ -6,7 +6,6 @@
 
 import numpy as np
 import pandas as pd 
-import ipysheet as ips
 import panel as pn
 pn.extension("katex", "mathjax")  
 
@@ -24,7 +23,7 @@ r1_1 = pn.pane.Markdown("""
 The park called ,,Grosser Garten'' in Dresden is underlain by an unconfined aquifer consisting of 
 alluvial deposits. How much additional water is stored under the park if groundwater levels 
 rise by 3 m during a wet period?
-""", style={'font-size': '14pt'})
+""", style={'font-size': '12pt'})
 
 spacer = pn.Spacer(width=50) 
 
@@ -47,7 +46,7 @@ r1_3 = pn.pane.Markdown("""
 
 The basic configuration of an unconfined aquifer:
 
-""", style={'font-size': '14pt'})
+""", style={'font-size': '12pt'})
 
 spacer = pn.Spacer(width=50) 
 
@@ -86,7 +85,7 @@ print("Additional water volume: {0:1.1E}".format(AW),"m\u00b3")
 r2_1 = pn.pane.Markdown("""
 The lithological information derived from three boreholes is given in the figure below.
 Try to correlate the layers to obtain a 2D cross section of the subsurface structure.
-""", style={'font-size': '14pt'})
+""", style={'font-size': '12pt'})
 
 r2_2 = pn.pane.PNG("images/T01_TP2_1.png", width=400)
 
@@ -96,7 +95,7 @@ r2_3 = pn.pane.Markdown("""
 **For details check lecture slide: L03-15**.<br>
 
 Few correlations between the layers are presented in the figure below:
-""", style={'font-size': '14pt'})
+""", style={'font-size': '12pt'})
 
 R1 = pn.Row(r2_1, r2_2) 
 pn.Column(R1, r2_3)
@@ -121,14 +120,13 @@ tabs
 # In[7]:
 
 
-#
 r3_1 = pn.pane.Markdown("""
 
 This problem addresses a confined aquifer with a thickness of 61 m and a specific storage of 
 1.2 X 10<sup>-5</sup> 1/m. Due to water injection the pressure head rises by 0.75 m on average over an area 230 m in diameter.
 How much water is injected?
 
-""", width=950, style={'font-size': '14pt'}) 
+""", width=950, style={'font-size': '12pt'}) 
 
 r3_2 = pn.pane.Markdown("""
 ### Tutorial Problem 3 – Solution ###
@@ -137,7 +135,7 @@ r3_2 = pn.pane.Markdown("""
 
 Basic configuration of a confined aquifer:
 <br><br>
-""", style={'font-size': '14pt'})
+""", style={'font-size': '12pt'})
 
 r3_3 = pn.pane.PNG("images/T01_TP3.png", width=600)
 
@@ -147,7 +145,7 @@ with <br>
 $\Delta V_w$ = change in water volume [L$^3$] <br>
 $V_T$ = total volume [L$^3$]<br>
 $\Delta \psi$ = change in pressure head [L]
-""", style={'font-size': '14pt'}) 
+""", style={'font-size': '12pt'}) 
 
 r3_5 = pn.Row(r3_3, r3_4)
 pn.Column(r3_1, r3_2, r3_5)   
@@ -182,7 +180,7 @@ print("The Additional Water is {0:1.2f}".format(DV_w),"m\u00b3")
 rx_1 = pn.pane.Markdown("""
 We consider an unconfined aquifer with a storage coefficient of 0.19. What will be the change
 in water volume if the following drawdowns are observed in four sub-areas in a dry period:
-""", width = 700, style={'font-size': '13pt'})
+""", width = 700, style={'font-size': '12pt'})
 rx_1
 
 
@@ -195,8 +193,6 @@ Sub_Area = ["A", "B", "C", "D"] #name
 Size = [36, 18, 72, 85] # km^2, area
 Drawdown = [0.85, 1.09, 1.65, 2.37] # m, equivalent to change in pressure head
 Q4t = np.transpose([Sub_Area, Size, Drawdown])
-Q4 = ips.sheet(columns=4, rows=4, column_headers=Head)
-ips.cell_range(Q4t);Q4
 
 data = {"Sub-Area": Sub_Area, "Size, (Km2)": Size, "drawdown (m)": Drawdown, }
 df1= pd.DataFrame(data)
@@ -232,15 +228,7 @@ Drawdown = [0.85, 1.09, 1.65, 2.37] # m, equivalent to change in pressure head
 # Solution part
 Vol_cha = s*np.multiply(Size, Drawdown)*10**6 # m^3, vol change = s*area size * drawdawn
 
-
-
 # output printing
-y = list(Vol_cha)
-y1 = np.transpose([Sub_Area, Size, Drawdown, y]) 
-s1 = ips.sheet(columns=4, rows=5, column_headers= Head, row_headers=False)
-y1 = ips.cell_range(y1) 
-ips.cell(4,3, np.sum(y), background_color="lightgray");s1 
-
 data2 = {"Sub-Area": Sub_Area, "Size, (Km2)": Size, "drawdown (m)": Drawdown, "Change in volume (Km3)":Vol_cha/1e9  }
 df2= pd.DataFrame(data2)
 df3= df2.set_index('Sub-Area')
@@ -295,7 +283,6 @@ print("The Compressibility of Porous mdeid is {0:0.2E}".format(alpha_pm5), "m\u0
 # extraction) = 80 m, compressibility of the porous medium = $6.9\times 10^{-8}$ m²/N and the density of water is 998 kg/m$^3$
 # 
 # What is the amount of land subsidence resulting from the water extraction?
-# 
 
 # ### Tutorial Problem 6 – Solution ###
 # 
@@ -303,7 +290,8 @@ print("The Compressibility of Porous mdeid is {0:0.2E}".format(alpha_pm5), "m\u0
 # 
 # Change in total volume due to $\Delta p_{pm}$ :
 # 
-# $$\Delta V_T = \alpha_{pm} V_T\rho_w g \Delta \psi$$ <br>
+# $$ \Delta V_T = \alpha_{pm} V_T\rho_w g \Delta \psi $$ 
+# <br>
 # with:
 # 
 # $\alpha_{pm}$ =	compressibility of porous medium [LT$^2$/M] <br>    
@@ -315,7 +303,8 @@ print("The Compressibility of Porous mdeid is {0:0.2E}".format(alpha_pm5), "m\u0
 # $m$ = Thickness of the aquifer [L].
 # Substituting these relation in the above equation we get:
 # 
-# $$\Delta m = \alpha_{pm} m\rho_w g \Delta \psi$$ <br>
+# $$ \Delta m = \alpha_{pm} m\rho_w g \Delta \psi $$ 
+# <br>
 
 # In[13]:
 
@@ -333,8 +322,8 @@ LS = alpha_pm*m*rho_w*g*DP_h
 print("The land subsidence is {0:0.2f}".format(LS), "m")
 
 
-# ### HOMEWORK PROBLEMS ###
-
+# ## HOME WORK PROBLEMS ##
+# 
 # ## Homework Problem 1 ##
 # 
 # The pressure head in an aquifer extending over 200 km$^2$ is decreased by 1.60 m.
@@ -357,9 +346,7 @@ print("The land subsidence is {0:0.2f}".format(LS), "m")
 Head = ["mesh size [mm]", "residue in the sieve [g] ", "∑ total", "∑ / ∑total"]
 Size = [6.3, 2, 0.63, 0.2, 0.063, "< 0.063 /cup"]
 residue = [11, 62, 288, 189, 42, 8]
-s2 = ips.sheet(rows=6, columns=4, row_headers=False, column_headers=Head)
-ips.column(0, Size, row_start=0) 
-ips.column(1, residue, row_start=0); s2
+
 
 data3 = {"mesh size [mm]": Size, "residue in the sieve [g] ": residue}
 df4= pd.DataFrame(data3)

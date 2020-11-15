@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[4]:
 
 
 # required libraries 
@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 import panel as pn
 import pandas as pd
 pn.extension("katex")
-import ipywidgets as widgets
+
 
 #from IPython.display import Image, Video
 
@@ -126,7 +126,7 @@ pn.Row(pn1, video2)
 # 
 # The water cycle provides an approach to judge the sustainability of groundwater extraction. The sustainability of extraction can be obtained if extraction rate approximately equals the replenishing rate. Often the replenishing rate of groundwater is much slower and this has led to groundwater stress in many parts of the world. 
 
-# In[5]:
+# In[2]:
 
 
 #gif_pane = pn.pane.GIF('images/L01_f_2.gif', width=500)
@@ -136,7 +136,7 @@ video3 = pn.pane.Video("images/L01_f_4.mp4", width=600, height=400, loop=False)
 video3 
 
 
-# In[6]:
+# In[3]:
 
 
 #gif_pane = pn.pane.GIF('images/L01_f_2.gif', width=500)
@@ -292,7 +292,7 @@ pn.Row(pn1, fig5)
 # An Example:<br>
 # For given data, determine the rate of outflow Qout,sub due to subsurface runoff for steady-state conditions
 
-# In[7]:
+# In[4]:
 
 
 A = 4500 # km², catchment area
@@ -365,7 +365,7 @@ print("The surface outflow rate, Q_out_surf in m\u00b3/a is {0:1.1E}".format(Qou
 #   	
 # + Similar equations hold for quantitative descriptions of some chemical reactions which correspond to the type A $\rightarrow$ B $\rightarrow$ C
 
-# In[8]:
+# In[2]:
 
 
 def mass_bal(n_simulation, MA, MB, MC, R_A, R_B):
@@ -429,9 +429,3 @@ interactive_plot
 # 
 # 
 # + Cases with changing density have proven to be more easily tractable if the mass budget equation is used.
-
-# In[ ]:
-
-
-
-

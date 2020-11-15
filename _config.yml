@@ -6,6 +6,8 @@ latex:
 parse:
   myst_extended_syntax: true
   myst_url_schemes          : [mailto, http, https]  
+
+number_equations: false
   
 
 favicon_path: "images/logo/logo3.png"
@@ -23,8 +25,9 @@ copyright                   : CC 4.0  # Copyright year to be placed in the foote
 logo                        : images/logo/logo3.png  # A path to the book logo
 exclude_patterns            : [_build, recycle,]  # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
 textbook_logo_link        : https://prabhasyadav.github.io/iGW-I/  # A link for the logo.
-collapse_inactive_chapters: true  # Whether to collapse the inactive chapters in the sidebar
-collapse_inactive_sections: true  # Whether to collapse the sub-sections within a non-active section in the sidebar
+collapse_inactive_chapters: False  # Whether to collapse the inactive chapters in the sidebar
+collapse_inactive_sections: False  # Whether to collapse the sub-sections within a non-active section in the sidebar
+
 
 #######################################################################################
 # Execution settings
@@ -57,7 +60,7 @@ launch_buttons:
   binderhub_url             : https://mybinder.org  # The URL of the BinderHub (e.g., https://mybinder.org)
   jupyterhub_url            : ""  # The URL of the JupyterHub (e.g., https://datahub.berkeley.edu)
   thebe                     : true  # Add a thebelab button to pages (requires the repository to run on Binder)
- # colab_url: https://colab.research.google.com
+# colab_url: https://colab.research.google.com
 
 repository:
   url                       : https://github.com/prabhasyadav/iGW-I  # The URL to your book's repository
@@ -71,6 +74,10 @@ html:
   use_repository_button: true
 
 
+
+
+
+
 #######################################################################################
 # Advanced and power-user settings
 #sphinx:
@@ -78,11 +85,18 @@ html:
 #  config          :   # key-value pairs to directly over-ride the Sphinx configuration
 
 sphinx:
+#extra_extensions:
   config:
     html_show_copyright: false
     myst_amsmath_enable: true
-    html_js_files:       https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
-    
+    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+    html_js_files: https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
+    html_js_files: https://unpkg.com/thebelab@latest/lib/index.js
+    html_js_files: https://cdn.jsdelivr.net/npm/jupyter-matplotlib@0.7.4/dist/index.js
+    html_js_files: https://cdn.jsdelivr.net/npm/
+    html_js_files: https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js
+    html_js_files: https://cdn.jsdelivr.net/npm/
+    html_js_files: https://unpkg.com/thebelab@0.3.3/lib/index.js
     
 
 

@@ -45,10 +45,10 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/thebelab@0.3.3/lib/index.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
@@ -134,6 +134,11 @@
    Lecture 3-  Groundwater as a reservoir
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../flow/lecture_04/14_darcy_law_K.html">
+   Lecture 4 - Darcy’s Law and Conductivity
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -157,8 +162,13 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../tutorials/tutorial_02.html">
+  <a class="reference internal" href="../tutorials/tutorial_02/tutorial_02.html">
    Tutorial 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/tutorial_03/tutorial_03.html">
+   Tutorial 3
   </a>
  </li>
 </ul>
@@ -2255,7 +2265,7 @@ The dispersive flux is 0.0069444444 mg-m/L-s
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "675af5fa4f92427190224c23dfc2780f", "version_major": 2, "version_minor": 0}
+{"model_id": "e25638514c094938be4e9a693f57fe01", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 <div class="cell docutils container">
@@ -2400,7 +2410,7 @@ R = 1+ \frac{1-n_e}{n_e}\rho_s K_d
 
 
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {"675af5fa4f92427190224c23dfc2780f": {"model_module": "ipysheet", "model_module_version": "~0.4.4", "model_name": "SheetModel", "state": {"_dom_classes": [], "_model_module": "ipysheet", "_model_module_version": "~0.4.4", "_model_name": "SheetModel", "_view_count": null, "_view_module": "ipysheet", "_view_module_version": "~0.4.4", "_view_name": "SheetView", "cells": ["IPY_MODEL_f4f80ccfc1554073918fe3b7dd6ba8b0", "IPY_MODEL_7aaa13fdc1e242448b0c18fa42511d36", "IPY_MODEL_7aea71d05c914be1af3268b09d04aef0"], "column_headers": ["Batch nr. ", "Initial Conc. (mg/L) ", "Equi. Conc. (mg/L)", "Sorbed mass (g)", "Sorbed mass/solid (mg/g)"], "column_resizing": true, "column_width": null, "columns": 5, "layout": "IPY_MODEL_e6a299dffcc6414da5bd6fd9baa5c0ec", "named_cells": {}, "row_headers": false, "row_resizing": true, "rows": 6, "search_token": "", "stretch_headers": "all"}}, "7aaa13fdc1e242448b0c18fa42511d36": {"model_module": "ipysheet", "model_module_version": "~0.4.4", "model_name": "CellRangeModel", "state": {"_model_module": "ipysheet", "_model_module_version": "~0.4.4", "_model_name": "CellRangeModel", "_view_count": null, "_view_module": null, "_view_module_version": "", "_view_name": null, "choice": null, "column_end": 1, "column_start": 1, "date_format": "YYYY/MM/DD", "name": null, "numeric_format": "0.000", "read_only": false, "renderer": null, "row_end": 4, "row_start": 0, "squeeze_column": true, "squeeze_row": false, "style": {}, "time_format": "h:mm:ss a", "transpose": false, "type": "numeric", "value": [5, 10, 15, 20, 25]}}, "7aea71d05c914be1af3268b09d04aef0": {"model_module": "ipysheet", "model_module_version": "~0.4.4", "model_name": "CellRangeModel", "state": {"_model_module": "ipysheet", "_model_module_version": "~0.4.4", "_model_name": "CellRangeModel", "_view_count": null, "_view_module": null, "_view_module_version": "", "_view_name": null, "choice": null, "column_end": 2, "column_start": 2, "date_format": "YYYY/MM/DD", "name": null, "numeric_format": "0.000", "read_only": false, "renderer": null, "row_end": 4, "row_start": 0, "squeeze_column": true, "squeeze_row": false, "style": {}, "time_format": "h:mm:ss a", "transpose": false, "type": "numeric", "value": [2.5, 4.9, 8.0, 9.8, 13.2]}}, "e6a299dffcc6414da5bd6fd9baa5c0ec": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": "auto", "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": "auto"}}, "f4f80ccfc1554073918fe3b7dd6ba8b0": {"model_module": "ipysheet", "model_module_version": "~0.4.4", "model_name": "CellRangeModel", "state": {"_model_module": "ipysheet", "_model_module_version": "~0.4.4", "_model_name": "CellRangeModel", "_view_count": null, "_view_module": null, "_view_module_version": "", "_view_name": null, "choice": null, "column_end": 0, "column_start": 0, "date_format": "YYYY/MM/DD", "name": null, "numeric_format": "0.000", "read_only": false, "renderer": null, "row_end": 4, "row_start": 0, "squeeze_column": true, "squeeze_row": false, "style": {}, "time_format": "h:mm:ss a", "transpose": false, "type": "numeric", "value": [1, 2, 3, 4, 5]}}}, "version_major": 2, "version_minor": 0}
+{"state": {"0533d81fbcab43849e09407f40d4692a": {"model_module": "ipysheet", "model_module_version": "~0.4.4", "model_name": "CellRangeModel", "state": {"_model_module": "ipysheet", "_model_module_version": "~0.4.4", "_model_name": "CellRangeModel", "_view_count": null, "_view_module": null, "_view_module_version": "", "_view_name": null, "choice": null, "column_end": 1, "column_start": 1, "date_format": "YYYY/MM/DD", "name": null, "numeric_format": "0.000", "read_only": false, "renderer": null, "row_end": 4, "row_start": 0, "squeeze_column": true, "squeeze_row": false, "style": {}, "time_format": "h:mm:ss a", "transpose": false, "type": "numeric", "value": [5, 10, 15, 20, 25]}}, "22a4add4c11a40ff8bdde98fe4abc2aa": {"model_module": "ipysheet", "model_module_version": "~0.4.4", "model_name": "CellRangeModel", "state": {"_model_module": "ipysheet", "_model_module_version": "~0.4.4", "_model_name": "CellRangeModel", "_view_count": null, "_view_module": null, "_view_module_version": "", "_view_name": null, "choice": null, "column_end": 2, "column_start": 2, "date_format": "YYYY/MM/DD", "name": null, "numeric_format": "0.000", "read_only": false, "renderer": null, "row_end": 4, "row_start": 0, "squeeze_column": true, "squeeze_row": false, "style": {}, "time_format": "h:mm:ss a", "transpose": false, "type": "numeric", "value": [2.5, 4.9, 8.0, 9.8, 13.2]}}, "37b525e7c342455a9b15156abdb2ff01": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": "auto", "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": "auto"}}, "e25638514c094938be4e9a693f57fe01": {"model_module": "ipysheet", "model_module_version": "~0.4.4", "model_name": "SheetModel", "state": {"_dom_classes": [], "_model_module": "ipysheet", "_model_module_version": "~0.4.4", "_model_name": "SheetModel", "_view_count": null, "_view_module": "ipysheet", "_view_module_version": "~0.4.4", "_view_name": "SheetView", "cells": ["IPY_MODEL_f7a4dc750fb141e38be109cf165e2e6d", "IPY_MODEL_0533d81fbcab43849e09407f40d4692a", "IPY_MODEL_22a4add4c11a40ff8bdde98fe4abc2aa"], "column_headers": ["Batch nr. ", "Initial Conc. (mg/L) ", "Equi. Conc. (mg/L)", "Sorbed mass (g)", "Sorbed mass/solid (mg/g)"], "column_resizing": true, "column_width": null, "columns": 5, "layout": "IPY_MODEL_37b525e7c342455a9b15156abdb2ff01", "named_cells": {}, "row_headers": false, "row_resizing": true, "rows": 6, "search_token": "", "stretch_headers": "all"}}, "f7a4dc750fb141e38be109cf165e2e6d": {"model_module": "ipysheet", "model_module_version": "~0.4.4", "model_name": "CellRangeModel", "state": {"_model_module": "ipysheet", "_model_module_version": "~0.4.4", "_model_name": "CellRangeModel", "_view_count": null, "_view_module": null, "_view_module_version": "", "_view_name": null, "choice": null, "column_end": 0, "column_start": 0, "date_format": "YYYY/MM/DD", "name": null, "numeric_format": "0.000", "read_only": false, "renderer": null, "row_end": 4, "row_start": 0, "squeeze_column": true, "squeeze_row": false, "style": {}, "time_format": "h:mm:ss a", "transpose": false, "type": "numeric", "value": [1, 2, 3, 4, 5]}}}, "version_major": 2, "version_minor": 0}
 </script>
 
 

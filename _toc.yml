@@ -9,13 +9,16 @@
   chapters:
   - file: contents/flow/lecture_02/12_subsurface_structure
   - file: contents/flow/lecture_03/13_gw_storage
+  - file: contents/flow/lecture_04/14_darcy_law_K
 
 
 - part: Tutorials
   chapters:
   - file: contents/tutorials/tutorial_01/01_python
   - file: contents/tutorials/tutorial_01/02_jupyter
-  - file: contents/tutorials/tutorial_02
+  - file: contents/tutorials/tutorial_02/tutorial_02
+  - file: contents/tutorials/tutorial_03/tutorial_03
+  - file: contents/tutorials/tutorial_04
 
 - part: Tools
   chapters:

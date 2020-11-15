@@ -1,4 +1,5 @@
 jupyter-book
+nbsphinx
 matplotlib
 numpy
 nbinteract

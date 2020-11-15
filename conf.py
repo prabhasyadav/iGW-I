@@ -4,9 +4,11 @@ extensions = [
 ]
 
 extensions = [
-    ...,
-    "jupyter_sphinx.execute"
+    'nbsphinx',
+    'sphinx.ext.mathjax',
 ]
+
+
 
 # inside conf.py
 latex_elements = {
@@ -14,6 +16,7 @@ latex_elements = {
 \usepackage{cancel}
 '''
 }
+
 latex_show_urls = 'footnote'
 
 panels_css_variables = {
@@ -23,3 +26,5 @@ panels_css_variables = {
     "tabs-color-underline": "rgb(207, 236, 238)",
     "tabs-size-label": "1rem",
 }
+
+

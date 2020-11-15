@@ -1508,3 +1508,381 @@
 2020-11-09 19:35:14,405 [6067] DEBUG    parso.python.diff:421: [JupyterRequire] parse_part from 8 to 9 (to 8 in part parser)
 2020-11-09 19:35:14,405 [6067] DEBUG    parso.python.diff:296: [JupyterRequire] -> code[replace] old[9:9] new[9:9]
 2020-11-09 19:35:14,405 [6067] DEBUG    parso.python.diff:339: [JupyterRequire] diff parser end
+2020-11-15 18:34:02,170 [6223] DEBUG    root:75: [JupyterRequire] Loading Jupyter Require extension.
+2020-11-15 18:34:02,170 [6223] DEBUG    root:93: [JupyterRequire] Initializing comms.
+2020-11-15 18:34:02,170 [6223] INFO     root:247: [JupyterRequire] Initializing comms.
+2020-11-15 18:34:02,172 [6223] DEBUG    root:195: [JupyterRequire] Configuration requested: {'paths': {}, 'shim': None}
+2020-11-15 18:34:02,173 [6223] INFO     root:271: [JupyterRequire] Comms have been successfully initialized.
+2020-11-15 18:34:02,173 [6223] DEBUG    root:97: [JupyterRequire] Registering comm targets.
+2020-11-15 22:46:09,553 [10540] DEBUG    root:75: [JupyterRequire] Loading Jupyter Require extension.
+2020-11-15 22:46:09,554 [10540] DEBUG    root:93: [JupyterRequire] Initializing comms.
+2020-11-15 22:46:09,554 [10540] INFO     root:247: [JupyterRequire] Initializing comms.
+2020-11-15 22:46:09,557 [10540] DEBUG    root:195: [JupyterRequire] Configuration requested: {'paths': {}, 'shim': None}
+2020-11-15 22:46:09,557 [10540] INFO     root:271: [JupyterRequire] Comms have been successfully initialized.
+2020-11-15 22:46:09,557 [10540] DEBUG    root:97: [JupyterRequire] Registering comm targets.
+2020-11-15 22:46:10,090 [10540] DEBUG    root:75: [JupyterRequire] Loading Jupyter Require extension.
+2020-11-15 22:46:10,092 [10540] DEBUG    root:93: [JupyterRequire] Initializing comms.
+2020-11-15 22:46:10,092 [10540] INFO     root:247: [JupyterRequire] Initializing comms.
+2020-11-15 22:46:10,095 [10540] DEBUG    root:195: [JupyterRequire] Configuration requested: {'paths': {}, 'shim': None}
+2020-11-15 22:46:10,096 [10540] INFO     root:271: [JupyterRequire] Comms have been successfully initialized.
+2020-11-15 22:46:10,096 [10540] DEBUG    root:97: [JupyterRequire] Registering comm targets.
+2020-11-15 22:46:19,099 [10571] DEBUG    root:75: [JupyterRequire] Loading Jupyter Require extension.
+2020-11-15 22:46:19,099 [10571] DEBUG    root:93: [JupyterRequire] Initializing comms.
+2020-11-15 22:46:19,099 [10571] INFO     root:247: [JupyterRequire] Initializing comms.
+2020-11-15 22:46:19,105 [10571] DEBUG    root:195: [JupyterRequire] Configuration requested: {'paths': {}, 'shim': None}
+2020-11-15 22:46:19,106 [10571] INFO     root:271: [JupyterRequire] Comms have been successfully initialized.
+2020-11-15 22:46:19,106 [10571] DEBUG    root:97: [JupyterRequire] Registering comm targets.
+2020-11-15 22:46:29,161 [10599] DEBUG    root:75: [JupyterRequire] Loading Jupyter Require extension.
+2020-11-15 22:46:29,161 [10599] DEBUG    root:93: [JupyterRequire] Initializing comms.
+2020-11-15 22:46:29,161 [10599] INFO     root:247: [JupyterRequire] Initializing comms.
+2020-11-15 22:46:29,164 [10599] DEBUG    root:195: [JupyterRequire] Configuration requested: {'paths': {}, 'shim': None}
+2020-11-15 22:46:29,164 [10599] INFO     root:271: [JupyterRequire] Comms have been successfully initialized.
+2020-11-15 22:46:29,164 [10599] DEBUG    root:97: [JupyterRequire] Registering comm targets.
+2020-11-15 22:46:30,227 [10599] DEBUG    root:75: [JupyterRequire] Loading Jupyter Require extension.
+2020-11-15 22:46:30,228 [10599] DEBUG    root:93: [JupyterRequire] Initializing comms.
+2020-11-15 22:46:30,228 [10599] INFO     root:247: [JupyterRequire] Initializing comms.
+2020-11-15 22:46:30,230 [10599] DEBUG    root:195: [JupyterRequire] Configuration requested: {'paths': {}, 'shim': None}
+2020-11-15 22:46:30,230 [10599] INFO     root:271: [JupyterRequire] Comms have been successfully initialized.
+2020-11-15 22:46:30,231 [10599] DEBUG    root:97: [JupyterRequire] Registering comm targets.
+2020-11-15 22:47:48,364 [10540] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2020-11-15 22:47:48,367 [10540] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2020-11-15 22:47:48,368 [10540] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2020-11-15 22:47:48,370 [10540] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2020-11-15 22:47:48,372 [10540] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2020-11-15 22:47:48,375 [10540] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2020-11-15 22:47:48,378 [10540] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2020-11-15 22:47:48,378 [10540] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2020-11-15 22:47:48,383 [10540] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2020-11-15 22:47:48,383 [10540] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.codehilite.CodeHiliteExtension".
+2020-11-15 22:47:54,199 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2020-11-15 22:47:54,200 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2020-11-15 22:47:54,200 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2020-11-15 22:47:54,201 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2020-11-15 22:47:54,202 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2020-11-15 22:47:54,202 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2020-11-15 22:47:54,209 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2020-11-15 22:47:54,209 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2020-11-15 22:47:54,211 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2020-11-15 22:47:54,211 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.codehilite.CodeHiliteExtension".
+2020-11-15 22:48:03,368 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2020-11-15 22:48:03,369 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2020-11-15 22:48:03,370 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2020-11-15 22:48:03,370 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2020-11-15 22:48:03,370 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2020-11-15 22:48:03,370 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2020-11-15 22:48:03,371 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2020-11-15 22:48:03,371 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2020-11-15 22:48:03,371 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2020-11-15 22:48:03,371 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.codehilite.CodeHiliteExtension".
+2020-11-15 22:48:25,142 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2020-11-15 22:48:25,142 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2020-11-15 22:48:25,142 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2020-11-15 22:48:25,142 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2020-11-15 22:48:25,142 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2020-11-15 22:48:25,142 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2020-11-15 22:48:25,143 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2020-11-15 22:48:25,143 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2020-11-15 22:48:25,143 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2020-11-15 22:48:25,143 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.codehilite.CodeHiliteExtension".
+2020-11-15 22:48:40,741 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2020-11-15 22:48:40,741 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2020-11-15 22:48:40,741 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2020-11-15 22:48:40,741 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2020-11-15 22:48:40,742 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2020-11-15 22:48:40,742 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2020-11-15 22:48:40,742 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2020-11-15 22:48:40,742 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2020-11-15 22:48:40,742 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2020-11-15 22:48:40,742 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.codehilite.CodeHiliteExtension".
+2020-11-15 22:49:14,211 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2020-11-15 22:49:14,214 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2020-11-15 22:49:14,215 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2020-11-15 22:49:14,215 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2020-11-15 22:49:14,215 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2020-11-15 22:49:14,215 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2020-11-15 22:49:14,215 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2020-11-15 22:49:14,215 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2020-11-15 22:49:14,216 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2020-11-15 22:49:14,216 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.codehilite.CodeHiliteExtension".
+2020-11-15 22:49:14,233 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2020-11-15 22:49:14,233 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2020-11-15 22:49:14,233 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2020-11-15 22:49:14,234 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2020-11-15 22:49:14,234 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2020-11-15 22:49:14,234 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2020-11-15 22:49:14,234 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2020-11-15 22:49:14,234 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2020-11-15 22:49:14,234 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2020-11-15 22:49:14,234 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.codehilite.CodeHiliteExtension".
+2020-11-15 22:49:23,119 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2020-11-15 22:49:23,121 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2020-11-15 22:49:23,122 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2020-11-15 22:49:23,122 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2020-11-15 22:49:23,122 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2020-11-15 22:49:23,122 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2020-11-15 22:49:23,122 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2020-11-15 22:49:23,122 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2020-11-15 22:49:23,123 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2020-11-15 22:49:23,123 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.codehilite.CodeHiliteExtension".
+2020-11-15 22:49:23,127 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2020-11-15 22:49:23,127 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2020-11-15 22:49:23,127 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2020-11-15 22:49:23,128 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2020-11-15 22:49:23,128 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2020-11-15 22:49:23,128 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2020-11-15 22:49:23,128 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2020-11-15 22:49:23,128 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2020-11-15 22:49:23,128 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2020-11-15 22:49:23,129 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.codehilite.CodeHiliteExtension".
+2020-11-15 22:49:38,882 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2020-11-15 22:49:38,882 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2020-11-15 22:49:38,886 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2020-11-15 22:49:38,887 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2020-11-15 22:49:38,887 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2020-11-15 22:49:38,887 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2020-11-15 22:49:38,888 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2020-11-15 22:49:38,888 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2020-11-15 22:49:38,888 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2020-11-15 22:49:38,888 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.codehilite.CodeHiliteExtension".
+2020-11-15 22:49:38,893 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2020-11-15 22:49:38,893 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2020-11-15 22:49:38,893 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2020-11-15 22:49:38,894 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2020-11-15 22:49:38,894 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2020-11-15 22:49:38,894 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2020-11-15 22:49:38,894 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2020-11-15 22:49:38,894 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2020-11-15 22:49:38,895 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2020-11-15 22:49:38,895 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.codehilite.CodeHiliteExtension".
+2020-11-15 22:49:41,542 [10571] DEBUG    parso.cache:143: [JupyterRequire] pickle loaded: /home/prabhasyadav/anaconda3/lib/python3.8/site-packages/jedi/third_party/typeshed/stdlib/2and3/builtins.pyi
+2020-11-15 22:49:41,596 [10571] DEBUG    parso.cache:143: [JupyterRequire] pickle loaded: /home/prabhasyadav/anaconda3/lib/python3.8/site-packages/jedi/third_party/typeshed/stdlib/3/sys.pyi
+2020-11-15 22:50:07,115 [10540] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2020-11-15 22:50:07,117 [10540] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2020-11-15 22:50:07,118 [10540] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2020-11-15 22:50:07,119 [10540] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2020-11-15 22:50:07,120 [10540] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2020-11-15 22:50:07,120 [10540] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2020-11-15 22:50:07,120 [10540] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2020-11-15 22:50:07,120 [10540] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2020-11-15 22:50:07,121 [10540] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2020-11-15 22:50:07,121 [10540] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.codehilite.CodeHiliteExtension".
+2020-11-15 22:50:07,123 [10540] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2020-11-15 22:50:07,123 [10540] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2020-11-15 22:50:07,123 [10540] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2020-11-15 22:50:07,124 [10540] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2020-11-15 22:50:07,124 [10540] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2020-11-15 22:50:07,124 [10540] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2020-11-15 22:50:07,124 [10540] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2020-11-15 22:50:07,124 [10540] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2020-11-15 22:50:07,124 [10540] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2020-11-15 22:50:07,125 [10540] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.codehilite.CodeHiliteExtension".
+2020-11-15 22:50:29,474 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2020-11-15 22:50:29,475 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2020-11-15 22:50:29,475 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2020-11-15 22:50:29,475 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2020-11-15 22:50:29,476 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2020-11-15 22:50:29,476 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2020-11-15 22:50:29,476 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2020-11-15 22:50:29,476 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2020-11-15 22:50:29,476 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2020-11-15 22:50:29,476 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.codehilite.CodeHiliteExtension".
+2020-11-15 22:50:29,479 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2020-11-15 22:50:29,479 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2020-11-15 22:50:29,479 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2020-11-15 22:50:29,479 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2020-11-15 22:50:29,479 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2020-11-15 22:50:29,480 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2020-11-15 22:50:29,480 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2020-11-15 22:50:29,480 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2020-11-15 22:50:29,480 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2020-11-15 22:50:29,480 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.codehilite.CodeHiliteExtension".
+2020-11-15 22:51:12,061 [10571] DEBUG    parso.python.diff:282: [JupyterRequire] diff parser start
+2020-11-15 22:51:12,062 [10571] DEBUG    parso.python.diff:293: [JupyterRequire] line_lengths old: 9; new: 6
+2020-11-15 22:51:12,068 [10571] DEBUG    parso.python.diff:296: [JupyterRequire] -> code[replace] old[1:9] new[1:6]
+2020-11-15 22:51:12,069 [10571] DEBUG    parso.python.diff:421: [JupyterRequire] parse_part from 1 to 6 (to 5 in part parser)
+2020-11-15 22:51:12,070 [10571] DEBUG    parso.python.diff:339: [JupyterRequire] diff parser end
+2020-11-15 22:51:13,342 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2020-11-15 22:51:13,344 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2020-11-15 22:51:13,344 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2020-11-15 22:51:13,344 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2020-11-15 22:51:13,344 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2020-11-15 22:51:13,344 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2020-11-15 22:51:13,345 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2020-11-15 22:51:13,345 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2020-11-15 22:51:13,345 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2020-11-15 22:51:13,345 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.codehilite.CodeHiliteExtension".
+2020-11-15 22:51:18,205 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2020-11-15 22:51:18,209 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2020-11-15 22:51:18,209 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2020-11-15 22:51:18,210 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2020-11-15 22:51:18,210 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2020-11-15 22:51:18,210 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2020-11-15 22:51:18,210 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2020-11-15 22:51:18,210 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2020-11-15 22:51:18,210 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2020-11-15 22:51:18,211 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.codehilite.CodeHiliteExtension".
+2020-11-15 22:51:31,875 [10571] DEBUG    parso.python.diff:282: [JupyterRequire] diff parser start
+2020-11-15 22:51:31,877 [10571] DEBUG    parso.python.diff:293: [JupyterRequire] line_lengths old: 6; new: 8
+2020-11-15 22:51:31,877 [10571] DEBUG    parso.python.diff:296: [JupyterRequire] -> code[replace] old[1:6] new[1:8]
+2020-11-15 22:51:31,879 [10571] DEBUG    parso.python.diff:421: [JupyterRequire] parse_part from 1 to 8 (to 7 in part parser)
+2020-11-15 22:51:31,879 [10571] DEBUG    parso.python.diff:339: [JupyterRequire] diff parser end
+2020-11-15 22:54:30,277 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2020-11-15 22:54:30,277 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2020-11-15 22:54:30,277 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2020-11-15 22:54:30,277 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2020-11-15 22:54:30,277 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2020-11-15 22:54:30,278 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2020-11-15 22:54:30,278 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2020-11-15 22:54:30,278 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2020-11-15 22:54:30,278 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2020-11-15 22:54:30,278 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.codehilite.CodeHiliteExtension".
+2020-11-15 22:57:54,580 [10571] DEBUG    parso.python.diff:282: [JupyterRequire] diff parser start
+2020-11-15 22:57:54,581 [10571] DEBUG    parso.python.diff:293: [JupyterRequire] line_lengths old: 8; new: 6
+2020-11-15 22:57:54,581 [10571] DEBUG    parso.python.diff:296: [JupyterRequire] -> code[replace] old[1:8] new[1:6]
+2020-11-15 22:57:54,584 [10571] DEBUG    parso.python.diff:421: [JupyterRequire] parse_part from 1 to 6 (to 5 in part parser)
+2020-11-15 22:57:54,584 [10571] DEBUG    parso.python.diff:339: [JupyterRequire] diff parser end
+2020-11-15 22:58:37,188 [10571] DEBUG    parso.python.diff:282: [JupyterRequire] diff parser start
+2020-11-15 22:58:37,188 [10571] DEBUG    parso.python.diff:293: [JupyterRequire] line_lengths old: 6; new: 7
+2020-11-15 22:58:37,188 [10571] DEBUG    parso.python.diff:296: [JupyterRequire] -> code[replace] old[1:6] new[1:7]
+2020-11-15 22:58:37,192 [10571] DEBUG    parso.python.diff:421: [JupyterRequire] parse_part from 1 to 7 (to 6 in part parser)
+2020-11-15 22:58:37,193 [10571] DEBUG    parso.python.diff:339: [JupyterRequire] diff parser end
+2020-11-15 23:00:34,478 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2020-11-15 23:00:34,479 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2020-11-15 23:00:34,479 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2020-11-15 23:00:34,479 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2020-11-15 23:00:34,479 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2020-11-15 23:00:34,479 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2020-11-15 23:00:34,479 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2020-11-15 23:00:34,479 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2020-11-15 23:00:34,483 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2020-11-15 23:00:34,489 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.codehilite.CodeHiliteExtension".
+2020-11-15 23:00:34,545 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2020-11-15 23:00:34,545 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2020-11-15 23:00:34,545 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2020-11-15 23:00:34,546 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2020-11-15 23:00:34,546 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2020-11-15 23:00:34,546 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2020-11-15 23:00:34,546 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2020-11-15 23:00:34,546 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2020-11-15 23:00:34,546 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2020-11-15 23:00:34,546 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.codehilite.CodeHiliteExtension".
+2020-11-15 23:00:34,668 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2020-11-15 23:00:34,674 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2020-11-15 23:00:34,675 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2020-11-15 23:00:34,676 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2020-11-15 23:00:34,676 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2020-11-15 23:00:34,676 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2020-11-15 23:00:34,676 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2020-11-15 23:00:34,676 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2020-11-15 23:00:34,676 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2020-11-15 23:00:34,676 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.codehilite.CodeHiliteExtension".
+2020-11-15 23:00:34,680 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2020-11-15 23:00:34,680 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2020-11-15 23:00:34,680 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2020-11-15 23:00:34,680 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2020-11-15 23:00:34,680 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2020-11-15 23:00:34,680 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2020-11-15 23:00:34,680 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2020-11-15 23:00:34,681 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2020-11-15 23:00:34,681 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2020-11-15 23:00:34,681 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.codehilite.CodeHiliteExtension".
+2020-11-15 23:00:34,850 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2020-11-15 23:00:34,850 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2020-11-15 23:00:34,850 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2020-11-15 23:00:34,850 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2020-11-15 23:00:34,850 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2020-11-15 23:00:34,850 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2020-11-15 23:00:34,851 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2020-11-15 23:00:34,851 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2020-11-15 23:00:34,852 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2020-11-15 23:00:34,852 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.codehilite.CodeHiliteExtension".
+2020-11-15 23:00:34,857 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2020-11-15 23:00:34,857 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2020-11-15 23:00:34,857 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2020-11-15 23:00:34,857 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2020-11-15 23:00:34,857 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2020-11-15 23:00:34,857 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2020-11-15 23:00:34,858 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2020-11-15 23:00:34,858 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2020-11-15 23:00:34,858 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2020-11-15 23:00:34,858 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.codehilite.CodeHiliteExtension".
+2020-11-15 23:00:35,028 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2020-11-15 23:00:35,030 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2020-11-15 23:00:35,031 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2020-11-15 23:00:35,032 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2020-11-15 23:00:35,034 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2020-11-15 23:00:35,036 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2020-11-15 23:00:35,036 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2020-11-15 23:00:35,036 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2020-11-15 23:00:35,036 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2020-11-15 23:00:35,036 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.codehilite.CodeHiliteExtension".
+2020-11-15 23:01:38,166 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2020-11-15 23:01:38,166 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2020-11-15 23:01:38,166 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2020-11-15 23:01:38,166 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2020-11-15 23:01:38,166 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2020-11-15 23:01:38,166 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2020-11-15 23:01:38,167 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2020-11-15 23:01:38,167 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2020-11-15 23:01:38,169 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2020-11-15 23:01:38,169 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.codehilite.CodeHiliteExtension".
+2020-11-15 23:01:38,235 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2020-11-15 23:01:38,235 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2020-11-15 23:01:38,235 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2020-11-15 23:01:38,235 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2020-11-15 23:01:38,236 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2020-11-15 23:01:38,236 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2020-11-15 23:01:38,236 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2020-11-15 23:01:38,236 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2020-11-15 23:01:38,236 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2020-11-15 23:01:38,236 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.codehilite.CodeHiliteExtension".
+2020-11-15 23:01:38,287 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2020-11-15 23:01:38,288 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2020-11-15 23:01:38,288 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2020-11-15 23:01:38,292 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2020-11-15 23:01:38,292 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2020-11-15 23:01:38,292 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2020-11-15 23:01:38,293 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2020-11-15 23:01:38,293 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2020-11-15 23:01:38,294 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2020-11-15 23:01:38,294 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.codehilite.CodeHiliteExtension".
+2020-11-15 23:01:38,300 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2020-11-15 23:01:38,302 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2020-11-15 23:01:38,303 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2020-11-15 23:01:38,304 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2020-11-15 23:01:38,304 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2020-11-15 23:01:38,305 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2020-11-15 23:01:38,305 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2020-11-15 23:01:38,305 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2020-11-15 23:01:38,305 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2020-11-15 23:01:38,306 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.codehilite.CodeHiliteExtension".
+2020-11-15 23:01:38,667 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2020-11-15 23:01:38,669 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2020-11-15 23:01:38,670 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2020-11-15 23:01:38,670 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2020-11-15 23:01:38,670 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2020-11-15 23:01:38,670 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2020-11-15 23:01:38,670 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2020-11-15 23:01:38,670 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2020-11-15 23:01:38,671 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2020-11-15 23:01:38,671 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.codehilite.CodeHiliteExtension".
+2020-11-15 23:01:38,673 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2020-11-15 23:01:38,674 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2020-11-15 23:01:38,674 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2020-11-15 23:01:38,675 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2020-11-15 23:01:38,675 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2020-11-15 23:01:38,675 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2020-11-15 23:01:38,675 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2020-11-15 23:01:38,675 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2020-11-15 23:01:38,675 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2020-11-15 23:01:38,675 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.codehilite.CodeHiliteExtension".
+2020-11-15 23:01:38,723 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2020-11-15 23:01:38,723 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2020-11-15 23:01:38,724 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2020-11-15 23:01:38,724 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2020-11-15 23:01:38,724 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2020-11-15 23:01:38,724 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2020-11-15 23:01:38,724 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2020-11-15 23:01:38,724 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2020-11-15 23:01:38,725 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2020-11-15 23:01:38,725 [10571] DEBUG    MARKDOWN:126: [JupyterRequire] Successfully loaded extension "markdown.extensions.codehilite.CodeHiliteExtension".
