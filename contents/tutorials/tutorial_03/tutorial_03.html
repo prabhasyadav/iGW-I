@@ -50,8 +50,6 @@
     <script src="../../../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -452,8 +450,9 @@
 
     if (window.requirejs) {
       window.requirejs.config({'paths': {'katex': 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min', 'autoLoad': 'https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/contrib/auto-render.min'}});
-      window.requirejs.config({'paths': {'mathjax': '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML'}, 'shim': {'mathjax': {'exports': 'MathJax'}}});
-      require([], function() {
+      require(["katex", "autoLoad"], function(katex,renderMathInElement,) {
+        window.katex = katex;
+        window.renderMathInElement = renderMathInElement;
         run_callbacks();
       })
     } else {
@@ -466,12 +465,6 @@
       }
       if ((window['renderMathInElement'] !== undefined) && (!(window['renderMathInElement'] instanceof HTMLElement))) {
         var urls = ['https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/contrib/auto-render.min.js'];
-        for (var i = 0; i < urls.length; i++) {
-          skip.push(urls[i])
-        }
-      }
-      if ((window['MathJax'] !== undefined) && (!(window['MathJax'] instanceof HTMLElement))) {
-        var urls = ['https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML'];
         for (var i = 0; i < urls.length; i++) {
           skip.push(urls[i])
         }
@@ -496,7 +489,7 @@
     document.body.appendChild(element);
   }
 
-  var js_urls = ["https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js", "https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/contrib/auto-render.min.js", "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"];
+  var js_urls = ["https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js", "https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/contrib/auto-render.min.js"];
   var css_urls = ["https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css"];
 
   var inline_js = [
@@ -2493,7 +2486,7 @@ if (root.Bokeh !== undefined) {
   }
 })(window);</script></div></div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
 <span class="n">r10_a3</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">pane</span><span class="o">.</span><span class="n">LaTeX</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&quot;&quot;</span>
@@ -2560,7 +2553,7 @@ if (root.Bokeh !== undefined) {
   }
 })(window);</script></div></div>
 </div>
-<div class="cell tag_hide-input docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Given</span>
 
