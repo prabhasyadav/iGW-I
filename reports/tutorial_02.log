@@ -17,34 +17,44 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# Given information
-s = 0.19 
-Size = [50, 18, 72, 85] # km^2, area
-Drawdown = [0.85, 1.09, 1.65, 2.37] # m, equivalent to change in pressure head
+#
+r1_1 = pn.pane.Markdown("""
 
-# Solution part
-Vol_cha = s*np.multiply(Size, Drawdown)*10**6 # m^3, vol change = s*area size * drawdawn
+The park called ,,Grosser Garten'' in Dresden is underlain by an unconfined aquifer consisting of 
+alluvial deposits. How much additional water is stored under the park if groundwater levels 
+rise by 3 m during a wet period?
+""", style={'font-size': '12pt'})
 
+spacer = pn.Spacer(width=50) 
 
+r1_2 = pn.pane.PNG("images/T01_TP1.png", width=500)
 
-# output printing
-y = list(Vol_cha)
-y1 = np.transpose([Sub_Area, Size, Drawdown, y]) 
-s1 = ips.sheet(columns=4, rows=5, column_headers= Head, row_headers=False, layout=Layout(width='650px', height='250px'))
-y1 = ips.cell_range(y1) 
-ips.cell(4,3, np.sum(y), background_color="lightgray");s1 
-
+pn.Row(r1_1,spacer, r1_2)
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m<ipython-input-11-e3b3addd85d2>[0m in [0;36m<module>[0;34m[0m
-[1;32m     12[0m [0my[0m [0;34m=[0m [0mlist[0m[0;34m([0m[0mVol_cha[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m     13[0m [0my1[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mtranspose[0m[0;34m([0m[0;34m[[0m[0mSub_Area[0m[0;34m,[0m [0mSize[0m[0;34m,[0m [0mDrawdown[0m[0;34m,[0m [0my[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0;32m---> 14[0;31m [0ms1[0m [0;34m=[0m [0mips[0m[0;34m.[0m[0msheet[0m[0;34m([0m[0mcolumns[0m[0;34m=[0m[0;36m4[0m[0;34m,[0m [0mrows[0m[0;34m=[0m[0;36m5[0m[0;34m,[0m [0mcolumn_headers[0m[0;34m=[0m [0mHead[0m[0;34m,[0m [0mrow_headers[0m[0;34m=[0m[0;32mFalse[0m[0;34m,[0m [0mlayout[0m[0;34m=[0m[0mLayout[0m[0;34m([0m[0mwidth[0m[0;34m=[0m[0;34m'650px'[0m[0;34m,[0m [0mheight[0m[0;34m=[0m[0;34m'250px'[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m     15[0m [0my1[0m [0;34m=[0m [0mips[0m[0;34m.[0m[0mcell_range[0m[0;34m([0m[0my1[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m     16[0m [0mips[0m[0;34m.[0m[0mcell[0m[0;34m([0m[0;36m4[0m[0;34m,[0m[0;36m3[0m[0;34m,[0m [0mnp[0m[0;34m.[0m[0msum[0m[0;34m([0m[0my[0m[0;34m)[0m[0;34m,[0m [0mbackground_color[0m[0;34m=[0m[0;34m"lightgray"[0m[0;34m)[0m[0;34m;[0m[0ms1[0m[0;34m[0m[0;34m[0m[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-2-12507b9aecff>[0m in [0;36m<module>[0;34m[0m
+[1;32m      9[0m [0mspacer[0m [0;34m=[0m [0mpn[0m[0;34m.[0m[0mSpacer[0m[0;34m([0m[0mwidth[0m[0;34m=[0m[0;36m50[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     10[0m [0;34m[0m[0m
+[0;32m---> 11[0;31m [0mr1_2[0m [0;34m=[0m [0mpn[0m[0;34m.[0m[0mpane[0m[0;34m.[0m[0mPNG[0m[0;34m([0m[0;34m"images/T01_TP1.png"[0m[0;34m,[0m [0mwidth[0m[0;34m=[0m[0;36m500[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     12[0m [0;34m[0m[0m
+[1;32m     13[0m [0mpn[0m[0;34m.[0m[0mRow[0m[0;34m([0m[0mr1_1[0m[0;34m,[0m[0mspacer[0m[0;34m,[0m [0mr1_2[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mNameError[0m: name 'Layout' is not defined
-NameError: name 'Layout' is not defined
+[0;32m~/anaconda3/lib/python3.8/site-packages/panel/pane/base.py[0m in [0;36m__init__[0;34m(self, object, **params)[0m
+[1;32m    107[0m         [0mapplies[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mapplies[0m[0;34m([0m[0mobject[0m[0;34m,[0m [0;34m**[0m[0;34m([0m[0mparams[0m [0;32mif[0m [0mself[0m[0;34m.[0m[0m_applies_kw[0m [0;32melse[0m [0;34m{[0m[0;34m}[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    108[0m         [0;32mif[0m [0;34m([0m[0misinstance[0m[0;34m([0m[0mapplies[0m[0;34m,[0m [0mbool[0m[0;34m)[0m [0;32mand[0m [0;32mnot[0m [0mapplies[0m[0;34m)[0m [0;32mand[0m [0mobject[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m [0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 109[0;31m             [0mself[0m[0;34m.[0m[0m_type_error[0m[0;34m([0m[0mobject[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    110[0m [0;34m[0m[0m
+[1;32m    111[0m         [0msuper[0m[0;34m([0m[0mPaneBase[0m[0;34m,[0m [0mself[0m[0;34m)[0m[0;34m.[0m[0m__init__[0m[0;34m([0m[0mobject[0m[0;34m=[0m[0mobject[0m[0;34m,[0m [0;34m**[0m[0mparams[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/lib/python3.8/site-packages/panel/pane/image.py[0m in [0;36m_type_error[0;34m(self, object)[0m
+[1;32m     65[0m     [0;32mdef[0m [0m_type_error[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mobject[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     66[0m         [0;32mif[0m [0misinstance[0m[0;34m([0m[0mobject[0m[0;34m,[0m [0mstring_types[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 67[0;31m             raise ValueError("%s pane cannot parse string that is not a filename "
+[0m[1;32m     68[0m                              "or URL." % type(self).__name__)
+[1;32m     69[0m         [0msuper[0m[0;34m([0m[0mImageBase[0m[0;34m,[0m [0mself[0m[0;34m)[0m[0;34m.[0m[0m_type_error[0m[0;34m([0m[0mobject[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mValueError[0m: PNG pane cannot parse string that is not a filename or URL.
+ValueError: PNG pane cannot parse string that is not a filename or URL.
 
