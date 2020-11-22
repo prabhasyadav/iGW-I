@@ -50,8 +50,6 @@
     <script src="../../../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -169,17 +167,17 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../tutorials/tutorial_02/tutorial_02.html">
-   Tutorial 2
+   Tutorial 2 - Aquifer and Storage Properties
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../tutorials/tutorial_03/tutorial_03.html">
-   Tutorial 3
+   Tutorial 3 - Darcy Law and Conductivity
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../tutorials/tutorial_04/tutorial_04.html">
-   Tutorial 4
+   Tutorial 4 - Effective K &amp; Recitation
   </a>
  </li>
 </ul>
@@ -191,7 +189,7 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../../tools/decay.html">
-   Simulating Mass budget
+   Simulating Mass Budget
   </a>
  </li>
  <li class="toctree-l1">
@@ -487,7 +485,7 @@ heterogeneous aquifer to be investigated.</p>
 <h3>Case I - Flow Parallel to Layering<a class="headerlink" href="#case-i-flow-parallel-to-layering" title="Permalink to this headline">¶</a></h3>
 <p>A confined aquifer consisting of <span class="math notranslate nohighlight">\(n\)</span> layers is considered. In the set-up (see <a class="reference internal" href="#flow-parallel"><span class="std std-numref">Fig. 2</span></a>), the layer boundaries are parallel to each other and groundwater flow is parallel to the layering.</p>
 <div class="figure align-center" id="flow-parallel">
-<a class="reference internal image-reference" href="../../../_images/L5_f2.png"><img alt="../../../_images/L5_f2.png" src="../../../_images/L5_f2.png" style="width: 172.15px; height: 273.90000000000003px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/L5_f2.png"><img alt="../../../_images/L5_f2.png" src="../../../_images/L5_f2.png" style="width: 233.0px; height: 370.5px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Flow parallel to layering</span><a class="headerlink" href="#flow-parallel" title="Permalink to this image">¶</a></p>
 </div>
 <p>The analysis is required to consider the aquifer as a <em>single entire aquifer unit</em> and a set of <em>layered aquifer unit</em>. Data of both units are to be considered.</p>
@@ -616,7 +614,7 @@ The resulting hydraulic conductivity of the layer system is <span class=" -Color
 <h3>Case 2 - Flow Perpendicular to Layering<a class="headerlink" href="#case-2-flow-perpendicular-to-layering" title="Permalink to this headline">¶</a></h3>
 <p>In the second case the the flow <em>perpendicular</em> to the layering is considered. Just as in the <em>parallel</em> flow case, the aquifer in this case also is a confined aquifer with <span class="math notranslate nohighlight">\(n\)</span> layers (see <a class="reference internal" href="#flow-perpendicular"><span class="std std-numref">Fig. 3</span></a>).</p>
 <div class="figure align-center" id="flow-perpendicular">
-<a class="reference internal image-reference" href="../../../_images/L5_f3.png"><img alt="../../../_images/L5_f3.png" src="../../../_images/L5_f3.png" style="width: 201.0px; height: 345.5px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/L5_f3.png"><img alt="../../../_images/L5_f3.png" src="../../../_images/L5_f3.png" style="width: 211.5px; height: 364.0px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Flow perpendicular to layering</span><a class="headerlink" href="#flow-perpendicular" title="Permalink to this image">¶</a></p>
 </div>
 <div class="sphinx-bs container pb-4 docutils">
@@ -823,7 +821,7 @@ The resulting hydraulic resistance is <span class=" -Color -Color-Bold">2.0e+03 
 <p>A solid or a porous medium is <strong>isotropic</strong> if its (all) properties are independent of <em>direction.</em> Conversely, a solid or a porous medium is <strong>anisotropic</strong> if at least one of its property is dependent on direction. Thus, isotropic (or anisotropic) property of porous media refines the concept of homogeneity (or heterogeneity). The key difference being that anisotropy of aquifer is associated only with hydraulic conductivity as other aquifer properties like storativity or porosity cannot depend on direction. Groundwater flow (and more so solute transport) is affected by anisotropy. However, in unconsolidated aquifers the impact of heterogeneity is usually more important.</p>
 <p>Figure below (<a class="reference internal" href="#iso-anisotropy"><span class="std std-numref">Fig. 4</span></a>) explains the concept of isotropy more clearly. The direction dependency of <span class="math notranslate nohighlight">\(K\)</span> is represented by the arrows diagram.</p>
 <div class="figure align-center" id="iso-anisotropy">
-<a class="reference internal image-reference" href="../../../_images/L5_f4.png"><img alt="../../../_images/L5_f4.png" src="../../../_images/L5_f4.png" style="width: 483.45000000000005px; height: 323.40000000000003px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/L5_f4.png"><img alt="../../../_images/L5_f4.png" src="../../../_images/L5_f4.png" style="width: 637.2px; height: 421.6px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Isotropy and Anisotropy in aquifers</span><a class="headerlink" href="#iso-anisotropy" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="anisotropy-and-scale-effects">
@@ -839,7 +837,7 @@ used to express that hydraulic conductivity depends on direction. Considering a 
 <h3>Concept of the hydraulic conductivity ellipse<a class="headerlink" href="#concept-of-the-hydraulic-conductivity-ellipse" title="Permalink to this headline">¶</a></h3>
 <p>Let us consider an aquifer with horizontal conductivity <span class="math notranslate nohighlight">\(K_h\)</span> and vertical hydraulic conductivity <span class="math notranslate nohighlight">\(K_v\)</span>. Let us assume that the flow in the aquifer is in some arbitrary direction characterized by the angle <span class="math notranslate nohighlight">\(\theta\)</span> between the flow direction and horizontal plane (see <a class="reference internal" href="#k-ellipse"><span class="std std-numref">Fig. 5</span></a>).</p>
 <div class="figure align-center" id="k-ellipse">
-<a class="reference internal image-reference" href="../../../_images/L5_f5.png"><img alt="../../../_images/L5_f5.png" src="../../../_images/L5_f5.png" style="width: 316.8px; height: 168.3px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/L5_f5.png"><img alt="../../../_images/L5_f5.png" src="../../../_images/L5_f5.png" style="width: 469.70000000000005px; height: 249.15000000000003px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">hydraulic conductivity ellipse</span><a class="headerlink" href="#k-ellipse" title="Permalink to this image">¶</a></p>
 </div>
 <p>In this case, it can be shown that the effective hydraulic conductivity <span class="math notranslate nohighlight">\(K\)</span> is</p>
@@ -892,7 +890,7 @@ The resulting hydraulic conductivity is <span class=" -Color -Color-Bold">6.2e-0
 <h2>Combining Heterogeneity and Anisotropy<a class="headerlink" href="#combining-heterogeneity-and-anisotropy" title="Permalink to this headline">¶</a></h2>
 <p>The distinction between_Homogeneous, Heterogeneous, isotropic_ and <em>anisotropic</em> aquifer or any combination of them can be more clearly understood from the figure (for vertical <span class="math notranslate nohighlight">\(x-z\)</span> plane).</p>
 <div class="figure align-center" id="het-aniso">
-<a class="reference internal image-reference" href="../../../_images/L5_f6.png"><img alt="../../../_images/L5_f6.png" src="../../../_images/L5_f6.png" style="width: 539.5px; height: 399.75px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/L5_f6.png"><img alt="../../../_images/L5_f6.png" src="../../../_images/L5_f6.png" style="width: 705.6500000000001px; height: 523.0500000000001px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Heterogeneity and Anisotropy in aquifer</span><a class="headerlink" href="#het-aniso" title="Permalink to this image">¶</a></p>
 </div>
 </div>
