@@ -3,7 +3,7 @@
 
 The site provides an interactive JUPYTER book with contents typical of a _introductory_ groundwater course taught at higher UG level or the early PG level at universities. 
 
-The contents/structure provided here are mostly from those developed and lectured by **Prof. Rudolf Liedl** at [TU Dresden](www.tu-dresden.de). 
+The contents/structure provided here are mostly from those developed and lectured by **Prof. Rudolf Liedl** at [TU Dresden](https://tu-dresden.de/). 
 
 The contents are geared towards **learning through computing**. The computing part is entirely based on _Python_ programming language. Previous programming/coding experiences is not required or expected to gain from the provided contents.
 
@@ -19,7 +19,7 @@ All codes and contents provided in this interactive book are licensed under [Cre
 Codes are available at this [GitHUB repository](https://github.com/prabhasyadav/iGW-I)
 
 
-> **The development of the book in based on the **wonderful** work of the [JUPYTER Book Team](https://jupyterbook.org/intro.html)**
+> **The development of the book is based on the **wonderful** works of the [JUPYTER Book Team](https://jupyterbook.org/intro.html)**
 
 
 ### Main contributors of this version of the book

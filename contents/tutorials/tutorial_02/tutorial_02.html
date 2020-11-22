@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tutorial 2 &#8212; Groundwater I</title>
+    <title>Tutorial 2 - Aquifer and Storage Properties &#8212; Groundwater I</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -50,8 +50,6 @@
     <script src="../../../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -61,7 +59,7 @@
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Tutorial 3" href="../tutorial_03/tutorial_03.html" />
+    <link rel="next" title="Tutorial 3 - Darcy Law and Conductivity" href="../tutorial_03/tutorial_03.html" />
     <link rel="prev" title="Tutorial 1 - JUPYTER Notebook Interface for Python" href="../tutorial_01/02_jupyter.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -140,6 +138,11 @@
    Lecture 4 - Darcy’s Law and Conductivity
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../flow/lecture_05/15_het_iso.html">
+   Lecture 5. Aquifer Heterogeneity and Anisotropy
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -164,12 +167,17 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Tutorial 2
+   Tutorial 2 - Aquifer and Storage Properties
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../tutorial_03/tutorial_03.html">
-   Tutorial 3
+   Tutorial 3 - Darcy Law and Conductivity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorial_04/tutorial_04.html">
+   Tutorial 4 - Effective K &amp; Recitation
   </a>
  </li>
 </ul>
@@ -187,6 +195,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../../tools/sieve_analysis.html">
    Simulating Seive Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/effective_K.html">
+   Simulating Effective hydraulic conductivity
   </a>
  </li>
 </ul>
@@ -1827,8 +1840,8 @@ if (window.Jupyter !== undefined) {
 }
 </script></div>
 </div>
-<div class="section" id="tutorial-2">
-<h1>Tutorial 2<a class="headerlink" href="#tutorial-2" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="tutorial-2-aquifer-and-storage-properties">
+<h1>Tutorial 2 - Aquifer and Storage Properties<a class="headerlink" href="#tutorial-2-aquifer-and-storage-properties" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="tutorial-problem-1">
 <h2>Tutorial Problem 1<a class="headerlink" href="#tutorial-problem-1" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_hide-input docutils container">
@@ -2549,7 +2562,7 @@ The aquifer is confined (storage coefficient 0.0005).</p>
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="../tutorial_01/02_jupyter.html" title="previous page">Tutorial 1 - JUPYTER Notebook Interface for Python</a>
-    <a class='right-next' id="next-link" href="../tutorial_03/tutorial_03.html" title="next page">Tutorial 3</a>
+    <a class='right-next' id="next-link" href="../tutorial_03/tutorial_03.html" title="next page">Tutorial 3 - Darcy Law and Conductivity</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

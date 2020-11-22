@@ -1,0 +1,574 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulating Effective hydraulic conductivity &#8212; Groundwater I</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="https://unpkg.com/thebelab@0.3.3/lib/index.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Groundwater Exam Solution - 2019-2020" href="../questions/GW_exam_2019_20.html" />
+    <link rel="prev" title="Simulating Seive Analysis" href="sieve_analysis.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo3.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Groundwater I</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   The Interactive Groundwater-I Book
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Background
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../background/00_general.html">
+   About this Groundwater Course and Contents
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../background/03_basic_hydrogeology.html">
+   Lecture 1 - Course Introduction/Water Cycle
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Flow
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../flow/lecture_02/12_subsurface_structure.html">
+   Lecture 2 - Subsurface Structure
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../flow/lecture_03/13_gw_storage.html">
+   Lecture 3-  Groundwater as a reservoir
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../flow/lecture_04/14_darcy_law_K.html">
+   Lecture 4 - Darcy’s Law and Conductivity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../flow/lecture_05/15_het_iso.html">
+   Lecture 5. Aquifer Heterogeneity and Anisotropy
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/tutorial_01/01_python.html">
+   Tutorial 1 - Python Programming language
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/tutorial_01/02_jupyter.html">
+   Tutorial 1 - JUPYTER Notebook Interface for Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/tutorial_01/02_jupyter.html#installing-python-and-jupyter-notebook-in-your-system">
+   Installing Python and JUPYTER notebook in your system
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/tutorial_02/tutorial_02.html">
+   Tutorial 2 - Aquifer and Storage Properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/tutorial_03/tutorial_03.html">
+   Tutorial 3 - Darcy Law and Conductivity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/tutorial_04/tutorial_04.html">
+   Tutorial 4 - Effective K &amp; Recitation
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tools
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="decay.html">
+   Simulating Mass Budget
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sieve_analysis.html">
+   Simulating Seive Analysis
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Simulating Effective hydraulic conductivity
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Question pool
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../questions/GW_exam_2019_20.html">
+   Groundwater Exam Solution -  2019-2020
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/contents/tools/effective_K.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/prabhasyadav/iGW-I"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/prabhasyadav/iGW-I/issues/new?title=Issue%20on%20page%20%2Fcontents/tools/effective_K.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/prabhasyadav/iGW-I/main?urlpath=tree/contents/tools/effective_K.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-use-the-tool">
+   How to use the tool?
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="simulating-effective-hydraulic-conductivity">
+<h1>Simulating Effective hydraulic conductivity<a class="headerlink" href="#simulating-effective-hydraulic-conductivity" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="how-to-use-the-tool">
+<h2>How to use the tool?<a class="headerlink" href="#how-to-use-the-tool" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Go to the Binder by clicking the rocket button (top-right of the page)</p></li>
+<li><p>Execute the code cell</p></li>
+<li><p>Change the values of different quantities (layer thickness and corresponding conductivity) in the box and click the <strong>run interact</strong>.</p></li>
+<li><p>For re-simulations - changes the input values in the boxes and click the “<strong>run interact</strong>” button.</p></li>
+</ol>
+<p>This tool can also be downloaded and run locally. For that download the <strong><em>effective_K.ipynb</em></strong> file from the book GitHub site, and execute the process in any editor (e.g., JUPYTER notebook, JUPYTER lab) that is able to read and execute this file-type.</p>
+<p>The code may also be executed in the book page. You may also run this tool (smartphone optimized) from: <a class="reference external" href="https://keff-app.herokuapp.com/">https://keff-app.herokuapp.com/</a></p>
+<p>The codes are licensed under CC by 4.0 <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/deed.en">(use anyways, but acknowledge the original work)</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">interactive</span><span class="p">,</span> <span class="n">fixed</span><span class="p">,</span> <span class="n">interact_manual</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;font.weight&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;bold&quot;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;font.size&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">eff_K</span><span class="p">(</span><span class="n">M1</span><span class="p">,</span> <span class="n">M2</span><span class="p">,</span> <span class="n">M3</span><span class="p">,</span> <span class="n">K1</span><span class="p">,</span> <span class="n">K2</span><span class="p">,</span> <span class="n">K3</span><span class="p">):</span>
+    
+    <span class="n">K</span> <span class="o">=</span> <span class="p">[</span><span class="n">K1</span><span class="p">,</span> <span class="n">K2</span><span class="p">,</span> <span class="n">K3</span><span class="p">]</span>
+    <span class="n">K_f</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;</span><span class="si">%0.2e</span><span class="s2">&quot;</span> <span class="o">%</span><span class="k">elem</span> for elem in K]
+    <span class="n">INPUT</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Thickness [L]&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">M1</span><span class="p">,</span> <span class="n">M2</span><span class="p">,</span> <span class="n">M3</span><span class="p">],</span> <span class="s2">&quot;Hydraulic Conductivity [L/T]&quot;</span><span class="p">:</span> <span class="n">K_f</span><span class="p">}</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Layer 1&quot;</span><span class="p">,</span> <span class="s2">&quot;Layer 2&quot;</span><span class="p">,</span> <span class="s2">&quot;Layer 3&quot;</span><span class="p">]</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">INPUT</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">)</span>
+    <span class="n">tt</span> <span class="o">=</span> <span class="n">M1</span><span class="o">+</span><span class="n">M2</span> <span class="o">+</span> <span class="n">M3</span>  <span class="c1"># m, totial thickness</span>
+    
+    <span class="c1"># finding relative thickness, </span>
+    <span class="n">RL1</span><span class="p">,</span> <span class="n">RL2</span><span class="p">,</span> <span class="n">RL3</span> <span class="o">=</span> <span class="n">M1</span><span class="o">/</span><span class="n">tt</span><span class="p">,</span> <span class="n">M2</span><span class="o">/</span><span class="n">tt</span><span class="p">,</span> <span class="n">M3</span><span class="o">/</span><span class="n">tt</span> 
+    <span class="n">HRL1</span><span class="p">,</span> <span class="n">HRL2</span><span class="p">,</span> <span class="n">HRL3</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">K1</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">K2</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">K3</span> 
+    <span class="n">WHK1</span><span class="p">,</span> <span class="n">WHK2</span><span class="p">,</span> <span class="n">WHK3</span> <span class="o">=</span> <span class="n">RL1</span><span class="o">*</span><span class="n">K1</span><span class="p">,</span> <span class="n">RL2</span><span class="o">*</span><span class="n">K2</span><span class="p">,</span><span class="n">RL3</span><span class="o">*</span><span class="n">K3</span>
+    <span class="n">WHR1</span><span class="p">,</span><span class="n">WHR2</span><span class="p">,</span> <span class="n">WHR3</span> <span class="o">=</span> <span class="n">RL1</span><span class="o">/</span><span class="n">K1</span><span class="p">,</span> <span class="n">RL2</span><span class="o">/</span><span class="n">K2</span><span class="p">,</span> <span class="n">RL3</span><span class="o">/</span><span class="n">K3</span> 
+    
+    <span class="c1"># creating intermediate table</span>
+    <span class="n">RL</span> <span class="o">=</span>  <span class="p">[</span><span class="n">RL1</span><span class="p">,</span> <span class="n">RL2</span><span class="p">,</span> <span class="n">RL3</span><span class="p">]</span>
+    <span class="n">HRL</span> <span class="o">=</span> <span class="p">[</span><span class="n">HRL1</span><span class="p">,</span> <span class="n">HRL2</span><span class="p">,</span> <span class="n">HRL3</span><span class="p">]</span>
+    <span class="n">WHK</span> <span class="o">=</span> <span class="p">[</span><span class="n">WHK1</span><span class="p">,</span> <span class="n">WHK2</span><span class="p">,</span> <span class="n">WHK3</span><span class="p">]</span>
+    <span class="n">WHR</span> <span class="o">=</span> <span class="p">[</span><span class="n">WHR1</span><span class="p">,</span><span class="n">WHR2</span><span class="p">,</span> <span class="n">WHR3</span><span class="p">]</span>
+    <span class="n">RL_f</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">&#39;</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="k">elem</span> for elem in RL ]
+    <span class="n">HRL_f</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">&#39;</span><span class="si">%.2e</span><span class="s1">&#39;</span> <span class="o">%</span><span class="k">elem</span> for elem in HRL ]
+    <span class="n">WHK_f</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">&#39;</span><span class="si">%.2e</span><span class="s1">&#39;</span> <span class="o">%</span><span class="k">elem</span> for elem in WHK ]
+    <span class="n">WHR_f</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">&#39;</span><span class="si">%.2e</span><span class="s1">&#39;</span> <span class="o">%</span><span class="k">elem</span> for elem in WHR ]
+    
+    <span class="n">index2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Layer 1&quot;</span><span class="p">,</span> <span class="s2">&quot;Layer 2&quot;</span><span class="p">,</span> <span class="s2">&quot;Layer 3&quot;</span><span class="p">,</span> <span class="s2">&quot;Sum&quot;</span><span class="p">]</span>
+    <span class="n">CAL1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Relative Thickness [-]&quot;</span><span class="p">:</span><span class="n">RL_f</span><span class="p">,</span> <span class="s2">&quot;Hydraulic Resistance [T/L]&quot;</span><span class="p">:</span><span class="n">HRL_f</span><span class="p">,</span>
+            <span class="s2">&quot;Weighted Hyd. Cond. [L/T]&quot;</span><span class="p">:</span> <span class="n">WHK_f</span><span class="p">,</span> <span class="s2">&quot;Weighted Hyd. Resistance [T/L]&quot;</span><span class="p">:</span> <span class="n">WHR_f</span><span class="p">}</span>
+    <span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">CAL1</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n\033</span><span class="s2">[1m Intermediate Calculations: </span><span class="se">\033</span><span class="s2">[0m </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># calculations Parallel flow</span>
+    <span class="n">HR_eff</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">WHR</span><span class="p">)</span>
+    <span class="n">HR_eff_a</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">WHR</span><span class="p">)</span>
+
+    <span class="n">HC_eff</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">HR_eff</span>
+    <span class="n">HC_eff_a</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">HR_eff_a</span>
+    
+    <span class="n">RT1</span> <span class="o">=</span> <span class="mi">0</span> 
+    <span class="n">RT2</span> <span class="o">=</span> <span class="n">RT1</span><span class="o">+</span><span class="n">RL1</span>
+    <span class="n">RT3</span> <span class="o">=</span> <span class="n">RT2</span><span class="o">+</span><span class="n">RL2</span>
+    <span class="n">RT4</span> <span class="o">=</span> <span class="mi">1</span>
+    
+    <span class="n">RH1</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">RH2</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">HC_eff</span><span class="o">*</span><span class="n">WHR1</span>
+    <span class="n">RH3</span> <span class="o">=</span> <span class="n">HC_eff</span><span class="o">*</span><span class="n">WHR3</span> 
+    <span class="n">RH4</span> <span class="o">=</span> <span class="mi">0</span>
+
+      <span class="c1"># creating data table </span>
+    <span class="n">RH</span> <span class="o">=</span> <span class="p">[</span><span class="n">RH1</span><span class="p">,</span> <span class="n">RH2</span><span class="p">,</span> <span class="n">RH3</span><span class="p">,</span> <span class="n">RH4</span><span class="p">]</span>
+    <span class="n">RH_f</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;</span><span class="si">%0.2f</span><span class="s2">&quot;</span> <span class="o">%</span><span class="k">elem</span> for elem in RH]
+    <span class="n">RT</span> <span class="o">=</span> <span class="p">[</span><span class="n">RT1</span><span class="p">,</span> <span class="n">RT2</span><span class="p">,</span> <span class="n">RT3</span><span class="p">,</span> <span class="n">RT4</span><span class="p">]</span>
+    <span class="n">RT_f</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;</span><span class="si">%0.2f</span><span class="s2">&quot;</span> <span class="o">%</span><span class="k">elem</span> for elem in RT] # 0.2f is for number format
+
+    <span class="n">df3</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Relative Thickness [-]&quot;</span><span class="p">:</span> <span class="n">RT_f</span><span class="p">,</span> <span class="s2">&quot;Relative Head [-]&quot;</span><span class="p">:</span> <span class="n">RH_f</span><span class="p">}</span>
+    <span class="n">df3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df3</span><span class="p">)</span>
+    
+
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.01</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_ticks_position</span><span class="p">(</span><span class="s1">&#39;top&#39;</span><span class="p">)</span> 
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_label_position</span><span class="p">(</span><span class="s1">&#39;top&#39;</span><span class="p">)</span> 
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Relative head [-]&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>  
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Relative thickness [-]&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>  
+    <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    
+    <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">RT2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">RT3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">RT4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">RH</span><span class="p">,</span> <span class="n">RT</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n\033</span><span class="s2">[1m Parallel flow: </span><span class="se">\033</span><span class="s2">[0m </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The Effective Hydraulic Conductivity is: </span><span class="si">{0:0.2e}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">HC_eff</span><span class="p">),</span> <span class="s2">&quot;m/s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The Approximate Effective Hydraulic Conductivity is: </span><span class="si">{0:0.2e}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">HC_eff_a</span><span class="p">),</span> <span class="s2">&quot;m/s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The Effective Hydraulic Resistance is: </span><span class="si">{0:0.2e}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">HR_eff</span><span class="p">),</span> <span class="s2">&quot;s/m</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The Approximate Effective Hydraulic Resistance is </span><span class="si">{0:0.2e}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">HR_eff_a</span><span class="p">),</span> <span class="s2">&quot;s/m</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="n">df3</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+    
+    <span class="c1"># Perpendendicular flow</span>
+    
+    <span class="n">WHK_eff</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">WHK</span><span class="p">)</span>
+    <span class="n">WHK_eff_a</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">WHK</span><span class="p">)</span>
+
+    <span class="n">WHR_eff</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">WHK_eff</span>
+    <span class="n">WHR_eff_a</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">WHK_eff_a</span>
+
+    <span class="n">RD1</span> <span class="o">=</span> <span class="n">WHK1</span><span class="o">/</span><span class="n">WHK_eff</span>
+    <span class="n">RD2</span> <span class="o">=</span> <span class="n">WHK2</span><span class="o">/</span><span class="n">WHK_eff</span>
+    <span class="n">RD3</span> <span class="o">=</span> <span class="n">WHK3</span><span class="o">/</span><span class="n">WHK_eff</span>
+
+    <span class="n">RD</span> <span class="o">=</span> <span class="p">[</span><span class="n">RD1</span><span class="p">,</span> <span class="n">RD2</span><span class="p">,</span> <span class="n">RD3</span><span class="p">]</span>
+    <span class="n">RD_f</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;</span><span class="si">%0.2f</span><span class="s2">&quot;</span> <span class="o">%</span><span class="k">elem</span> for elem in RD]
+
+    <span class="n">df4</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;Relative Discharge [-]&quot;</span><span class="p">:</span> <span class="n">RD_f</span><span class="p">},</span> <span class="n">index</span><span class="o">=</span> <span class="n">index</span><span class="p">)</span>
+    
+    <span class="n">fig2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+    <span class="n">ay</span> <span class="o">=</span> <span class="n">fig2</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ay</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">RD</span><span class="p">)</span> 
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))</span>
+    <span class="n">ay</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Relative discharge [-]&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">ay</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Layer number&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    
+
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\033</span><span class="s2">[1m Perpendicular flow: </span><span class="se">\033</span><span class="s2">[0m </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The Effective Hydraulic Conductivity is: </span><span class="si">{0:0.2e}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">WHK_eff</span><span class="p">),</span> <span class="s2">&quot;s/m </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The Approximate Effective Hydraulic Conductivity is </span><span class="si">{0:0.2e}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">WHK_eff_a</span><span class="p">),</span> <span class="s2">&quot;s/m</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The Effective Hydraulic Resistance is: </span><span class="si">{0:0.2e}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">WHR_eff</span><span class="p">),</span> <span class="s2">&quot;m/s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The Approximate Effective Hydraulic Resistance is: </span><span class="si">{0:0.2e}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">WHR_eff_a</span><span class="p">),</span> <span class="s2">&quot;m/s</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="n">df4</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">fig2</span><span class="p">)</span>
+    
+<span class="n">style</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;description_width&#39;</span><span class="p">:</span> <span class="s1">&#39;initial&#39;</span><span class="p">}</span>    
+<span class="n">Inter</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">interact_manual</span><span class="p">(</span><span class="n">eff_K</span><span class="p">,</span> 
+                       <span class="n">M1</span><span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatText</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Layer Thickness 1&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">style</span><span class="p">),</span>
+                       <span class="n">K1</span><span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatText</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Hydraulic Conductivity 1&quot;</span><span class="p">,</span><span class="n">style</span><span class="o">=</span><span class="n">style</span><span class="p">),</span>
+                       <span class="n">M2</span><span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatText</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Layer Thickness 2&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">style</span><span class="p">),</span>
+                       <span class="n">K2</span><span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatText</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Hydraulic Conductivity 2&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">style</span><span class="p">),</span>
+                       <span class="n">M3</span><span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatText</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Layer Thickness 3&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">style</span><span class="p">),</span>
+                       <span class="n">K3</span><span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatText</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Hydraulic Conductivity 3&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">style</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "2dadc25f16ae4be18012c64d4eb2bdd4", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+</div>
+</div>
+
+
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {"068576920e4343ac8b4f5b7d79b236d2": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "0ab14b2e61684c26a3236e9dd61762b8": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "initial"}}, "2240412e8c7d4a2cbecad501cd40d4ef": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "2bc279f875794ad6b0a0dd90294d42fb": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "2dadc25f16ae4be18012c64d4eb2bdd4": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_443bd839abca4701a664d2442ad2ad03", "IPY_MODEL_b18ed74fe51c424aa9d3f11eaefa702f", "IPY_MODEL_a4c2e8192b1f4cdc9dc84af4d522aff4", "IPY_MODEL_3034baeb8f0b4496b87b445246be9f0a", "IPY_MODEL_bc0eb80b8b1e42d8b02836fe225a0ade", "IPY_MODEL_6803476e011347719d0b5b19381698d7", "IPY_MODEL_2dc839fe3d37439a8ffb38ac450731cd", "IPY_MODEL_3c3cd4d5687d4393ae2d16e7c43cd5bb"], "layout": "IPY_MODEL_7b160ea123f44f3ea229bddcb0e15a49"}}, "2dc839fe3d37439a8ffb38ac450731cd": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ButtonModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ButtonModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ButtonView", "button_style": "", "description": "Run Interact", "disabled": false, "icon": "", "layout": "IPY_MODEL_dea8b6def8ad4a2197a0c6541e226246", "style": "IPY_MODEL_e72d06ac514b4fe0af5573bbf2096af8", "tooltip": ""}}, "3034baeb8f0b4496b87b445246be9f0a": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatTextModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatTextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "FloatTextView", "continuous_update": false, "description": "Hydraulic Conductivity 1", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_068576920e4343ac8b4f5b7d79b236d2", "step": null, "style": "IPY_MODEL_3f284b3f68aa46fe9709701785193f69", "value": 0.0}}, "396a649c0d9e4d02ba3bf9f20ada0642": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "3c3cd4d5687d4393ae2d16e7c43cd5bb": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_e1257d33a65f4a609ff33a33c955ed34", "msg_id": "", "outputs": []}}, "3f284b3f68aa46fe9709701785193f69": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "initial"}}, "4345c1d95e494b28a9ea0d480d637875": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "initial"}}, "443bd839abca4701a664d2442ad2ad03": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatTextModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatTextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "FloatTextView", "continuous_update": false, "description": "Layer Thickness 1", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_2bc279f875794ad6b0a0dd90294d42fb", "step": null, "style": "IPY_MODEL_eeddc7e10b7f41e9a07b576e23c84815", "value": 0.0}}, "6803476e011347719d0b5b19381698d7": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatTextModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatTextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "FloatTextView", "continuous_update": false, "description": "Hydraulic Conductivity 3", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_2240412e8c7d4a2cbecad501cd40d4ef", "step": null, "style": "IPY_MODEL_4345c1d95e494b28a9ea0d480d637875", "value": 0.0}}, "7b160ea123f44f3ea229bddcb0e15a49": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "a4c2e8192b1f4cdc9dc84af4d522aff4": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatTextModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatTextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "FloatTextView", "continuous_update": false, "description": "Layer Thickness 3", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_d311e244021745ba9202cb6c5674a60d", "step": null, "style": "IPY_MODEL_b22d0792ab2e4307989b8df0b2081b50", "value": 0.0}}, "b18ed74fe51c424aa9d3f11eaefa702f": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatTextModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatTextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "FloatTextView", "continuous_update": false, "description": "Layer Thickness 2", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_396a649c0d9e4d02ba3bf9f20ada0642", "step": null, "style": "IPY_MODEL_0ab14b2e61684c26a3236e9dd61762b8", "value": 0.0}}, "b22d0792ab2e4307989b8df0b2081b50": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "initial"}}, "bc0eb80b8b1e42d8b02836fe225a0ade": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatTextModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatTextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "FloatTextView", "continuous_update": false, "description": "Hydraulic Conductivity 2", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_cf17d26d344f4a31b36382ef0b569b5f", "step": null, "style": "IPY_MODEL_d603939a1ae049b6b394b67ba4d681ca", "value": 0.0}}, "cf17d26d344f4a31b36382ef0b569b5f": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "d311e244021745ba9202cb6c5674a60d": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "d603939a1ae049b6b394b67ba4d681ca": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "initial"}}, "dea8b6def8ad4a2197a0c6541e226246": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "e1257d33a65f4a609ff33a33c955ed34": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "e72d06ac514b4fe0af5573bbf2096af8": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ButtonStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ButtonStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "button_color": null, "font_weight": ""}}, "eeddc7e10b7f41e9a07b576e23c84815": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "initial"}}}, "version_major": 2, "version_minor": 0}
+</script>
+
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "prabhasyadav/iGW-I",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./contents/tools"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="sieve_analysis.html" title="previous page">Simulating Seive Analysis</a>
+    <a class='right-next' id="next-link" href="../questions/GW_exam_2019_20.html" title="next page">Groundwater Exam Solution -  2019-2020</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By P. K. Yadav, T. Reimann and several others<br/>
+        
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
