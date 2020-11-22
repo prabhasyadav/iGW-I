@@ -73,7 +73,7 @@
 # 
 # ```{figure} images/L5_f2.png
 # ---
-# scale: 55%
+# scale: 50%
 # align : center
 # name: flow-parallel
 # ---
@@ -386,7 +386,7 @@ print("\n\033[1mSolution:\033[0m\n\nThe resulting hydraulic resistance is \033[1
 # 
 # ```{figure} images/L5_f4.png
 # ---
-# scale: 55%
+# scale: 40%
 # align : center
 # name: Iso-Anisotropy
 # ---
@@ -452,7 +452,7 @@ print("\033[1mSolution:\033[0m\n\nThe resulting hydraulic conductivity is \033[1
 # 
 # ```{figure} images/L5_f6.png
 # ---
-# scale: 65%
+# scale: 55%
 # align : center
 # name: Het_Aniso
 # ---

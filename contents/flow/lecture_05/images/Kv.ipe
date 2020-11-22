@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
-<ipe version="70218" creator="Ipe 7.2.20">
-<info created="D:20200826144640" modified="D:20200826145740"/>
+<ipe version="70218" creator="Ipe 7.2.21">
+<info created="D:20200826144640" modified="D:20201122174822"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -375,6 +375,6 @@ h
 319.731 417.89 l
 h
 </path>
-<text matrix="1 0 0 1 316.037 -58.5075" transformations="translations" pos="12.7095 751.809" stroke="red" type="label" width="22.995" height="11.955" depth="0" valign="baseline" size="LARGE">$\Delta h$</text>
+<text matrix="1 0 0 1 316.037 -58.5075" transformations="translations" pos="12.7095 751.809" stroke="red" type="label" width="22.995" height="11.955" depth="0" valign="baseline" size="LARGE" style="math">\Delta h</text>
 </page>
 </ipe>

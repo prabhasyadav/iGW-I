@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
-<ipe version="70218" creator="Ipe 7.2.20">
-<info created="D:20200826151105" modified="D:20200826151105"/>
+<ipe version="70218" creator="Ipe 7.2.21">
+<info created="D:20200826151105" modified="D:20201122174649"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -339,7 +339,7 @@ h
 <text matrix="1 0 0 1 -0.677154 -158.559" transformations="translations" pos="315.795 797.923" stroke="darkblue" type="label" width="29.924" height="12.915" depth="4.3" valign="baseline" size="LARGE" style="math">\surd{K}</text>
 <text matrix="1 0 0 1 -65.7274 -154.493" transformations="translations" pos="315.795 797.923" stroke="red" type="label" width="35.274" height="12.915" depth="4.3" valign="baseline" size="LARGE" style="math">\surd{K_v}</text>
 <text matrix="1 0 0 1 16.94 -205.991" transformations="translations" pos="315.795 797.923" stroke="darkblue" type="label" width="35.924" height="12.915" depth="4.3" valign="baseline" size="LARGE" style="math">\surd{K_h}</text>
-<text matrix="1 0 0 1 65.186 -165.696" transformations="translations" pos="247.357 775.562" stroke="darkblue" type="label" width="6.936" height="9.963" depth="0" valign="baseline" size="Large">$\theta$</text>
+<text matrix="1 0 0 1 65.186 -165.696" transformations="translations" pos="247.357 775.562" stroke="darkblue" type="label" width="6.936" height="9.963" depth="0" valign="baseline" size="Large" style="math">\theta</text>
 <path stroke="1 0 0">
 301.732 608.05 m
 3.47238 0 0 3.47238 301.244 611.488 301.196 614.96 a

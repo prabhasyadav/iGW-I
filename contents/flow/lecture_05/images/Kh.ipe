@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
-<ipe version="70218" creator="Ipe 7.2.20">
-<info created="D:20200826144640" modified="D:20200826144741"/>
+<ipe version="70218" creator="Ipe 7.2.21">
+<info created="D:20200826144640" modified="D:20201122174722"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -342,7 +342,7 @@ h
 176 688 m
 304 688 l
 </path>
-<text matrix="1 0 0 1 52.0656 74.5792" transformations="translations" pos="96 656" stroke="blue" type="label" width="22.995" height="11.955" depth="0" valign="baseline" size="LARGE">$\Delta h$</text>
+<text matrix="1 0 0 1 52.0656 74.5792" transformations="translations" pos="96 656" stroke="blue" type="label" width="22.995" height="11.955" depth="0" valign="baseline" size="LARGE" style="math">\Delta h</text>
 <text matrix="1 0 0 1 119.826 48.1527" transformations="translations" pos="96 656" stroke="blue" type="label" width="11.469" height="11.764" depth="0" valign="baseline" size="LARGE" style="math">L</text>
 <text matrix="1 0 0 1 94.187 76.5693" transformations="translations" pos="115.903 583.801" stroke="darkred" type="label" width="45.823" height="11.954" depth="3.35" valign="baseline" size="LARGE">layer 1</text>
 <text matrix="1 0 0 1 91.4767 37.2684" transformations="translations" pos="115.903 583.801" stroke="darkred" type="label" width="45.823" height="11.954" depth="3.35" valign="baseline" size="LARGE">layer 2</text>
