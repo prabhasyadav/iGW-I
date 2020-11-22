@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# ## Effective porosity plot after David and DeWiest (1966) ## 
+
 # In[1]:
 
 
@@ -17,7 +19,7 @@ df = pd.read_csv("dataset.csv")
 df.head(5)
 
 
-# In[5]:
+# In[3]:
 
 
 
@@ -73,10 +75,11 @@ fig.text(0.52,-0.02 , 'Sand', ha='left', va='top', size=12, fontweight='bold')
 fig.text(0.7,-0.02 , 'Gravel', ha='left', va='top', size=12, fontweight='bold')
 
 
-# In[ ]:
+# In[4]:
 
 
-ax2.sexlabel[0].set_visible(False)
+df = pd.read_csv("finaldf.csv")
+df.head(5)
 
 
 # In[ ]:

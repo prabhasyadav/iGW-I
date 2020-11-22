@@ -1,0 +1,46 @@
+Traceback (most recent call last):
+  File "/home/prabhasyadav/anaconda3/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/home/prabhasyadav/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 1087, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/prabhasyadav/anaconda3/lib/python3.8/site-packages/nbclient/util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/home/prabhasyadav/anaconda3/lib/python3.8/site-packages/nbclient/util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "/home/prabhasyadav/anaconda3/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "/home/prabhasyadav/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 540, in async_execute
+    await self.async_execute_cell(
+  File "/home/prabhasyadav/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 832, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/home/prabhasyadav/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 740, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# solution of problem 2
+
+t_sample = np.sum(residue) # g, add the residue column to get total mass
+retain_per = np.round(residue/t_sample *100,3) # %, # retain percentage residue/total mass
+retain_per_cumsum =np.round(np.cumsum(retaine_per),3) # get the cummulative sum of the reatined
+passing_per = np.round(100 - retain_per_cumsum,3) # substract 100-cummsum to get passing % - the last column
+
+data2 = {"mesh size [mm]": Size, "residue in the sieve [g]": residue, "Σtotal": retain_per, "Σ/Σtotal": passing_per }
+
+df2= pd.DataFrame(data2)
+df2 = df2.set_index("mesh size [mm]")
+df2
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-5-49ed0b8cccfa>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0mt_sample[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0msum[0m[0;34m([0m[0mresidue[0m[0;34m)[0m [0;31m# g, add the residue column to get total mass[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mretain_per[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mround[0m[0;34m([0m[0mresidue[0m[0;34m/[0m[0mt_sample[0m [0;34m*[0m[0;36m100[0m[0;34m,[0m[0;36m3[0m[0;34m)[0m [0;31m# %, # retain percentage residue/total mass[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0mretain_per_cumsum[0m [0;34m=[0m[0mnp[0m[0;34m.[0m[0mround[0m[0;34m([0m[0mnp[0m[0;34m.[0m[0mcumsum[0m[0;34m([0m[0mretaine_per[0m[0;34m)[0m[0;34m,[0m[0;36m3[0m[0;34m)[0m [0;31m# get the cummulative sum of the reatined[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0mpassing_per[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mround[0m[0;34m([0m[0;36m100[0m [0;34m-[0m [0mretain_per_cumsum[0m[0;34m,[0m[0;36m3[0m[0;34m)[0m [0;31m# substract 100-cummsum to get passing % - the last column[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0;34m[0m[0m
+
+[0;31mNameError[0m: name 'retaine_per' is not defined
+NameError: name 'retaine_per' is not defined
+

@@ -1,7 +1,19 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# ## Simulating Mass budget ##
+# ## Simulating Mass Budget ##
+# 
+# #### How to use the tool? ####
+# 
+# 1. Go to the Binder by clicking the rocket button (top-right of the page)
+# 2. Execute the code cell
+# 3. Change the values of different quantities in the box.
+# 
+# This tool can also be downloaded and run locally. For that download the _deacy.ipynb_ file and execute the process in any editor (e.g., JUPYTER notebook, JUPYTER lab) that is able to read and execute this file-type.
+# 
+# The code may also be executed in the book page.
+# 
+# The codes are licensed under CC by 4.0 [(use anyways, but acknowledge the original work)](https://creativecommons.org/licenses/by/4.0/deed.en)
 
 # In[1]:
 
@@ -60,10 +72,4 @@ interactive_plot = widgets.interactive(mass_bal, n_simulation = N, MA=A, MB=B, M
 output = interactive_plot.children[-1]  
 #output.layout.height = '350px'
 interactive_plot
-
-
-# In[ ]:
-
-
-
 

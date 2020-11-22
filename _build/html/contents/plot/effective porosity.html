@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>&lt;no title&gt; &#8212; Groundwater I</title>
+    <title>Effective porosity plot after David and DeWiest (1966) &#8212; Groundwater I</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -50,8 +50,6 @@
     <script src="../../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -138,6 +136,11 @@
    Lecture 4 - Darcy’s Law and Conductivity
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../flow/lecture_05/15_het_iso.html">
+   Lecture 5. Aquifer Heterogeneity and Anisotropy
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -170,6 +173,11 @@
    Tutorial 3
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/tutorial_04/tutorial_04.html">
+   Tutorial 4
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -185,6 +193,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../tools/sieve_analysis.html">
    Simulating Seive Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tools/effective_K.html">
+   Simulating Effective hydraulic conductivity
   </a>
  </li>
 </ul>
@@ -302,15 +315,6 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="simple nav section-nav flex-column">
-</ul>
-
-        </nav>
-        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -318,7 +322,9 @@
         
               <div>
                 
-  <div class="cell docutils container">
+  <div class="section" id="effective-porosity-plot-after-david-and-dewiest-1966">
+<h1>Effective porosity plot after David and DeWiest (1966)<a class="headerlink" href="#effective-porosity-plot-after-david-and-dewiest-1966" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -495,14 +501,116 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.7, -0.02, &#39;Gravel&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/effective porosity_2_11.png" src="../../_images/effective porosity_2_11.png" />
+<img alt="../../_images/effective porosity_3_1.png" src="../../_images/effective porosity_3_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax2</span><span class="o">.</span><span class="n">sexlabel</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;finaldf.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>E</th>
+      <th>F</th>
+      <th>G</th>
+      <th>H</th>
+      <th>I</th>
+      <th>J</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.000098</td>
+      <td>3.126845</td>
+      <td>0.000105</td>
+      <td>3.473358</td>
+      <td>0.000100</td>
+      <td>56.625310</td>
+      <td>0.000098</td>
+      <td>54.020145</td>
+      <td>0.000102</td>
+      <td>54.019557</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.000196</td>
+      <td>4.681597</td>
+      <td>0.000238</td>
+      <td>5.026640</td>
+      <td>0.000302</td>
+      <td>55.569607</td>
+      <td>0.000256</td>
+      <td>51.229233</td>
+      <td>0.000262</td>
+      <td>51.055241</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.000466</td>
+      <td>6.755384</td>
+      <td>0.000773</td>
+      <td>8.486184</td>
+      <td>0.001795</td>
+      <td>53.116096</td>
+      <td>0.000937</td>
+      <td>45.133957</td>
+      <td>0.000915</td>
+      <td>45.134251</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.001032</td>
+      <td>9.351144</td>
+      <td>0.001795</td>
+      <td>11.428751</td>
+      <td>0.010150</td>
+      <td>50.315779</td>
+      <td>0.003198</td>
+      <td>37.649986</td>
+      <td>0.002638</td>
+      <td>38.868218</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.002454</td>
+      <td>12.814509</td>
+      <td>0.004479</td>
+      <td>15.933712</td>
+      <td>0.045119</td>
+      <td>47.171006</td>
+      <td>0.011447</td>
+      <td>28.602151</td>
+      <td>0.007979</td>
+      <td>31.212018</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </div>
 

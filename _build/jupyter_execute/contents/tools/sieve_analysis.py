@@ -2,6 +2,22 @@
 # coding: utf-8
 
 # ## Simulating Seive Analysis ##
+# 
+# #### How to use the tool? ####
+# 
+# 1. Go to the Binder by clicking the rocket button (top-right of the page)
+# 2. Execute the code cell
+# 3. Change the values of different quantities in the box and click the **run interact**.
+# 4. From the resulting figure, using your mouse and selecting points in the figure obtain d10 and d60. 
+# 5. Execute the second code-cell and provide d10, d60 and temperature date
+# 6. Click the exectute button.
+# 7. For re-simulations - changes the input values in the boxes and click the "**run interact**" button. 
+# 
+# This tool can also be downloaded and run locally. For that download the _deacy.ipynb_ file and execute the process in any editor (e.g., JUPYTER notebook, JUPYTER lab) that is able to read and execute this file-type.
+# 
+# The code may also be executed in the book page. 
+# 
+# The codes are licensed under CC by 4.0 [(use anyways, but acknowledge the original work)](https://creativecommons.org/licenses/by/4.0/deed.en)
 
 # In[1]:
 

@@ -11,7 +11,7 @@ import panel as pn
 pn.extension("katex") 
 
 
-# # Tutorial 3 #
+# # Tutorial 3 - Darcy Law and Conductivity #
 # 
 # + **tutorial problems on Darcy's law and intrinsic permeability**
 # 
@@ -409,10 +409,10 @@ $$
 r10_a3
 
 
-# In[24]:
+# In[2]:
 
 
-# Given
+# Solution 9(2)
 
 L = 15 # cm, length
 L_m = L/100 # m, length

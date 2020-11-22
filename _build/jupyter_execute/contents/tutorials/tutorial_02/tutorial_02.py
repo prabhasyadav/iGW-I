@@ -10,7 +10,7 @@ import panel as pn
 pn.extension("katex", "mathjax")  
 
 
-# # Tutorial 2 #
+# # Tutorial 2 - Aquifer and Storage Properties #
 
 # ## Tutorial Problem 1 ##
 

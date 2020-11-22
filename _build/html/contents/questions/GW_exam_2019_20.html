@@ -61,7 +61,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="Simulating Seive Analysis" href="../tools/sieve_analysis.html" />
+    <link rel="prev" title="Simulating Effective hydraulic conductivity" href="../tools/effective_K.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -139,6 +139,11 @@
    Lecture 4 - Darcy’s Law and Conductivity
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../flow/lecture_05/15_het_iso.html">
+   Lecture 5. Aquifer Heterogeneity and Anisotropy
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -171,6 +176,11 @@
    Tutorial 3
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/tutorial_04/tutorial_04.html">
+   Tutorial 4
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -186,6 +196,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../tools/sieve_analysis.html">
    Simulating Seive Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tools/effective_K.html">
+   Simulating Effective hydraulic conductivity
   </a>
  </li>
 </ul>
@@ -2265,7 +2280,7 @@ The dispersive flux is 0.0069444444 mg-m/L-s
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "83edfd29072a4057840e880151fa5c0b", "version_major": 2, "version_minor": 0}
+{"model_id": "75ec17f289db4284bfb8dd99344d0caf", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 <div class="cell docutils container">
@@ -2410,7 +2425,7 @@ R = 1+ \frac{1-n_e}{n_e}\rho_s K_d
 
 
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {"0e9cb8aa696a4d028aed96bebf75ba46": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": "auto", "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": "auto"}}, "224931ec58c648b4a27f253e8deacb15": {"model_module": "ipysheet", "model_module_version": "~0.4.4", "model_name": "CellRangeModel", "state": {"_model_module": "ipysheet", "_model_module_version": "~0.4.4", "_model_name": "CellRangeModel", "_view_count": null, "_view_module": null, "_view_module_version": "", "_view_name": null, "choice": null, "column_end": 1, "column_start": 1, "date_format": "YYYY/MM/DD", "name": null, "numeric_format": "0.000", "read_only": false, "renderer": null, "row_end": 4, "row_start": 0, "squeeze_column": true, "squeeze_row": false, "style": {}, "time_format": "h:mm:ss a", "transpose": false, "type": "numeric", "value": [5, 10, 15, 20, 25]}}, "83edfd29072a4057840e880151fa5c0b": {"model_module": "ipysheet", "model_module_version": "~0.4.4", "model_name": "SheetModel", "state": {"_dom_classes": [], "_model_module": "ipysheet", "_model_module_version": "~0.4.4", "_model_name": "SheetModel", "_view_count": null, "_view_module": "ipysheet", "_view_module_version": "~0.4.4", "_view_name": "SheetView", "cells": ["IPY_MODEL_93396827fb204dbeaeefe842a4070ba3", "IPY_MODEL_224931ec58c648b4a27f253e8deacb15", "IPY_MODEL_e8c04a8cae644e86822ad9114380abe1"], "column_headers": ["Batch nr. ", "Initial Conc. (mg/L) ", "Equi. Conc. (mg/L)", "Sorbed mass (g)", "Sorbed mass/solid (mg/g)"], "column_resizing": true, "column_width": null, "columns": 5, "layout": "IPY_MODEL_0e9cb8aa696a4d028aed96bebf75ba46", "named_cells": {}, "row_headers": false, "row_resizing": true, "rows": 6, "search_token": "", "stretch_headers": "all"}}, "93396827fb204dbeaeefe842a4070ba3": {"model_module": "ipysheet", "model_module_version": "~0.4.4", "model_name": "CellRangeModel", "state": {"_model_module": "ipysheet", "_model_module_version": "~0.4.4", "_model_name": "CellRangeModel", "_view_count": null, "_view_module": null, "_view_module_version": "", "_view_name": null, "choice": null, "column_end": 0, "column_start": 0, "date_format": "YYYY/MM/DD", "name": null, "numeric_format": "0.000", "read_only": false, "renderer": null, "row_end": 4, "row_start": 0, "squeeze_column": true, "squeeze_row": false, "style": {}, "time_format": "h:mm:ss a", "transpose": false, "type": "numeric", "value": [1, 2, 3, 4, 5]}}, "e8c04a8cae644e86822ad9114380abe1": {"model_module": "ipysheet", "model_module_version": "~0.4.4", "model_name": "CellRangeModel", "state": {"_model_module": "ipysheet", "_model_module_version": "~0.4.4", "_model_name": "CellRangeModel", "_view_count": null, "_view_module": null, "_view_module_version": "", "_view_name": null, "choice": null, "column_end": 2, "column_start": 2, "date_format": "YYYY/MM/DD", "name": null, "numeric_format": "0.000", "read_only": false, "renderer": null, "row_end": 4, "row_start": 0, "squeeze_column": true, "squeeze_row": false, "style": {}, "time_format": "h:mm:ss a", "transpose": false, "type": "numeric", "value": [2.5, 4.9, 8.0, 9.8, 13.2]}}}, "version_major": 2, "version_minor": 0}
+{"state": {"09f7323283f648889aeb99c296b008cc": {"model_module": "ipysheet", "model_module_version": "~0.4.4", "model_name": "CellRangeModel", "state": {"_model_module": "ipysheet", "_model_module_version": "~0.4.4", "_model_name": "CellRangeModel", "_view_count": null, "_view_module": null, "_view_module_version": "", "_view_name": null, "choice": null, "column_end": 1, "column_start": 1, "date_format": "YYYY/MM/DD", "name": null, "numeric_format": "0.000", "read_only": false, "renderer": null, "row_end": 4, "row_start": 0, "squeeze_column": true, "squeeze_row": false, "style": {}, "time_format": "h:mm:ss a", "transpose": false, "type": "numeric", "value": [5, 10, 15, 20, 25]}}, "688fe05fc0a2443584fc66367f1a3d5f": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": "auto", "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": "auto"}}, "75ec17f289db4284bfb8dd99344d0caf": {"model_module": "ipysheet", "model_module_version": "~0.4.4", "model_name": "SheetModel", "state": {"_dom_classes": [], "_model_module": "ipysheet", "_model_module_version": "~0.4.4", "_model_name": "SheetModel", "_view_count": null, "_view_module": "ipysheet", "_view_module_version": "~0.4.4", "_view_name": "SheetView", "cells": ["IPY_MODEL_e3f7cb72abbb4caca02a4240b6c34b48", "IPY_MODEL_09f7323283f648889aeb99c296b008cc", "IPY_MODEL_c097924f70fa4624a430471127715b61"], "column_headers": ["Batch nr. ", "Initial Conc. (mg/L) ", "Equi. Conc. (mg/L)", "Sorbed mass (g)", "Sorbed mass/solid (mg/g)"], "column_resizing": true, "column_width": null, "columns": 5, "layout": "IPY_MODEL_688fe05fc0a2443584fc66367f1a3d5f", "named_cells": {}, "row_headers": false, "row_resizing": true, "rows": 6, "search_token": "", "stretch_headers": "all"}}, "c097924f70fa4624a430471127715b61": {"model_module": "ipysheet", "model_module_version": "~0.4.4", "model_name": "CellRangeModel", "state": {"_model_module": "ipysheet", "_model_module_version": "~0.4.4", "_model_name": "CellRangeModel", "_view_count": null, "_view_module": null, "_view_module_version": "", "_view_name": null, "choice": null, "column_end": 2, "column_start": 2, "date_format": "YYYY/MM/DD", "name": null, "numeric_format": "0.000", "read_only": false, "renderer": null, "row_end": 4, "row_start": 0, "squeeze_column": true, "squeeze_row": false, "style": {}, "time_format": "h:mm:ss a", "transpose": false, "type": "numeric", "value": [2.5, 4.9, 8.0, 9.8, 13.2]}}, "e3f7cb72abbb4caca02a4240b6c34b48": {"model_module": "ipysheet", "model_module_version": "~0.4.4", "model_name": "CellRangeModel", "state": {"_model_module": "ipysheet", "_model_module_version": "~0.4.4", "_model_name": "CellRangeModel", "_view_count": null, "_view_module": null, "_view_module_version": "", "_view_name": null, "choice": null, "column_end": 0, "column_start": 0, "date_format": "YYYY/MM/DD", "name": null, "numeric_format": "0.000", "read_only": false, "renderer": null, "row_end": 4, "row_start": 0, "squeeze_column": true, "squeeze_row": false, "style": {}, "time_format": "h:mm:ss a", "transpose": false, "type": "numeric", "value": [1, 2, 3, 4, 5]}}}, "version_major": 2, "version_minor": 0}
 </script>
 
 
@@ -2442,7 +2457,7 @@ R = 1+ \frac{1-n_e}{n_e}\rho_s K_d
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../tools/sieve_analysis.html" title="previous page">Simulating Seive Analysis</a>
+    <a class='left-prev' id="prev-link" href="../tools/effective_K.html" title="previous page">Simulating Effective hydraulic conductivity</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
