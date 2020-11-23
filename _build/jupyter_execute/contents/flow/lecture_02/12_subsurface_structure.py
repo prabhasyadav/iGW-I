@@ -74,10 +74,21 @@ print(" Total porosity is: {0:0.2f}%".format(n) )
 # These schematics provides a practical range of porosity in the subsurface. The general range is between 25% to about 50%. In more extreme cases porosity higher than 60% is possible, e.g., cobbles, gravel. The other extreme, subsurface with no porosity (0%) is also encountered in the subsurface, e.g., in consolidated rocks. 
 # 
 
-# ### Total porosity of natural unconsolidated porous media: ###
+# ### Total porosity of natural (unconsolidated) porous media: ###
 # 
-# In the subsurface (natural unconsolidated porous media) there are grains of different size and total porosity depends on the grain size distribution.
+# Natural unconsolidated porous media consist of grains of different size. Total porosity depends on the grain size distribution.
 # 
+# <br>
+# 
+# <img src="images/L02_fig5b.png" alt="Total porosity unconsolidated media" class="bg-primary" width="600px">
+# 
+# <br>
+# 
+# In general, well sorted unconsolidated porous media exhibit larger total poerosities than poorly sorted unconsolidated porous media. In the figure above on the left in which grain diameters cover a small range, i.e., **well-sorted**, the porosity can be approximated in the range 32%. Similary, in the (above) figure on the right in which the grain diameters cover a large range, i.e., **poorly sorted**, the porosity can be approximated in the range 17%. 
+
+# ### Typical porosity values: ###
+# 
+# Table below provide the total porosity of unconsolidated and consolidated media.
 # 
 # ```{tabbed} Porosity - Unconolidated media
 # 
@@ -247,7 +258,7 @@ print("The degree of saturation of the sample is: {0:.0%}".format(S))
 # 
 # <img src="images/L02_fig14.png" alt="capillary action in the subsurface" class="bg-primary" width="600px">
 # 
-# Left sketch shows the capillary rise in a perfectly sorted material which all the pores have the same size. So capillary rise is similar in every single pores. The right sketch, shows a real situation of subsurface. There are different grain size and then different pore channels, which results in various capillary rise.
+# Left sketch shows the capillary rise in a perfectly sorted material which all the pores have the same size. So capillary rise is similar in every single pores. The right sketch, shows a real situation of subsurface. There are different grain size and then different pore channels, which **results** in various capillary rise.
 # 
 
 # #### Example Problem ####
