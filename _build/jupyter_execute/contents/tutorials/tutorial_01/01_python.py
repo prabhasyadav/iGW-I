@@ -3,6 +3,8 @@
 
 # ## Tutorial 1 - Python Programming language ##
 # 
+# _(The contents presented in this section were developed by Dr. P. K. Yadav.)_
+# 
 # ### What is it?
 # 
 # Python is an open-source interpreted, high-level, general-purpose programming language. This means:

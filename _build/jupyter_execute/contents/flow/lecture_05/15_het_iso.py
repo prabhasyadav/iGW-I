@@ -1,10 +1,12 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lecture 5. Aquifer Heterogeneity and Anisotropy 
+# ## Lecture 5. Aquifer Heterogeneity and Anisotropy ##
+# 
+# _(The contents presented in this section were re-developed principally by [Prof. B. R. Chahar](http://web.iitd.ac.in/~chahar/) and Dr. P. K. Yadav. The original contents are from Prof. Rudolf Liedl)_
 # 
 # 
-# ## Motivation
+# ### Motivation
 # 
 # The last lecture introduces aquifer properties such hydraulic conductivity, storativity, porosity. The key assumption in that lecture was that the aquifer is an 1D unit, e.g., the Darcy column, and that its properties do not vary in space. In contrast to these, an aquifer is more accurately represented by a 3D system and its properties vary both in space and directions. In fact variations of hydraulic conductivity ($K$), a most critical aquifer quantity, are dominant in most cases. Variations of $K$ can be observed at very small spatial scales and directions. Thus, aquifer properties that depends on $K$ also varies. Consequently, aquifer properties such as $K$ takes a tensor form- a quantity whose magnitude is space and direction dependent. 
 # 
@@ -19,7 +21,7 @@
 # Aquifer Heterogeneity
 # ```
 
-# ## Heterogeneity 
+# ### Heterogeneity 
 # 
 # A solid or a porous medium is **homogeneous** if its property do not vary in space. In contrast, the porous medium is **heterogeneous**, or also sometime termed inhomogeneous, if at least one of its properties varies in space. In groundwater studies, heterogeneity or homogeneity is generally associated with hydraulic conductivity $(K)$ of the aquifer. In many practical applications, properties such as strativity and porosity are treated as spatially constant or homogeneous. This is usually done for two reasons:
 # 
@@ -50,7 +52,7 @@
 # 
 # Heterogeneity play a significant role in controlling the flow of groundwater, but its quantification is more relevant to the transport of chemicals in groundwater. 
 
-# ## Effective Hydraulic Conductivity
+# ### Effective Hydraulic Conductivity
 # 
 # It is possible to represent the spatial distribution of
 # hydraulic conductivity in a heterogeneous aquifer by an _average_
@@ -307,7 +309,7 @@ print("thickness of layer 1 = {}".format(m1), "m\nthickness of layer 2 = {}".for
 print("\n\033[1mSolution:\033[0m\nThe resulting hydraulic conductivity of the layer system is \033[1m{:02.1e} m/s\033[0m.".format(K))
 
 
-# ## Summary: Effective Conductivity of Layered Aquifers
+# ### Summary: Effective Conductivity of Layered Aquifers ###
 # 
 # - **For flow parallel to layering:** <br>
 # Effective hydraulic conductivity equals the _weighted arithmetic mean_ of layer conductivities.

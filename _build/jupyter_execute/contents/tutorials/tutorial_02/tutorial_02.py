@@ -10,9 +10,11 @@ import panel as pn
 pn.extension("katex", "mathjax")  
 
 
-# # Tutorial 2 - Aquifer and Storage Properties #
+# ## Tutorial 2 - Aquifer and Storage Properties ##
+# 
+# _(The contents presented in this section were re-developed principally by Dr. P. K. Yadav. The original contents are from Prof. Rudolf Liedl)_
 
-# ## Tutorial Problem 1 ##
+# ### Tutorial Problem 1 ###
 
 # In[21]:
 
@@ -76,7 +78,7 @@ print("Increase in total volume: {0:1.1E}".format(DV),"m\u00b3")
 print("Additional water volume: {0:1.1E}".format(AW),"m\u00b3") 
 
 
-# ## Tutorial Problem 2 ##
+# ### Tutorial Problem 2 ###
 
 # In[24]:
 
@@ -115,7 +117,7 @@ tabs = pn.Tabs(('Sample', img_1), ("Solution 1", img_2), ("Solution 2", img_3), 
 tabs
 
 
-# ## Tutotorial Problem 3
+# ### Tutotorial Problem 3 ###
 
 # In[26]:
 
@@ -171,7 +173,7 @@ print("The Total Volume is {0:1.2E}".format(Vt),"m\u00b3")
 print("The Additional Water is {0:1.2f}".format(DV_w),"m\u00b3")   
 
 
-# ## Tutorial Problem 4:  ##
+# ### Tutorial Problem 4:  ###
 
 # In[28]:
 
@@ -237,7 +239,7 @@ print(df3, "\n")
 print("The total change in the volume of water is: {0:0.3f} Km\u00b3".format(sum(Vol_cha/1e9)))
 
 
-# ## Tutorial Problem 5:  ##
+# ### Tutorial Problem 5:  ###
 # 
 # A confined aquifer is considered in this problem. Specific storage and total porosity equal $7.5\times 10^{-6}$ 1/m and 30%, respectively. 
 # What is the compressibility of the porous medium? (compressibility of water: $4.6\times 10^{-10}$ m$^2$/N, density of water: 998 kg/m$^3$)
@@ -275,7 +277,7 @@ alpha_pm5 = S_s/(rho_w*g) - n*alpha_w
 print("The Compressibility of Porous mdeid is {0:0.2E}".format(alpha_pm5), "m\u00b2/N")
 
 
-# ## Tutorial Problem 6:  ##
+# ### Tutorial Problem 6:  ###
 # 
 # Due to water extraction from a confined aquifer the pressure head is
 # lowered by 183 m. The following aquifer parameters are available: storage
@@ -324,7 +326,7 @@ print("The land subsidence is {0:0.2f}".format(LS), "m")
 
 # ## HOME WORK PROBLEMS ##
 # 
-# ## Homework Problem 1 ##
+# ### Homework Problem 1 ###
 # 
 # The pressure head in an aquifer extending over 200 km$^2$ is decreased by 1.60 m.
 # Determine the loss of groundwater in the aquifer for two scenarios:
@@ -332,7 +334,7 @@ print("The land subsidence is {0:0.2f}".format(LS), "m")
 #   The aquifer is confined (storage coefficient 0.0005).
 
 # 
-# ## Homework Problem 2 ##
+# ### Homework Problem 2 ###
 # 
 # Conduct a sieve analysis for a dried soil sample (see data in the table below)
 # 

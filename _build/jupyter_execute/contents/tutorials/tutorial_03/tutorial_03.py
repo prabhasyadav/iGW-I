@@ -11,7 +11,9 @@ import panel as pn
 pn.extension("katex") 
 
 
-# # Tutorial 3 - Darcy Law and Conductivity #
+# ## Tutorial 3 - Darcy Law and Conductivity ##
+# 
+# _(The contents presented in this section were re-developed principally by Dr. P. K. Yadav. The original contents are from Prof. Rudolf Liedl)_
 # 
 # + **tutorial problems on Darcy's law and intrinsic permeability**
 # 
@@ -436,7 +438,7 @@ else:
     print("to check further") # to be completed later.
 
 
-# ### HOME WORK PROBLEMS ###
+# ## HOME WORK PROBLEMS ##
 # 
 # 
 # **Darcy's Law and Intrinsic Permeability**

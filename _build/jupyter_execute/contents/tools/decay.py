@@ -3,6 +3,8 @@
 
 # ## Simulating Mass Budget ##
 # 
+# _(The contents presented in this section were re-developed principally by Dr. P. K. Yadav. The original tool, Spreadsheet based, was developed by Prof. Rudolf Liedl)_
+# 
 # #### How to use the tool? ####
 # 
 # 1. Go to the Binder by clicking the rocket button (top-right of the page)

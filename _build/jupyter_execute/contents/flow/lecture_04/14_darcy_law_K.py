@@ -9,9 +9,11 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 
-# # Lecture 4 - Darcy's Law and Conductivity
+# ## Lecture 4 - Darcy's Law and Conductivity ##
+# 
+# _(The contents presented in this section were re-developed principally by [Prof. B. R. Chahar](http://web.iitd.ac.in/~chahar/) and Dr. P. K. Yadav. The original contents are from Prof. Rudolf Liedl)_
 
-# ## Energy and hydraulic head  ## 
+# ### Energy and hydraulic head  ###
 # 
 # In the last section we learned that _hydrostatic pressure difference_ $p(z)$ will not allow the fully quantify water flow. In fact in addition to $p(z)$ other form of energy must also be considered. 
 # 

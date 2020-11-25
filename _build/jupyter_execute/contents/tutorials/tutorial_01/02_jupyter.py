@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# ## Tutorial 1 - JUPYTER Notebook Interface for Python
+# ## Tutorial 1 - JUPYTER Notebook Interface for Python ##
+# 
+# _(The contents presented in this section were developed by Dr. P. K. Yadav.)_
 # 
 # As we mentioned earlier, this interactive book/course can be used without any programming experience. Code based calculations that is part of this book can be mostly executed in the book itself. The codes provided in the book, still with only limited skill programming skill, can be adopted for more illustrative use. This can be done in two ways. First approach, and a quick one, will be to use the web-based tool called [Binder Project](https://mybinder.org/). The second approach will be to use the codes in the off-line systems. Common to both approach is very useful computing interface called **JUPYTER**. 
 # 

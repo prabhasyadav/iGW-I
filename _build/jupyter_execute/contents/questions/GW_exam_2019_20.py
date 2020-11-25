@@ -16,6 +16,8 @@ pn.extension('katex')
 
 
 # ## Groundwater Exam Solution -  2019-2020 ##
+# 
+# _(The contents presented in this section were re-developed principally by Dr. P. K. Yadav with supervision from Prof. Rudolf Liedl)_
 
 # **Q1. Aquifer Types**   (ca. 5 pts.)
 # 

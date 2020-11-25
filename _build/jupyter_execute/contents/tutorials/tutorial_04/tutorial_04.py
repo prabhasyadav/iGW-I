@@ -11,7 +11,9 @@ import panel as pn
 pn.extension('katex') 
 
 
-# # Tutorial 4 - Effective K & Recitation #
+# ## Tutorial 4 - Effective K & Recitation ##
+# 
+# _(The contents presented in this section were re-developed principally by Dr. P. K. Yadav. The original contents are from Prof. Rudolf Liedl)_
 # 
 # + **solutions for homework problems 1 – 4**
 # 
@@ -25,9 +27,9 @@ pn.extension('katex')
 # 
 # 
 # 
-# ## Solutions for Homework Problems 1 – 2 ##
+# ### Solutions for Homework Problems 1 – 2 ###
 # 
-# ## Homework Problems 1 ##
+# ### Homework Problems 1 ###
 # 
 # 
 
@@ -87,7 +89,7 @@ print("Change in water volume in unconfined aquifer is: {0:1.1e}".format(DV_wu),
 print("Change in water volume in confined aquifer is: {0:1.1e}".format(DV_wc),"m\u00b3")
 
 
-# ## Homework Problem 2 ##
+# ### Homework Problem 2 ###
 # 
 # Conduct a sieve analysis for a dried soil sample (see data in the table below)
 # 
@@ -183,7 +185,7 @@ r2_1 = pn.pane.Markdown("""
 pn.Row(r2_1) 
 
 
-# ## Tutorial Problems on effective conductivity ## 
+# ### Tutorial Problems on effective conductivity ### 
 # 
 
 # ### Tutorial problem 11 ###
@@ -308,12 +310,12 @@ print("Effective inclined hydraulic conductivity (Keff_i) = {0:1.2E}".format(Kef
 
 
 r8_1= pn.pane.Markdown("""
-#Homework Problems on  Effective Conductivity <br><br><br> 
+## Homework Problems on  Effective Conductivity ## <br><br><br> 
 """, width = 800, style={'font-size': '12pt'})
 
 
 r8_2= pn.pane.Markdown("""
-#There is no obligation to solve homework problems!
+#### There is no obligation to solve homework problems! ####
 """, width = 800, style={'font-size': '12pt', 'color':'red'})
 
 pn.Column(r8_1,r8_2)  
@@ -324,7 +326,7 @@ pn.Column(r8_1,r8_2)
 
 #
 r9_1= pn.pane.Markdown("""
-## Homework Problem 5: Effective Hydraulic Conductivity ##
+### Homework Problem 5: Effective Hydraulic Conductivity ###
 A gravel layer with a thickness of 2.5 m is embedded between two sand layers. Both sand layers have a thickness of 
 1.5 m and a hydraulic conductivity of 3.7·10<sup>-4</sup> m/s. Steady-state groundwater flow is perpendicular to the layering. 
 An overall head difference of 5.5 cm and a discharge of 500 l/d per unit area have been determined <br><br>
