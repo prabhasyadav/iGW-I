@@ -1,7 +1,7 @@
 # iGW-I #
 
 **iGW-I** is an **i**nteractive **G**round**W**ater Book and **I** stands from the level I- i.e., the starting level for a full groundwater course.
-The book is based on the wonderful work of the folks from [JUPYTER-BOOK ](https://jupyterbook.org/intro.html). Many thanks to them.
+> **The development of the book is based on the **wonderful** works of the [JUPYTER Book Team](https://jupyterbook.org/intro.html)**
 
 
 ## The book/site in nutshell ##
@@ -24,10 +24,6 @@ The _tutorial_ are mostly **numerical** examples. This aims at teaching also the
 All codes and contents provided in this interactive book are licensed under [Creative Commons BY 4.0](https://creativecommons.org/licenses/by/4.0/). 
 Basically the license says- you can use everything on the site the way you want by onyl acknowledging the original work. 
 Codes are available at this [GitHUB repository](https://github.com/prabhasyadav/iGW-I)
-
-
-> **The development of the book is based on the **wonderful** works of the [JUPYTER Book Team](https://jupyterbook.org/intro.html)**
-
 
 ### Main contributors of this version of the book
 
