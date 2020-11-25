@@ -306,36 +306,23 @@ print("Effective vertical hydraulic conductivity (Keff_v) = {0:1.2E}".format(Kef
 print("Effective inclined hydraulic conductivity (Keff_i) = {0:1.2E}".format(Keff_i), "m/s\n" ) 
 
 
-# In[12]:
+# ### Homework Problem on Effective Conductivity ###
+# 
+# (**There is no obligation to solve homework problems**)
+# 
+# 
+# ### Homework Problem 5: ###
+# A gravel layer with a thickness of 2.5 m is embedded between two sand layers. Both sand layers have a thickness of 
+# 1.5 m and a hydraulic conductivity of 3.7·10<sup>-4</sup> m/s. Steady-state groundwater flow is perpendicular to the layering. 
+# An overall head difference of 5.5 cm and a discharge of 500 l/d per unit area have been determined <br><br>
+# 
+# **a.** Determine the effective hydraulic conductivity.<br><br>
+# **b.** What is the hydraulic conductivity of the gravel layer?<br><br>
+# **c.** Which effective hydraulic conductivity would be obtained if flow was assumed to be in parallel with the layering?<br><br>
+# **d.** Calculate effective hydraulic conductivity if the angle between the flow direction and the layering equals 30°. <br>
+
+# In[ ]:
 
 
-r8_1= pn.pane.Markdown("""
-## Homework Problems on  Effective Conductivity ## <br><br><br> 
-""", width = 800, style={'font-size': '12pt'})
 
-
-r8_2= pn.pane.Markdown("""
-#### There is no obligation to solve homework problems! ####
-""", width = 800, style={'font-size': '12pt', 'color':'red'})
-
-pn.Column(r8_1,r8_2)  
-
-
-# In[13]:
-
-
-#
-r9_1= pn.pane.Markdown("""
-### Homework Problem 5: Effective Hydraulic Conductivity ###
-A gravel layer with a thickness of 2.5 m is embedded between two sand layers. Both sand layers have a thickness of 
-1.5 m and a hydraulic conductivity of 3.7·10<sup>-4</sup> m/s. Steady-state groundwater flow is perpendicular to the layering. 
-An overall head difference of 5.5 cm and a discharge of 500 l/d per unit area have been determined <br><br>
-
-**a.** Determine the effective hydraulic conductivity.<br><br>
-**b.** What is the hydraulic conductivity of the gravel layer?<br><br>
-**c.** Which effective hydraulic conductivity would be obtained if flow was assumed to be in parallel with the layering?<br><br>
-**d.** Calculate effective hydraulic conductivity if the angle between the flow direction and the layering equals 30°. <br>
-
-""", width = 900, style={'font-size': '12pt'})
-r9_1
 
