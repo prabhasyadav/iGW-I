@@ -212,7 +212,7 @@ $$
 Q = WmK\frac{\Delta H}{L}
 $$
 $$
-K = \frac{Q/W}{m\cdot \Delta H \cdot L}
+K = \frac{Q/W}{m\cdot \Delta H/L}
 $$
 Weighted arithmetic mean to determine hydraulic conductivity for sand:
 
@@ -246,7 +246,7 @@ Keff_h = (Q/W)/(m*Dh_L) # m/d, conductivity
 Keff_hs = Keff_h/(24*3600)# m/s, conductivity unit changed
 
 #Solution of 11b
-# K_eff = (2*m_g*K_g + m_s*K_g)/m
+# K_eff = (2*m_g*K_g + m_s*K_s)/m
 
 K_s = ((m*Keff_hs - 2*m_g*K_g))/m_s  
 
@@ -338,10 +338,4 @@ An overall head difference of 5.5 cm and a discharge of 500 l/d per unit area ha
 
 """, width = 900, style={'font-size': '12pt'})
 r9_1
-
-
-# In[ ]:
-
-
-
 
