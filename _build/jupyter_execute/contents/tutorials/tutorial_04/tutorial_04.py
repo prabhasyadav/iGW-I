@@ -11,7 +11,7 @@ import panel as pn
 pn.extension('katex') 
 
 
-# ## Tutorial 4 - Effective K & Recitation ##
+# # Tutorial 4 - Effective K & Recitation #
 # 
 # _(The contents presented in this section were re-developed principally by Dr. P. K. Yadav. The original contents are from Prof. Rudolf Liedl)_
 # 
@@ -27,7 +27,7 @@ pn.extension('katex')
 # 
 # 
 # 
-# ### Solutions for Homework Problems 1 – 2 ###
+# ## Solutions for Homework Problems 1 – 2 ##
 # 
 # ### Homework Problems 1 ###
 # 
@@ -205,7 +205,7 @@ pn.Row(r2_1)
 
 
 # Solution of Problem 11
-r5_3 = pn.pane.PNG("images/T03_TP11_a.png", width=400)
+r5_3 = pn.pane.PNG("images/T04_TP11_a.png", width=400)
 r5_4 = pn.pane.LaTeX(r"""
 Known relationships are (see Lecture 05, Slides 8-13, 22):
 $$
@@ -261,8 +261,8 @@ print("Hydraulic conductivity of sand layer (K_s) = {0:1.1E}".format(K_s), "m/s\
 
 #Given Solution of 11 c, d
 
-r5_5 = pn.pane.PNG("images/T03_TP11_b.png", width=200) 
-r5_6 = pn.pane.PNG("images/T03_TP11_c.png", width=200) 
+r5_5 = pn.pane.PNG("images/T04_TP11_b.png", width=200) 
+r5_6 = pn.pane.PNG("images/T04_TP11_c.png", width=200) 
 
 r5_7 = pn.Column(r5_5, r5_6) 
 
@@ -306,7 +306,7 @@ print("Effective vertical hydraulic conductivity (Keff_v) = {0:1.2E}".format(Kef
 print("Effective inclined hydraulic conductivity (Keff_i) = {0:1.2E}".format(Keff_i), "m/s\n" ) 
 
 
-# ### Homework Problem on Effective Conductivity ###
+# ## Homework Problem  ##
 # 
 # (**There is no obligation to solve homework problems**)
 # 

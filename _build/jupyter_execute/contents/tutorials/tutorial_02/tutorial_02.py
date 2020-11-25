@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[20]:
+# In[1]:
 
 
 import numpy as np
@@ -10,13 +10,13 @@ import panel as pn
 pn.extension("katex", "mathjax")  
 
 
-# ## Tutorial 2 - Aquifer and Storage Properties ##
+# # Tutorial 2 - Aquifer and Storage Properties #
 # 
 # _(The contents presented in this section were re-developed principally by Dr. P. K. Yadav. The original contents are from Prof. Rudolf Liedl)_
 
 # ### Tutorial Problem 1 ###
 
-# In[21]:
+# In[2]:
 
 
 #
@@ -29,12 +29,12 @@ rise by 3 m during a wet period?
 
 spacer = pn.Spacer(width=50) 
 
-r1_2 = pn.pane.PNG("images/T01_TP1.png", width=500)
+r1_2 = pn.pane.PNG("images/T02_TP1.png", width=500)
 
 pn.Row(r1_1,spacer, r1_2)
 
 
-# In[22]:
+# In[3]:
 
 
 #
@@ -52,7 +52,7 @@ The basic configuration of an unconfined aquifer:
 
 spacer = pn.Spacer(width=50) 
 
-r1_4 = pn.pane.PNG("images/T01_TP1_2.png", width=600)
+r1_4 = pn.pane.PNG("images/T02_TP1_2.png", width=600)
 
 pn.Row(r1_3,spacer, r1_4)  
 
@@ -60,7 +60,7 @@ pn.Row(r1_3,spacer, r1_4)
 #<img src="images/T01_TP1_2.PNG" alt="Grosser Garten Map"  width="100%" height="100%" > 
 
 
-# In[23]:
+# In[4]:
 
 
 # The given information of the problem are
@@ -80,7 +80,7 @@ print("Additional water volume: {0:1.1E}".format(AW),"m\u00b3")
 
 # ### Tutorial Problem 2 ###
 
-# In[24]:
+# In[5]:
 
 
 #
@@ -89,7 +89,7 @@ The lithological information derived from three boreholes is given in the figure
 Try to correlate the layers to obtain a 2D cross section of the subsurface structure.
 """, style={'font-size': '12pt'})
 
-r2_2 = pn.pane.PNG("images/T01_TP2_1.png", width=400)
+r2_2 = pn.pane.PNG("images/T02_TP2_1.png", width=400)
 
 r2_3 = pn.pane.Markdown("""
 ### Tutorial Problem 2 – Solution ###
@@ -103,15 +103,15 @@ R1 = pn.Row(r2_1, r2_2)
 pn.Column(R1, r2_3)
 
 
-# In[25]:
+# In[6]:
 
 
 # SOlution 2
 
-img_1 = pn.pane.PNG("images/T01_TP2_1.png", width=500)
-img_2 = pn.pane.PNG("images/T01_TP2_2.png", width=300)
-img_3 = pn.pane.PNG("images/T01_TP2_3.png", width=300)
-img_4 = pn.pane.PNG("images/T01_TP2_4.png", width=300)
+img_1 = pn.pane.PNG("images/T02_TP2_1.png", width=500)
+img_2 = pn.pane.PNG("images/T02_TP2_2.png", width=300)
+img_3 = pn.pane.PNG("images/T02_TP2_3.png", width=300)
+img_4 = pn.pane.PNG("images/T02_TP2_4.png", width=300)
 
 tabs = pn.Tabs(('Sample', img_1), ("Solution 1", img_2), ("Solution 2", img_3), ("Solution 3", img_4))
 tabs
@@ -119,7 +119,7 @@ tabs
 
 # ### Tutotorial Problem 3 ###
 
-# In[26]:
+# In[7]:
 
 
 r3_1 = pn.pane.Markdown("""
@@ -139,7 +139,7 @@ Basic configuration of a confined aquifer:
 <br><br>
 """, style={'font-size': '12pt'})
 
-r3_3 = pn.pane.PNG("images/T01_TP3.png", width=600)
+r3_3 = pn.pane.PNG("images/T02_TP3.png", width=600)
 
 r3_4= pn.pane.LaTeX(r"""
 specific storage: <br> $S_s = \frac{\Delta V_w}{V_T \cdot \Delta \psi } $ <br>
@@ -153,7 +153,7 @@ r3_5 = pn.Row(r3_3, r3_4)
 pn.Column(r3_1, r3_2, r3_5)   
 
 
-# In[27]:
+# In[8]:
 
 
 # Given data
@@ -175,7 +175,7 @@ print("The Additional Water is {0:1.2f}".format(DV_w),"m\u00b3")
 
 # ### Tutorial Problem 4:  ###
 
-# In[28]:
+# In[9]:
 
 
 # Tut Problem 4
@@ -186,7 +186,7 @@ in water volume if the following drawdowns are observed in four sub-areas in a d
 rx_1
 
 
-# In[29]:
+# In[10]:
 
 
 #
@@ -219,7 +219,7 @@ df1.set_index('Sub-Area')
 # $A$ = Domain area [L$^2$]<br>
 # $\Delta \psi$ = change in pressure head [L]
 
-# In[30]:
+# In[11]:
 
 
 # Given information
@@ -260,7 +260,7 @@ print("The total change in the volume of water is: {0:0.3f} Km\u00b3".format(sum
 # 
 # Solve for $\alpha_{pm}$: $\frac{S_s}{\rho_w g} -n\alpha_w = \alpha_{pm}$
 
-# In[31]:
+# In[12]:
 
 
 # Given data
@@ -308,7 +308,7 @@ print("The Compressibility of Porous mdeid is {0:0.2E}".format(alpha_pm5), "m\u0
 # $$ \Delta m = \alpha_{pm} m\rho_w g \Delta \psi $$ 
 # <br>
 
-# In[32]:
+# In[13]:
 
 
 # Given data
@@ -341,7 +341,7 @@ print("The land subsidence is {0:0.2f}".format(LS), "m")
 # 1. Draw the granulometric curve (cumulative mass distribution) and briefly characterise the sediment with regard to its major constituent(s).
 # 2. What is the coefficient of uniformity?
 
-# In[34]:
+# In[14]:
 
 
 #

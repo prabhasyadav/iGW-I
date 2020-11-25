@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# ## Lecture 5. Aquifer Heterogeneity and Anisotropy ##
+# # Lecture 5. Aquifer Heterogeneity and Anisotropy #
 # 
 # _(The contents presented in this section were re-developed principally by [Prof. B. R. Chahar](http://web.iitd.ac.in/~chahar/) and Dr. P. K. Yadav. The original contents are from Prof. Rudolf Liedl)_
 # 
@@ -21,7 +21,7 @@
 # Aquifer Heterogeneity
 # ```
 
-# ### Heterogeneity 
+# ## Heterogeneity 
 # 
 # A solid or a porous medium is **homogeneous** if its property do not vary in space. In contrast, the porous medium is **heterogeneous**, or also sometime termed inhomogeneous, if at least one of its properties varies in space. In groundwater studies, heterogeneity or homogeneity is generally associated with hydraulic conductivity $(K)$ of the aquifer. In many practical applications, properties such as strativity and porosity are treated as spatially constant or homogeneous. This is usually done for two reasons:
 # 

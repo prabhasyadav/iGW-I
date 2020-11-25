@@ -9,11 +9,11 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 
-# ## Lecture 4 - Darcy's Law and Conductivity ##
+# # Lecture 4 - Darcy's Law and Conductivity #
 # 
 # _(The contents presented in this section were re-developed principally by [Prof. B. R. Chahar](http://web.iitd.ac.in/~chahar/) and Dr. P. K. Yadav. The original contents are from Prof. Rudolf Liedl)_
 
-# ### Energy and hydraulic head  ###
+# ## Energy and hydraulic head  ##
 # 
 # In the last section we learned that _hydrostatic pressure difference_ $p(z)$ will not allow the fully quantify water flow. In fact in addition to $p(z)$ other form of energy must also be considered. 
 # 
@@ -54,7 +54,7 @@ import pandas as pd
 # $$
 # 
 
-# ## Hydraulic head and discharge - when there is no discharge ##
+# ### Hydraulic head and discharge - when there is no discharge ###
 # 
 # Consider the figure below:
 # 
@@ -66,7 +66,7 @@ import pandas as pd
 # 
 # In the figure above the hydraulic head difference between two points ($z=0$ and $z=L$) are exactly equal, i.e., $\Delta h = 0$. This refers to the system with no energy gradient and hence a _no flow_ system. 
 
-# ## Hydraulic head and discharge - when there will be a discharge ##
+# ### Hydraulic head and discharge - when there will be a discharge ###
 # 
 # Now consider the figure below
 # 

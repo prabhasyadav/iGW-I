@@ -11,7 +11,7 @@ import panel as pn
 pn.extension("katex") 
 
 
-# ## Tutorial 3 - Darcy Law and Conductivity ##
+# # Tutorial 3 - Darcy Law and Conductivity #
 # 
 # _(The contents presented in this section were re-developed principally by Dr. P. K. Yadav. The original contents are from Prof. Rudolf Liedl)_
 # 
@@ -36,14 +36,14 @@ pn.extension("katex")
 # **The relevant topic is covered in Lecture 04, slide 8**
 # 
 
-# In[8]:
+# In[2]:
 
 
-png_pane = pn.pane.PNG("images/T02_TP7_a1.png", width=600)
+png_pane = pn.pane.PNG("images/T03_TP7_a1.png", width=600)
 png_pane
 
 
-# In[9]:
+# In[3]:
 
 
 # Image (a)
@@ -59,17 +59,17 @@ H_ga = DH_a/L#, no unit, hydraulic gradient
 
 print("Hydraulic head LEFT: {0:1.1f}".format(Ha_hl),"m"); print("Hydraulic head RIGHT:: {0:1.1f}".format(Ha_hr),"m") 
 print("Hydraulic Head Difference: {0:1.1f}".format(DH_a),"m");print("Hydraulic gradient: {0:1.1f}".format(H_ga)) 
-png_pane.object = "images/T02_TP7_a2.png" 
+png_pane.object = "images/T03_TP7_a2.png" 
 
 
-# In[10]:
+# In[4]:
 
 
-png_pane2 = pn.pane.PNG("images/T02_TP7_b1.png", width=500)
+png_pane2 = pn.pane.PNG("images/T03_TP7_b1.png", width=500)
 png_pane2 
 
 
-# In[11]:
+# In[5]:
 
 
 # Image (b)
@@ -84,17 +84,17 @@ DH_b = Hb_hr - Hb_hl
 H_gb = DH_b/L#, no unit, hydraulic gradient 
 print("Hydraulic head LEFT: {0:1.1f}".format(Hb_hl),"m");print("Hydraulic head RIGHT:: {0:1.1f}".format(Hb_hr),"m") 
 print("Hydraulic Head Difference: {0:1.1f}".format(DH_b),"m");print("Hydraulic gradient: {0:1.1f}".format(H_gb)) 
-png_pane2.object = "images/T02_TP7_b2.png" 
+png_pane2.object = "images/T03_TP7_b2.png" 
 
 
-# In[12]:
+# In[6]:
 
 
-png_pane3 = pn.pane.PNG("images/T02_TP7_c1.png", width=400)
+png_pane3 = pn.pane.PNG("images/T03_TP7_c1.png", width=400)
 png_pane3 
 
 
-# In[13]:
+# In[7]:
 
 
 # Image (c)
@@ -109,17 +109,17 @@ DH_c = Hc_hr - Hc_hl
 H_gc = DH_c/L#, no unit, hydraulic gradient 
 print("Hydraulic head LEFT: {0:1.1f}".format(Hc_hl),"m");print("Hydraulic head RIGHT:: {0:1.1f}".format(Hc_hr),"m") 
 print("Hydraulic Head Difference: {0:1.1f}".format(DH_c),"m");print("Hydraulic gradient: {0:1.1f}".format(H_gc)) 
-png_pane3.object = "images/T02_TP7_c2.png" 
+png_pane3.object = "images/T03_TP7_c2.png" 
 
 
-# In[14]:
+# In[8]:
 
 
-png_pane4 = pn.pane.PNG("images/T02_TP7_d1.png", width=400)
+png_pane4 = pn.pane.PNG("images/T03_TP7_d1.png", width=400)
 png_pane4 
 
 
-# In[15]:
+# In[9]:
 
 
 # Image (d)
@@ -135,7 +135,7 @@ H_gd = DH_d/L#, no unit, hydraulic gradient
 #output
 print("Hydraulic head LEFT: {0:1.1f}".format(Hd_hl),"m");print("Hydraulic head Right:: {0:1.1f}".format(Hd_hr),"m") 
 print("Hydraulic Head Difference: {0:1.1f}".format(DH_d),"m");print("Hydraulic gradient: {0:1.1f}".format(H_gd)) 
-png_pane4.object = "images/T02_TP7_d2.png" 
+png_pane4.object = "images/T03_TP7_d2.png" 
 
 
 # ### Tutorial Problem 8  ###
@@ -158,7 +158,7 @@ png_pane4.object = "images/T02_TP7_d2.png"
 # k = \frac{\eta_{water}\cdot K_{water}}{\rho_{water}\cdot g}{}
 # $$
 
-# In[16]:
+# In[10]:
 
 
 #Given
@@ -179,7 +179,7 @@ print("The permeability in Darcy unite is: {0:1.2f}".format(k_D),"D")
 
 # ### Tutorial Problem 9: Constant-Head Permeameter ###
 
-# In[17]:
+# In[11]:
 
 
 ## Tutorial Problem 9: Constant-Head Permeameter
@@ -202,12 +202,12 @@ dynamic viscosity of water at 20$^\circ$C: 998.2 kg/m$^3$ and 1.0087$\cdot 10^{-
 """, width=450, style={'font-size': '12pt'}) 
 spacer = pn.Spacer(width=100)
 
-r2 =pn.pane.PNG("images/T02_TP9.png", width=400) 
+r2 =pn.pane.PNG("images/T03_TP9.png", width=400) 
 
 pn.Row(r1,spacer, r2) 
 
 
-# In[18]:
+# In[12]:
 
 
 ### Tutorial Problem 9 – Solution ###
@@ -238,12 +238,12 @@ If the reference level $(z = 0)$ is located at the downgradient overflow, then s
 """, width= 500, style={'font-size': '13pt'} ) 
 spacer = pn.Spacer(width=100)
 
-r2 =pn.pane.PNG("images/T02_TP9a.png", width=300) 
+r2 =pn.pane.PNG("images/T03_TP9a.png", width=300) 
 
 pn.Row(r1,spacer, r2, width=1000)    
 
 
-# In[19]:
+# In[13]:
 
 
 #Given (solution on 9b)
@@ -286,7 +286,7 @@ else:
 # Solve for $t_{diesel}$
 #  
 
-# In[20]:
+# In[14]:
 
 
 # Given data
@@ -309,7 +309,7 @@ print("The time required for diesel will be: {0:0.2f}".format(t_d), "min")
 
 # ### Tutorial Problem 10: Falling-Head Permeameter ###
 
-# In[21]:
+# In[15]:
 
 
 # Tutorial Problem 10
@@ -337,12 +337,12 @@ r10_2a = pn.pane.Markdown("""
 
 col1 = pn.Column(r10_1, r10_2, r10_2a)
 
-r10_3 =pn.pane.PNG("images/T02_TP10.png", width=350)
+r10_3 =pn.pane.PNG("images/T03_TP10.png", width=350)
 spacer3 = pn.Spacer(width=50) 
 pn.Row(col1, spacer3, r10_3) 
 
 
-# In[22]:
+# In[16]:
 
 
 # Tutorial Problem 10: Solution
@@ -372,13 +372,13 @@ $$
 $$
 
 """, style={'font-size': '13pt'})
-r10_a2 =pn.pane.PNG("images/T02_TP10.png", width=300)
+r10_a2 =pn.pane.PNG("images/T03_TP10.png", width=300)
 
 
 pn.Row(r10_a1, r10_a2) 
 
 
-# In[23]:
+# In[17]:
 
 
 #
@@ -411,7 +411,7 @@ $$
 r10_a3
 
 
-# In[2]:
+# In[18]:
 
 
 # Solution 9(2)
@@ -438,7 +438,7 @@ else:
     print("to check further") # to be completed later.
 
 
-# ## HOME WORK PROBLEMS ##
+# ### HOME WORK PROBLEMS ###
 # 
 # 
 # **Darcy's Law and Intrinsic Permeability**
@@ -450,15 +450,13 @@ else:
 # 
 # 
 # 
-# 
+# ### Homework Problem 3 ###
 
-# In[28]:
+# In[19]:
 
 
 #
 r_h3a = pn.pane.Markdown("""
-### Homework Problem 3 ###
-
 
 **A**. Derive an expression for hydraulic conductivity *_K_* for the constant-head permeameter shown in the figure.<br><br>
 **B**. The hydraulic conductivity of a sample (length 10 cm, diameter 4 cm) is to be determined. 
@@ -467,7 +465,7 @@ The water depths a<sub>1</sub> and a<sub>2</sub> equal 6 cm and 3 cm, resp. A wa
 """, width = 400, style={'font-size': '12pt'})
 spacer2=pn.Spacer(width=50)
 
-r_h3b = pn.pane.PNG("images/T02_TH3.png", width=500)
+r_h3b = pn.pane.PNG("images/T03_TH3.png", width=500)
 
 pn.Row(r_h3a,spacer2, r_h3b) 
 
@@ -477,7 +475,7 @@ pn.Row(r_h3a,spacer2, r_h3b)
 # 
 # 
 
-# In[26]:
+# In[20]:
 
 
 #
@@ -487,7 +485,7 @@ Length and diameter of the sample are 20 cm and 6 cm, resp. The inner tube diame
 The following data are available for the time-dependent hydraulic head difference : 
 """, style={'font-size': '12pt'})
 
-r_h4b = pn.pane.PNG("images/T02_TH4a.png", width=400)
+r_h4b = pn.pane.PNG("images/T03_TH4a.png", width=400)
 
 r_h4c = pn.pane.Markdown("""
 **A.** Convert times to seconds and plot the logarithm of the ratios of head differences ln(Δh(0)/Δh(t)) vs. time t. 
@@ -498,12 +496,12 @@ r_h4c = pn.pane.Markdown("""
 
 """, style={'font-size': '12pt'})
 r_h4d = pn.Column(r_h4, r_h4b, r_h4c)
-r_h4e = pn.pane.PNG("images/T02_TP10.png", width=400)
+r_h4e = pn.pane.PNG("images/T03_TP10.png", width=400)
 spacer2=pn.Spacer(width=50)
 pn.Row(r_h4d, spacer2, r_h4e) 
 
 
-# In[27]:
+# In[21]:
 
 
 #
