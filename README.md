@@ -1,7 +1,7 @@
 # iGW-I #
 
 **iGW-I** is an **i**nteractive **G**round**W**ater Book and **I** stands from the level I- i.e., the starting level for a full groundwater course.
-> **The development of the book is based on the **wonderful** works of the [JUPYTER Book Team](https://jupyterbook.org/intro.html)**
+> **The development of this book is based on the **wonderful** works of the [JUPYTER Book Team](https://jupyterbook.org/intro.html)**
 
 
 ## The book/site in nutshell ##
