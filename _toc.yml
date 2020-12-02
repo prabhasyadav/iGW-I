@@ -29,6 +29,7 @@
   - file: contents/tools/sieve_analysis
   - file: contents/tools/effective_K
   - file: contents/tools/uniform_flow_and_well
+  - file: contents/tools/aniso2D
 
 - part: Question pool
   chapters:
