@@ -3,7 +3,6 @@
 
 # ## Simulating Effective hydraulic conductivity ## 
 # 
-# _(The contents presented in this section were re-developed principally by MSc. Hanieh Mehrdad and Dr. P. K. Yadav. The original tool, Spreadsheet based, was developed by Prof. Rudolf Liedl)_
 # 
 # #### How to use the tool? ####
 # 
@@ -21,6 +20,7 @@
 # In[1]:
 
 
+#
 import matplotlib.pyplot as plt 
 import numpy as np 
 import pandas as pd

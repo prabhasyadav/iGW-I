@@ -70,8 +70,15 @@ RA = widgets.BoundedFloatText(value=0.2,min=0,max=100,step=0.1,description='R<su
 
 RB = widgets.BoundedFloatText(value=0.2,min=0,max=100,step=0.1,description='R<sub>B</sub> (day<sup>-1 </sup>)',disabled=False)
 
+
 interactive_plot = widgets.interactive(mass_bal, n_simulation = N, MA=A, MB=B, MC=C, R_A=RA, R_B=RB,)
 output = interactive_plot.children[-1]  
 #output.layout.height = '350px'
 interactive_plot
+
+
+# In[ ]:
+
+
+
 

@@ -17,30 +17,52 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# solution of problem 2
+# Solution of Problem 11
+r5_3 = pn.pane.PNG("images/T03_TP11_a.png", width=400)
+r5_4 = pn.pane.LaTeX(r"""
+Known relationships are (see Lecture 05, Slides 8-13, 22):
+$$
+Q = WmK\frac{\Delta H}{L}
+$$
+$$
+K = \frac{Q/W}{m\cdot \Delta H \cdot L}
+$$
+Weighted arithmetic mean to determine hydraulic conductivity for sand:
 
-t_sample = np.sum(residue) # g, add the residue column to get total mass
-retain_per = np.round(residue/t_sample *100,3) # %, # retain percentage residue/total mass
-retain_per_cumsum =np.round(np.cumsum(retaine_per),3) # get the cummulative sum of the reatined
-passing_per = np.round(100 - retain_per_cumsum,3) # substract 100-cummsum to get passing % - the last column
+$$
+K = \frac{1}{m}\sum_{i=1}^n m_i\cdot K_i
+$$
 
-data2 = {"mesh size [mm]": Size, "residue in the sieve [g]": residue, "Σtotal": retain_per, "Σ/Σtotal": passing_per }
+where $i$ is different layers
+""", width = 500, style={'font-size': '12pt'})
+spacer2 = pn.Spacer(width=100)
 
-df2= pd.DataFrame(data2)
-df2 = df2.set_index("mesh size [mm]")
-df2
-
+pn.Row(r5_3, spacer2, r5_4)  
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m<ipython-input-5-49ed0b8cccfa>[0m in [0;36m<module>[0;34m[0m
-[1;32m      3[0m [0mt_sample[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0msum[0m[0;34m([0m[0mresidue[0m[0;34m)[0m [0;31m# g, add the residue column to get total mass[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      4[0m [0mretain_per[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mround[0m[0;34m([0m[0mresidue[0m[0;34m/[0m[0mt_sample[0m [0;34m*[0m[0;36m100[0m[0;34m,[0m[0;36m3[0m[0;34m)[0m [0;31m# %, # retain percentage residue/total mass[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 5[0;31m [0mretain_per_cumsum[0m [0;34m=[0m[0mnp[0m[0;34m.[0m[0mround[0m[0;34m([0m[0mnp[0m[0;34m.[0m[0mcumsum[0m[0;34m([0m[0mretaine_per[0m[0;34m)[0m[0;34m,[0m[0;36m3[0m[0;34m)[0m [0;31m# get the cummulative sum of the reatined[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      6[0m [0mpassing_per[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mround[0m[0;34m([0m[0;36m100[0m [0;34m-[0m [0mretain_per_cumsum[0m[0;34m,[0m[0;36m3[0m[0;34m)[0m [0;31m# substract 100-cummsum to get passing % - the last column[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      7[0m [0;34m[0m[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-8-46fc3fbedc28>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# Solution of Problem 11[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mr5_3[0m [0;34m=[0m [0mpn[0m[0;34m.[0m[0mpane[0m[0;34m.[0m[0mPNG[0m[0;34m([0m[0;34m"images/T03_TP11_a.png"[0m[0;34m,[0m [0mwidth[0m[0;34m=[0m[0;36m400[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m r5_4 = pn.pane.LaTeX(r"""
+[1;32m      4[0m [0mKnown[0m [0mrelationships[0m [0mare[0m [0;34m([0m[0msee[0m [0mLecture[0m [0;36m0[0m[0;36m5[0m[0;34m,[0m [0mSlides[0m [0;36m8[0m[0;34m-[0m[0;36m13[0m[0;34m,[0m [0;36m22[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;31m$[0m[0;31m$[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mNameError[0m: name 'retaine_per' is not defined
-NameError: name 'retaine_per' is not defined
+[0;32m~/anaconda3/lib/python3.8/site-packages/panel/pane/base.py[0m in [0;36m__init__[0;34m(self, object, **params)[0m
+[1;32m    107[0m         [0mapplies[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mapplies[0m[0;34m([0m[0mobject[0m[0;34m,[0m [0;34m**[0m[0;34m([0m[0mparams[0m [0;32mif[0m [0mself[0m[0;34m.[0m[0m_applies_kw[0m [0;32melse[0m [0;34m{[0m[0;34m}[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    108[0m         [0;32mif[0m [0;34m([0m[0misinstance[0m[0;34m([0m[0mapplies[0m[0;34m,[0m [0mbool[0m[0;34m)[0m [0;32mand[0m [0;32mnot[0m [0mapplies[0m[0;34m)[0m [0;32mand[0m [0mobject[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m [0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 109[0;31m             [0mself[0m[0;34m.[0m[0m_type_error[0m[0;34m([0m[0mobject[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    110[0m [0;34m[0m[0m
+[1;32m    111[0m         [0msuper[0m[0;34m([0m[0mPaneBase[0m[0;34m,[0m [0mself[0m[0;34m)[0m[0;34m.[0m[0m__init__[0m[0;34m([0m[0mobject[0m[0;34m=[0m[0mobject[0m[0;34m,[0m [0;34m**[0m[0mparams[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/lib/python3.8/site-packages/panel/pane/image.py[0m in [0;36m_type_error[0;34m(self, object)[0m
+[1;32m     65[0m     [0;32mdef[0m [0m_type_error[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mobject[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     66[0m         [0;32mif[0m [0misinstance[0m[0;34m([0m[0mobject[0m[0;34m,[0m [0mstring_types[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 67[0;31m             raise ValueError("%s pane cannot parse string that is not a filename "
+[0m[1;32m     68[0m                              "or URL." % type(self).__name__)
+[1;32m     69[0m         [0msuper[0m[0;34m([0m[0mImageBase[0m[0;34m,[0m [0mself[0m[0;34m)[0m[0;34m.[0m[0m_type_error[0m[0;34m([0m[0mobject[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mValueError[0m: PNG pane cannot parse string that is not a filename or URL.
+ValueError: PNG pane cannot parse string that is not a filename or URL.
 

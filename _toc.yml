@@ -11,6 +11,7 @@
   - file: contents/flow/lecture_03/13_gw_storage
   - file: contents/flow/lecture_04/14_darcy_law_K
   - file: contents/flow/lecture_05/15_het_iso
+  - file: contents/flow/lecture_06/16_darcy_law_3D
 
 
 - part: Tutorials
@@ -20,12 +21,14 @@
   - file: contents/tutorials/tutorial_02/tutorial_02
   - file: contents/tutorials/tutorial_03/tutorial_03
   - file: contents/tutorials/tutorial_04/tutorial_04
+  - file: contents/tutorials/tutorial_05/tutorial_05
 
 - part: Tools
   chapters:
   - file: contents/tools/decay
   - file: contents/tools/sieve_analysis
   - file: contents/tools/effective_K
+  - file: contents/tools/uniform_flow_and_well
 
 - part: Question pool
   chapters:
