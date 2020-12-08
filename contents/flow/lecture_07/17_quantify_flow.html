@@ -51,6 +51,8 @@
     <script src="../../../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -60,6 +62,8 @@
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Tutorial 1 - Python Programming language" href="../../tutorials/tutorial_01/01_python.html" />
+    <link rel="prev" title="Lecture 6: Steady-State Groundwater flow in 3D" href="../lecture_06/16_darcy_law_3D.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -121,7 +125,7 @@
   Flow
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../lecture_02/12_subsurface_structure.html">
    Lecture 2 - Subsurface Structure
@@ -145,6 +149,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../lecture_06/16_darcy_law_3D.html">
    Lecture 6: Steady-State Groundwater flow in 3D
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Lecture 07 - Quantifying 3D Groundwater Flow*
   </a>
  </li>
 </ul>
@@ -189,6 +198,11 @@
    Tutorial 5 - Tutorial problems aquifer heterogeneity/anisotropy
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/tutorial_06/tutorial_06.html">
+   Tutorial 4 - Tutorial problems on
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -209,6 +223,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../../tools/effective_K.html">
    Simulating Effective hydraulic conductivity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/uniform_flow_and_well.html">
+   Uniform Flow and Well*
   </a>
  </li>
  <li class="toctree-l1">
@@ -508,7 +527,7 @@
 <p>The most important advantage is that the <em>control volume</em> can be advantageously adjusted to the coordinated system used (e.g., rectangular for Cartesian coordinates). The picture below is an attempt to depict a <em>control volume</em> in a natural aquifer.</p>
 <div class="figure align-center" id="cv">
 <a class="reference internal image-reference" href="../../../_images/L07_f1.png"><img alt="../../../_images/L07_f1.png" src="../../../_images/L07_f1.png" style="width: 585.9px; height: 215.6px;" /></a>
-<p class="caption"><span class="caption-text">A control volume</span><a class="headerlink" href="#cv" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text">A control volume</span><a class="headerlink" href="#cv" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="classification-of-groundwater-flow-regimes">
@@ -557,11 +576,11 @@
 <p>Let us consider a control volume with inlet and outlet as shown in the figure below.</p>
 <div class="figure align-center" id="vol-bud">
 <a class="reference internal image-reference" href="../../../_images/L07_f2.png"><img alt="../../../_images/L07_f2.png" src="../../../_images/L07_f2.png" style="width: 467.6px; height: 341.6px;" /></a>
-<p class="caption"><span class="caption-text">Conservation of volume</span><a class="headerlink" href="#vol-bud" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text">Conservation of volume</span><a class="headerlink" href="#vol-bud" title="Permalink to this image">¶</a></p>
 </div>
 <p>The volume budget in this control volume can be expressed as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-26e4f14d-cfd9-42b1-b682-a0c92e8a3ed6">
-<span class="eqno">()<a class="headerlink" href="#equation-26e4f14d-cfd9-42b1-b682-a0c92e8a3ed6" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-be9de56f-e926-47e8-a5cb-d79908bb8365">
+<span class="eqno">(1)<a class="headerlink" href="#equation-be9de56f-e926-47e8-a5cb-d79908bb8365" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{\Delta V_w}{\Delta t} = Q_{in} - Q_{out}
 \end{equation}\]</div>
 <p>The scenario that can be considered with the conservation of volume are:</p>
@@ -597,7 +616,7 @@ K_{xz}, K_{yz}, K_{zz}
 <p>The importance of control volume can be now observed as we derive the system equations for groundwater flow. The control volume as stated earlier has a very small size compared to the region of investigation. This entails that the changes of Darcy velocity components across this volume can therefore considered to be linear, i.e., the flow components do not meander. With this assumption, the linear changes are obtained by multiplying first-order derivatives with corresponding distance (see figure below). Mathematically put we have</p>
 <div class="figure align-center" id="id1">
 <a class="reference internal image-reference" href="../../../_images/L07_f2.png"><img alt="../../../_images/L07_f2.png" src="../../../_images/L07_f2.png" style="width: 467.6px; height: 341.6px;" /></a>
-<p class="caption"><span class="caption-text">Conservation of volume</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">Conservation of volume</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <p><strong>The sum of all discharge at the inlets:</strong></p>
 <div class="math notranslate nohighlight">
@@ -612,8 +631,8 @@ Q_{out} = \bigg(v_{fx}+\frac{\partial v_{fx}}{\partial x} \Delta x\bigg)\Delta y
 \bigg(v_{fz}+\frac{\partial v_{fz}}{\partial z} \Delta z\bigg)\Delta x \Delta y
 \]</div>
 <p><strong>The different in discharge between inlet and outlet</strong>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-14f454ee-db31-4fb8-97b9-f6515195ffb4">
-<span class="eqno">()<a class="headerlink" href="#equation-14f454ee-db31-4fb8-97b9-f6515195ffb4" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4ab32559-8ee0-49e8-abc4-15506a42f6c0">
+<span class="eqno">(2)<a class="headerlink" href="#equation-4ab32559-8ee0-49e8-abc4-15506a42f6c0" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 Q_{in}-Q_{out}=-\frac{\partial v_{fx}}{\partial x}\Delta x\Delta y \Delta z
 -\frac{\partial v_{fy}}{\partial y}\Delta x\Delta y \Delta z  
 -\frac{\partial v_{fz}}{\partial z}\Delta x\Delta y \Delta z 
@@ -624,8 +643,8 @@ Q_{in}-Q_{out}=-\frac{\partial v_{fx}}{\partial x}\Delta x\Delta y \Delta z
 \frac{\Delta V_w}{\Delta x \Delta y \Delta z} \propto \Delta h
 \]</div>
 <p>which was formulated as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-56bba0c8-988e-4b75-9d71-d87e66fd9bc0">
-<span class="eqno">()<a class="headerlink" href="#equation-56bba0c8-988e-4b75-9d71-d87e66fd9bc0" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-05607c96-d688-47ce-988c-0afabc5a02c1">
+<span class="eqno">(3)<a class="headerlink" href="#equation-05607c96-d688-47ce-988c-0afabc5a02c1" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \Delta V_w = S_s\Delta h \Delta x \Delta y \Delta z  
 \end{equation}\]</div>
 <p>That is, the value of the storage coefficient corresponds to the change in water volume within a unit control volume if hydraulic head is increased/decreased by one unit.</p>
@@ -741,7 +760,7 @@ S_s\frac{\partial h}{\partial t} = \frac{\partial }{\partial x} \bigg(K_x \frac{
 <p>For most unconsolidated aquifers it is observed that groundwater flow components perpendicular to layering are negligible (see figure below). Therefore, groundwater flow problems are frequently treated as two-dimensional, i.e., employing only two spaces coordinates.</p>
 <div class="figure align-center" id="d-confined">
 <a class="reference internal image-reference" href="../../../_images/L07_f4.png"><img alt="../../../_images/L07_f4.png" src="../../../_images/L07_f4.png" style="width: 446.20000000000005px; height: 288.40000000000003px;" /></a>
-<p class="caption"><span class="caption-text">2D- flow in confined aquifers</span><a class="headerlink" href="#d-confined" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text">2D- flow in confined aquifers</span><a class="headerlink" href="#d-confined" title="Permalink to this image">¶</a></p>
 </div>
 <p>The control volume in the confined aquifer is extended over the entire layer thickness of <span class="math notranslate nohighlight">\(m\)</span>. If an aquifer consists of several distinct major layers, the two-dimensional approach is used for each layer separately and, in addition, water transfer between layers is handled by appropriate source/sink terms (not shown in figure).</p>
 <p>The step from three to two dimensions requires to <strong>sum up</strong> hydraulic conductivity values over the entire layer thickness in order to correctly quantity two-dimensional groundwater flow. This is done by introducing <strong>transmissivities</strong> <span class="math notranslate nohighlight">\(T_x\)</span> and <span class="math notranslate nohighlight">\(T_y\)</span> [L<sup>2</sup>/T] as follows:</p>
@@ -848,7 +867,7 @@ S\frac{\partial h}{\partial t} = \frac{\partial }{\partial x}\bigg(T_x\frac{\par
 <p>For unconfined layers, the <em>control volume</em> extends from the aquifer bottom to the groundwater table (see figure below). This implies that the height of the control volume depends on the flow behaviour.</p>
 <div class="figure align-center" id="d-unconfined">
 <a class="reference internal image-reference" href="../../../_images/L07_f5.png"><img alt="../../../_images/L07_f5.png" src="../../../_images/L07_f5.png" style="width: 371.20000000000005px; height: 316.40000000000003px;" /></a>
-<p class="caption"><span class="caption-text">2D- flow in unconfined aquifers</span><a class="headerlink" href="#d-unconfined" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 30 </span><span class="caption-text">2D- flow in unconfined aquifers</span><a class="headerlink" href="#d-unconfined" title="Permalink to this image">¶</a></p>
 </div>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -874,7 +893,7 @@ S\frac{\partial h}{\partial t} = \frac{\partial }{\partial x}\bigg(T_x\frac{\par
 <p>The Boussinesq equation for 2D groundwater flow in unconfined aquifer is based on the following assumptions which are due to Dupuit (1863)<sup><a class="footnote-reference brackets" href="#dupuit" id="id3">1</a></sup>. The Dupuit’s work can be expressed in the figure below.</p>
 <div class="figure align-center" id="id4">
 <a class="reference internal image-reference" href="../../../_images/L07_f7.png"><img alt="../../../_images/L07_f7.png" src="../../../_images/L07_f7.png" style="width: 474.0px; height: 322.8px;" /></a>
-<p class="caption"><span class="caption-text">Illustration of Dupuit’s assumptions</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 31 </span><span class="caption-text">Illustration of Dupuit’s assumptions</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -952,7 +971,7 @@ S\frac{\partial h}{\partial t} = \frac{\partial }{\partial x}\bigg(T_x\frac{\par
 <p>The figure below presents a groundwater problem with associated boundary conditions. The figure shows when a particular boundary condition is suitable. A zero flux or no flow boundary is streamline along boundaries 2-3 and 1-5. Likewise, the lake, whose water level can be constant is considered as prescribed head. From this example, it is evident that boundary conditions should be set based on geographical setting.</p>
 <div class="figure align-center" id="concept-gw-problem">
 <a class="reference internal image-reference" href="../../../_images/L07_f11.png"><img alt="../../../_images/L07_f11.png" src="../../../_images/L07_f11.png" style="width: 771.6px; height: 359.4px;" /></a>
-<p class="caption"><span class="caption-text">Setting a groundwater problem (from Kinzelbach, 1986<sup><a class="footnote-reference brackets" href="#kinzelbach1986" id="id5">2</a></sup>)</span><a class="headerlink" href="#concept-gw-problem" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 33 </span><span class="caption-text">Setting a groundwater problem (from Kinzelbach, 1986<sup><a class="footnote-reference brackets" href="#kinzelbach1986" id="id5">2</a></sup>)</span><a class="headerlink" href="#concept-gw-problem" title="Permalink to this image">¶</a></p>
 </div>
 <p>The system equation including the boundary conditions makes a <strong>complete</strong> groundwater flow problem. The solution with inclusion of specific boundary conditions provides a unique or specific solution to the problem.</p>
 <p><strong>Numerical methods</strong> (discussed in lectures 11-13) are generally required to solve groundwater flow problems. In exceptional cases (e.g., single well, steady-state, isotropic and homogeneous), <strong>analytical solution</strong> are also possible (discussed in the next lecture).</p>
@@ -997,6 +1016,8 @@ S\frac{\partial h}{\partial t} = \frac{\partial }{\partial x}\bigg(T_x\frac{\par
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="../lecture_06/16_darcy_law_3D.html" title="previous page">Lecture 6: Steady-State Groundwater flow in 3D</a>
+    <a class='right-next' id="next-link" href="../../tutorials/tutorial_01/01_python.html" title="next page">Tutorial 1 - Python Programming language</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
