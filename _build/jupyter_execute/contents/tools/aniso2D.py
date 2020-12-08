@@ -29,6 +29,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from ipywidgets import widgets, interactive
 
+
+
 # the main programme
 def aniso(a_d, ani_r):
 
@@ -123,7 +125,7 @@ def aniso(a_d, ani_r):
 
 interactive(aniso,
          a_d=widgets.BoundedFloatText(value=45, min=0, max=360, step=0.5, description=r'angle (°)', disabled=False),
-         ani_r=widgets.BoundedIntText(value=1, min=1, max=100, step=1, description='K<sub>h</sub>/K<sub>v</sub>', disabled=False),)
+         ani_r=widgets.BoundedIntText(value=1, min=1, max=100, step=1, description='K<sub>h</sub>/K<sub>v</sub>', disabled=False))
     
 
 

@@ -31,18 +31,6 @@
 # In[1]:
 
 
-
-import numpy as np
-from ipywidgets import *
-import matplotlib.pyplot as plt
-
-import warnings
-warnings.filterwarnings('ignore')
-
-
-# In[2]:
-
-
 import numpy as np
 from ipywidgets import *
 import matplotlib.pyplot as plt
@@ -405,12 +393,6 @@ interact(uniform_flow,
          t3=widgets.BoundedFloatText(value=50, min=1, max=100, step=0.1, description='t3 [d]:', disabled=False),
          )
          
-
-
-
-# In[ ]:
-
-
 
 
 

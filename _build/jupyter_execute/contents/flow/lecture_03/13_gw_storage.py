@@ -271,9 +271,11 @@ print("The pressure difference due to water is {0:2.2f} g/cm.s\u00b2,".format(Dp
 # $$
 # 
 # The hydrostatic pressure changes do not affect the weight of the confining bed and the exerted downward pressure remains unchanged. Therefore we have 
+# 
 # $$
 # \Delta p_{cb} = 0 \:\:\: \text{and}
 # $$
+# 
 # $$
 # \Delta p_{pm} = -\Delta p_w
 # $$
@@ -284,6 +286,7 @@ print("The pressure difference due to water is {0:2.2f} g/cm.s\u00b2,".format(Dp
 # ### Aquifer storage properties 
 # 
 # _Storage properties_ of the aquifer and associated parameters can be understood by considering pressure changes. For this purpose, we consider the effect of a _change in water volume_ $\Delta V_w'$ due to a _change in hydrostatic pressure_. The _relative_ changes in water volume $\Delta V_w'/\Delta w$ [-] are proportional to change of pressure in groundwater $\Delta p_w$:
+# 
 # $$
 # \frac{\Delta V_w'}{V_w} = \alpha_w \cdot \Delta p_w
 # $$
@@ -298,6 +301,7 @@ print("The pressure difference due to water is {0:2.2f} g/cm.s\u00b2,".format(Dp
 
 # ### Change in total volume
 # The preceding considerations dealt with a change in storage by inflow or outflow. The change was invoked by a change of pressure in groundwater $\Delta p_w$. But a change could be also invoked by the change of the pressure exerted by the porous medium on the confining layer $\Delta p_{pm}$. A change $\Delta p_{pm}$ in the pressure results in a decrease or an increase $\Delta V_T$ in total aquifer volume. Both quantities are proportional to each other via
+# 
 # $$
 # \frac{\Delta V_T}{V_T} = - \alpha_{pm} \Delta p_{pm}
 # $$
@@ -310,10 +314,13 @@ print("The pressure difference due to water is {0:2.2f} g/cm.s\u00b2,".format(Dp
 # $$
 # 
 # $\Delta V_T$ represents a _change in volume of the porous medium_ as a whole. It is composed of a change in volume $\Delta V_s$ of the solids and another change $\Delta V_w''$ in water volume. Because the change in volume of the solid is negligible, we can write
+# 
 # $$
 # \Delta V_T = \Delta V_s + \Delta V_w'' \approx \Delta V_w''
 # $$
+# 
 # If we compare the last two equations we can immediately derive
+# 
 # $$
 # \Delta V_w'' = \alpha_{pm} V_T\rho_w g \Delta\psi
 # $$

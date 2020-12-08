@@ -7,7 +7,7 @@ parse:
   myst_extended_syntax: true
   myst_url_schemes          : [mailto, http, https]  
 
-number_equations: false
+
   
 
 favicon_path: "images/logo/logo3.png"
@@ -89,6 +89,7 @@ sphinx:
   config:
     html_show_copyright: false
     myst_amsmath_enable: true
+    number_equations: false
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
     html_js_files: https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
     html_js_files: https://unpkg.com/thebelab@latest/lib/index.js
@@ -97,6 +98,7 @@ sphinx:
     html_js_files: https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js
     html_js_files: https://cdn.jsdelivr.net/npm/
     html_js_files: https://unpkg.com/thebelab@0.3.3/lib/index.js
+    html_js_files: https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed.js
     
 
 
