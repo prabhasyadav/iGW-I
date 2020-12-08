@@ -12,6 +12,7 @@
   - file: contents/flow/lecture_04/14_darcy_law_K
   - file: contents/flow/lecture_05/15_het_iso
   - file: contents/flow/lecture_06/16_darcy_law_3D
+  - file: contents/flow/lecture_07/17_quantify_flow
 
 
 - part: Tutorials
@@ -22,6 +23,7 @@
   - file: contents/tutorials/tutorial_03/tutorial_03
   - file: contents/tutorials/tutorial_04/tutorial_04
   - file: contents/tutorials/tutorial_05/tutorial_05
+  - file: contents/tutorials/tutorial_06/tutorial_06
 
 - part: Tools
   chapters:
