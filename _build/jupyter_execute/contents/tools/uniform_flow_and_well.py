@@ -391,7 +391,7 @@ interact(uniform_flow,
          t1=widgets.BoundedFloatText(value=10, min=1, max=100, step=0.1, description='t1 [d]:', disabled=False),
          t2=widgets.BoundedFloatText(value=30, min=1, max=100, step=0.1, description='t2 [d]:', disabled=False),
          t3=widgets.BoundedFloatText(value=50, min=1, max=100, step=0.1, description='t3 [d]:', disabled=False),
-         )
+         );
          
 
 

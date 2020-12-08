@@ -7,7 +7,7 @@ parse:
   myst_extended_syntax: true
   myst_url_schemes          : [mailto, http, https]  
 
-
+number_equations: false
   
 
 favicon_path: "images/logo/logo3.png"
@@ -21,7 +21,7 @@ favicon_path: "images/logo/logo3.png"
 # Book settings
 title                       : Groundwater I  # The title of the book. Will be placed in the left navbar.
 author                      : P. K. Yadav, T. Reimann and several others  # The author of the book
-copyright                   : CC 4.0  # Copyright year to be placed in the footer
+copyright                   : ""  # Copyright year to be placed in the footer
 logo                        : images/logo/logo3.png  # A path to the book logo
 exclude_patterns            : [_build, recycle,]  # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
 textbook_logo_link        : https://prabhasyadav.github.io/iGW-I/  # A link for the logo.
@@ -73,9 +73,11 @@ html:
   use_issues_button: true
   use_repository_button: true
 
-
-
-
+  extra_footer : |
+      <div>
+      <a href="https://creativecommons.org/licenses/by/4.0/"><img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/png/by.png"></a>
+          All content on this site (unless otherwise specified) is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">CC BY-NC-SA 4.0 license</a>
+      </div>
 
 
 #######################################################################################
@@ -89,7 +91,6 @@ sphinx:
   config:
     html_show_copyright: false
     myst_amsmath_enable: true
-    number_equations: false
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
     html_js_files: https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
     html_js_files: https://unpkg.com/thebelab@latest/lib/index.js
@@ -97,8 +98,7 @@ sphinx:
     html_js_files: https://cdn.jsdelivr.net/npm/
     html_js_files: https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js
     html_js_files: https://cdn.jsdelivr.net/npm/
-    html_js_files: https://unpkg.com/thebelab@0.3.3/lib/index.js
-    html_js_files: https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed.js
+
     
 
 
