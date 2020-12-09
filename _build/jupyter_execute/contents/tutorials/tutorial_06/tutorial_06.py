@@ -40,9 +40,10 @@ r3_1 = pn.pane.Markdown("""
 ## ##
 
 
-**A**. Derive an expression for hy-draulic conductivity K for the constant-head permeameter shown in the figure.<br><br>
-**B**. The hydraulic conductivity of a sample (length 10 cm, dia-meter 4 cm) is to be determined. 
-The water depths a<sub>1</sub> and a<sub>2</sub> equal 6 cm and 3 cm, resp. A water volume of 250 ml passed the sample during an experimental period of 36 s. <br> <br>
+**A**. Derive an expression for hydraulic conductivity K for the constant-head permeameter shown in the figure.<br><br>
+**B**. The hydraulic conductivity of a sample (length 10 cm, diameter 4 cm) is to be determined. 
+The water depths a<sub>1</sub> and a<sub>2</sub> equal 6 cm and 3 cm, resp. A water volume of 250 ml 
+passed the sample during an experimental period of 36 s. <br> <br>
 **C**. Which material could be contained in the sample?
 """, style={'font-size': '12pt'})
 spacer2=pn.Spacer(width=50)
@@ -70,15 +71,15 @@ $z = 0$ with the $z-$axis pointing up-ward. As a consequence, we have $z = L$ at
 """, style={'font-size': '12pt'})
 
 r3_5 = pn.pane.LaTeX(r"""
-At The Outlet: <br>
+At the Outlet: <br>
 pressure head =  $a_2$  <br>
 elevation head = 0 <br>
 $h_{out}$ = $a_2$ <br>
 """, width = 300, style={'font-size': '12pt'})
 
 r3_6 = pn.pane.LaTeX(r"""
-At The Inlet: <br>
-pressure head = _a<sub>1</sub>_ <br>
+At the Inlet: <br>
+pressure head = a<sub>1</sub> <br>
 elevation head = $L$<br>
 $h_{in}$ = $a_1+ L$ <br>
 
@@ -89,7 +90,7 @@ head difference: <br>
 $$h_{in}-h_{out} = a_{1} + L - a_{2}$$<br>
 hydraulic conductivity:
 $
-K = \frac{QL}{a_1 + L - a_2}
+K = \frac{QL}{A (a_1 + L - a_2)}
 $
 """, width = 800, style={'font-size': '12pt'})
 
@@ -108,16 +109,20 @@ L = 10# cm, length of column
 a1 = 6# cm, pressure head at 1 
 a2 = 3# cm, pressure head at 2 
 d = 4 # cm, diameter of the column
-Q = 250/36 # ml/s = 250 cm³/36s, discharge 
+V = 250 # mL, volume  
 A = np.pi*(d/2)**2 # cm^2 Area of the column
+t = 36 # s, time
+
+# interim calculation
+Q = V/t # mL/s, discharge
 
 #calculation
-K = Q*L/(A*(a1+L-a2))# cm/s, Conductivity
+K = (Q*L)/(A*(a1+L-a2))# cm/s, Conductivity
 
 #output
 print('\033[1m' + 'Results are:' + '\033[0m \n')
 print("The conductivity of the column is:{0:1.3f}".format(K), "cm/s \n")
-print("The conductivity of the column is:{0:1.3E}".format(K/100), "m/s\n")
+print("The conductivity of the column is:{0:1.2e}".format(K/100), "m/s\n")
 
 r3_8 = pn.pane.Markdown("""
 The sample in the column is: **Coarse sand - Fine gravel**
@@ -160,7 +165,7 @@ pn.Column(r_h4,spacer2, df1)
 r_h4c = pn.pane.Markdown("""
 **A.** Convert times to seconds and plot the logarithm of the ratios of head differences ln(Δh(0)/Δh(t)) vs. time t. 
 (Use the coordinate system on next page). <br><br>
-**B.** Determine the slope of the correspon-ding regression line.<br><br>
+**B.** Determine the slope of the corresponding regression line.<br><br>
 **C.** Determine hydraulic conductivity K.<br><br>
 **D.** Determine intrinsic permeability k.<br>
 """, width=500, style={'font-size': '12pt'})
@@ -179,7 +184,7 @@ pn.Row(r_h4c, spacer2, r_h4e)
 
 #
 r4_1 = pn.pane.LaTeX(r"""
-The formula for variable-head permeameter:
+The formula for variable-head permeameter (See Tutorial 3, Problem Nr. 10):
 $$K = \frac{d_t^2 L}{d_t^2 t} \cdot \ln \frac{ h_{in}(0)-h_{out}}{h_{in}(t) - h_{out}} = \frac{d_t^2 L}{d_e^2 t}\cdot \ln\frac{\Delta h(0)}{\Delta h(t)}$$
 Rearrangement shows that the natural logarithm of $\Delta h(0)/\Delta h(t)$ depends linearly on time $t$: 
 $$
@@ -212,12 +217,12 @@ df2 = pd.DataFrame(data2)
 fig = plt.figure()
 plt.plot(t_s, ln_Dhodht, 'o', label=' provided data');
 pred = intercept + slope*t_s
-plt.plot(t_s, pred, 'r', label='y={:.2e}x+{:.2e}'.format(slope,intercept)) ;
+plt.plot(t_s, pred, 'r', label='y={:0.2e}x+{:0.2e}'.format(slope,intercept)) ;
 plt.xlabel(r"$t (s)$");
 plt.ylabel(r"$\ln\frac{\Delta h (0)}{\Delta h (t)}\;\:(-)$");
 plt.grid();
 plt.legend(fontsize=11) 
-plt.text(150, 0.42,'$R^2 = %0.2f$' % r_value)
+plt.text(150, 0.42,'$R^2 = {:0.2f}$'.format(r_value) )
 plt.close() # otherwise we have 2 figure
 r4_2 = pn.pane.Matplotlib(fig, dpi=300)
 
@@ -232,14 +237,15 @@ pn.Row(df2,spacer2,r4_2)
 L = 20 # cm, Length of the column
 d_t = 4 # cm, diameter of the tube
 d_c = 6# cm, diameter of the column
-slope = 3.14e-04 # 1/s, from fitting see plot
+slope = slope # 1/s, from fitting see plot
 
 K = L*(d_t**2/d_c**2)*slope # cm/s, conductivity calculated using eqn from previous slide
+K_m = K/100 # m/s, conductivity 
 
 #output
 print('\033[1m' + 'Results are:' + '\033[0m \n')
 print("The conductivity in the column is: {0:1.2e}".format(K), "cm/s\n")
-print("The conductivity in the column is: {0:1.2e}".format(K/100), "m/s\n")
+print("The conductivity in the column is: {0:1.2e}".format(K_m), "m/s\n")
 
 #Solution of 4D
 # Given
@@ -264,7 +270,7 @@ print("The permeability of the media in Darcy's unit is: {0:1.2f}".format(k_D), 
 r16_2 = pn.pane.LaTeX(r"""
 A confined aquifer is 30 m thick and 5 km wide. Two observation wells are located 1.5 km apart
 in the direction of flow. The head in well 1 is 90 m and in well 2 it is 85.0 m. The hydraulic conductivity
-is 1.5 m/d. 
+is 1.5 m/d (figure is not to the scale). 
 <br><br>
 1. What is the total daily flow of water through the aquifer?
 <br><br>
@@ -290,17 +296,17 @@ pn.Row(r16_2, r16_3)
 # solution
 r16_6 = pn.pane.LaTeX(r"""
 From Darcy Law:
-$$ q' = K b \frac{dh}{dL} \qquad\qquad \text{(eq. 1A)}$$
+$$ q' = K m \frac{dh}{dL} \qquad\qquad \text{(eq. 1A)}$$
 where,
 $q'$ is the flow per unit width [L$^2$T$^{-1}$], <br>
-$b$ is aquifer thicknes [L]<br>
+$m$ is aquifer thicknes [L]<br>
 $K$ is Hydraulic Conductivity [LT$^{-1}$]<br>
 and $\frac{dh}{dl}$ = hydraulic gradient [-]<br><br>
 
 Since the thickness of the aquifer is uniform, any hydraulic head between two known 
 heads ($h_1$ and $h_2$) can be obtained by rearranging the above equation, from
 $$
-h_2 = h_1 - \frac{q'}{Kb}x
+h_2 = h_1 - \frac{q'}{Km}x
 \qquad\qquad \text{(eq. 1B)}$$
 where $x$ is the distance from $h_1$
 """,width = 900, style={'font-size': '12pt'})  
@@ -330,15 +336,14 @@ dh_y1 = (hy1_w1 - hy1_w2)/d_lm # (-), head gradient
 Q_y1 = K_1*m_1*dh_y1*w_1m # m^3/day, discharge using the first eq. above.
 
 #Solution 2 
-w_2 = d_xm # m, distance from well 1 
 q_1 = Q_y1/w_1m # m^2/d, flow per unit width
-h_y1 = hy1_w1-(q_1/(K_1*m_1))*w_2 # head at 0.3 Km from Well 1, using the second equation 
+h_y1 = hy1_w1-(q_1/(K_1*m_1))*d_xm # head at 0.3 Km from Well 1, using the second equation 
 
 
 #output
 print('\033[1m' + 'Results are:' + '\033[0m \n')
 print("The daily discharge from the aquifer is: {0:1.2f}".format(Q_y1), "m\u00b3/d\n")
-print("The head at 0.3 Km from well 1 is : {0:1.2f}".format(h_y1), "m")
+print("The head at 0.5 Km from well 1 is : {0:1.2f}".format(h_y1), "m")
 
 
 # ### Tutorial Problem 17- flow in unconfined aquifer ###
@@ -376,7 +381,7 @@ $$
 $$
 Integration leads to
 $$
-q'x\Big|^L_0 = -K\frac{h^2}{2}\Big|_{h_1}^{h^2}
+q'x\Big|^L_0 = -K\frac{h^2}{2}\Big|_{h_1}^{h_2}
 $$
 resulting to 
 $$
@@ -406,7 +411,7 @@ L3 = 50 # m, length of the aquifer
 W3 = 30 # m, width of the aquifer
 
 #Calculation
-q3 = -1/2*K3*(h3_2**2 - h3_1**2)/L3 # m^2/s, unit width discharge using eq. 3B
+q3 = -1/2*K3*((h3_2**2 - h3_1**2)/L3) # m^2/s, unit width discharge using eq. 3B
 Q3 = q3 * W3 # m^3/s, total dischage from given width
 
 #output
