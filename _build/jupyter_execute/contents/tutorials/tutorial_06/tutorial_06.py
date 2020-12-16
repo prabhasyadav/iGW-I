@@ -139,7 +139,7 @@ pn.Row(r3_8)
 # given data - you may change the number
 
 t = np.array([0, 5, 18, 23, 27, 29]) # min, given time
-Dh = np.array([36.9, 33.6, 26.3, 23.9, 22.1, 21.3]) # cm, head difference 
+Dh = np.array([36.9, 32, 22.3, 20.9, 16.1, 12.3]) # cm, head difference 
 
 # creating data table
 data = {"Time (min)": t, "Δh (m)": Dh}
@@ -162,6 +162,7 @@ pn.Column(r_h4,spacer2, df1)
 # In[6]:
 
 
+#
 r_h4c = pn.pane.Markdown("""
 **A.** Convert times to seconds and plot the logarithm of the ratios of head differences ln(Δh(0)/Δh(t)) vs. time t. 
 (Use the coordinate system on next page). <br><br>
@@ -253,7 +254,7 @@ rho_w = 998.2 # kg/m^3, density of water
 eta_w = 1.0087E-3# kg/(m-s), viscocity of water
 g = 9.81 # m/s^2, accl. due to gravity
 
-k = K/100*eta_w/(rho_w*g)# m^2, K = k*ρ/n
+k = K/100*eta_w/(rho_w*g)# m^2, K = k*ρ*g/n
 k_D = k/0.987E-12 # D, 1D = 0.987E10-12 m^2
 
 print("The permeability of the media is: {0:1.2e}".format(k), "m\u00b2 \n")  
@@ -267,6 +268,7 @@ print("The permeability of the media in Darcy's unit is: {0:1.2f}".format(k_D), 
 # In[10]:
 
 
+#
 r16_2 = pn.pane.LaTeX(r"""
 A confined aquifer is 30 m thick and 5 km wide. Two observation wells are located 1.5 km apart
 in the direction of flow. The head in well 1 is 90 m and in well 2 it is 85.0 m. The hydraulic conductivity
@@ -324,12 +326,12 @@ d_l = 1.5 # km, distance between wells
 hy1_w1 = 90 # m, head in well 1
 hy1_w2 = 85 # m, head in well 2
 K_1 = 1.5 # m/d, conductivity in aquifer
-d_x = 0.5 # km, distance from head 1
+d_x = 1.5 # km, distance from head 1
 
 # interim calculation
 w_1m = w_1*1000 # m, widht of the aquifer
 d_lm = d_l*1000 # m, distance between wells
-d_xm = 0.5*1000 # m, distance from head 1
+d_xm = d_x*1000 # m, distance from head 1
 
 #Solution 1
 dh_y1 = (hy1_w1 - hy1_w2)/d_lm # (-), head gradient
@@ -351,6 +353,7 @@ print("The head at 0.5 Km from well 1 is : {0:1.2f}".format(h_y1), "m")
 # In[13]:
 
 
+#
 r17_1 = pn.pane.LaTeX(r""" 
 Discharge from an unconfined aquifer presented in the figure below in which $h_1 = 20$ m, $h_2 = 10$ m, and $L = 50$ m 
 is to be obtained. Other information available are that the aquifer is 30 m wide and has a uniform conductivity 
@@ -367,6 +370,7 @@ pn.Row(r17_1, r17_2)
 # In[14]:
 
 
+#
 r17_4 = pn.pane.LaTeX(r"""
 As Dupuit assumptions are valid, the discharge per unit width of aquifer ($q'$) 
 can be obtained from
@@ -405,8 +409,9 @@ r17_4
 # Given
 
 h3_1 = 20 # m, aquifer head at point 1
-h3_2 = 10 # m, aquifer head at point 1
-K3 = 5 * 10**-6 # m/s uniform conductivity of aquifer
+h3_2 = 19 # m, aquifer head at point 2
+K3 = 5 * 10**-4 # m/s uniform conductivity of aquifer
+K4 = 5e-4 # m/s uniform conductivity of aquifer
 L3 = 50 # m, length of the aquifer
 W3 = 30 # m, width of the aquifer
 
@@ -415,9 +420,13 @@ q3 = -1/2*K3*((h3_2**2 - h3_1**2)/L3) # m^2/s, unit width discharge using eq. 3B
 Q3 = q3 * W3 # m^3/s, total dischage from given width
 
 #output
-print('\033[1m' + 'Results are:' + '\033[0m \n')
-print("Discharge per unit width of aquifer is: {0:1.2e}".format(q3), "m\u00b2/s \n")
-print("Discharge from the given width of aquifer is: {0:1.2e}".format(Q3), "m\u00b3/s") 
+#print('\033[1m' + 'Results are:' + '\033[0m \n')
+#print("Discharge per unit width of aquifer is: {0:1.2e}".format(q3), "m\u00b2/s \n")
+#print("Discharge from the given width of aquifer is: {0:1.2e}".format(Q3), "m\u00b3/s") 
+
+print("Conductivity: {0:1.2e}".format(K3), "m\u00b3/s")
+print("Conductivity: {0:1.5f}".format(K3), "m\u00b3/s")
+print(K4)
 
 
 # ## Homework Problems Flow problems ##
@@ -432,6 +441,7 @@ print("Discharge from the given width of aquifer is: {0:1.2e}".format(Q3), "m\u0
 # In[16]:
 
 
+#
 rh8_2 = pn.pane.LaTeX(r""" 
 Presented below in the figure is the available information of an aquifer cross-section. 
 The aquifer is confined and of variable thickness across the cross-section. It has a uniform conductivity 
@@ -449,6 +459,7 @@ pn.Row(rh8_2, rh8_3)
 # In[17]:
 
 
+#
 rh9_2 = pn.pane.LaTeX(r"""
 In a schematic below an unconfined aquifer is found to divide 2 rivers of differnt stages $h_1 = 30$ m and $h_2 = 10$ m. 
 The aquifer of length $L = 50$ m and with uniform conductivity $K = 5\times 10^{-6}$ m/s is found to receive recharge at 

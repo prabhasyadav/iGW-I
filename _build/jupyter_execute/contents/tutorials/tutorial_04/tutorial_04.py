@@ -31,7 +31,7 @@ pn.extension('katex')
 # 
 # 
 
-# In[3]:
+# In[2]:
 
 
 #
@@ -68,7 +68,7 @@ $$
 pn.Column(r1_1, r1_2, r1_3, r1_3b)   
 
 
-# In[9]:
+# In[3]:
 
 
 # Given 
@@ -98,13 +98,12 @@ print("Change in water volume in confined aquifer is: {0:1.1e}".format(DV_wc),"m
 # 2. What is the coefficient of uniformity? 
 # 
 
-# In[29]:
+# In[4]:
 
 
-#
-Head = ["mesh size [mm]", "residue in the sieve [g] ", "∑ total", "∑ / ∑total"]
+### Head = ["mesh size [mm]", "residue in the sieve [g] ", "∑ total", "∑ / ∑total"]
 Size = [6.3, 2, 0.63, 0.2, 0.063, "< 0.063 /cup"]
-residue = [11, 162, 88, 189, 42, 8]
+residue = [11, 62, 288, 189, 42, 8]
 
 
 data1= {"mesh size [mm]": Size, "residue in the sieve [g] ": residue}
@@ -114,7 +113,7 @@ df1.set_index("mesh size [mm]")
 
 # ### Solution of problem 2 ###
 
-# In[30]:
+# In[5]:
 
 
 # solution of problem 2
@@ -131,7 +130,7 @@ df2 = df2.set_index("mesh size [mm]")
 df2
 
 
-# In[31]:
+# In[6]:
 
 
 # Plotting granulometric curve
@@ -170,7 +169,7 @@ plt.savefig("fig6.png", dpi=300)
 mpl_pane = pn.pane.Matplotlib(fig)
 
 
-# In[28]:
+# In[7]:
 
 
 # From the figure
@@ -201,11 +200,11 @@ pn.Row(r2_1)
 # d. Calculate effective hydraulic conductivity if the angle between the flow direction and the layering equals 45°.
 # 
 
-# In[2]:
+# In[8]:
 
 
 # Solution of Problem 11
-r5_3 = pn.pane.PNG("images/T03_TP11_a.png", width=400)
+r5_3 = pn.pane.PNG("images/T04_TP11_a.png", width=400)
 r5_4 = pn.pane.LaTeX(r"""
 Known relationships are (see Lecture 05, Slides 8-13, 22):
 $$
@@ -227,7 +226,7 @@ spacer2 = pn.Spacer(width=100)
 pn.Row(r5_3, spacer2, r5_4)  
 
 
-# In[7]:
+# In[9]:
 
 
 #Given Solution of 11 a, b
@@ -257,13 +256,13 @@ print("Effective horizontal hydraulic conductivity (Keff_hs) = {0:1.3E}".format(
 print("Hydraulic conductivity of sand layer (K_s) = {0:1.1E}".format(K_s), "m/s\n" )     
 
 
-# In[9]:
+# In[10]:
 
 
 #Given Solution of 11 c, d
 
-r5_5 = pn.pane.PNG("images/T03_TP11_b.png", width=200) 
-r5_6 = pn.pane.PNG("images/T03_TP11_c.png", width=200) 
+r5_5 = pn.pane.PNG("images/T04_TP11_b.png", width=200) 
+r5_6 = pn.pane.PNG("images/T04_TP11_c.png", width=200) 
 
 r5_7 = pn.Column(r5_5, r5_6) 
 
@@ -283,10 +282,10 @@ $$
 
 """, style={'font-size': '13pt'})
 
-#pn.Row(r5_7,spacer2, r5_8) 
+pn.Row(r5_7,spacer2, r5_8) 
 
 
-# In[12]:
+# In[11]:
 
 
 # Solution of 11c
@@ -308,27 +307,27 @@ print("Effective vertical hydraulic conductivity (Keff_v) = {0:1.2E}".format(Kef
 print("Effective inclined hydraulic conductivity (Keff_i) = {0:1.2E}".format(Keff_i), "m/s\n" ) 
 
 
-# In[2]:
+# In[12]:
 
 
 r8_1= pn.pane.Markdown("""
-#Homework Problems on  Effective Conductivity <br><br><br> 
+##Homework Problems on  Effective Conductivity <br><br><br> 
 """, width = 800, style={'font-size': '12pt'})
 
 
 r8_2= pn.pane.Markdown("""
-#There is no obligation to solve homework problems!
+### There is no obligation to solve homework problems!
 """, width = 800, style={'font-size': '12pt', 'color':'red'})
 
 pn.Column(r8_1,r8_2)  
 
 
-# In[3]:
+# In[13]:
 
 
 #
 r9_1= pn.pane.Markdown("""
-## Homework Problem 5: Effective Hydraulic Conductivity ##
+### Homework Problem 5: Effective Hydraulic Conductivity ###
 A gravel layer with a thickness of 2.5 m is embedded between two sand layers. Both sand layers have a thickness of 
 1.5 m and a hydraulic conductivity of 3.7·10<sup>-4</sup> m/s. Steady-state groundwater flow is perpendicular to the layering. 
 An overall head difference of 5.5 cm and a discharge of 500 l/d per unit area have been determined <br><br>
@@ -341,6 +340,8 @@ An overall head difference of 5.5 cm and a discharge of 500 l/d per unit area ha
 """, width = 900, style={'font-size': '12pt'})
 r9_1
 
+
+# 
 
 # In[ ]:
 

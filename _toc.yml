@@ -13,6 +13,7 @@
   - file: contents/flow/lecture_05/15_het_iso
   - file: contents/flow/lecture_06/16_darcy_law_3D
   - file: contents/flow/lecture_07/17_quantify_flow
+  - file: contents/flow/lecture_08/18_wells
 
 
 - part: Tutorials
@@ -24,6 +25,7 @@
   - file: contents/tutorials/tutorial_04/tutorial_04
   - file: contents/tutorials/tutorial_05/tutorial_05
   - file: contents/tutorials/tutorial_06/tutorial_06
+  - file: contents/tutorials/tutorial_07/tutorial_07
 
 - part: Tools
   chapters:
@@ -32,6 +34,7 @@
   - file: contents/tools/effective_K
   - file: contents/tools/uniform_flow_and_well
   - file: contents/tools/aniso2D
+  - file: contents/tools/type_curve_fit
 
 - part: Question pool
   chapters:
