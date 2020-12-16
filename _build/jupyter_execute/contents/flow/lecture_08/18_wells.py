@@ -5,6 +5,9 @@
 
 
 import numpy as np
+import panel as pn
+
+pn.extension("katex")
 
 
 # # Lecture 08 - Wells*
@@ -237,18 +240,16 @@ print("The required transmissivity is {0:1.2e}".format(T_a), "m\u00b2/s")
 # 
 # #### Evolution of Cone of Depression with Time ####
 # 
-# Transient models have to be used to observe the evolution of cone of depression. These are mostly only possible through use of numerical models (to be discussed in the later end of this course). {refnum}`cone-sim` presents a computer simulation of evolving cone of depression with respect to time. From the figure it is easier to obtain the radius of influence ($R$). It is to be noted that $R$ will be maximum at the steady-state condition. 
-# 
-# 
-# ```{figure} images/L08_f9X.png
-# ---
-# scale: 45%
-# align: center
-# name: cone-sim
-# ---
-# The cone of depression over time.
-# ```
-# 
+# Transient models have to be used to observe the evolution of cone of depression. These are mostly only possible through use of numerical models (to be discussed in the later end of this course). The animation provides the computer simulation of evolving cone of depression as a function of time. From the figure it is easier to obtain the radius of influence ($R$). It is to be noted that $R$ will be maximum at the steady-state condition. 
+
+# In[3]:
+
+
+video1 = pn.pane.Video("images/L08_f9X.mp4", width=400, height=150, loop=False)
+spacer = pn.Spacer(width=50)
+image = pn.pane.PNG("images/L08_f9Y.png", width=200)
+pn.Row(video1, spacer, image)
+
 
 # ### Law of Continuity ###
 # 
@@ -377,7 +378,7 @@ print("The required transmissivity is {0:1.2e}".format(T_a), "m\u00b2/s")
 # Q = \frac{2\cdot\pi\cdot T \cdot (H-h)}{\ln (R/r_w)}
 # $$
 
-# In[3]:
+# In[4]:
 
 
 print("\n\033[1m Provided are:\033[0m\n")
@@ -476,7 +477,7 @@ print("The transmissivity in the aquifer is {0:0.2f} m\u00b2/d".format(T))
 # From the provided data, calculate discharge of the aquifer.
 # ```
 
-# In[4]:
+# In[5]:
 
 
 print("\n\033[1m Provided are:\033[0m\n")
