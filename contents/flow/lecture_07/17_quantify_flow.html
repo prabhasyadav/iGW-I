@@ -51,6 +51,8 @@
     <script src="../../../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -162,6 +164,18 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
+  Transport
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../transport/lecture_09/21_conservative_transport.html">
+   Lecture 9-  Conservative Transport
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
   Tutorials
  </span>
 </p>
@@ -211,6 +225,11 @@
    Tutorial 7 - Wells
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/tutorial_08/tutorial_08.html">
+   Tutorial 8 - Conservative transport
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -246,6 +265,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../../tools/type_curve_fit.html">
    Type curve and fitting pumping data tool
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/1D_advection_dispersion.html">
+   Tool for simulating 1D Conservative Transport (Laboratory Column)
   </a>
  </li>
 </ul>
@@ -592,8 +616,8 @@
 <p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text">Conservation of volume</span><a class="headerlink" href="#vol-bud" title="Permalink to this image">¶</a></p>
 </div>
 <p>The volume budget in this control volume can be expressed as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3031fe91-88b2-42ea-ad46-fe7bff208950">
-<span class="eqno">(1)<a class="headerlink" href="#equation-3031fe91-88b2-42ea-ad46-fe7bff208950" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d1992c83-1221-4398-94bb-6dfa98a0c779">
+<span class="eqno">(1)<a class="headerlink" href="#equation-d1992c83-1221-4398-94bb-6dfa98a0c779" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{\Delta V_w}{\Delta t} = Q_{in} - Q_{out}
 \end{equation}\]</div>
 <p>The scenario that can be considered with the conservation of volume are:</p>
@@ -644,8 +668,8 @@ Q_{out} = \bigg(v_{fx}+\frac{\partial v_{fx}}{\partial x} \Delta x\bigg)\Delta y
 \bigg(v_{fz}+\frac{\partial v_{fz}}{\partial z} \Delta z\bigg)\Delta x \Delta y
 \]</div>
 <p><strong>The different in discharge between inlet and outlet</strong>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4f781bab-bcbf-46ec-944e-ec3272f8da40">
-<span class="eqno">(2)<a class="headerlink" href="#equation-4f781bab-bcbf-46ec-944e-ec3272f8da40" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f516394e-9bd3-4b7e-baeb-62b250aafdd7">
+<span class="eqno">(2)<a class="headerlink" href="#equation-f516394e-9bd3-4b7e-baeb-62b250aafdd7" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 Q_{in}-Q_{out}=-\frac{\partial v_{fx}}{\partial x}\Delta x\Delta y \Delta z
 -\frac{\partial v_{fy}}{\partial y}\Delta x\Delta y \Delta z  
 -\frac{\partial v_{fz}}{\partial z}\Delta x\Delta y \Delta z 
@@ -656,8 +680,8 @@ Q_{in}-Q_{out}=-\frac{\partial v_{fx}}{\partial x}\Delta x\Delta y \Delta z
 \frac{\Delta V_w}{\Delta x \Delta y \Delta z} \propto \Delta h
 \]</div>
 <p>which was formulated as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9ab74516-d413-4006-9725-1f06d57f7959">
-<span class="eqno">(3)<a class="headerlink" href="#equation-9ab74516-d413-4006-9725-1f06d57f7959" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a264d766-c448-4753-b493-ed5c48975981">
+<span class="eqno">(3)<a class="headerlink" href="#equation-a264d766-c448-4753-b493-ed5c48975981" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \Delta V_w = S_s\Delta h \Delta x \Delta y \Delta z  
 \end{equation}\]</div>
 <p>That is, the value of the storage coefficient corresponds to the change in water volume within a unit control volume if hydraulic head is increased/decreased by one unit.</p>

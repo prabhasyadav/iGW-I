@@ -51,6 +51,8 @@
     <script src="../../../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -60,7 +62,7 @@
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Tutorial 1 - Python Programming language" href="../../tutorials/tutorial_01/01_python.html" />
+    <link rel="next" title="Lecture 9- Conservative Transport" href="../../transport/lecture_09/21_conservative_transport.html" />
     <link rel="prev" title="Lecture 07 - Quantifying 3D Groundwater Flow*" href="../lecture_07/17_quantify_flow.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -162,6 +164,18 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
+  Transport
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../transport/lecture_09/21_conservative_transport.html">
+   Lecture 9-  Conservative Transport
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
   Tutorials
  </span>
 </p>
@@ -211,6 +225,11 @@
    Tutorial 7 - Wells
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/tutorial_08/tutorial_08.html">
+   Tutorial 8 - Conservative transport
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -246,6 +265,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../../tools/type_curve_fit.html">
    Type curve and fitting pumping data tool
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/1D_advection_dispersion.html">
+   Tool for simulating 1D Conservative Transport (Laboratory Column)
   </a>
  </li>
 </ul>
@@ -1966,7 +1990,7 @@ if (window.Jupyter !== undefined) {
 <p>Similar things can be done with regard to conductivity properties and this brings us to the geohydraulic parameter of transmissivity (<span class="math notranslate nohighlight">\(T\)</span>,  L<span class="math notranslate nohighlight">\(^2\)</span>T<span class="math notranslate nohighlight">\(^{-1}\)</span>). The idea is to neglect vertical variations of hydraulic conductivity and to use vertically averaged values instead. This procedure does not eliminate horizontal variability, so transmissivity may still depend on horizontal coordinates  <span class="math notranslate nohighlight">\((x, y)\)</span>.</p>
 <p>The vertically averaged <span class="math notranslate nohighlight">\(K\)</span> value is then multiplied by the water-saturated thickness to obtain transmissivity. The concept of water-saturated thickness (or water-saturated depth) requires to distinguish whether <em>confined</em> or <em>unconfined flow</em> conditions prevail.</p>
 <p>In general, water-saturated thickness is the distance from the aquifer bottom to a level up to which all pores are filled with water. For <em>confined aquifers,</em> this level is equal to aquifer top and water-saturated thickness is tantamount to aquifer thickness. For <em>unconfined aquifers,</em> however, water-saturated thickness corresponds to the distance between aquifer bottom and groundwater level. We will see some illustrations below when we try to quantify transmissivity.</p>
-<p>Let us have a closer look at the confined case first. The black cuboid in <a class="reference internal" href="#trans-c-2d"><span class="std std-numref">Fig. 34</span></a>  illustrates that water-saturated thickness extends from aquifer bottom to aquifer top. So, it is equal to aquifer thickness <span class="math notranslate nohighlight">\(m\)</span>. Transmissivity is calculated by <span class="math notranslate nohighlight">\(T_x = K_x \cdot m\)</span> and <span class="math notranslate nohighlight">\(T_y = K_y \cdot m\)</span>. Here we allow for horizontal aquifer anisotropy with different hydraulic conductivities in <span class="math notranslate nohighlight">\(x-\)</span> and <span class="math notranslate nohighlight">\(y-\)</span> direction <span class="math notranslate nohighlight">\((K_x\neq K_y)\)</span>. For horizontally isotropic aquifers <span class="math notranslate nohighlight">\((K_x = K_y = K)\)</span>, transmissivity is given by <span class="math notranslate nohighlight">\(T = K \cdot m\)</span>.</p>
+<p>Let us have a closer look at the confined case first. The black cuboid in <a class="reference internal" href="../../transport/lecture_09/21_conservative_transport.html#trans-c-2d"><span class="std std-numref">Fig. 44</span></a>  illustrates that water-saturated thickness extends from aquifer bottom to aquifer top. So, it is equal to aquifer thickness <span class="math notranslate nohighlight">\(m\)</span>. Transmissivity is calculated by <span class="math notranslate nohighlight">\(T_x = K_x \cdot m\)</span> and <span class="math notranslate nohighlight">\(T_y = K_y \cdot m\)</span>. Here we allow for horizontal aquifer anisotropy with different hydraulic conductivities in <span class="math notranslate nohighlight">\(x-\)</span> and <span class="math notranslate nohighlight">\(y-\)</span> direction <span class="math notranslate nohighlight">\((K_x\neq K_y)\)</span>. For horizontally isotropic aquifers <span class="math notranslate nohighlight">\((K_x = K_y = K)\)</span>, transmissivity is given by <span class="math notranslate nohighlight">\(T = K \cdot m\)</span>.</p>
 <div class="figure align-center" id="trans-c-2d">
 <a class="reference internal image-reference" href="../../../_images/L08_f1.png"><img alt="../../../_images/L08_f1.png" src="../../../_images/L08_f1.png" style="width: 392.40000000000003px; height: 222.4px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 34 </span><span class="caption-text">The transmissivity cuboid in confined aquifer.</span><a class="headerlink" href="#trans-c-2d" title="Permalink to this image">¶</a></p>
@@ -2076,7 +2100,7 @@ The required transmissivity is 1.62e-03 m²/s
 </dl>
 <p><a class="reference internal" href="#full-pen"><span class="std std-numref">Fig. 39</span></a> shows a schematic of water flow in a fully penetrating wells.</p>
 <div class="figure align-center" id="full-pen">
-<a class="reference internal image-reference" href="../../../_images/L08_f7x.png"><img alt="../../../_images/L08_f7x.png" src="../../../_images/L08_f7x.png" style="width: 690.4000000000001px; height: 269.2px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/L08_f7x.png"><img alt="../../../_images/L08_f7x.png" src="../../../_images/L08_f7x.png" style="width: 732.8000000000001px; height: 237.60000000000002px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 39 </span><span class="caption-text">Flownet in a fully penetrating wells</span><a class="headerlink" href="#full-pen" title="Permalink to this image">¶</a></p>
 </div>
 <dl class="simple myst">
@@ -2085,7 +2109,7 @@ The required transmissivity is 1.62e-03 m²/s
 </dl>
 <p>Partially penetrating wells are constructed when aquifer depths are very high; in which case a fully penetrating well may not also be economical. <a class="reference internal" href="#par-pen"><span class="std std-numref">Fig. 40</span></a> presents a schematic of a flownet that is likely to be observed in the partially penetrating well.</p>
 <div class="figure align-center" id="par-pen">
-<a class="reference internal image-reference" href="../../../_images/L08_f7y.png"><img alt="../../../_images/L08_f7y.png" src="../../../_images/L08_f7y.png" style="width: 548.4px; height: 339.6px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/L08_f7y.png"><img alt="../../../_images/L08_f7y.png" src="../../../_images/L08_f7y.png" style="width: 620.8000000000001px; height: 367.6px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 40 </span><span class="caption-text">Flownet in a partially penetrating wells</span><a class="headerlink" href="#par-pen" title="Permalink to this image">¶</a></p>
 </div>
 <p>Comparing the Flownets in <a class="reference internal" href="#full-pen"><span class="std std-numref">Fig. 39</span></a> and <a class="reference internal" href="#par-pen"><span class="std std-numref">Fig. 40</span></a>, it can be observed that the vertical flow components can be significant in the partially penetrating case. This then lead to a 3D groundwater problem compared to the fully penetrating case, which can be treated as 2D groundwater problem as vertical flow component has limited effect.</p>
@@ -2700,7 +2724,7 @@ t/r^2 = 0.57
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="../lecture_07/17_quantify_flow.html" title="previous page">Lecture 07 - Quantifying 3D Groundwater Flow*</a>
-    <a class='right-next' id="next-link" href="../../tutorials/tutorial_01/01_python.html" title="next page">Tutorial 1 - Python Programming language</a>
+    <a class='right-next' id="next-link" href="../../transport/lecture_09/21_conservative_transport.html" title="next page">Lecture 9-  Conservative Transport</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
