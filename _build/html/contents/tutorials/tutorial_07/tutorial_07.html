@@ -51,6 +51,8 @@
     <script src="../../../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -60,7 +62,7 @@
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Simulating Mass Budget" href="../../tools/decay.html" />
+    <link rel="next" title="Tutorial 8 - Conservative transport" href="../tutorial_08/tutorial_08.html" />
     <link rel="prev" title="Tutorial 6 - Tutorial Problems on Flow in Confined/Unconfined Aquifer" href="../tutorial_06/tutorial_06.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -162,6 +164,18 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
+  Transport
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../transport/lecture_09/21_conservative_transport.html">
+   Lecture 9-  Conservative Transport
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
   Tutorials
  </span>
 </p>
@@ -211,6 +225,11 @@
    Tutorial 7 - Wells
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorial_08/tutorial_08.html">
+   Tutorial 8 - Conservative transport
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -246,6 +265,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../../tools/type_curve_fit.html">
    Type curve and fitting pumping data tool
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/1D_advection_dispersion.html">
+   Tool for simulating 1D Conservative Transport (Laboratory Column)
   </a>
  </li>
 </ul>
@@ -437,8 +461,8 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#homework-problem-8">
-     Homework Problem 8
+    <a class="reference internal nav-link" href="#homework-problem-10">
+     Homework Problem 10
     </a>
    </li>
   </ul>
@@ -2732,8 +2756,8 @@ The radius of influence is is: 411.83 m
 <p><font size="4" color="red">There is no obligation to submit the homework</font></p>
 <br>
 <p><strong>Pls. submit within two weeks if you wish to.</strong></p>
-<div class="section" id="homework-problem-8">
-<h3>Homework Problem 8<a class="headerlink" href="#homework-problem-8" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="homework-problem-10">
+<h3>Homework Problem 10<a class="headerlink" href="#homework-problem-10" title="Permalink to this headline">¶</a></h3>
 <p>A pumping test is conducted to determine hydraulic properties (storage coefficient <span class="math notranslate nohighlight">\(S\)</span>, the transmissivity <span class="math notranslate nohighlight">\(T\)</span> and the hydraulic conductivity <span class="math notranslate nohighlight">\(K\)</span>) of
 the aquifer. of a confined aquifer. For this purpose, a constant
 pumping rate of 1219 m<sup>3</sup>/d is established and drawdown is recorded in an observation well. This problem is to be
@@ -2862,7 +2886,7 @@ if (root.Bokeh !== undefined) {
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="../tutorial_06/tutorial_06.html" title="previous page">Tutorial 6 - Tutorial Problems on Flow in Confined/Unconfined Aquifer</a>
-    <a class='right-next' id="next-link" href="../../tools/decay.html" title="next page">Simulating Mass Budget</a>
+    <a class='right-next' id="next-link" href="../tutorial_08/tutorial_08.html" title="next page">Tutorial 8 - Conservative transport</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

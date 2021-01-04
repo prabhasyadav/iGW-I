@@ -15,6 +15,10 @@
   - file: contents/flow/lecture_07/17_quantify_flow
   - file: contents/flow/lecture_08/18_wells
 
+- part: Transport
+  chapters:
+  - file: contents/transport/lecture_09/21_conservative_transport
+
 
 - part: Tutorials
   chapters:
@@ -26,6 +30,7 @@
   - file: contents/tutorials/tutorial_05/tutorial_05
   - file: contents/tutorials/tutorial_06/tutorial_06
   - file: contents/tutorials/tutorial_07/tutorial_07
+  - file: contents/tutorials/tutorial_08/tutorial_08
 
 - part: Tools
   chapters:
@@ -35,6 +40,8 @@
   - file: contents/tools/uniform_flow_and_well
   - file: contents/tools/aniso2D
   - file: contents/tools/type_curve_fit
+  - file: contents/tools/1D_advection_dispersion
+
 
 - part: Question pool
   chapters:

@@ -464,7 +464,7 @@ print("The radius of influence is is: {0:1.2f}".format(R_19), "m")
 # 
 # **Pls. submit within two weeks if you wish to.**
 # 
-# ### Homework Problem 8 ###
+# ### Homework Problem 10 ###
 
 # A pumping test is conducted to determine hydraulic properties (storage coefficient $S$, the transmissivity $T$ and the hydraulic conductivity $K$) of 
 # the aquifer. of a confined aquifer. For this purpose, a constant 

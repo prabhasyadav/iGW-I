@@ -1,0 +1,1217 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 9- Conservative Transport &#8212; Groundwater I</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/custom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Tutorial 1 - Python Programming language" href="../../tutorials/tutorial_01/01_python.html" />
+    <link rel="prev" title="Lecture 08 - Wells*" href="../../flow/lecture_08/18_wells.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/logo3.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Groundwater I</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../intro.html">
+   The Interactive Groundwater-I Book
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Background
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../background/00_general.html">
+   About this Groundwater Course and Contents
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../background/03_basic_hydrogeology.html">
+   Lecture 1 - Course Introduction/Water Cycle
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Flow
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../flow/lecture_02/12_subsurface_structure.html">
+   Lecture 2 - Subsurface Structure
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../flow/lecture_03/13_gw_storage.html">
+   Lecture 3-  Groundwater as a reservoir
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../flow/lecture_04/14_darcy_law_K.html">
+   Lecture 4 - Darcy’s Law and Conductivity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../flow/lecture_05/15_het_iso.html">
+   Lecture 5. Aquifer Heterogeneity and Anisotropy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../flow/lecture_06/16_darcy_law_3D.html">
+   Lecture 6: Steady-State Groundwater flow in 3D
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../flow/lecture_07/17_quantify_flow.html">
+   Lecture 07 - Quantifying 3D Groundwater Flow*
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../flow/lecture_08/18_wells.html">
+   Lecture 08 - Wells*
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Transport
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Lecture 9-  Conservative Transport
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/tutorial_01/01_python.html">
+   Tutorial 1 - Python Programming language
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/tutorial_01/02_jupyter.html">
+   Tutorial 1 - JUPYTER Notebook Interface for Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/tutorial_01/02_jupyter.html#installing-python-and-jupyter-notebook-in-your-system">
+   Installing Python and JUPYTER notebook in your system
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/tutorial_02/tutorial_02.html">
+   Tutorial 2 - Aquifer and Storage Properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/tutorial_03/tutorial_03.html">
+   Tutorial 3 - Darcy Law and Conductivity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/tutorial_04/tutorial_04.html">
+   Tutorial 4 - Effective K &amp; Recitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/tutorial_05/tutorial_05.html">
+   Tutorial 5 - Tutorial problems aquifer heterogeneity/anisotropy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/tutorial_06/tutorial_06.html">
+   Tutorial 6 - Tutorial Problems on Flow in Confined/Unconfined Aquifer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/tutorial_07/tutorial_07.html">
+   Tutorial 7 - Wells
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/tutorial_08/tutorial_08.html">
+   Tutorial 8 - Conservative transport
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tools
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/decay.html">
+   Simulating Mass Budget
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/sieve_analysis.html">
+   Simulating Seive Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/effective_K.html">
+   Simulating Effective hydraulic conductivity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/uniform_flow_and_well.html">
+   Uniform Flow and Well*
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/aniso2D.html">
+   Simulating the Anisotropy and flow direction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/type_curve_fit.html">
+   Type curve and fitting pumping data tool
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/1D_advection_dispersion.html">
+   Tool for simulating 1D Conservative Transport (Laboratory Column)
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Question pool
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../questions/GW_exam_2019_20.html">
+   Groundwater Exam Solution -  2019-2020
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/contents/transport/lecture_09/21_conservative_transport.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/prabhasyadav/iGW-I"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/prabhasyadav/iGW-I/issues/new?title=Issue%20on%20page%20%2Fcontents/transport/lecture_09/21_conservative_transport.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/prabhasyadav/iGW-I/main?urlpath=tree/contents/transport/lecture_09/21_conservative_transport.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivation">
+   Motivation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#groundwater-flow-and-transport">
+   Groundwater flow and transport
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conservative-transport-processes">
+   Conservative transport processes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#advection">
+     Advection
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-advection-and-advective-mass-rate">
+     1D Advection and advective mass rate
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-advection-in-variable-cross-section">
+     1D advection in variable cross-section
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#is-advection-enough">
+     Is advection enough?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mechanical-dispersion">
+   Mechanical dispersion
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dispersive-mass-flow-rate">
+     Dispersive Mass flow rate
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dispersivity-and-mechanical-dispersion-coefficient">
+     Dispersivity and Mechanical Dispersion coefficient
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hydrodynamic-dispersion">
+     Hydrodynamic Dispersion
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#d-diffusion">
+   1D Diffusion
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Hydrodynamic Dispersion
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#joint-action-of-transport-processes">
+   Joint Action of Transport Processes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analysis-of-conservative-transport-problem">
+   Analysis of conservative transport problem
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#concnetration-profiles-and-breakthrough-curves">
+   Concnetration Profiles and Breakthrough Curves
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#additional-tool">
+   Additional Tool
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sc</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">erfc</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Latex</span><span class="p">,</span> <span class="n">Math</span>
+
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="lecture-9-conservative-transport">
+<h1>Lecture 9-  Conservative Transport<a class="headerlink" href="#lecture-9-conservative-transport" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+<p>Groundwater is used by almost half of the world population for drinking purposes. Therefore maintaining it’s quality is very important, not only for human consumption but also for the maintenance of the ecosystem that we live. Groundwater contamination artificial (e.g., from human intervention) or natural (e.g., flood) can impact groundwater quality. Of these two, artificial contamination, e.g., industrial development, improper waste management is more alarming one as quite few contamination (e.g, fuels, radioactive waste) can remain in groundwater for very long time. In this lecture we will learn about processes affecting groundwater quality issues. It has to be mentioned that when we talk about groundwater quality, we mean the change in the original state of groundwater. At many instances this can be groundwater quality can be defined in terms of regulatory standards.</p>
+</div>
+<div class="section" id="groundwater-flow-and-transport">
+<h2>Groundwater flow and transport<a class="headerlink" href="#groundwater-flow-and-transport" title="Permalink to this headline">¶</a></h2>
+<p>Before we begin, let us distinguish between <em>groundwater flow</em> and <em>transport</em> problems. With <em>flow</em> problems we deal with groundwater only, whereas with <em>transport</em> problem we deal with particles flowing along with groundwater. It is not required that particle be a contaminant. The particle in this sense may be defines as anything other than water. We begin with a groundwater contamination scenario.</p>
+<div class="figure align-center" id="trans-c-2d">
+<a class="reference internal image-reference" href="../../../_images/T9_f1a.png"><img alt="../../../_images/T9_f1a.png" src="../../../_images/T9_f1a.png" style="width: 523.6px; height: 289.6px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 44 </span><span class="caption-text">Contamination scenario</span><a class="headerlink" href="#trans-c-2d" title="Permalink to this image">¶</a></p>
+</div>
+<p>In the figure, the chemicals (contaminants) first enters the <em>vadose zone</em>, an unstatured part of the subsurface from the ground surface. The entry is faciliated with phenomenan such as rainfall. As only limited water are available and there are almost no continuous horizontal flow, the contaminants, mostly as a pure phase,  in this zone often travels vertically until it reaches the groundwater table - a boundary between an unstaturated and saturated subsurface. Beneath the water-table, the contaminants mixes with the flowing groundwater and spreads both vertically and horizontally along the saturated zone resulting to a development of a contaminant plume.</p>
+<p><strong>In this course we learn only of contamination in the saturated zone.</strong></p>
+<p>Before we approach the transport processes, it is important that we learn about the category of groundwater problem. At the top-most level groundwater transport problem is categorized as</p>
+<blockquote>
+<div><ol class="simple">
+<li><p><strong>Conservative transport problem</strong>: The transport problem which involves only movement of particles along with the water flow. We can call this as non-reactive transport problems, e.g., dye or (inert) salt transport. In this lecture we deal with this transport type.</p></li>
+<li><p><strong>Reactive transport problem</strong>: The transport problem that deals with reaction along with the flow of particles. This is compound problem type in which flow properties, the conservative part of the transport problem, as well as the chemical properties (and reactions) is considered. Several types of reactions are possible and they need to be considered. We will deal with this type of transport problem in the next lecture.</p></li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="conservative-transport-processes">
+<h2>Conservative transport processes<a class="headerlink" href="#conservative-transport-processes" title="Permalink to this headline">¶</a></h2>
+<p>As defined earlier and also shown in the figure, the three main processes active in conservative transport in groundwater are:</p>
+<blockquote>
+<div><ol class="simple">
+<li><p>Advection</p></li>
+<li><p>Dispersion</p></li>
+<li><p>Diffusion</p></li>
+</ol>
+</div></blockquote>
+<p>We discuss each of these process, learn to quantify them and then combine them to set-up of our system equation for groundwater transport problem.</p>
+<div class="section" id="advection">
+<h3>Advection<a class="headerlink" href="#advection" title="Permalink to this headline">¶</a></h3>
+<p><u>Advection</u>, also called <strong>convection</strong>, is the transport of components (matter or also energy) due to moving medium. The moving medium, i.e., <em>a carrier</em> is, usually groundwater. Thus, quantities that characterizes flow also characterizes advective transport.</p>
+<p>Advective transport is not limited to groundwater system. Heating circuit, sailplaning are examples of convection of heat. Similarly, movement of suspended particles in the surface water or by the wind are few examples of advective transport in non-groundwater systems.</p>
+<p>The term <strong>convection</strong> is more often associated with energy transport, whereas <strong>advection</strong> is frequently used for transport of the matter.</p>
+</div>
+<div class="section" id="d-advection-and-advective-mass-rate">
+<h3>1D Advection and advective mass rate<a class="headerlink" href="#d-advection-and-advective-mass-rate" title="Permalink to this headline">¶</a></h3>
+<p>2D studies are more often the case used in exploring groundwater and its processes. 1D studies can also be sufficient to understand the <strong>flow</strong> dominated processes such as advection. Also, 1D study is more suitable in lab column studies, as often length of pipes are many times larger that its diameter. For advection, considering 1D pipe flow, to be considered are:</p>
+<ul class="simple">
+<li><p>Steady-state flow with discharge <span class="math notranslate nohighlight">\(Q\)</span> [L<span class="math notranslate nohighlight">\(^3\)</span>T<span class="math notranslate nohighlight">\(^{-1}\)</span>]</p></li>
+<li><p>Cross-sectional area, a constant quantity,  <span class="math notranslate nohighlight">\(A\)</span> [L<span class="math notranslate nohighlight">\(^2\)</span>]</p></li>
+<li><p>Fluid continuity equation: <span class="math notranslate nohighlight">\(Q= n_e\cdot A\cdot v\)</span> = constant, with <span class="math notranslate nohighlight">\(n_e\)</span>[-] is the <strong>effective</strong> porosity and <span class="math notranslate nohighlight">\(v\)</span> [LT<span class="math notranslate nohighlight">\(^{-1}\)</span>] the <strong>linear</strong> groundwater velocity</p></li>
+</ul>
+<p>With these information, the advective mass rate <span class="math notranslate nohighlight">\(J_{adv}\)</span> [MT<span class="math notranslate nohighlight">\(^{-1}\)</span>] is obtained from:</p>
+<div class="math notranslate nohighlight">
+\[
+J_{adv} = Q\cdot C
+\]</div>
+<p>with concentration <span class="math notranslate nohighlight">\(C\)</span> [ML<span class="math notranslate nohighlight">\(^{-3}\)</span>].</p>
+<p>Since <span class="math notranslate nohighlight">\(A\)</span> is constant and so is <span class="math notranslate nohighlight">\(Q\)</span>, then <span class="math notranslate nohighlight">\(v\)</span> has to be constant too. The consequence of qunatities being constant is that the transport of matter, in  resembles a horizontal pushing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A quick example: You can change the provided value</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Let us find advective mass rate exiting a column.</span><span class="se">\n\n</span><span class="s2">Provided are:&quot;</span><span class="p">)</span>
+
+<span class="n">R_1</span> <span class="o">=</span> <span class="mf">0.25</span> <span class="c1"># cm, radius of the column</span>
+<span class="n">ne_1</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="c1"># (), effective porosity</span>
+<span class="n">v_1</span> <span class="o">=</span> <span class="mf">0.02</span> <span class="c1"># cm/s, velocity</span>
+<span class="n">C_1</span>   <span class="o">=</span> <span class="mi">2</span> <span class="c1"># mg/L, concentration</span>
+
+<span class="c1"># intermediate calculation</span>
+<span class="n">A_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">R_1</span><span class="o">**</span><span class="mi">2</span> <span class="c1"># Column surface area</span>
+<span class="n">Q_1</span> <span class="o">=</span> <span class="n">ne_1</span><span class="o">*</span><span class="n">A_1</span><span class="o">*</span><span class="n">v_1</span> <span class="c1"># cm^3/s, discharge</span>
+
+<span class="c1">#solution</span>
+<span class="n">J_adv</span> <span class="o">=</span> <span class="n">Q_1</span><span class="o">*</span><span class="n">C_1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Radius = </span><span class="si">{}</span><span class="s2"> cm</span><span class="se">\n</span><span class="s2">Water flow rate = </span><span class="si">{}</span><span class="s2"> cm/s</span><span class="se">\n</span><span class="s2">Input concentration = </span><span class="si">{}</span><span class="s2"> mg/L and</span><span class="se">\n</span><span class="s2">Effective porosity = </span><span class="si">{:02.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">R_1</span><span class="p">,</span> <span class="n">v_1</span><span class="p">,</span> <span class="n">C_1</span><span class="p">,</span> <span class="n">ne_1</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The resulting advective mass flow rate is </span><span class="si">{:02.4f}</span><span class="s2"> mg/s&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">J_adv</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A quick example: You can change the provided value
+
+Let us find advective mass rate exiting a column.
+
+Provided are:
+Radius = 0.25 cm
+Water flow rate = 0.02 cm/s
+Input concentration = 2 mg/L and
+Effective porosity = 0.30 
+
+The resulting advective mass flow rate is 0.0024 mg/s
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># simulating advection 1D</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Simulating advective flow</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">N</span><span class="o">=</span> <span class="mi">100</span> <span class="c1"># number of cell - i.e. compartment a column is divided into</span>
+<span class="n">c0</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># initial concentration</span>
+<span class="n">cin</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># input concentration</span>
+<span class="n">c1</span> <span class="o">=</span> <span class="n">c0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">))</span> <span class="c1"># initializing - i.e., all compartment has zero conc.</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span> <span class="c1"># number of time steps- we make it equivalent to cell number.</span>
+    <span class="n">c1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># &quot;roll&quot; is numpy function for shifting</span>
+    <span class="n">c1</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">cin</span> <span class="c1"># make the first cell = cin again. This is because np.roll uses the last value as the first one.</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c1</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;space (m)&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Concentration (mg/L)&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">]);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">cin</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Simulating advective flow
+</pre></div>
+</div>
+<img alt="../../../_images/21_conservative_transport_5_1.png" src="../../../_images/21_conservative_transport_5_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="d-advection-in-variable-cross-section">
+<h3>1D advection in variable cross-section<a class="headerlink" href="#d-advection-in-variable-cross-section" title="Permalink to this headline">¶</a></h3>
+<p>In the just completed case, the column was of uniform diameter. So, what happens when:</p>
+<p>In this case the equation of continuity has to be explored. The continuity equation for variable cross section is:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+Q_1 &amp;=Q_2 \\
+A_1 v_1 &amp;= A_2 v_2
+\end{align*}\]</div>
+<p>As <span class="math notranslate nohighlight">\(Q_1=Q_2= Q\)</span>, and when <span class="math notranslate nohighlight">\(A\)</span> changes then, <span class="math notranslate nohighlight">\(v\)</span> has to change as well. In this case considering that <span class="math notranslate nohighlight">\(n_e\)</span> is spatially constant, <span class="math notranslate nohighlight">\(v\)</span> will be inversely proportional to the cross-section. i.e., increase in <span class="math notranslate nohighlight">\(A\)</span> will result to decrease in <span class="math notranslate nohighlight">\(v\)</span> and vice-versa.</p>
+<p>Based on this, the mass (patch in the figure), is actually equal in both figure and they are onyl spread out laterally. In other words, as cross-section increased and velocity decreased, the mass extension is reduced along the flow direction. The effect of <em>advection</em> is that the <em>concentration</em>, which is the total mass per litre of groundwater, remains unchanged in the patched mass area.</p>
+</div>
+<div class="section" id="is-advection-enough">
+<h3>Is advection enough?<a class="headerlink" href="#is-advection-enough" title="Permalink to this headline">¶</a></h3>
+<p>Probably not. Advection may only be possible in uniformly packed porous medium with also perfectly uniform particle size distribution of medium particles. This is rather exception. In normal cases, the the particle transport will spread out leading some matter exiting earlier then remaining others. This is explained by process called <strong>mechanical dispersion</strong>.</p>
+<div class="figure align-center" id="ad-dis">
+<a class="reference internal image-reference" href="../../../_images/T9_f3.png"><img alt="../../../_images/T9_f3.png" src="../../../_images/T9_f3.png" style="width: 476.7px; height: 237.99999999999997px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 45 </span><span class="caption-text">Advection-dispersion processes</span><a class="headerlink" href="#ad-dis" title="Permalink to this image">¶</a></p>
+</div>
+<blockquote>
+<div><p>Note: 1D only have longitudinal dispersivity. Transverse dispersivity is 2D/3D property
+This is a footnote reference.</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="mechanical-dispersion">
+<h2>Mechanical dispersion<a class="headerlink" href="#mechanical-dispersion" title="Permalink to this headline">¶</a></h2>
+<p><strong>Mechanical dispersion</strong> can result due to alone or combination of several porous medium and flow hydraulics properties. In general the following three reasons are considered when explaining the mechanical dispersion process:</p>
+<div class="figure align-center" id="mech-dis">
+<a class="reference internal image-reference" href="../../../_images/T9_f4.png"><img alt="../../../_images/T9_f4.png" src="../../../_images/T9_f4.png" style="width: 598.8000000000001px; height: 146.0px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 46 </span><span class="caption-text">Mechanical dispersion mechanisms</span><a class="headerlink" href="#mech-dis" title="Permalink to this image">¶</a></p>
+</div>
+<blockquote>
+<div><p>a.  The varying flow velocities across each individual pore. A <strong>parabolic velocity profile</strong> results as close to the surface there is resistance to flow and the maximum velocity is at the centreline.</p>
+</div></blockquote>
+<blockquote>
+<div><p>b. Different flow velocities in different pores. Pore sizes can vary due to different particle sizes and also due to non-uniform compaction. Larger pore will then have higher velocity compared to smaller pores.</p>
+</div></blockquote>
+<blockquote>
+<div><p>c. Varying flow paths of individual flow streams. The water streams can take its own path around the particles. This can lead some taking shorter exit path compared to other streams.</p>
+</div></blockquote>
+<p>These effects, either individually or any combination, result in different transport distances and different transport times, respectively. Thus, matter carried by streamline will also have different transport distances and different times- or the solute are <strong>dispersed</strong>.</p>
+<div class="section" id="dispersive-mass-flow-rate">
+<h3>Dispersive Mass flow rate<a class="headerlink" href="#dispersive-mass-flow-rate" title="Permalink to this headline">¶</a></h3>
+<p>The dispersive mass flow rate <span class="math notranslate nohighlight">\(J_{disp, m}\)</span> [MT<span class="math notranslate nohighlight">\(^{-1}\)</span>] due to mechanical dispersion in porous media is:</p>
+<ul class="simple">
+<li><p>propertional to the cross-sectional area <span class="math notranslate nohighlight">\(A\)</span></p></li>
+<li><p>proportional to the linear velocity, <span class="math notranslate nohighlight">\(v\)</span></p></li>
+<li><p>proportional to the difference in concentration <span class="math notranslate nohighlight">\(\Delta C\)</span> between transport points</p></li>
+<li><p>inversely propertional to the transport distance <span class="math notranslate nohighlight">\(L\)</span></p></li>
+</ul>
+<p>These jointly results to <span class="math notranslate nohighlight">\(J_{disp, m}\)</span>:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+J_{disp, m} &amp;\propto -n_e \cdot A \cdot v \cdot \frac{\Delta C}{L}\\
+J_{disp, m} &amp;= - \alpha \cdot n_e \cdot A \cdot v \cdot \frac{\Delta C}{L}
+\end{align*}\]</div>
+<p>The ratio <span class="math notranslate nohighlight">\(\frac{\Delta C}{L}\)</span> [ML<span class="math notranslate nohighlight">\(^{-4}\)</span>] is called <strong>concentration gradient</strong>. The <strong>negative</strong> sign is to indicate that dispersive mass flow is from region with higher concentrations to regions with lower concentrations.</p>
+<p><span class="math notranslate nohighlight">\(\alpha\)</span>[L] is proportionality constant called <strong>dispersivity</strong>. This quantity equals the value of the dispersive mass flow through a unit cross-sectional area for a unit concentration gradient and a unit linear velocity.</p>
+</div>
+<div class="section" id="dispersivity-and-mechanical-dispersion-coefficient">
+<h3>Dispersivity and Mechanical Dispersion coefficient<a class="headerlink" href="#dispersivity-and-mechanical-dispersion-coefficient" title="Permalink to this headline">¶</a></h3>
+<p>It is more convinient to use dispersivity together with groundwater velocity. Thus, a qunatity called <strong>mechnical dispersion coefficient</strong> <span class="math notranslate nohighlight">\(D_{mech}\)</span> [L<span class="math notranslate nohighlight">\(^2\)</span>T<span class="math notranslate nohighlight">\(^{-1}\)</span>] is defined as:</p>
+<div class="math notranslate nohighlight">
+\[
+D_{mech} = \alpha \cdot v
+\]</div>
+<p>Following the equation, the <span class="math notranslate nohighlight">\(D_{mech}\)</span> is a qunatity that is dependent on both the properties of porous medium, which is characterized by dispersivity (<span class="math notranslate nohighlight">\(\alpha\)</span>) and the property of flow hydrauclics that is characterized by flow velocity (<span class="math notranslate nohighlight">\(v\)</span>).</p>
+<p>Using mechanical dispersion coefficient, the dispersive mass flow can be redefine as</p>
+<div class="math notranslate nohighlight">
+\[
+J_{disp, m} = -  n_e \cdot A \cdot D_{mech} \cdot \frac{\Delta C}{L}
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A quick example: You can change the provided values</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Let us find dispersive mass rate exiting a column.</span><span class="se">\n\n</span><span class="s2">Provided are:&quot;</span><span class="p">)</span>
+
+<span class="n">L_2</span>  <span class="o">=</span> <span class="mi">50</span> <span class="c1"># cm, length of the pipe</span>
+<span class="n">R_2</span>  <span class="o">=</span> <span class="mf">0.25</span> <span class="c1"># cm, radius of the column</span>
+<span class="n">ne_2</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="c1"># (), effective porosity</span>
+<span class="n">v_2</span>  <span class="o">=</span> <span class="mf">0.02</span> <span class="c1"># cm/s, velocity</span>
+<span class="n">Ci_2</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># mg/L, inlet concentration</span>
+<span class="n">Co_2</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># mg/L, outlet concentration</span>
+<span class="n">a_2</span>  <span class="o">=</span> <span class="mi">1</span> <span class="c1"># cm, dispersivity</span>
+
+<span class="c1"># intermediate calculation</span>
+<span class="n">A_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">R_2</span><span class="o">**</span><span class="mi">2</span> <span class="c1"># Column surface area</span>
+<span class="n">Cg_2</span> <span class="o">=</span> <span class="p">(</span><span class="n">Ci_2</span><span class="o">-</span><span class="n">Co_2</span><span class="p">)</span><span class="o">/</span><span class="n">L_2</span> <span class="c1"># mg/L-cm, concentration gradient</span>
+
+<span class="c1">#solution</span>
+<span class="n">Jm_dis</span> <span class="o">=</span> <span class="n">ne_2</span><span class="o">*</span><span class="n">A_2</span><span class="o">*</span><span class="n">a_2</span><span class="o">*</span><span class="n">v_2</span><span class="o">*</span><span class="n">Cg_2</span>
+
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Length of column = </span><span class="si">{}</span><span class="s2"> cm</span><span class="se">\n</span><span class="s2">Radius of column = </span><span class="si">{}</span><span class="s2"> cm</span><span class="se">\n</span><span class="s2">Water flow rate = </span><span class="si">{}</span><span class="s2"> cm/s</span><span class="se">\n</span><span class="s2">Inlet concentration = </span><span class="si">{}</span><span class="s2"> mg/L</span><span class="se">\n</span><span class="s2">Outlet concentration = </span><span class="si">{}</span><span class="s2"> mg/L </span><span class="se">\</span>
+<span class="se">\n</span><span class="s2">Effective porosity = </span><span class="si">{:02.2f}</span><span class="se">\n</span><span class="s2">Dispersivity = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">L_2</span><span class="p">,</span><span class="n">R_2</span><span class="p">,</span> <span class="n">v_2</span><span class="p">,</span> <span class="n">Ci_2</span><span class="p">,</span> <span class="n">Co_2</span><span class="p">,</span><span class="n">ne_2</span><span class="p">,</span> <span class="n">a_2</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The resulting dispersive mass flow is </span><span class="si">{:02.4f}</span><span class="s2"> mg/s&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Jm_dis</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A quick example: You can change the provided values
+
+Let us find dispersive mass rate exiting a column.
+
+Provided are:
+Length of column = 50 cm
+Radius of column = 0.25 cm
+Water flow rate = 0.02 cm/s
+Inlet concentration = 10 mg/L
+Outlet concentration = 2 mg/L 
+Effective porosity = 0.30
+Dispersivity = 1 
+
+The resulting dispersive mass flow is 0.0002 mg/s
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Simulating mechanical dispersion</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Simulating mechanical dispersion</span><span class="se">\n</span><span class="s2">You can change input values to see the effect&quot;</span> <span class="p">)</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">c0</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">cin</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Neumann</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span> <span class="c1"># Neumann number ensures that transport is combination of adv and disp.</span>
+<span class="n">c1</span> <span class="o">=</span> <span class="n">c0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">))</span>
+<span class="n">c2</span> <span class="o">=</span> <span class="n">c0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">))</span>
+<span class="n">c</span><span class="o">=</span><span class="n">c1</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    
+    <span class="c1">#dispersion component using Neumann number (D. Dt/Dx² -D= Delta )</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">c2</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">c1</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">Neumann</span><span class="o">*</span><span class="p">(</span><span class="n">c1</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">c1</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">c1</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="p">]);</span> <span class="c1"># FD stensil for d²C/dx²</span>
+           
+    <span class="n">c2</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">c1</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">Neumann</span><span class="o">*</span><span class="p">(</span><span class="n">cin</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">c1</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">c1</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]);</span> <span class="c1"># the first cell value</span>
+    <span class="n">c2</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">c1</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">Neumann</span><span class="o">*</span><span class="p">(</span><span class="n">c1</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">c1</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">]);</span> <span class="c1"># the lass cell value</span>
+    <span class="n">c1</span> <span class="o">=</span><span class="n">c2</span><span class="p">;</span>
+    
+    <span class="c1">#shifting cell - advection component</span>
+    <span class="n">c1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>  
+    <span class="n">c1</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">cin</span><span class="p">;</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c1</span><span class="o">.</span><span class="n">T</span><span class="p">);</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;space (m)&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Concentration (mg/L)&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">]);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">cin</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Simulating mechanical dispersion
+You can change input values to see the effect
+</pre></div>
+</div>
+<img alt="../../../_images/21_conservative_transport_12_1.png" src="../../../_images/21_conservative_transport_12_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="hydrodynamic-dispersion">
+<h3>Hydrodynamic Dispersion<a class="headerlink" href="#hydrodynamic-dispersion" title="Permalink to this headline">¶</a></h3>
+<p>In groundwater transport study mechanical dispersion and diffusion coefficient are summed up and a common term <strong>hydrodynamic dispersion</strong> <span class="math notranslate nohighlight">\(D_{hyd}\)</span> [L<span class="math notranslate nohighlight">\(^2\)</span>T<span class="math notranslate nohighlight">\(^{-1}\)</span>]. However, the diffusion coefficient <span class="math notranslate nohighlight">\(D\)</span> used in diffusion mass flow equation is valid for liquid water. Groundwater exist with solid porous medium. Thus, pore diffusion coefficient <span class="math notranslate nohighlight">\(D_p\)</span> [L<span class="math notranslate nohighlight">\(^2\)</span>T<span class="math notranslate nohighlight">\(^{-1}\)</span>] is considered. In general:</p>
+<div class="math notranslate nohighlight">
+\[
+D_p &lt; D
+\]</div>
+<p>and it is frequently assumed that</p>
+<div class="math notranslate nohighlight">
+\[
+D_p = n_e \cdot D
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(n_e\)</span> is effectively porosity. Several other emperical formulae are found in literature relating <span class="math notranslate nohighlight">\(D\)</span> and <span class="math notranslate nohighlight">\(D_p\)</span>. With <span class="math notranslate nohighlight">\(D_p\)</span>, defined the <strong>hydrodynamic dispersion</strong> is defined as:</p>
+<div class="math notranslate nohighlight">
+\[
+D_{hyd} = D_{mech} + D_p = \alpha \cdot v + D_p = \alpha \cdot v + n_e \cdot D
+\]</div>
+</div>
+</div>
+<div class="section" id="d-diffusion">
+<h2>1D Diffusion<a class="headerlink" href="#d-diffusion" title="Permalink to this headline">¶</a></h2>
+<p>Contrasting with the advection and mechanical dispersion - mostly a flow influenced transport processes, the <strong>diffusion</strong> led transport depends on <strong>concentration gradient</strong>, i.e., flow is not required for transport.</p>
+<p>The 1D diffusion transpor is found be:</p>
+<ul class="simple">
+<li><p>proportional to the cross-sectional area <span class="math notranslate nohighlight">\(A\)</span>.</p></li>
+<li><p>proportional to the concentration gradient <span class="math notranslate nohighlight">\(\frac{\Delta C}{L}\)</span></p></li>
+</ul>
+<p>The diffusive mass transport <span class="math notranslate nohighlight">\(J_{diff}\)</span> [MT<span class="math notranslate nohighlight">\(^{-1}\)</span>] is thus:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+J_{diff} &amp;\propto - A\cdot\frac{\Delta C}{L}\\
+J_{diff} &amp;= - D \cdot A\cdot\frac{\Delta C}{L}\\
+\end{align*}\]</div>
+<p><span class="math notranslate nohighlight">\(D\)</span> [L<span class="math notranslate nohighlight">\(^2\)</span>T<span class="math notranslate nohighlight">\(^{-1}\)</span>] is the proportional coefficient called diffusion coefficient. And, the negative sign is for indicating that the flow is from the region with higher concentration to the region with lower concentration. As can be observed from the equation, <span class="math notranslate nohighlight">\(D\)</span> will equal <span class="math notranslate nohighlight">\(J_{diff}\)</span> for unit cross-section for a unit concentration gradient. The value of <span class="math notranslate nohighlight">\(D\)</span> of dissolved chemicals in liquid water (not exactly in groundwater, which is water in porous media) are mostly in the range from <span class="math notranslate nohighlight">\(10^{-10}\)</span> m<span class="math notranslate nohighlight">\(^2\)</span>/s -  <span class="math notranslate nohighlight">\(10^{-9}\)</span> m<span class="math notranslate nohighlight">\(^2\)</span>/s. The value of <span class="math notranslate nohighlight">\(D\)</span> of chemicals in gases are larger by about four orders of magnitude, i.e., the range in this case from from <span class="math notranslate nohighlight">\(10^{-6}\)</span> m<span class="math notranslate nohighlight">\(^2\)</span>/s -  <span class="math notranslate nohighlight">\(10^{-5}\)</span> m<span class="math notranslate nohighlight">\(^2\)</span>/s.</p>
+<p>The diffusion phenomena can be demonstrated from the figure below. The fig shows spread of solute in the absence of flow (<span class="math notranslate nohighlight">\(v=0\)</span> and consequently <span class="math notranslate nohighlight">\(Q=0\)</span>). The spread continues with time <span class="math notranslate nohighlight">\(t\)</span> until solute concentration in the entire medium is leveled.</p>
+<div class="figure align-center" id="dif">
+<a class="reference internal image-reference" href="../../../_images/T9_f5.png"><img alt="../../../_images/T9_f5.png" src="../../../_images/T9_f5.png" style="width: 483.59999999999997px; height: 196.79999999999998px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 47 </span><span class="caption-text">The diffusion phenomena</span><a class="headerlink" href="#dif" title="Permalink to this image">¶</a></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Simulating diffusion </span><span class="se">\n</span><span class="s2">You can change input values to see the effect</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="p">)</span> 
+<span class="c1"># Initial Conditions</span>
+<span class="n">nx</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="n">nx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># number of space compartment</span>
+<span class="n">nt</span> <span class="o">=</span> <span class="mi">20</span>    <span class="c1">#the number of timesteps we want to calculate</span>
+<span class="n">Neumann</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1"># [ ], Neumann number = D. Dt/Dx² -D= Delta</span>
+
+<span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">nx</span><span class="p">)</span>      <span class="c1">#a numpy array with nx elements all equal to 1.</span>
+<span class="n">u</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="o">.</span><span class="mi">5</span> <span class="o">/</span> <span class="n">dx</span><span class="p">):</span><span class="nb">int</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">dx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1">#setting u = 2 between 0.5 and 1 as per our I.C.s</span>
+
+<span class="c1"># Calculation</span>
+<span class="n">un</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">nx</span><span class="p">)</span> <span class="c1">#our placeholder array, un, to advance the solution in time</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nt</span><span class="p">):</span>  <span class="c1">#iterate through time</span>
+    <span class="n">un</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1">##copy the existing values of u into un</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">un</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">Neumann</span> <span class="o">*</span> <span class="p">(</span><span class="n">un</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">un</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">un</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">nx</span><span class="p">),</span> <span class="n">u</span><span class="p">);</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;space (m)&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Concentration (mg/L)&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Simulating diffusion 
+You can change input values to see the effect
+</pre></div>
+</div>
+<img alt="../../../_images/21_conservative_transport_15_1.png" src="../../../_images/21_conservative_transport_15_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A quick example: You can change the provided values</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Let us find diffusive mass rate exiting a column.</span><span class="se">\n\n</span><span class="s2">Provided are:&quot;</span><span class="p">)</span>
+
+<span class="n">L_3</span>  <span class="o">=</span> <span class="mi">50</span> <span class="c1"># cm, length of the columns</span>
+<span class="n">R_3</span>  <span class="o">=</span> <span class="mf">0.25</span> <span class="c1"># cm, radius of the column</span>
+<span class="n">Ci_3</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># mg/L, inlet concentration</span>
+<span class="n">Co_3</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># mg/L, outlet concentration</span>
+<span class="n">D_3</span>  <span class="o">=</span> <span class="mi">10</span><span class="o">**-</span><span class="mi">5</span> <span class="c1"># cm^2/s, dispersivity</span>
+
+<span class="c1"># intermediate calculation</span>
+<span class="n">A_3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">R_3</span><span class="o">**</span><span class="mi">2</span> <span class="c1"># Column surface area</span>
+<span class="n">Cg_3</span> <span class="o">=</span> <span class="p">(</span><span class="n">Ci_3</span><span class="o">-</span><span class="n">Co_3</span><span class="p">)</span><span class="o">/</span><span class="n">L_3</span> <span class="c1"># mg/L-cm, concentration gradient</span>
+
+<span class="c1">#solution</span>
+<span class="n">Jm_diff</span> <span class="o">=</span> <span class="n">A_3</span><span class="o">*</span><span class="n">D_3</span><span class="o">*</span><span class="n">Cg_3</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Radius = </span><span class="si">{}</span><span class="s2"> cm</span><span class="se">\n</span><span class="s2">Length of the column = </span><span class="si">{}</span><span class="s2"> cm/s</span><span class="se">\n</span><span class="s2">Inlet concentration = </span><span class="si">{}</span><span class="s2"> mg/L</span><span class="se">\n</span><span class="s2">Outlet concentration = </span><span class="si">{}</span><span class="s2"> mg/L </span><span class="se">\</span>
+<span class="se">\n</span><span class="s2">Diffusion Coefficient = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">R_3</span><span class="p">,</span> <span class="n">L_3</span><span class="p">,</span> <span class="n">Ci_3</span><span class="p">,</span> <span class="n">Co_3</span><span class="p">,</span> <span class="n">D_3</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The resulting dispersive mass flux is </span><span class="si">{:02.7f}</span><span class="s2"> mg/s&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Jm_diff</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A quick example: You can change the provided values
+
+Let us find diffusive mass rate exiting a column.
+
+Provided are:
+Radius = 0.25 cm
+Length of the column = 50 cm/s
+Inlet concentration = 10 mg/L
+Outlet concentration = 2 mg/L 
+Diffusion Coefficient = 1e-05 
+
+The resulting dispersive mass flux is 0.0000003 mg/s
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Hydrodynamic Dispersion<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>In groundwater transport study mechanical dispersion and diffusion coefficient are summed up and a common term <strong>hydrodynamic dispersion</strong> <span class="math notranslate nohighlight">\(D_{hyd}\)</span> [L<span class="math notranslate nohighlight">\(^2\)</span>T<span class="math notranslate nohighlight">\(^{-1}\)</span>]. However, the diffusion coefficient <span class="math notranslate nohighlight">\(D\)</span> used in diffusion mass flow equation is valid for liquid water. Groundwater exist with solid porous medium. Thus, pore diffusion coefficient <span class="math notranslate nohighlight">\(D_p\)</span> [L<span class="math notranslate nohighlight">\(^2\)</span>T<span class="math notranslate nohighlight">\(^{-1}\)</span>] is considered. In general:</p>
+<div class="math notranslate nohighlight">
+\[
+D_p &lt; D
+\]</div>
+<p>and it is frequently assumed that</p>
+<div class="math notranslate nohighlight">
+\[
+D_p = n_e \cdot D
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(n_e\)</span> is effectively porosity. Several other emperical formulae are found in literature relating <span class="math notranslate nohighlight">\(D\)</span> and <span class="math notranslate nohighlight">\(D_p\)</span>. With <span class="math notranslate nohighlight">\(D_p\)</span>, defined the <strong>hydrodynamic dispersion</strong> is defined as:</p>
+<div class="math notranslate nohighlight">
+\[
+D_{hyd} = D_{mech} + D_p = \alpha \cdot v + D_p = \alpha \cdot v + n_e \cdot D
+\]</div>
+</div>
+</div>
+<div class="section" id="joint-action-of-transport-processes">
+<h2>Joint Action of Transport Processes<a class="headerlink" href="#joint-action-of-transport-processes" title="Permalink to this headline">¶</a></h2>
+<p>The spread of conservative solute in an unconsolidated aquifer can be considered as a combined effect or superposition of advection, mechanical dispersion and pore diffusion processes. Thus, for the complete description of the transport process is then:</p>
+<div class="math notranslate nohighlight">
+\[
+J = J_{adv} + J_{disp, m} + J_{diff} = J_adv + J_{disp, h}
+\]</div>
+<p>i.e,</p>
+<div class="math notranslate nohighlight">
+\[
+J = n_e \cdot A \cdot A \cdot v \cdot C - n_e \cdot A\cdot\alpha \cdot v 
+\frac{\Delta C}{L} - n_e \cdot A\cdot D_p \cdot \frac{\Delta C}{L}
+\]</div>
+<p>which simplifies to</p>
+<div class="math notranslate nohighlight">
+\[
+J = n_e \cdot A\cdot v \cdot C - n_e \cdot A \cdot D_hyd \cdot\frac{\Delta C}{L}
+\]</div>
+<p>Thus the spread of solutes due to transport processes can be quantified by combining a mass budget and the corresponding laws of motion. The combination results in a <strong>Transport Equation</strong>, which is more commonly known as <em>advection-dispersion equation</em> or also, when energy transport is generally the case,  as <em>convection-dispersion equation</em>. The derivation of the transport equation can be found in standard hydrogeology texts. For the sake of completeness, the 1D (conservative) transport equation is:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial C}{\partial x} = - v\frac{\partial C}{\partial x} + D_{hyd}\frac{\partial^2 C}{\partial x^2}
+\]</div>
+<p>The solution of transport equation is thus Concentration varying in space and time, i.e., <span class="math notranslate nohighlight">\(C(x,t)\)</span>.</p>
+</div>
+<div class="section" id="analysis-of-conservative-transport-problem">
+<h2>Analysis of conservative transport problem<a class="headerlink" href="#analysis-of-conservative-transport-problem" title="Permalink to this headline">¶</a></h2>
+<p>Several analytical solutions (discussed in modeling chapter) are available that very often let us understand which type - e.g. advection dominant or dispersion dominant, of the problem exist. Very useful solution is provided by Ogata and Banks (1961). The solution for a particular initial and boundary conditions (see reference text) is given as:</p>
+<div class="math notranslate nohighlight">
+\[
+C(x, t) = \frac{1}{2}C_0 \Bigg[\text{erfc}\Bigg(\frac{x-v\cdot t}{2\sqrt{D_x \cdot t}}\Bigg)+ \exp\Bigg(\frac{v\cdot x}{D_x}\Bigg)\cdot \text{erfc}\Bigg(\frac{x+v\cdot t}{2\sqrt{D_x \cdot t}}\Bigg)\Bigg]
+\]</div>
+<p>where, <span class="math notranslate nohighlight">\(C_0\)</span> is continuous input concentration. More often in groundwater studies, the term <span class="math notranslate nohighlight">\(\text{erfc}\Big(\frac{x+v\cdot t}{2\sqrt{D_x \cdot t}}\Big)\to 0 \)</span>. This simplifies the Ogata and Banks (1961) solution to</p>
+<div class="math notranslate nohighlight">
+\[
+C(x, t) = \frac{1}{2}C_0 \Bigg[\text{erfc}\Bigg(\frac{x-v\cdot t}{2\sqrt{D_x \cdot t}}\Bigg)\Bigg]
+\]</div>
+<p>This solution can be used to evaluate the dominant front between advection and dispersion for example.</p>
+<div class="sidebar">
+<p class="sidebar-title">Ogata and Banks (1961) scenario</p>
+<div class="figure align-right" id="j-ad-dis">
+<a class="reference internal image-reference" href="../../../_images/T9_f6.png"><img alt="../../../_images/T9_f6.png" src="../../../_images/T9_f6.png" style="width: 559.6px; height: 237.20000000000002px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 48 </span><span class="caption-text">Joint action of advection and dispersion
+<code class="docutils literal notranslate">&#160; </code></span><a class="headerlink" href="#j-ad-dis" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># simulating Ogata and Banks (1961) for evaluation dominant front.</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">C0</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">Dx</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">v</span> <span class="o">=</span> <span class="mi">5</span><span class="c1"># change v and t together  to observe the dominant front.</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># </span>
+
+
+<span class="n">C</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">C0</span><span class="o">*</span><span class="n">erfc</span><span class="p">((</span><span class="n">x</span><span class="o">-</span><span class="n">v</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Dx</span><span class="o">*</span><span class="n">t</span><span class="p">)))</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">C</span><span class="o">/</span><span class="n">C0</span><span class="p">)</span>
+
+<span class="n">t2</span> <span class="o">=</span> <span class="n">t</span><span class="o">*</span><span class="mi">5</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span><span class="o">*</span><span class="n">t2</span>
+<span class="n">C1</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">C0</span><span class="o">*</span><span class="n">erfc</span><span class="p">((</span><span class="n">x1</span><span class="o">-</span><span class="n">v</span><span class="o">*</span><span class="n">t2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Dx</span><span class="o">*</span><span class="n">t2</span><span class="p">)))</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">C1</span><span class="o">/</span><span class="n">C0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Normalized concentration $C/C_0$ (-)&quot;</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Distance (m)&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;time 1&quot;</span><span class="p">,</span> <span class="s2">&quot;time 2&quot;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/21_conservative_transport_21_0.png" src="../../../_images/21_conservative_transport_21_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#from IPython.core.interactiveshell import InteractiveShell</span>
+<span class="c1">#InteractiveShell.ast_node_interactivity = &quot;all&quot; </span>
+
+<span class="n">Latex</span><span class="p">(</span><span class="s2">&quot;A quick example to present the relative importance of different mass flow in the transport of solute </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">A</span>  <span class="o">=</span>  <span class="mi">1</span> <span class="c1"># m², =ne.A,  cross-sectional area, with ne= eff. porosity</span>
+<span class="n">v</span>  <span class="o">=</span>  <span class="mi">1</span> <span class="c1"># m/d, linear velocity</span>
+<span class="n">C</span>  <span class="o">=</span>  <span class="mi">1</span> <span class="c1"># mg/L = 1 g/m^3, concentration</span>
+<span class="n">D</span>  <span class="o">=</span>  <span class="mi">1</span> <span class="c1"># m, transport disntance</span>
+<span class="n">gr</span> <span class="o">=</span>  <span class="mi">1</span> <span class="c1"># g/m⁴, Delta C/L, conc. gradient</span>
+<span class="n">Al</span> <span class="o">=</span>  <span class="mf">0.1</span> <span class="c1"># m, dispersivity</span>
+<span class="n">Dp</span> <span class="o">=</span>  <span class="mi">10</span><span class="o">**-</span><span class="mi">5</span> <span class="c1"># m²/d, pore diff. coefficient</span>
+
+<span class="c1"># computation</span>
+<span class="n">Jadv</span> <span class="o">=</span> <span class="n">A</span><span class="o">*</span><span class="n">v</span><span class="o">*</span><span class="n">C</span>
+<span class="n">Jdisp</span> <span class="o">=</span> <span class="n">A</span><span class="o">*</span><span class="n">Al</span><span class="o">*</span><span class="n">v</span><span class="o">*</span><span class="n">gr</span>
+<span class="n">Jdiff</span> <span class="o">=</span> <span class="n">A</span><span class="o">*</span><span class="n">Dp</span><span class="o">*</span><span class="n">gr</span>
+
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Latex</span>
+<span class="n">Latex</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&quot;&quot;\begin</span><span class="si">{eqnarray}</span><span class="s2"></span>
+<span class="s2">J_</span><span class="si">{adv}</span><span class="s2"> &amp; = n_e\cdot A \cdot v \cdot C \\</span>
+<span class="s2">J_</span><span class="si">{dis}</span><span class="s2"> &amp; = n_e\cdot A \cdot \alpha  \cdot  v \cdot \frac{\Delta C}</span><span class="si">{L}</span><span class="s2">  \\</span>
+<span class="s2">J_</span><span class="si">{diff}</span><span class="s2"> &amp; = n_e\cdot A \cdot D_p  \cdot \frac{\Delta C}</span><span class="si">{L}</span><span class="s2"> </span>
+<span class="s2">\end</span><span class="si">{eqnarray}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+
+
+<span class="c1">#output</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> The contribution of advective flow is: </span><span class="si">{0:0.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Jadv</span><span class="p">),</span> <span class="s2">&quot;g/d </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The contribution of dispersive flow is: </span><span class="si">{0:0.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Jdisp</span><span class="p">),</span> <span class="s2">&quot;g/d </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The contribution of diffusive flow is: </span><span class="si">{0:0.1e}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Jdiff</span><span class="p">),</span> <span class="s2">&quot;g/d </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> The contribution of advective flow is: 1.00 g/d 
+
+The contribution of dispersive flow is: 0.10 g/d 
+
+The contribution of diffusive flow is: 1.0e-05 g/d 
+</pre></div>
+</div>
+</div>
+</div>
+<p>In general, <span class="math notranslate nohighlight">\(J_{adv} &gt; J_{dis} \)</span> and  <span class="math notranslate nohighlight">\(J_{disp} &gt;&gt; J_{diff} \)</span></p>
+</div>
+<div class="section" id="concnetration-profiles-and-breakthrough-curves">
+<h2>Concnetration Profiles and Breakthrough Curves<a class="headerlink" href="#concnetration-profiles-and-breakthrough-curves" title="Permalink to this headline">¶</a></h2>
+<p><em>Concentration profiles</em> and <em>Breakthrough Curves</em> are very generally used to visualize and analyze the solute transport results.</p>
+<p><strong>Conentration profiles</strong> represents  the solute concentration as a function of a space coordinate at fixed time level. Normalized concentration <span class="math notranslate nohighlight">\(C/C_0\)</span>, with <span class="math notranslate nohighlight">\(C_0\)</span> is geneally used in <span class="math notranslate nohighlight">\(y\)</span>-axis against distance <span class="math notranslate nohighlight">\(x\)</span> along <span class="math notranslate nohighlight">\(x-\)</span>axis.</p>
+<p>The <em>concentration profile</em> can be visualize as in the figure below:</p>
+<div class="figure align-center" id="c-profile">
+<a class="reference internal image-reference" href="../../../_images/T9_f7.png"><img alt="../../../_images/T9_f7.png" src="../../../_images/T9_f7.png" style="width: 454.5px; height: 430.5px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 49 </span><span class="caption-text">Concentration profile</span><a class="headerlink" href="#c-profile" title="Permalink to this image">¶</a></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;An example code for obtaining concentration profile </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Input        </span>
+<span class="n">Cb</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># mg/L  # </span>
+<span class="n">Ca</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># mg/L  </span>
+<span class="n">D</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># m²/d  </span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]</span> <span class="c1"># change time as you like - limit to four</span>
+
+<span class="c1"># dont change anything from here</span>
+
+<span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">t</span><span class="p">):</span> 
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">t</span><span class="p">:</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">D</span><span class="o">*</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">C</span> <span class="o">=</span> <span class="n">Ca</span> <span class="o">+</span> <span class="p">(</span><span class="n">Cb</span><span class="o">-</span><span class="n">Ca</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="o">*</span> <span class="n">erfc</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">A</span><span class="p">)</span>
+        
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;0 day&quot;</span><span class="p">,</span> <span class="s2">&quot;First time&quot;</span><span class="p">,</span> <span class="s2">&quot;Second time&quot;</span><span class="p">,</span> <span class="s2">&quot;third time&quot;</span><span class="p">]</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">label</span><span class="p">);</span> 
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Concentration (mg/L)&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Distance (m)&quot;</span><span class="p">)</span>
+
+<span class="n">f1</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="c1"># evaluate</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>An example code for obtaining concentration profile 
+</pre></div>
+</div>
+<img alt="../../../_images/21_conservative_transport_25_1.png" src="../../../_images/21_conservative_transport_25_1.png" />
+</div>
+</div>
+<p><strong>Breakthrough Curves</strong>, an alternative to <em>concentration profile</em> provides the solute concentration as a function of time at specified observation locations, i.e., along <span class="math notranslate nohighlight">\(y-\)</span>axis <span class="math notranslate nohighlight">\(C\)</span> or normalized <span class="math notranslate nohighlight">\(C/C_0\)</span> is used and along the <span class="math notranslate nohighlight">\(x-\)</span>axis time <span class="math notranslate nohighlight">\(t\)</span> information is provided. The graphics below schematically illustrates th <em>breakthrough curve</em> visualization</p>
+<div class="figure align-center" id="break">
+<a class="reference internal image-reference" href="../../../_images/T9_f7.png"><img alt="../../../_images/T9_f7.png" src="../../../_images/T9_f7.png" style="width: 454.5px; height: 430.5px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 50 </span><span class="caption-text">The break-through curve</span><a class="headerlink" href="#break" title="Permalink to this image">¶</a></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;An example code for obtaining Breakthrough curve </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="c1"># dont change anything from here</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">X</span><span class="p">:</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">D</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+        <span class="n">C</span> <span class="o">=</span> <span class="n">Ca</span> <span class="o">+</span> <span class="p">(</span><span class="n">Cb</span><span class="o">-</span><span class="n">Ca</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="o">*</span> <span class="n">erfc</span><span class="p">(</span><span class="n">i</span><span class="o">/</span><span class="n">A</span><span class="p">)</span> <span class="c1"># Crank (1975) modified</span>
+        
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;distance 1&quot;</span><span class="p">,</span> <span class="s2">&quot;distance 2&quot;</span><span class="p">,</span> <span class="s2">&quot;distance 3&quot;</span><span class="p">,</span> <span class="s2">&quot;distance 4&quot;</span><span class="p">]</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">label</span><span class="p">);</span> 
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Concentration (mg/L)&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;time (s)&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># Input        </span>
+<span class="n">Cb</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># mg/L  # </span>
+<span class="n">Ca</span> <span class="o">=</span> <span class="mi">2</span><span class="c1"># mg/L  </span>
+<span class="n">D</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># m²/d  </span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span> <span class="c1"># 0 = advective, change other numbers</span>
+
+<span class="n">f1</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="c1"># evaluate</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>An example code for obtaining Breakthrough curve 
+</pre></div>
+</div>
+<img alt="../../../_images/21_conservative_transport_27_1.png" src="../../../_images/21_conservative_transport_27_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="additional-tool">
+<h2>Additional Tool<a class="headerlink" href="#additional-tool" title="Permalink to this headline">¶</a></h2>
+<p>The additional tool: <a class="reference internal" href="../../tools/1D_advection_dispersion.html"><span class="doc std std-doc">1D-Advection-Dispersion Simulation Tool</span></a> simulates all the concepts that are provided above. The tool simulates:</p>
+<ul class="simple">
+<li><p>1D solute transport in porous media (e.g., laboratory column)</p></li>
+<li><p>uses unifrom cross-section</p></li>
+<li><p>steady-state water flow</p></li>
+<li><p>input of tracer</p></li>
+</ul>
+<p>The output are then:</p>
+<ul class="simple">
+<li><p>spreading of tracer due to advection and mechanical dispersion</p></li>
+<li><p>computation and graphical representation of a breakthrough curve</p></li>
+<li><p>comparison with measured data.</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "prabhasyadav/iGW-I",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./contents/transport/lecture_09"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../../flow/lecture_08/18_wells.html" title="previous page">Lecture 08 - Wells*</a>
+    <a class='right-next' id="next-link" href="../../tutorials/tutorial_01/01_python.html" title="next page">Tutorial 1 - Python Programming language</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By P. K. Yadav, T. Reimann and several others<br/>
+        
+          <div class="extra_footer">
+            <div>
+<a href="https://creativecommons.org/licenses/by/4.0/"><img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/png/by.png"></a>
+    All content on this site (unless otherwise specified) is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">CC BY-NC-SA 4.0 license</a>
+</div>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
