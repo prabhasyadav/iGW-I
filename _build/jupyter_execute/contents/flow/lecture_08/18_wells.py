@@ -12,6 +12,10 @@ pn.extension("katex")
 
 # # Lecture 08 - Wells*
 # 
+# (_The contents are based on the class lecture materials of Prof. R. Liedl. Modifications mostly to fit this specific format were done by Prof. Liedl and Dr. P. K. Yadav._)
+# 
+# ---
+# 
 # ## Motivation
 # 
 # In the last lecture ({doc}`/contents/flow/lecture_07/17_quantify_flow` we derived system equations for different groundwater flow problems. We realized of the difficulties associated with solving flow problems specially at higher dimensions (2D/3D). Numerical methods are mostly used for solving groundwater problems but direct (analytical) solutions are also possible for some problems. 

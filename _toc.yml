@@ -18,6 +18,7 @@
 - part: Transport
   chapters:
   - file: contents/transport/lecture_09/21_conservative_transport
+  - file: contents/transport/lecture_10/22_reactive_transport
 
 
 - part: Tutorials
@@ -31,6 +32,7 @@
   - file: contents/tutorials/tutorial_06/tutorial_06
   - file: contents/tutorials/tutorial_07/tutorial_07
   - file: contents/tutorials/tutorial_08/tutorial_08
+  - file: contents/tutorials/tutorial_09/tutorial_09
 
 - part: Tools
   chapters:
@@ -41,6 +43,7 @@
   - file: contents/tools/aniso2D
   - file: contents/tools/type_curve_fit
   - file: contents/tools/1D_advection_dispersion
+  - file: contents/tools/Kinetics_degradation
 
 
 - part: Question pool

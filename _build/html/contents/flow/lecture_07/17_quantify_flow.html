@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lecture 07 - Quantifying 3D Groundwater Flow* &#8212; Groundwater I</title>
+    <title>Lecture 07 - Quantifying 3D Groundwater Flow &#8212; Groundwater I</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -153,7 +153,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Lecture 07 - Quantifying 3D Groundwater Flow*
+   Lecture 07 - Quantifying 3D Groundwater Flow
   </a>
  </li>
  <li class="toctree-l1">
@@ -171,6 +171,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../../transport/lecture_09/21_conservative_transport.html">
    Lecture 9-  Conservative Transport
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../transport/lecture_10/22_reactive_transport.html">
+   Lecture 10:  Reactive Mass Transport
   </a>
  </li>
 </ul>
@@ -230,6 +235,11 @@
    Tutorial 8 - Conservative transport
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/tutorial_09/tutorial_09.html">
+   Tutorial 9 - Reactive transport
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -270,6 +280,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../../tools/1D_advection_dispersion.html">
    Tool for simulating 1D Conservative Transport (Laboratory Column)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/Kinetics_degradation.html">
+   Simulating Kinetics and Degradation
   </a>
  </li>
 </ul>
@@ -392,6 +407,15 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-contents-are-based-on-the-class-lecture-materials-of-prof-r-lied-modifications-mostly-to-fit-this-specific-were-done-by-dr-p-k-yadav-and-numerical-examples-were-contributed-by-ms-anne-pfortner-and-sophie-pfortner">
+   (
+   <em>
+    The contents are based on the class lecture materials of Prof. R. Lied. Modifications mostly to fit this specific were done by Dr. P. K. Yadav, and numerical examples were contributed by  Ms. Anne Pförtner and Sophie Pförtner.
+   </em>
+   )
+  </a>
+ </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#motivation">
    Motivation
@@ -540,12 +564,15 @@
               <div>
                 
   <div class="section" id="lecture-07-quantifying-3d-groundwater-flow">
-<h1>Lecture 07 - Quantifying 3D Groundwater Flow*<a class="headerlink" href="#lecture-07-quantifying-3d-groundwater-flow" title="Permalink to this headline">¶</a></h1>
+<h1>Lecture 07 - Quantifying 3D Groundwater Flow<a class="headerlink" href="#lecture-07-quantifying-3d-groundwater-flow" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-contents-are-based-on-the-class-lecture-materials-of-prof-r-lied-modifications-mostly-to-fit-this-specific-were-done-by-dr-p-k-yadav-and-numerical-examples-were-contributed-by-ms-anne-pfortner-and-sophie-pfortner">
+<h2>(<em>The contents are based on the class lecture materials of Prof. R. Lied. Modifications mostly to fit this specific were done by Dr. P. K. Yadav, and numerical examples were contributed by  Ms. Anne Pförtner and Sophie Pförtner.</em>)<a class="headerlink" href="#the-contents-are-based-on-the-class-lecture-materials-of-prof-r-lied-modifications-mostly-to-fit-this-specific-were-done-by-dr-p-k-yadav-and-numerical-examples-were-contributed-by-ms-anne-pfortner-and-sophie-pfortner" title="Permalink to this headline">¶</a></h2>
+</div>
+<hr class="docutils" />
 <div class="section" id="motivation">
 <h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
 <p>In the previous lectures we attempted to understand and quantify the different sub-surface properties, e.g., hydraulic head, conductivity, and attempted to characterize them in space (homogeneous versus heterogeneous) and direction (isotropic versus anisotropic). Finally, introducing the Darcy’s law in all dimensions.</p>
 <p>In this lecture we will attempt to quantify groundwater flow by developing system equation. This we will begin with a confined aquifers, following that with unconfined aquifer and eventually, we will formulate an approach to quantify general groundwater flow problems.</p>
-<p>(<strong><em>The contents are based on the class lecture materials of Prof. R. Lied. Modifications mostly to fit this specific were done by Dr. P. K. Yadav, and numerical examples were contributed by  Ms. Anne Pförtner and Sophie Pförtner.</em></strong>)</p>
 </div>
 <div class="section" id="quantification-of-three-dimension-3d-groundwater-flow">
 <h2>Quantification of Three-Dimension (3D) Groundwater Flow<a class="headerlink" href="#quantification-of-three-dimension-3d-groundwater-flow" title="Permalink to this headline">¶</a></h2>
@@ -616,8 +643,8 @@
 <p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text">Conservation of volume</span><a class="headerlink" href="#vol-bud" title="Permalink to this image">¶</a></p>
 </div>
 <p>The volume budget in this control volume can be expressed as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d1992c83-1221-4398-94bb-6dfa98a0c779">
-<span class="eqno">(1)<a class="headerlink" href="#equation-d1992c83-1221-4398-94bb-6dfa98a0c779" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b0cf516c-8b83-44d2-93d4-a0d52f93999d">
+<span class="eqno">(1)<a class="headerlink" href="#equation-b0cf516c-8b83-44d2-93d4-a0d52f93999d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{\Delta V_w}{\Delta t} = Q_{in} - Q_{out}
 \end{equation}\]</div>
 <p>The scenario that can be considered with the conservation of volume are:</p>
@@ -668,8 +695,8 @@ Q_{out} = \bigg(v_{fx}+\frac{\partial v_{fx}}{\partial x} \Delta x\bigg)\Delta y
 \bigg(v_{fz}+\frac{\partial v_{fz}}{\partial z} \Delta z\bigg)\Delta x \Delta y
 \]</div>
 <p><strong>The different in discharge between inlet and outlet</strong>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f516394e-9bd3-4b7e-baeb-62b250aafdd7">
-<span class="eqno">(2)<a class="headerlink" href="#equation-f516394e-9bd3-4b7e-baeb-62b250aafdd7" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e3cf04c4-a7d8-4c59-b67f-f51d9b79ecb4">
+<span class="eqno">(2)<a class="headerlink" href="#equation-e3cf04c4-a7d8-4c59-b67f-f51d9b79ecb4" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 Q_{in}-Q_{out}=-\frac{\partial v_{fx}}{\partial x}\Delta x\Delta y \Delta z
 -\frac{\partial v_{fy}}{\partial y}\Delta x\Delta y \Delta z  
 -\frac{\partial v_{fz}}{\partial z}\Delta x\Delta y \Delta z 
@@ -680,8 +707,8 @@ Q_{in}-Q_{out}=-\frac{\partial v_{fx}}{\partial x}\Delta x\Delta y \Delta z
 \frac{\Delta V_w}{\Delta x \Delta y \Delta z} \propto \Delta h
 \]</div>
 <p>which was formulated as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a264d766-c448-4753-b493-ed5c48975981">
-<span class="eqno">(3)<a class="headerlink" href="#equation-a264d766-c448-4753-b493-ed5c48975981" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4e18081c-15c2-4211-8f78-188e6dbbf050">
+<span class="eqno">(3)<a class="headerlink" href="#equation-4e18081c-15c2-4211-8f78-188e6dbbf050" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \Delta V_w = S_s\Delta h \Delta x \Delta y \Delta z  
 \end{equation}\]</div>
 <p>That is, the value of the storage coefficient corresponds to the change in water volume within a unit control volume if hydraulic head is increased/decreased by one unit.</p>

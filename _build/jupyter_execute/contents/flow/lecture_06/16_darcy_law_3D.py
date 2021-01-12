@@ -2,7 +2,11 @@
 # coding: utf-8
 
 # # Lecture 6: Steady-State Groundwater flow in 3D
-
+# 
+# _(The contents presented in this section were re-developed principally by Dr. P. K. Yadav. The original contents are from Prof. Rudolf Liedl)_
+# 
+# ---
+# 
 # ## Motivation
 # 
 # This lecture shows how Darcy's law can be used for variety of groundwater problems, e.g., in isotropic and anisotropic aquifers, multiple dimension problems - 2D and 3D. The lecture will also introduce the basic concepts on visualizing groundwater flow, e.g., using streamlines, flow-nets, and present their uses for example using isochrones and delineating protection zones. 

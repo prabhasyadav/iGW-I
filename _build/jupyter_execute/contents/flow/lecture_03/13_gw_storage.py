@@ -16,6 +16,8 @@ pn.extension("katex", "mathjax")
 # 
 # _(The contents presented in this section were re-developed principally by [Prof. Peter Dietrich](https://www.ufz.de/index.php?de=37303) and Dr. P. K. Yadav. The original contents are from Prof. Rudolf Liedl)_
 # 
+# ---
+# 
 # The content of the previous section was dedicated to very fundamental properties, such as aquifer and its types, solid and liquid (water) volumes in an aquifer, a of subsurface.
 # 
 # In this lecture, the subsurface will be considered from the perspective as a groundwater reservoir and some key definition and parameters will be introduced.
