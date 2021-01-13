@@ -51,6 +51,8 @@
     <script src="../../../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -60,7 +62,7 @@
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Tutorial 1 - Python Programming language" href="../../tutorials/tutorial_01/01_python.html" />
+    <link rel="next" title="Lecture 10: Reactive Mass Transport" href="../lecture_10/22_reactive_transport.html" />
     <link rel="prev" title="Lecture 08 - Wells*" href="../../flow/lecture_08/18_wells.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -151,7 +153,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../flow/lecture_07/17_quantify_flow.html">
-   Lecture 07 - Quantifying 3D Groundwater Flow*
+   Lecture 07 - Quantifying 3D Groundwater Flow
   </a>
  </li>
  <li class="toctree-l1">
@@ -169,6 +171,11 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Lecture 9-  Conservative Transport
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lecture_10/22_reactive_transport.html">
+   Lecture 10:  Reactive Mass Transport
   </a>
  </li>
 </ul>
@@ -228,6 +235,11 @@
    Tutorial 8 - Conservative transport
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/tutorial_09/tutorial_09.html">
+   Tutorial 9 - Reactive transport
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -268,6 +280,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../../tools/1D_advection_dispersion.html">
    Tool for simulating 1D Conservative Transport (Laboratory Column)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/Kinetics_degradation.html">
+   Simulating Kinetics and Degradation
   </a>
  </li>
 </ul>
@@ -508,6 +525,7 @@
 </div>
 <div class="section" id="lecture-9-conservative-transport">
 <h1>Lecture 9-  Conservative Transport<a class="headerlink" href="#lecture-9-conservative-transport" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
 <div class="section" id="motivation">
 <h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
 <p>Groundwater is used by almost half of the world population for drinking purposes. Therefore maintaining it’s quality is very important, not only for human consumption but also for the maintenance of the ecosystem that we live. Groundwater contamination artificial (e.g., from human intervention) or natural (e.g., flood) can impact groundwater quality. Of these two, artificial contamination, e.g., industrial development, improper waste management is more alarming one as quite few contamination (e.g, fuels, radioactive waste) can remain in groundwater for very long time. In this lecture we will learn about processes affecting groundwater quality issues. It has to be mentioned that when we talk about groundwater quality, we mean the change in the original state of groundwater. At many instances this can be groundwater quality can be defined in terms of regulatory standards.</p>
@@ -1183,7 +1201,7 @@ The contribution of diffusive flow is: 1.0e-05 g/d
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="../../flow/lecture_08/18_wells.html" title="previous page">Lecture 08 - Wells*</a>
-    <a class='right-next' id="next-link" href="../../tutorials/tutorial_01/01_python.html" title="next page">Tutorial 1 - Python Programming language</a>
+    <a class='right-next' id="next-link" href="../lecture_10/22_reactive_transport.html" title="next page">Lecture 10:  Reactive Mass Transport</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
