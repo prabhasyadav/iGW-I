@@ -62,8 +62,6 @@
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Lecture 9- Conservative Transport" href="../../transport/lecture_09/21_conservative_transport.html" />
-    <link rel="prev" title="Lecture 07 - Quantifying 3D Groundwater Flow" href="../lecture_07/17_quantify_flow.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -125,7 +123,7 @@
   Flow
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../lecture_02/12_subsurface_structure.html">
    Lecture 2 - Subsurface Structure
@@ -156,8 +154,8 @@
    Lecture 07 - Quantifying 3D Groundwater Flow
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="18_wells.html">
    Lecture 08 - Wells*
   </a>
  </li>
@@ -341,7 +339,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/contents/flow/lecture_08/18_wells.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../../_sources/contents/flow/lecture_08/18_wells (penguin's conflicted copy 2021-01-17).ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -361,7 +359,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/prabhasyadav/iGW-I/issues/new?title=Issue%20on%20page%20%2Fcontents/flow/lecture_08/18_wells.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/prabhasyadav/iGW-I/issues/new?title=Issue%20on%20page%20%2Fcontents/flow/lecture_08/18_wells (penguin's conflicted copy 2021-01-17).html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -382,7 +380,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/prabhasyadav/iGW-I/main?urlpath=tree/contents/flow/lecture_08/18_wells.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/prabhasyadav/iGW-I/main?urlpath=tree/contents/flow/lecture_08/18_wells (penguin's conflicted copy 2021-01-17).ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../../_static/images/logo_binder.svg"
@@ -2010,12 +2008,12 @@ if (window.Jupyter !== undefined) {
 <p>Let us have a closer look at the confined case first. The black cuboid in <a class="reference internal" href="../../transport/lecture_09/21_conservative_transport.html#trans-c-2d"><span class="std std-numref">Fig. 44</span></a>  illustrates that water-saturated thickness extends from aquifer bottom to aquifer top. So, it is equal to aquifer thickness <span class="math notranslate nohighlight">\(m\)</span>. Transmissivity is calculated by <span class="math notranslate nohighlight">\(T_x = K_x \cdot m\)</span> and <span class="math notranslate nohighlight">\(T_y = K_y \cdot m\)</span>. Here we allow for horizontal aquifer anisotropy with different hydraulic conductivities in <span class="math notranslate nohighlight">\(x-\)</span> and <span class="math notranslate nohighlight">\(y-\)</span> direction <span class="math notranslate nohighlight">\((K_x\neq K_y)\)</span>. For horizontally isotropic aquifers <span class="math notranslate nohighlight">\((K_x = K_y = K)\)</span>, transmissivity is given by <span class="math notranslate nohighlight">\(T = K \cdot m\)</span>.</p>
 <div class="figure align-center" id="trans-c-2d">
 <a class="reference internal image-reference" href="../../../_images/L08_f1.png"><img alt="../../../_images/L08_f1.png" src="../../../_images/L08_f1.png" style="width: 392.40000000000003px; height: 222.4px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 34 </span><span class="caption-text">The transmissivity cuboid in confined aquifer.</span><a class="headerlink" href="#trans-c-2d" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">The transmissivity cuboid in confined aquifer.</span><a class="headerlink" href="#trans-c-2d" title="Permalink to this image">¶</a></p>
 </div>
 <p>Things are a bit more complicated for unconfined aquifers.  <code class="xref std std-numref docutils literal notranslate"><span class="pre">Trans_u_2D</span></code> illustrates that water-saturated thickness extends from the aquifer bottom to the groundwater table. It is important to note that transmissivity of unconfined aquifers depends on the vertical position of the groundwater table. For instance, if the groundwater table is lowered during to a draught period, transmissivity is decreasing. This is fundamentally different from the confined case where the water-saturated thickness is given by aquifer geometry only and is not affected by hydraulic head changes.</p>
 <div class="figure align-center" id="trans-u-2d">
 <a class="reference internal image-reference" href="../../../_images/L08_f2.png"><img alt="../../../_images/L08_f2.png" src="../../../_images/L08_f2.png" style="width: 483.20000000000005px; height: 262.40000000000003px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 35 </span><span class="caption-text">The transmissivity cuboid in unconfined aquifer.</span><a class="headerlink" href="#trans-u-2d" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">The transmissivity cuboid in unconfined aquifer.</span><a class="headerlink" href="#trans-u-2d" title="Permalink to this image">¶</a></p>
 </div>
 <p>Computing transmissivity of unconfined aquifers requires to determine the difference of hydraulic head h and the elevation of aquifer bottom <span class="math notranslate nohighlight">\(z_{bot}\)</span>. Based on this, transmissivity is given by <span class="math notranslate nohighlight">\(T_x = K_x\cdot(h - z_{bot})\)</span> and <span class="math notranslate nohighlight">\(T_y = K_y\cdot(h - z_{bot})\)</span>. As above, we are allowing for horizontal aquifer anisotropy. For an isotropic unconfined aquifer we get <span class="math notranslate nohighlight">\(T = K\cdot(h - z_{bot})\)</span>.</p>
 <p>Two more remarks appear to be appropriate: First, transmissivity may be computed by the given equations even if the aquifer bottom is not horizontal. This case is not covered by the <code class="xref std std-numref docutils literal notranslate"><span class="pre">Trans_u_2D</span></code>. Second, textbooks frequently present the equation <strong><span class="math notranslate nohighlight">\(T = K\cdot h\)</span></strong> for transmissivity of unconfined aquifers. It is to be noted that this equation only holds if two conditions are fulfilled:</p>
@@ -2076,7 +2074,7 @@ The required transmissivity is 1.62e-03 m²/s
 <p>A <strong>well</strong> is a shaft or a hole that has been sunk, dug or drilled into the earth to extract water (source: <a class="reference external" href="https://hydrologie.org/glu/HINDEN.HTM">Glossary of Hydrology</a>).</p>
 <div class="figure align-center" id="well">
 <a class="reference internal image-reference" href="../../../_images/L08_f3.png"><img alt="../../../_images/L08_f3.png" src="../../../_images/L08_f3.png" style="width: 567.0px; height: 422.5px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 36 </span><span class="caption-text">Well and its components.</span><a class="headerlink" href="#well" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Well and its components.</span><a class="headerlink" href="#well" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="using-wells">
@@ -2101,12 +2099,12 @@ The required transmissivity is 1.62e-03 m²/s
 <p>Apart from aquifer characterisation, wells are usually operated at steady-state i.e., at constant pumping rate. The figure below presents different uses of wells. <code class="xref std std-numref docutils literal notranslate"><span class="pre">Well-ex</span></code> shows the case of lowering the groundwater level at the excavation site. The lowering is very often observed at the works that requires sub-surface construction works, e.g., high-rise building, tunnels. For this wells are placed close to excavation works and water is pumped out at higher discharge rates compare to the groundwater replenishing rate. This leads to decline of water level at the excavation site.</p>
 <div class="figure align-center" id="well-ex">
 <a class="reference internal image-reference" href="../../../_images/L08_f5.png"><img alt="../../../_images/L08_f5.png" src="../../../_images/L08_f5.png" style="width: 690.4000000000001px; height: 256.8px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 37 </span><span class="caption-text">Well at the excavation site</span><a class="headerlink" href="#well-ex" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Well at the excavation site</span><a class="headerlink" href="#well-ex" title="Permalink to this image">¶</a></p>
 </div>
 <p><code class="xref std std-numref docutils literal notranslate"><span class="pre">Well-refuse</span></code> presents the case of using wells to delineate contamination site from the groundwater. These are part of the development of sanitary landfills sites or industries that pose threat to groundwater quality. Wells are used to lower groundwater table such that seepage of refuse is contained in the limited region.</p>
 <div class="figure align-center" id="well-refuse">
 <a class="reference internal image-reference" href="../../../_images/L08_f6z.png"><img alt="../../../_images/L08_f6z.png" src="../../../_images/L08_f6z.png" style="width: 30cm; height: 8cm;" /></a>
-<p class="caption"><span class="caption-number">Fig. 38 </span><span class="caption-text">Well at the refuse site</span><a class="headerlink" href="#well-refuse" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Well at the refuse site</span><a class="headerlink" href="#well-refuse" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="fully-versus-partially-penetrating-wells">
@@ -2118,7 +2116,7 @@ The required transmissivity is 1.62e-03 m²/s
 <p><code class="xref std std-numref docutils literal notranslate"><span class="pre">full-pen</span></code> shows a schematic of water flow in a fully penetrating wells.</p>
 <div class="figure align-center" id="full-pen">
 <a class="reference internal image-reference" href="../../../_images/L08_f7x.png"><img alt="../../../_images/L08_f7x.png" src="../../../_images/L08_f7x.png" style="width: 732.8000000000001px; height: 237.60000000000002px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 39 </span><span class="caption-text">Flownet in a fully penetrating wells</span><a class="headerlink" href="#full-pen" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Flownet in a fully penetrating wells</span><a class="headerlink" href="#full-pen" title="Permalink to this image">¶</a></p>
 </div>
 <dl class="simple myst">
 <dt>Partially penetrating Wells:</dt><dd><p>The partially penetrating Wells are those in which the length of water entry is less than the thickness of the saturated aquifer which it penetrates (<a class="reference external" href="https://hydrologie.org/glu/HINDEN.HTM">Glossary of Hydrology</a>).</p>
@@ -2127,7 +2125,7 @@ The required transmissivity is 1.62e-03 m²/s
 <p>Partially penetrating wells are constructed when aquifer depths are very high; in which case a fully penetrating well may not also be economical. <code class="xref std std-numref docutils literal notranslate"><span class="pre">par-pen</span></code> presents a schematic of a flownet that is likely to be observed in the partially penetrating well.</p>
 <div class="figure align-center" id="par-pen">
 <a class="reference internal image-reference" href="../../../_images/L08_f7y.png"><img alt="../../../_images/L08_f7y.png" src="../../../_images/L08_f7y.png" style="width: 620.8000000000001px; height: 367.6px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 40 </span><span class="caption-text">Flownet in a partially penetrating wells</span><a class="headerlink" href="#par-pen" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Flownet in a partially penetrating wells</span><a class="headerlink" href="#par-pen" title="Permalink to this image">¶</a></p>
 </div>
 <p>Comparing the Flownets in <code class="xref std std-numref docutils literal notranslate"><span class="pre">full-pen</span></code> and <code class="xref std std-numref docutils literal notranslate"><span class="pre">par-pen</span></code>, it can be observed that the vertical flow components can be significant in the partially penetrating case. This then lead to a 3D groundwater problem compared to the fully penetrating case, which can be treated as 2D groundwater problem as vertical flow component has limited effect.</p>
 <p>This course we will deal only with the fully penetrating steady-state cases.</p>
@@ -2157,7 +2155,7 @@ parameters under steady-state conditions?</p>
 <p>A <strong>cone of depression</strong> (or drawdown cone) will result when the well pumps groundwater groundwater is pumped from the well. <code class="xref std std-numref docutils literal notranslate"><span class="pre">cone-con-un</span></code> presents the schematic with relevant quantities of a well pumping case in both confined and unconfined aquifers. In both cases the well is fully penetrating. As can be understood from the figure that in the unconfined case the drawdown (<span class="math notranslate nohighlight">\(s\)</span>) magnitude depends on the water table level. This in the case of confined aquifer is dependent on the hydraulic head.</p>
 <div class="figure align-center" id="cone-con-un">
 <a class="reference internal image-reference" href="../../../_images/L08_f8-9.png"><img alt="../../../_images/L08_f8-9.png" src="../../../_images/L08_f8-9.png" style="width: 729.25px; height: 340.25px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 41 </span><span class="caption-text">Cone of depression in a (a) confined Aquifer and (b) unconfined aquifer (right)</span><a class="headerlink" href="#cone-con-un" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Cone of depression in a (a) confined Aquifer and (b) unconfined aquifer (right)</span><a class="headerlink" href="#cone-con-un" title="Permalink to this image">¶</a></p>
 </div>
 <div class="margin sidebar">
 <p class="sidebar-title">Relevant quantities in the figure:</p>
@@ -2244,7 +2242,7 @@ if (root.Bokeh !== undefined) {
 </div>
 <div class="figure align-center" id="law-cont">
 <a class="reference internal image-reference" href="../../../_images/L08_f10X.png"><img alt="../../../_images/L08_f10X.png" src="../../../_images/L08_f10X.png" style="width: 670.0px; height: 340.0px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 42 </span><span class="caption-text">Graphic visualization of Law of quantity.</span><a class="headerlink" href="#law-cont" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Graphic visualization of Law of quantity.</span><a class="headerlink" href="#law-cont" title="Permalink to this image">¶</a></p>
 </div>
 <p>This, also seen in <code class="xref std std-numref docutils literal notranslate"><span class="pre">law-cont</span></code>, implies that the pumping rate <span class="math notranslate nohighlight">\(Q\)</span> corresponds to the discharge <span class="math notranslate nohighlight">\(Q_w\)</span> near the well. Further, under steady-state conditions the law of continuity
 implies that there is the same discharge at all cross sections which
@@ -2286,10 +2284,11 @@ Q_w =  - 2\cdot \pi \cdot r \cdot m \cdot K \cdot \frac{\textrm{d} h (r)}{\textr
 <p class="sidebar-title"></p>
 <a class="bg-primary reference internal image-reference" href="../../../_images/L08_f8.png"><img alt="Confined Aquifer" class="bg-primary" src="../../../_images/L08_f8.png" style="width: 400px;" /></a>
 </div>
-<p>Eq (C5) is a first-order differential equation for hydraulic head <span class="math notranslate nohighlight">\(h(r)\)</span>. It can be solved by separation of variable. Doing that eq. (C5) becomes
-$<span class="math notranslate nohighlight">\(
+<p>Eq (C5) is a first-order differential equation for hydraulic head <span class="math notranslate nohighlight">\(h(r)\)</span>. It can be solved by separation of variable. Doing that eq. (C5) becomes</p>
+<div class="math notranslate nohighlight">
+\[
 \textrm{d}h(r) = \frac{Q_w}{2\cdot \pi \cdot m \cdot K }\cdot \frac{\textrm{d}r}{r} \tag{C6}
-\)</span>$</p>
+\]</div>
 <p>We now integrate eq. (C6). The limit of integration (see figure) along the vertical direction (<span class="math notranslate nohighlight">\(h\)</span>) will be from <span class="math notranslate nohighlight">\(h\)</span> to <span class="math notranslate nohighlight">\(H\)</span>, and that along the radial axis will be from <span class="math notranslate nohighlight">\(r_w\)</span> and <span class="math notranslate nohighlight">\(R\)</span>, i.e., we get</p>
 <div class="math notranslate nohighlight">
 \[
@@ -2697,7 +2696,7 @@ t/r^2 = 0.57
 <p>The data in the type-curve can now easily be fitted using computer simulations. The <code class="xref std std-numref docutils literal notranslate"><span class="pre">Type-Cur-com</span></code> is from the <a class="reference internal" href="../../tutorials/tutorial_07/tutorial_07.html"><span class="doc">Tutorial 7 - Wells</span></a>. The simulation tool <a class="reference internal" href="../../tools/type_curve_fit.html"><span class="doc">Type curve and fitting pumping data tool</span></a> provided can be used to fit user data to the type curve.</p>
 <div class="figure align-center" id="type-cur-com">
 <a class="reference internal image-reference" href="../../../_images/L08_f15.png"><img alt="../../../_images/L08_f15.png" src="../../../_images/L08_f15.png" style="width: 540.0px; height: 360.0px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 43 </span><span class="caption-text">Computationally fitted data to the Type curve</span><a class="headerlink" href="#type-cur-com" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Computationally fitted data to the Type curve</span><a class="headerlink" href="#type-cur-com" title="Permalink to this image">¶</a></p>
 </div>
 <hr class="docutils" />
 <dl class="footnote brackets">
@@ -2740,8 +2739,6 @@ t/r^2 = 0.57
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../lecture_07/17_quantify_flow.html" title="previous page">Lecture 07 - Quantifying 3D Groundwater Flow</a>
-    <a class='right-next' id="next-link" href="../../transport/lecture_09/21_conservative_transport.html" title="next page">Lecture 9-  Conservative Transport</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

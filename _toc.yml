@@ -20,6 +20,10 @@
   - file: contents/transport/lecture_09/21_conservative_transport
   - file: contents/transport/lecture_10/22_reactive_transport
 
+- part: Modeling
+  chapters:
+  - file: contents/modeling/lecture_11/31_intro_modeling
+
 
 - part: Tutorials
   chapters:
@@ -34,6 +38,8 @@
   - file: contents/tutorials/tutorial_08/tutorial_08
   - file: contents/tutorials/tutorial_09/tutorial_09
 
+
+
 - part: Tools
   chapters:
   - file: contents/tools/decay
@@ -44,6 +50,8 @@
   - file: contents/tools/type_curve_fit
   - file: contents/tools/1D_advection_dispersion
   - file: contents/tools/Kinetics_degradation
+  - file: contents/tools/1D_ditchflow
+
 
 
 - part: Question pool
