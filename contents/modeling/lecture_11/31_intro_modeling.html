@@ -1,0 +1,869 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 11: Background of Groundwater Modeling &#8212; Groundwater I</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/custom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Tutorial 1 - Python Programming language" href="../../tutorials/tutorial_01/01_python.html" />
+    <link rel="prev" title="Lecture 10: Reactive Mass Transport" href="../../transport/lecture_10/22_reactive_transport.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/logo3.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Groundwater I</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../intro.html">
+   The Interactive Groundwater-I Book
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Background
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../background/00_general.html">
+   About this Groundwater Course and Contents
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../background/03_basic_hydrogeology.html">
+   Lecture 1 - Course Introduction/Water Cycle
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Flow
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../flow/lecture_02/12_subsurface_structure.html">
+   Lecture 2 - Subsurface Structure
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../flow/lecture_03/13_gw_storage.html">
+   Lecture 3-  Groundwater as a reservoir
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../flow/lecture_04/14_darcy_law_K.html">
+   Lecture 4 - Darcy’s Law and Conductivity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../flow/lecture_05/15_het_iso.html">
+   Lecture 5. Aquifer Heterogeneity and Anisotropy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../flow/lecture_06/16_darcy_law_3D.html">
+   Lecture 6: Steady-State Groundwater flow in 3D
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../flow/lecture_07/17_quantify_flow.html">
+   Lecture 07 - Quantifying 3D Groundwater Flow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../flow/lecture_08/18_wells.html">
+   Lecture 08 - Wells*
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Transport
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../transport/lecture_09/21_conservative_transport.html">
+   Lecture 9-  Conservative Transport
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../transport/lecture_10/22_reactive_transport.html">
+   Lecture 10:  Reactive Mass Transport
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Modeling
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Lecture 11:  Background of Groundwater Modeling
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/tutorial_01/01_python.html">
+   Tutorial 1 - Python Programming language
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/tutorial_01/02_jupyter.html">
+   Tutorial 1 - JUPYTER Notebook Interface for Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/tutorial_01/02_jupyter.html#installing-python-and-jupyter-notebook-in-your-system">
+   Installing Python and JUPYTER notebook in your system
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/tutorial_02/tutorial_02.html">
+   Tutorial 2 - Aquifer and Storage Properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/tutorial_03/tutorial_03.html">
+   Tutorial 3 - Darcy Law and Conductivity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/tutorial_04/tutorial_04.html">
+   Tutorial 4 - Effective K &amp; Recitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/tutorial_05/tutorial_05.html">
+   Tutorial 5 - Tutorial problems aquifer heterogeneity/anisotropy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/tutorial_06/tutorial_06.html">
+   Tutorial 6 - Tutorial Problems on Flow in Confined/Unconfined Aquifer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/tutorial_07/tutorial_07.html">
+   Tutorial 7 - Wells
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/tutorial_08/tutorial_08.html">
+   Tutorial 8 - Conservative transport
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/tutorial_09/tutorial_09.html">
+   Tutorial 9 - Reactive transport
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tools
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/decay.html">
+   Simulating Mass Budget
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/sieve_analysis.html">
+   Simulating Seive Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/effective_K.html">
+   Simulating Effective hydraulic conductivity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/uniform_flow_and_well.html">
+   Uniform Flow and Well*
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/aniso2D.html">
+   Simulating the Anisotropy and flow direction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/type_curve_fit.html">
+   Type curve and fitting pumping data tool
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/1D_advection_dispersion.html">
+   Tool for simulating 1D Conservative Transport (Laboratory Column)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/Kinetics_degradation.html">
+   Simulating Kinetics and Degradation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/1D_ditchflow.html">
+   Simulating 1D Trench Flow*
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Question pool
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../questions/GW_exam_2019_20.html">
+   Groundwater Exam Solution -  2019-2020
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/contents/modeling/lecture_11/31_intro_modeling.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/prabhasyadav/iGW-I"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/prabhasyadav/iGW-I/issues/new?title=Issue%20on%20page%20%2Fcontents/modeling/lecture_11/31_intro_modeling.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/prabhasyadav/iGW-I/main?urlpath=tree/contents/modeling/lecture_11/31_intro_modeling.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivation">
+   Motivation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-a-model">
+     What is a Model?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-types-process-based-and-empirical-models">
+     Model Types: Process-Based and Empirical Models
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#conceptual-models">
+       Conceptual models
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#physically-based-models-and-empirical-models">
+       Physically based models and Empirical models
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mathematical-models">
+       Mathematical models
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-of-an-analytical-solution">
+     Example of an Analytical Solution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-problem">
+     Example problem
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-for-a-model-without-analytical-solution">
+     Example for a Model without Analytical Solution
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conceptual-model-to-numerical-approach">
+   Conceptual Model to Numerical Approach
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-requirements">
+     Data Requirements
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-of-a-groundwater-model">
+   Example of a Groundwater Model
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.special</span> <span class="k">as</span> <span class="nn">sci</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span> <span class="c1"># linregress</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Latex</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="lecture-11-background-of-groundwater-modeling">
+<h1>Lecture 11:  Background of Groundwater Modeling<a class="headerlink" href="#lecture-11-background-of-groundwater-modeling" title="Permalink to this headline">¶</a></h1>
+<p><em>(The contents presented in this section were re-developed principally by Dr. P. K. Yadav. The original contents are from Prof. Rudolf Liedl)</em></p>
+<hr class="docutils" />
+<div class="section" id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+<p>This lecture introduces the realm of mathematical modeling realm in groundwater studies. In the previous lectures the fundamental quantities, their properties and approach to quantify them were discussed. Those information were then used to develop system equations for varieties of groundwater problems. It was discussed then that these system equations require mathematical approaches the theory for which have to be systematically discussed and understood. Groundwater modeling can then be described as the systematic use of mathematical approaches leading to solution of the groundwater problem.</p>
+<p>Groundwater modeling is often the first step towards understanding and solving groundwater problems/issues. Groundwater modeling is a very broad topic, this and the following lectures only introduces fundamental part of groundwater modeling. In this course we focus on groundwater flow problems.</p>
+</div>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="what-is-a-model">
+<h3>What is a Model?<a class="headerlink" href="#what-is-a-model" title="Permalink to this headline">¶</a></h3>
+<p>Very succinctly a  <strong>model</strong> is a representation, which may be an image or a description of a real system. The description can be of different form (e.g., scales), of different level of detail (e.g., conceptual versus mathematical). The <strong>system</strong> to be modeled can be a <strong>real</strong> or also <strong>conceptual</strong>. A very relevant example of a real system for this course is the Darcy’s experiment (see figure below), in which water is made  to flow through the porous media.</p>
+<div class="figure align-center" id="darcy">
+<a class="reference internal image-reference" href="../../../_images/M11_f1.png"><img alt="../../../_images/M11_f1.png" src="../../../_images/M11_f1.png" style="width: 343.2px; height: 414.0px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 55 </span><span class="caption-text">Darcy’s experimental setup<sup><a class="footnote-reference brackets" href="#darcy-1856" id="id1">1</a></sup></span><a class="headerlink" href="#darcy" title="Permalink to this image">¶</a></p>
+</div>
+<p>With Darcy’s experiment, one could set-up a mathematical model to relate flow rate and hydraulic gradient (<span class="math notranslate nohighlight">\(h\)</span>). As model is <em>only an image</em> of the real system, several assumptions have to be made in it’s development. At many instances the model can not be set without these assumptions. In other cases solution of the model may not be possible without these assumptions being part of the model development. Darcy‘s Law, for instance, does not provide an exact representation of flow through individual pore channels. Rather, <strong>average</strong> flow behaviour through <strong>many</strong> pore channels is represented.</p>
+</div>
+<div class="section" id="model-types-process-based-and-empirical-models">
+<h3>Model Types: Process-Based and Empirical Models<a class="headerlink" href="#model-types-process-based-and-empirical-models" title="Permalink to this headline">¶</a></h3>
+<p>Model can be classified in many ways. The following two types of classification are a more general way to classify models:</p>
+<blockquote>
+<div><ol class="simple">
+<li><p><strong>Conceptual models</strong></p></li>
+</ol>
+</div></blockquote>
+<blockquote>
+<div><ol class="simple">
+<li><p><strong>Process-Based and Empirical Models</strong></p></li>
+</ol>
+</div></blockquote>
+<blockquote>
+<div><ol class="simple">
+<li><p><strong>Mathematical models</strong></p></li>
+</ol>
+</div></blockquote>
+<div class="section" id="conceptual-models">
+<h4>Conceptual models<a class="headerlink" href="#conceptual-models" title="Permalink to this headline">¶</a></h4>
+<p>The <strong>conceptual models</strong> is classification of models that distinguishes the qualitative from the quantitative description of a real system. A <strong>conceptual model</strong> provides a qualitative representation of the relevant system components, processes, and impacts in the area of investigation. This representation is usually shown graphically, e.g., as block models (see figure <a class="reference internal" href="#cmodel"><span class="std std-ref">A conceptual model showing different components of a hydrological system that can impact groundwater.</span></a>). It will be shown later that conceptual model in fact is the first block in the development of a mathematical model.</p>
+<div class="figure align-center" id="cmodel">
+<a class="reference internal image-reference" href="../../../_images/M11_f3.png"><img alt="../../../_images/M11_f3.png" src="../../../_images/M11_f3.png" style="width: 481.8px; height: 285.8px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 56 </span><span class="caption-text">A conceptual model showing different components of a hydrological system that can impact groundwater.</span><a class="headerlink" href="#cmodel" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="physically-based-models-and-empirical-models">
+<h4>Physically based models and Empirical models<a class="headerlink" href="#physically-based-models-and-empirical-models" title="Permalink to this headline">¶</a></h4>
+<p>The <strong>physically based models</strong> also referred to as <strong>process-based</strong> models are models that exclusively relies on the fundamental physical laws - e.g., law of conservation of mass, energy, volume. <em>Compartment</em>  based models are example of physically based models.</p>
+<p>Contrary to use of fundamental physical laws, <strong>empirical models</strong> are developed on the basis on experimental/collected data. Sorption isotherms that were developed in lecture <a class="reference internal" href="../../transport/lecture_10/22_reactive_transport.html"><span class="doc std std-doc">(10)</span></a> are types of emperical models. As was with the isotherms, these types of models are often based on regression analysis. Figure below show a prediction (blue) line as a predictor of data.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+
+<span class="c1"># x from 0 to 30</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">30</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># y = a*x + b with noise</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mf">0.2</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mf">3.0</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="c1"># create a linear regression model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># predict y from the data</span>
+<span class="n">x_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y_new</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_new</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">])</span>
+
+<span class="c1"># plot the results</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;data&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_new</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;prediction&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Discharge (m$^3$/s)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Hydraulic Head (m)&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;em_fit&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="figure align-default" id="empirical" style="width: 600px">
+<div class="cell_output docutils container">
+<img alt="../../../_images/31_intro_modeling_4_0.png" src="../../../_images/31_intro_modeling_4_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 57 </span><span class="caption-text">Empirical relation between hydraulic head and discharge.</span><a class="headerlink" href="#empirical" title="Permalink to this image">¶</a></p>
+</div>
+<p>In certain cases <strong>hybrid models</strong>, e.g. <strong>semi-empirical</strong> models can also occur. These models combines the components of empirical/numerical and analytical models. Darcy’s law in fact is a semi-empirical model. On the one hand, it is based on the momentum conservation.  On the other hand, it is not possible to <em>strictly</em> deduce the direct proportionality between flow rate and hydraulic gradient by averaging the flow behaviour over all pores.</p>
+</div>
+<div class="section" id="mathematical-models">
+<h4>Mathematical models<a class="headerlink" href="#mathematical-models" title="Permalink to this headline">¶</a></h4>
+<p>A <strong>mathematical model</strong> provides a quantitative representation of the relevant system components (described by for e.g., conceptual model),processes (e.g., described by physical model) and impacts in the area of investigation. The quantitative representation is based on mathematical equations. The system equations, that were developed and discussed in Lecture <a class="reference internal" href="../../flow/lecture_07/17_quantify_flow.html"><span class="doc std std-doc">(7)</span></a> are mathematical models.</p>
+<p>System equation or mathematical models can in certain cases be solved directly resulting to an <em>exact solution</em> called <strong>analytical solution</strong>. Theis equation that was developed in Lecture <a class="reference internal" href="../../flow/lecture_08/18_wells.html"><span class="doc std std-doc">(8)</span></a> to quantify aquifer drawdown resulting from pumping of groundwater is an example of an analytical solution.</p>
+<p>For more complex problems, often a more natural groundwater conditions, only <em>approximate</em> (or non-exact) solution called <strong>numerical solution</strong> can be  obtained. Numerical solutions are obtained after converting the system equation to so called <strong>numerical models</strong>.</p>
+<p>Our focus in this introductory modeling lecture is to understand the development and solution of <em>numerical model</em> of simple groundwater flow problems.</p>
+</div>
+</div>
+<div class="section" id="example-of-an-analytical-solution">
+<h3>Example of an Analytical Solution<a class="headerlink" href="#example-of-an-analytical-solution" title="Permalink to this headline">¶</a></h3>
+<p>Consider a conceptual model presented in the Figure <a class="reference internal" href="../../tools/1D_ditchflow.html#ditch"><span class="std std-ref">Conceptual model of a flow between two water bodies separated by unconfined aquifer</span></a>. The unconfined aquifer separates two surface exposed water bodies. The water body in the left has a higher hydraulic head (<span class="math notranslate nohighlight">\(h_0\)</span>, [L]) compared to that on the right (<span class="math notranslate nohighlight">\(h_u\)</span>). Thus the flow of water is from left water body to the right one along the separating aquifer. In this scenario one of the problem to address will be to understand how the aquifer reacts to change in heads of water bodies. Additionally, how additional water, e.g., from precipitation/recharge (<span class="math notranslate nohighlight">\(N\)</span>, [L/T]), will effect the aquifer water.</p>
+<div class="figure align-center" id="ditch">
+<a class="reference internal image-reference" href="../../../_images/M11_f4.png"><img alt="../../../_images/M11_f4.png" src="../../../_images/M11_f4.png" style="width: 456.40000000000003px; height: 172.60000000000002px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 58 </span><span class="caption-text">Conceptual model of a flow between two water bodies separated by unconfined aquifer</span><a class="headerlink" href="#ditch" title="Permalink to this image">¶</a></p>
+</div>
+<p>The conceptual problem can be addressed when assumptions such as steady condition prevails, Darcy’s law in aquifer is valid, recharge rate are relatively low. Based on the these assumptions, one of the <strong>mathematical model</strong> of this conceptual problem is:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\textrm{d}}{\textrm{d}x}\bigg(-h \cdot K\cdot \frac{\textrm{d}h}{\textrm{d}x}  \bigg) = N
+\]</div>
+<p>and the 2 boundary conditions:</p>
+<div class="math notranslate nohighlight">
+\[
+h(0) = h_0 \:\: \text{and} \:\: h(L) = h_L
+\]</div>
+<p>Note that a complete formulation of mathematical model requires accompanying boundary conditions. The boundary conditions are used to uniquely define the problem. An <em>analytical solution</em> for this mathematical model and accompanying boundary condition is:</p>
+<div class="math notranslate nohighlight">
+\[
+h(x) = \sqrt{h_o^2 - (h_o^2 - h_L^2)\cdot \frac{x}{L} + \frac{N}{K}\cdot x \cdot (L-x) }
+\]</div>
+<p>The solution can be used to quantify change in aquifer head <span class="math notranslate nohighlight">\(h\)</span> with different system quantities, e.g., conductivity <span class="math notranslate nohighlight">\(K\)</span> [L/T], recharge <span class="math notranslate nohighlight">\(N\)</span> [L/T] water body heights <span class="math notranslate nohighlight">\(h_0,\, h_L\)</span> [L] along the flow direction.</p>
+<p>The additional tool: <em>Conservative Transport</em> (<a class="reference internal" href="../../tools/1D_ditchflow.html"><span class="doc std std-doc">TOOLS</span></a>) interactively simulates the ditch flow concept in more details.</p>
+</div>
+<div class="section" id="example-problem">
+<h3>Example problem<a class="headerlink" href="#example-problem" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-ditch-flow admonition">
+<p class="admonition-title">Ditch flow</p>
+<p>Explore the effect of recharge (<span class="math notranslate nohighlight">\(N= 0\)</span> and <span class="math notranslate nohighlight">\(N= 0.1\)</span> mm/d) on the aquifer level for the conceptual problem provided above. Other required data are provided below.
+The effect are to be explored at mid of the aquifer</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Provided are:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">K</span> <span class="o">=</span> <span class="mf">2E-4</span> <span class="c1"># hydraulic conductivity [m/s]</span>
+<span class="n">Ho</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># head at the origin [m]</span>
+<span class="n">Hu</span> <span class="o">=</span> <span class="mf">7.5</span> <span class="c1"># head at L [m]</span>
+<span class="n">L</span> <span class="o">=</span> <span class="mi">175</span> <span class="c1">#flow length [m]</span>
+<span class="n">N1</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># no recharge [m/s]</span>
+<span class="n">N2</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1"># recharge [mm/a]</span>
+
+<span class="c1"># intermediate calculation </span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">L</span><span class="o">/</span><span class="mi">2</span> <span class="c1"># mid of the aquifer [m]</span>
+<span class="n">N_</span> <span class="o">=</span> <span class="n">N2</span><span class="o">/</span><span class="mi">1000</span><span class="o">/</span><span class="mi">365</span><span class="o">/</span><span class="mi">86400</span> <span class="c1"># recharge, [m/s]</span>
+ 
+<span class="c1">#solution</span>
+<span class="n">h1</span><span class="o">=</span><span class="p">(</span><span class="n">Ho</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="p">(</span><span class="n">Ho</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="n">Hu</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">L</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="p">(</span><span class="n">N1</span><span class="o">/</span><span class="n">K</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="n">L</span><span class="o">-</span><span class="n">x</span><span class="p">)))</span><span class="o">**</span><span class="mf">0.5</span>
+<span class="n">h2</span><span class="o">=</span><span class="p">(</span><span class="n">Ho</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="p">(</span><span class="n">Ho</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="n">Hu</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">L</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="p">(</span><span class="n">N_</span><span class="o">/</span><span class="n">K</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="n">L</span><span class="o">-</span><span class="n">x</span><span class="p">)))</span><span class="o">**</span><span class="mf">0.5</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hydraulic conductivity = </span><span class="si">{}</span><span class="s2"> m</span><span class="se">\n</span><span class="s2">head at origin = </span><span class="si">{}</span><span class="s2"> m</span><span class="se">\n</span><span class="s2">head at L = </span><span class="si">{}</span><span class="s2"> m</span><span class="se">\n</span><span class="s2">flow length = </span><span class="si">{}</span><span class="s2"> m</span><span class="se">\n</span><span class="s2">Recharge = </span><span class="si">{}</span><span class="s2"> mm/a&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">Ho</span><span class="p">,</span> <span class="n">Hu</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">N2</span> <span class="p">),</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The resulting head without head is </span><span class="si">{:0.2f}</span><span class="s2"> m </span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">h1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The resulting head with head is </span><span class="si">{:0.2f}</span><span class="s2"> m </span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">h2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Provided are:
+
+hydraulic conductivity = 0.0002 m
+head at origin = 10 m
+head at L = 7.5 m
+flow length = 175 m
+Recharge = 1000 mm/a 
+
+The resulting head without head is 8.84 m 
+
+The resulting head with head is 8.91 m 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="example-for-a-model-without-analytical-solution">
+<h3>Example for a Model without Analytical Solution<a class="headerlink" href="#example-for-a-model-without-analytical-solution" title="Permalink to this headline">¶</a></h3>
+<p>Analytical solutions are rather an exception. Natural aquifer or groundwater system are more complex (see figure below) and therefore analytical solution are not possible. The complexity in natural system are due to parameter heterogeneity and irregular model domain boundaries, and these must be included in underlying model equation.</p>
+<div class="figure align-center" id="nummodel">
+<a class="reference internal image-reference" href="../../../_images/M11_f5.png"><img alt="../../../_images/M11_f5.png" src="../../../_images/M11_f5.png" style="width: 525.0px; height: 315.0px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 59 </span><span class="caption-text">The numerical model of a natural aquifer</span><a class="headerlink" href="#nummodel" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="conceptual-model-to-numerical-approach">
+<h2>Conceptual Model to Numerical Approach<a class="headerlink" href="#conceptual-model-to-numerical-approach" title="Permalink to this headline">¶</a></h2>
+<p>The first step in modeling is to establish the purpose of the model. With that established, the development of conceptual model begins the set-up of the numerical model. This is a step-wise process that includes:</p>
+<blockquote>
+<div><ol class="simple">
+<li><p><strong>Conceptual model</strong> - providing hydrogeological units within the model domain</p></li>
+</ol>
+</div></blockquote>
+<blockquote>
+<div><ol class="simple">
+<li><p><strong>Water budgeting</strong> - identifying water containing units and characterizing it</p></li>
+</ol>
+</div></blockquote>
+<blockquote>
+<div><ol class="simple">
+<li><p><strong>Numerical model</strong> - Combining the units of conceptual model, water budgeting components and imposing <em>boundary conditions.</em></p></li>
+</ol>
+</div></blockquote>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="../../../_images/M11_f6.png"><img alt="../../../_images/M11_f6.png" src="../../../_images/M11_f6.png" style="width: 568.1999999999999px; height: 363.59999999999997px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 60 </span><span class="caption-text">The numerical model of a natural aquifer</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>The water budgeting part should include the sources of water inflowing to the system including the expected flow directions and exiting water. Estimate of Groundwater recharge, overland flow etc, are few examples of inflows. Likewise, estimate of baseflow to streams, evapotranspiration, abstraction wells etc. are outflows. Field data are required to prepare water budget.</p>
+<p>The type of numerical model, depending on the modeling goal and required/available data, is then decided. The model type is mostly time-related (transient, steady) and dimension-related (1D,2D, 3D).</p>
+<div class="section" id="data-requirements">
+<h3>Data Requirements<a class="headerlink" href="#data-requirements" title="Permalink to this headline">¶</a></h3>
+<p>Numerical model are often very data intensive. Several types of data of different origin are required in the development of a numerical model. These data come from site data records/maps, field works, lab works and the ancillary mathematical analysis of the field and lab data. Overall, the required data can be:</p>
+<ul class="simple">
+<li><p>topographical maps (with surface waters and water divides)</p></li>
+<li><p>geological maps, geological profiles (see figure <span class="xref std std-ref">nummodel</span> example)</p></li>
+<li><p>maps with isolines of aquifer bottoms / thicknesses , aquitard bottoms / thicknesses</p></li>
+<li><p>maps indicating vertical extensions of sediments under rivers and lakes</p></li>
+<li><p>hydrogeological maps (hydraulic head isolines)</p></li>
+<li><p>water level time series in observation wells and rivers</p></li>
+<li><p>time series of spring discharges</p></li>
+<li><p>maps and profiles of hydraulic conductivity or transmissivity (also for river / lake sediments mentioned above)</p></li>
+<li><p>maps and profiles of storage coefficients</p></li>
+<li><p>information on spatial and temporal variability of inflow / outflow due to</p>
+<ul>
+<li><p>groundwater recharge</p></li>
+<li><p>evapotranspiration</p></li>
+<li><p>interaction between groundwater and surface water</p></li>
+<li><p>groundwater abstraction</p></li>
+<li><p>natural groundwater flow</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="example-of-a-groundwater-model">
+<h2>Example of a Groundwater Model<a class="headerlink" href="#example-of-a-groundwater-model" title="Permalink to this headline">¶</a></h2>
+<p>Let us now develop an example flow model. To begin with we set-up an overly simplified model that still will require a numerical solution.</p>
+<p><strong>Step 1</strong> - Spatial Extension</p>
+<ul class="simple">
+<li><p>Horizontal extension along <span class="math notranslate nohighlight">\(x-\)</span>direction: 4000 m</p></li>
+<li><p>Horizontal extension along <span class="math notranslate nohighlight">\(y-\)</span>direction: 2500 m</p></li>
+<li><p>vertical extension along <span class="math notranslate nohighlight">\(z\)</span>-direction: from <span class="math notranslate nohighlight">\(z = 250\)</span> m a.s.l. at the aquifer bottom to <span class="math notranslate nohighlight">\(z= 265\)</span> m at the aquifer top.</p></li>
+<li><p>aquifer thickness is uniform = 15 m.</p></li>
+</ul>
+<p>Putting these information graphically, we get the following schematic:</p>
+<div class="figure align-center" id="nummodel-ex">
+<a class="reference internal image-reference" href="../../../_images/M11_f7.png"><img alt="../../../_images/M11_f7.png" src="../../../_images/M11_f7.png" style="width: 588.8000000000001px; height: 226.4px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 61 </span><span class="caption-text">Spatial extension of an example numerical model</span><a class="headerlink" href="#nummodel-ex" title="Permalink to this image">¶</a></p>
+</div>
+<p>The example model is 2D and we <em>assume</em> that vertical flow components can be neglected despite the recharge vertically entering the groundwater. These kinds of simplification are quite common in the development of the numerical model. These simplifications have to be justified when presenting model results.</p>
+<p><strong>Step 2</strong> - Hydraulic Properties</p>
+<p>For our example model we consider the following:</p>
+<ul class="simple">
+<li><p>effective porosity (<span class="math notranslate nohighlight">\(\eta_e\)</span>) in the model domain: 0.2 or 20%</p></li>
+<li><p>two zones with different hydraulic conductivities (<span class="math notranslate nohighlight">\(K\)</span>)</p></li>
+<li><p>two zones with different groundwater recharge</p></li>
+<li><p>A section of a river (<em>river reach</em>) is in hydraulic contact with the aquifer. i.e. there may be water transfer from the river to the aquifer (<em>influent conditions</em>) or vice versa (<em>effluent conditions</em>).</p></li>
+<li><p>inflow boundary with prescribed hydraulic heads</p></li>
+<li><p>outflow boundary with prescribed hydraulic heads</p></li>
+<li><p>two impermeable boundaries</p></li>
+</ul>
+<p><strong>Step 3</strong> - The model purpose and conceptual model</p>
+<p>From our example model we intend to:</p>
+<ul class="simple">
+<li><p>Abstraction of groundwater through wells is planned in the area with an overall pumping rate of 7000 m<span class="math notranslate nohighlight">\(^3\)</span>/d.</p></li>
+<li><p>Water extraction is to be distributed between two wells located at <span class="math notranslate nohighlight">\((x,y) =\)</span> (3050 m, 1550 m) and <span class="math notranslate nohighlight">\((x,y)\)</span> = (3050 m, 1450 m), resp.</p></li>
+<li><p>The model purpose is to outline the 50-days isochrone for both wells.</p></li>
+</ul>
+<p>With these information available, our conceptual model takes the following form:</p>
+<div class="figure align-center" id="concept-model">
+<a class="reference internal image-reference" href="../../../_images/M11_f8.png"><img alt="../../../_images/M11_f8.png" src="../../../_images/M11_f8.png" style="width: 522.75px; height: 296.0px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 62 </span><span class="caption-text">The conceptual model of the example model</span><a class="headerlink" href="#concept-model" title="Permalink to this image">¶</a></p>
+</div>
+<p><strong>Step 4</strong> - The numerical approach</p>
+<p>This is discussed in the next lecture.</p>
+<hr class="docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="darcy-1856"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Darcy, H., Les Fontaines Publiques de la Ville de Dijon, Dalmont, Paris, 1856.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "prabhasyadav/iGW-I",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./contents/modeling/lecture_11"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../../transport/lecture_10/22_reactive_transport.html" title="previous page">Lecture 10:  Reactive Mass Transport</a>
+    <a class='right-next' id="next-link" href="../../tutorials/tutorial_01/01_python.html" title="next page">Tutorial 1 - Python Programming language</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By P. K. Yadav, T. Reimann and several others<br/>
+        
+          <div class="extra_footer">
+            <div>
+<a href="https://creativecommons.org/licenses/by/4.0/"><img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/png/by.png"></a>
+    All content on this site (unless otherwise specified) is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">CC BY-NC-SA 4.0 license</a>
+</div>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
