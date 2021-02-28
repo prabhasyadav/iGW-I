@@ -4,10 +4,10 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lecture 9- Conservative Transport &#8212; Groundwater I</title>
     
-  <link rel="stylesheet" href="../../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -25,8 +25,8 @@
     href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -35,13 +35,12 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
 
     <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/language_data.js"></script>
     <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
@@ -52,7 +51,7 @@
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -181,6 +180,18 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
+  Modeling
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../modeling/lecture_11/31_intro_modeling.html">
+   Lecture 11:  Background of Groundwater Modeling
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
   Tutorials
  </span>
 </p>
@@ -287,6 +298,11 @@
    Simulating Kinetics and Degradation
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/1D_ditchflow.html">
+   Simulating 1D Trench Flow*
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -389,6 +405,11 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/prabhasyadav/iGW-I/blob/main/contents/transport/lecture_09/21_conservative_transport.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -535,7 +556,7 @@
 <p>Before we begin, let us distinguish between <em>groundwater flow</em> and <em>transport</em> problems. With <em>flow</em> problems we deal with groundwater only, whereas with <em>transport</em> problem we deal with particles flowing along with groundwater. It is not required that particle be a contaminant. The particle in this sense may be defines as anything other than water. We begin with a groundwater contamination scenario.</p>
 <div class="figure align-center" id="trans-c-2d">
 <a class="reference internal image-reference" href="../../../_images/T9_f1a.png"><img alt="../../../_images/T9_f1a.png" src="../../../_images/T9_f1a.png" style="width: 523.6px; height: 289.6px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 44 </span><span class="caption-text">Contamination scenario</span><a class="headerlink" href="#trans-c-2d" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 43 </span><span class="caption-text">Contamination scenario</span><a class="headerlink" href="#trans-c-2d" title="Permalink to this image">¶</a></p>
 </div>
 <p>In the figure, the chemicals (contaminants) first enters the <em>vadose zone</em>, an unstatured part of the subsurface from the ground surface. The entry is faciliated with phenomenan such as rainfall. As only limited water are available and there are almost no continuous horizontal flow, the contaminants, mostly as a pure phase,  in this zone often travels vertically until it reaches the groundwater table - a boundary between an unstaturated and saturated subsurface. Beneath the water-table, the contaminants mixes with the flowing groundwater and spreads both vertically and horizontally along the saturated zone resulting to a development of a contaminant plume.</p>
 <p><strong>In this course we learn only of contamination in the saturated zone.</strong></p>
@@ -667,7 +688,7 @@ A_1 v_1 &amp;= A_2 v_2
 <p>Probably not. Advection may only be possible in uniformly packed porous medium with also perfectly uniform particle size distribution of medium particles. This is rather exception. In normal cases, the the particle transport will spread out leading some matter exiting earlier then remaining others. This is explained by process called <strong>mechanical dispersion</strong>.</p>
 <div class="figure align-center" id="ad-dis">
 <a class="reference internal image-reference" href="../../../_images/T9_f3.png"><img alt="../../../_images/T9_f3.png" src="../../../_images/T9_f3.png" style="width: 476.7px; height: 237.99999999999997px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 45 </span><span class="caption-text">Advection-dispersion processes</span><a class="headerlink" href="#ad-dis" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 44 </span><span class="caption-text">Advection-dispersion processes</span><a class="headerlink" href="#ad-dis" title="Permalink to this image">¶</a></p>
 </div>
 <blockquote>
 <div><p>Note: 1D only have longitudinal dispersivity. Transverse dispersivity is 2D/3D property
@@ -680,7 +701,7 @@ This is a footnote reference.</p>
 <p><strong>Mechanical dispersion</strong> can result due to alone or combination of several porous medium and flow hydraulics properties. In general the following three reasons are considered when explaining the mechanical dispersion process:</p>
 <div class="figure align-center" id="mech-dis">
 <a class="reference internal image-reference" href="../../../_images/T9_f4.png"><img alt="../../../_images/T9_f4.png" src="../../../_images/T9_f4.png" style="width: 598.8000000000001px; height: 146.0px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 46 </span><span class="caption-text">Mechanical dispersion mechanisms</span><a class="headerlink" href="#mech-dis" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 45 </span><span class="caption-text">Mechanical dispersion mechanisms</span><a class="headerlink" href="#mech-dis" title="Permalink to this image">¶</a></p>
 </div>
 <blockquote>
 <div><p>a.  The varying flow velocities across each individual pore. A <strong>parabolic velocity profile</strong> results as close to the surface there is resistance to flow and the maximum velocity is at the centreline.</p>
@@ -852,7 +873,7 @@ J_{diff} &amp;= - D \cdot A\cdot\frac{\Delta C}{L}\\
 <p>The diffusion phenomena can be demonstrated from the figure below. The fig shows spread of solute in the absence of flow (<span class="math notranslate nohighlight">\(v=0\)</span> and consequently <span class="math notranslate nohighlight">\(Q=0\)</span>). The spread continues with time <span class="math notranslate nohighlight">\(t\)</span> until solute concentration in the entire medium is leveled.</p>
 <div class="figure align-center" id="dif">
 <a class="reference internal image-reference" href="../../../_images/T9_f5.png"><img alt="../../../_images/T9_f5.png" src="../../../_images/T9_f5.png" style="width: 483.59999999999997px; height: 196.79999999999998px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 47 </span><span class="caption-text">The diffusion phenomena</span><a class="headerlink" href="#dif" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 46 </span><span class="caption-text">The diffusion phenomena</span><a class="headerlink" href="#dif" title="Permalink to this image">¶</a></p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -991,7 +1012,7 @@ C(x, t) = \frac{1}{2}C_0 \Bigg[\text{erfc}\Bigg(\frac{x-v\cdot t}{2\sqrt{D_x \cd
 <p class="sidebar-title">Ogata and Banks (1961) scenario</p>
 <div class="figure align-right" id="j-ad-dis">
 <a class="reference internal image-reference" href="../../../_images/T9_f6.png"><img alt="../../../_images/T9_f6.png" src="../../../_images/T9_f6.png" style="width: 559.6px; height: 237.20000000000002px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 48 </span><span class="caption-text">Joint action of advection and dispersion
+<p class="caption"><span class="caption-number">Fig. 47 </span><span class="caption-text">Joint action of advection and dispersion
 <code class="docutils literal notranslate">&#160; </code></span><a class="headerlink" href="#j-ad-dis" title="Permalink to this image">¶</a></p>
 </div>
 </div>
@@ -1079,7 +1100,7 @@ The contribution of diffusive flow is: 1.0e-05 g/d
 <p>The <em>concentration profile</em> can be visualize as in the figure below:</p>
 <div class="figure align-center" id="c-profile">
 <a class="reference internal image-reference" href="../../../_images/T9_f7.png"><img alt="../../../_images/T9_f7.png" src="../../../_images/T9_f7.png" style="width: 454.5px; height: 430.5px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 49 </span><span class="caption-text">Concentration profile</span><a class="headerlink" href="#c-profile" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 48 </span><span class="caption-text">Concentration profile</span><a class="headerlink" href="#c-profile" title="Permalink to this image">¶</a></p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1118,7 +1139,7 @@ The contribution of diffusive flow is: 1.0e-05 g/d
 <p><strong>Breakthrough Curves</strong>, an alternative to <em>concentration profile</em> provides the solute concentration as a function of time at specified observation locations, i.e., along <span class="math notranslate nohighlight">\(y-\)</span>axis <span class="math notranslate nohighlight">\(C\)</span> or normalized <span class="math notranslate nohighlight">\(C/C_0\)</span> is used and along the <span class="math notranslate nohighlight">\(x-\)</span>axis time <span class="math notranslate nohighlight">\(t\)</span> information is provided. The graphics below schematically illustrates th <em>breakthrough curve</em> visualization</p>
 <div class="figure align-center" id="break">
 <a class="reference internal image-reference" href="../../../_images/T9_f7.png"><img alt="../../../_images/T9_f7.png" src="../../../_images/T9_f7.png" style="width: 454.5px; height: 430.5px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 50 </span><span class="caption-text">The break-through curve</span><a class="headerlink" href="#break" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 49 </span><span class="caption-text">The break-through curve</span><a class="headerlink" href="#break" title="Permalink to this image">¶</a></p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1227,7 +1248,7 @@ The contribution of diffusive flow is: 1.0e-05 g/d
     </div>
 
     
-  <script src="../../../_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     

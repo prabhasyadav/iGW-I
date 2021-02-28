@@ -4,10 +4,10 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lecture 10: Reactive Mass Transport &#8212; Groundwater I</title>
     
-  <link rel="stylesheet" href="../../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -25,8 +25,8 @@
     href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -35,13 +35,12 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
 
     <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/language_data.js"></script>
     <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
@@ -52,7 +51,7 @@
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -62,7 +61,7 @@
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Tutorial 1 - Python Programming language" href="../../tutorials/tutorial_01/01_python.html" />
+    <link rel="next" title="Lecture 11: Background of Groundwater Modeling" href="../../modeling/lecture_11/31_intro_modeling.html" />
     <link rel="prev" title="Lecture 9- Conservative Transport" href="../lecture_09/21_conservative_transport.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -181,6 +180,18 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
+  Modeling
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../modeling/lecture_11/31_intro_modeling.html">
+   Lecture 11:  Background of Groundwater Modeling
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
   Tutorials
  </span>
 </p>
@@ -287,6 +298,11 @@
    Simulating Kinetics and Degradation
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/1D_ditchflow.html">
+   Simulating 1D Trench Flow*
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -389,6 +405,11 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/prabhasyadav/iGW-I/blob/main/contents/transport/lecture_10/22_reactive_transport.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -736,7 +757,7 @@ D_{hyd} = \alpha \cdot |v| + n_e \cdot D
 <p>The figure below clarifies the <em>adsorption</em> process.</p>
 <div class="figure align-center" id="sorption">
 <a class="reference internal image-reference" href="../../../_images/T10_f1.png"><img alt="../../../_images/T10_f1.png" src="../../../_images/T10_f1.png" style="width: 294.9px; height: 274.8px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 51 </span><span class="caption-text">Sorption terminology</span><a class="headerlink" href="#sorption" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 50 </span><span class="caption-text">Sorption terminology</span><a class="headerlink" href="#sorption" title="Permalink to this image">¶</a></p>
 </div>
 <p>In the figure <em>chemical in solution</em> (the circular objects) more often called <strong>solute</strong> in the water is found to attach is the solid surface. The figure presents the following two important terms part of the adsorption process:</p>
 <blockquote>
@@ -763,7 +784,7 @@ D_{hyd} = \alpha \cdot |v| + n_e \cdot D
 <p>For quantification, laboratory based experiments are performed using solids from subsurface and chemicals of interest. The laboratory observations are then graphically fitted with empirical isotherm models to quantify adsorption properties. Figure below shows isotherms that are particularly observed in groundwater transport studies. As can be observed in the figure sorption coefficient (<span class="math notranslate nohighlight">\(K\)</span>) is the common quantities obtained from isotherm models.</p>
 <div class="figure align-center" id="sorption-type">
 <a class="reference internal image-reference" href="../../../_images/T10_f2.png"><img alt="../../../_images/T10_f2.png" src="../../../_images/T10_f2.png" style="width: 351.6px; height: 286.8px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 52 </span><span class="caption-text">Different types of sorption isotherms</span><a class="headerlink" href="#sorption-type" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 51 </span><span class="caption-text">Different types of sorption isotherms</span><a class="headerlink" href="#sorption-type" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="henry-isotherm">
@@ -898,7 +919,7 @@ Freundlich partitioning coefficient =  191.8 (mg/g)1/n (mg/L) and  Freundlich ex
 <p>For this purpose, an aquifer volume <span class="math notranslate nohighlight">\(V\)</span> with the effective porosity <span class="math notranslate nohighlight">\(n_e\)</span> is considered (see fig. below)</p>
 <div class="figure align-center" id="retardation">
 <a class="reference internal image-reference" href="../../../_images/T10_f3.png"><img alt="../../../_images/T10_f3.png" src="../../../_images/T10_f3.png" style="width: 330.4px; height: 210.7px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 53 </span><span class="caption-text">Retardation factor</span><a class="headerlink" href="#retardation" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 52 </span><span class="caption-text">Retardation factor</span><a class="headerlink" href="#retardation" title="Permalink to this image">¶</a></p>
 </div>
 <p>The steps involved are:</p>
 <ul class="simple">
@@ -1106,7 +1127,7 @@ T_{1/2} = \frac{\ln 2}{\lambda} \:\:\: \text{for } \:1^{\text{st}}\text{-order}
 <p>Figure below presents the joint action of conservative transport with equilibrium sorption (linear isotherm) and degradation. The figure shows the solute concentration <span class="math notranslate nohighlight">\(C\)</span> (in water) at the same time-levels for various combinations of acting processes.</p>
 <div class="figure align-center" id="d-cons-react">
 <a class="reference internal image-reference" href="../../../_images/T10_f4.png"><img alt="../../../_images/T10_f4.png" src="../../../_images/T10_f4.png" style="width: 274.2px; height: 583.1999999999999px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 54 </span><span class="caption-text">1D Conservative and Reactive Transport</span><a class="headerlink" href="#d-cons-react" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 53 </span><span class="caption-text">1D Conservative and Reactive Transport</span><a class="headerlink" href="#d-cons-react" title="Permalink to this image">¶</a></p>
 </div>
 <p>The figure can be explained in the following way:</p>
 <p>(A): The solute is initially present at constant concentration in a limited area.</p>
@@ -1190,8 +1211,8 @@ erfc() = represents the complementary error function <a class="reference externa
 <p>Water is <em>injected</em> into a certain portion of an aquifer with total volume <span class="math notranslate nohighlight">\(V\)</span>, bulk density <span class="math notranslate nohighlight">\(\rho_b\)</span> and effective porosity <span class="math notranslate nohighlight">\(n_e\)</span>. Assume that the injected water contains a chemical of total mass <span class="math notranslate nohighlight">\(M\)</span>, which is adsorbed by the aquifer materials under equilibrium conditions according to Henry isotherm (quantified by <span class="math notranslate nohighlight">\(K_d\)</span>$).</p>
 <p>Bases on the assumption of sorption equilibrium, the total mass <span class="math notranslate nohighlight">\(M\)</span> of the chemical is instantaneously(!) split up into a dissolved and a sorbed part. In such case, the mass distribution can be computed as follows (with <span class="math notranslate nohighlight">\(R\)</span> = retardation factor, <span class="math notranslate nohighlight">\(\rho_b\)</span>
 = bulk density):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-85ae509b-c69b-4d41-a32a-e6f779ca62ef">
-<span class="eqno">(4)<a class="headerlink" href="#equation-85ae509b-c69b-4d41-a32a-e6f779ca62ef" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5ee0c7b0-aaa0-4b6e-96a5-b95f98c90873">
+<span class="eqno">(4)<a class="headerlink" href="#equation-5ee0c7b0-aaa0-4b6e-96a5-b95f98c90873" title="Permalink to this equation">¶</a></span>\[\begin{align}
 M &amp;= n_e \cdot V \cdot C + V\cdot\rho_b \cdot C_a \\ 
 &amp;= n_e \cdot V \cdot C + V \cdot \rho_b \cdot K_d \cdot C\\ 
 &amp;= n_e \cdot (1 + \rho_b \cdot K_d/n_e) \cdot V \cdot C\\
@@ -1251,7 +1272,7 @@ M &amp;= n_e \cdot V \cdot C + V\cdot\rho_b \cdot C_a \\
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="../lecture_09/21_conservative_transport.html" title="previous page">Lecture 9-  Conservative Transport</a>
-    <a class='right-next' id="next-link" href="../../tutorials/tutorial_01/01_python.html" title="next page">Tutorial 1 - Python Programming language</a>
+    <a class='right-next' id="next-link" href="../../modeling/lecture_11/31_intro_modeling.html" title="next page">Lecture 11:  Background of Groundwater Modeling</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
@@ -1277,7 +1298,7 @@ M &amp;= n_e \cdot V \cdot C + V\cdot\rho_b \cdot C_a \\
     </div>
 
     
-  <script src="../../../_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     
