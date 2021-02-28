@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lecture 07 - Quantifying 3D Groundwater Flow #
+# # Lecture 07 - Quantifying 3D Groundwater Flow 
 # 
 # 
-# ##### (_The contents are based on the class lecture materials of Prof. R. Lied. Modifications mostly to fit this specific were done by Dr. P. K. Yadav, and numerical examples were contributed by  Ms. Anne Pförtner and Sophie Pförtner._) #####
+# _(The contents are based on the class lecture materials of Prof. R. Lied. Modifications mostly to fit this specific were done by Dr. P. K. Yadav, and numerical examples were contributed by  Ms. Anne Pförtner and Sophie Pförtner.)_
+# 
 # ---
 # 
 # ## Motivation
@@ -14,9 +15,6 @@
 # In the previous lectures we attempted to understand and quantify the different sub-surface properties, e.g., hydraulic head, conductivity, and attempted to characterize them in space (homogeneous versus heterogeneous) and direction (isotropic versus anisotropic). Finally, introducing the Darcy's law in all dimensions.
 # 
 # In this lecture we will attempt to quantify groundwater flow by developing system equation. This we will begin with a confined aquifers, following that with unconfined aquifer and eventually, we will formulate an approach to quantify general groundwater flow problems.
-# 
-# 
-# 
 
 # ## Quantification of Three-Dimension (3D) Groundwater Flow
 # 

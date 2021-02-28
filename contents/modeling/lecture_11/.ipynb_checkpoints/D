@@ -1,0 +1,187 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Dispersive Mass Flow in 3D \n",
+    "\n",
+    "Dispersive as well as diffusive solute transport are driven by a **concentration gradient.** \n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Concentration Gradient\n",
+    "\n",
+    "In natural systems, the concentration gradient is usually not constant in space and the simple expression $\\Delta C/L$ can therefore **not be used.** Rather, the space derivative of concentration $dC/dx$ **has to be used** to represent **gradual concentration changes** in an appropriate manner.\n",
+    "\n",
+    "The dispersive mass flow in 1D is calculated as \n",
+    "\n",
+    "$$\n",
+    "\\begin{align}\n",
+    "& J_{disp,h} = -n_e \\cdot A \\cdot D_{hyd} \\cdot \\frac{dC}{dx}\n",
+    "& j_{disp,h} = -n_e \\cdot A \\cdot D_{hyd} \\cdot \\frac{dC}{dx}\n",
+    "\\end{align}\n",
+    "$$\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "For 2D or 3D solute transport the concentration gradient has to be a **vector to account for magnitude and direction.** This is archived via partial derivates of concentration with respect to Cartesian coordinates. \n",
+    "\n",
+    "$$ gradC = \\nabla C = \n",
+    "\\left(\n",
+    "    \\begin{array}{c}\n",
+    "        \\frac{\\partial C}{\\partial x}\\\\\n",
+    "        \\frac{\\partial C}{\\partial y}\\\\\n",
+    "        \\frac{\\partial C}{\\partial z}\n",
+    "    \\end{array}\n",
+    "\\right)$$ \n",
+    "\n",
+    "\"gradC\" is a vector pointing in the **direction of the steepest increase of C.** (When hydrogeologists speak of the concentration gradient, they usually refer to the direction of steepest decrease of solute concentration.)\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Dispersive Mass Flow in Isotropic Aquifers\n",
+    "\n",
+    "If 2D or 3D solute transport is considered, dispersive mass flow and dispersive mass flux are vectors with two or three components.\n",
+    "\n",
+    "$$\n",
+    "\\begin{align}\n",
+    "& J_{disp,h} = \n",
+    "    \\left(\n",
+    "        \\begin{array}{c}\n",
+    "            J_{disp,hx}\\\\\n",
+    "            J_{disp,hy}\\\\\n",
+    "            J_{disp,hz}\n",
+    "        \\end{array}\n",
+    "    \\right)\n",
+    "& j_{disp,h} = \n",
+    "    \\left(\n",
+    "        \\begin{array}{c}\n",
+    "            j_{disp,hx}\\\\\n",
+    "            j_{disp,hy}\\\\\n",
+    "            j_{disp,hz}\n",
+    "        \\end{array}\n",
+    "    \\right)\n",
+    "\\end{align}\n",
+    "$$"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "As you can see the relationships with the concentration gradient correspond to the previous section: \n",
+    "\n",
+    "$$ \n",
+    "\\begin{align}\n",
+    "& J_{disp,h} = -n_e \\cdot A \\cdot D_{hyd} \\cdot gradC\n",
+    "& j_{disp,h} = -n_e \\cdot  D_{hyd} \\cdot gradC \n",
+    "\\end{align}\n",
+    "$$"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The components of the dispersive mass flow depend on the conditions in the aquifer. \n",
+    "\n",
+    "In case of an **isotropic** aquifer we can describe $D_{hyd}$ as $D_{hyd} = \\alpha \\cdot |v| + n_e \\cdot D$. \n",
+    "In **homogeneous** systems dispersivity **$\\alpha$ is a constant**, \n",
+    "whereas in **heterogeneous** ones the dispersivity **depends on the directions** ($\\alpha = \\alpha(x,y,z) $)."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Dispersive Mass Flow in Anisotropic Aquifers \n",
+    "\n",
+    "In all practical cases of 2D and 3D solute transport, **dispersion depens on direction.** Therefore for anisotropic conditions!\n",
+    "Hence, $D_{hyd}$ is not a scalar quantity but a **matrix** (tensor) **which relates the concentration gradient** (vector) **to the dispersive mass flow** (vector). If the principal axes of the dispersion tensor $D_{hyd}$ coincide with the axes of a Cartesian coordinate system and groundwater flow is uniform along the x-axis, the dispersive mass flux is given by \n",
+    "\n",
+    "$$ \n",
+    "\\left(\n",
+    "    \\begin{array}{c}\n",
+    "        j_x\\\\\n",
+    "        j_y\\\\\n",
+    "        j_z\n",
+    "    \\end{array}\n",
+    "\\right)\n",
+    "= -n_e\n",
+    "\\left(\n",
+    "    \\begin{array}{ccc}\n",
+    "        \\alpha_L \\cdot v_x + n_e \\cdot D & 0 & 0\\\\\n",
+    "        0 & \\alpha_{Th} \\cdot v_x + n_e \\cdot C & 0\\\\\n",
+    "        0 & 0 & \\alpha_{Tv} \\cdot v_x + n_e \\cdot D\n",
+    "     \\end{array}\n",
+    "\\right)\\cdot\n",
+    "\\left(\n",
+    "    \\begin{array}{c}\n",
+    "        \\frac{\\partial C}{\\partial x} \\\\\n",
+    "        \\frac{\\partial C}{\\partial y} \\\\\n",
+    "        \\frac{\\partial C}{\\partial z} \n",
+    "    \\end{array}\n",
+    "\\right)\n",
+    "$$\n",
+    "\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "with $\\alpha_L$ = longitudinal dispersivity, $\\alpha_{Th}$ = horizontal transverse dispersivity, $\\alpha_{Tv}$ = vertical transverse dispersivity.\n",
+    "\n",
+    "In most cases we have $\\alpha_L > \\alpha_{Th} > \\alpha_{Tv}$ and the values differ by about one order of magnitude. However, this is only a rule of thumb."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

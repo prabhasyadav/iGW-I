@@ -4,10 +4,10 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lecture 11: Background of Groundwater Modeling &#8212; Groundwater I</title>
     
-  <link rel="stylesheet" href="../../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -25,8 +25,8 @@
     href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -35,13 +35,12 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
 
     <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/language_data.js"></script>
     <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
@@ -52,7 +51,7 @@
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -407,6 +406,11 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/prabhasyadav/iGW-I/blob/main/contents/modeling/lecture_11/31_intro_modeling.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
                 class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
@@ -534,7 +538,7 @@
 <p>Very succinctly a  <strong>model</strong> is a representation, which may be an image or a description of a real system. The description can be of different form (e.g., scales), of different level of detail (e.g., conceptual versus mathematical). The <strong>system</strong> to be modeled can be a <strong>real</strong> or also <strong>conceptual</strong>. A very relevant example of a real system for this course is the Darcy’s experiment (see figure below), in which water is made  to flow through the porous media.</p>
 <div class="figure align-center" id="darcy">
 <a class="reference internal image-reference" href="../../../_images/M11_f1.png"><img alt="../../../_images/M11_f1.png" src="../../../_images/M11_f1.png" style="width: 343.2px; height: 414.0px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 55 </span><span class="caption-text">Darcy’s experimental setup<sup><a class="footnote-reference brackets" href="#darcy-1856" id="id1">1</a></sup></span><a class="headerlink" href="#darcy" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 54 </span><span class="caption-text">Darcy’s experimental setup<sup><a class="footnote-reference brackets" href="#darcy-1856" id="id1">1</a></sup></span><a class="headerlink" href="#darcy" title="Permalink to this image">¶</a></p>
 </div>
 <p>With Darcy’s experiment, one could set-up a mathematical model to relate flow rate and hydraulic gradient (<span class="math notranslate nohighlight">\(h\)</span>). As model is <em>only an image</em> of the real system, several assumptions have to be made in it’s development. At many instances the model can not be set without these assumptions. In other cases solution of the model may not be possible without these assumptions being part of the model development. Darcy‘s Law, for instance, does not provide an exact representation of flow through individual pore channels. Rather, <strong>average</strong> flow behaviour through <strong>many</strong> pore channels is represented.</p>
 </div>
@@ -561,7 +565,7 @@
 <p>The <strong>conceptual models</strong> is classification of models that distinguishes the qualitative from the quantitative description of a real system. A <strong>conceptual model</strong> provides a qualitative representation of the relevant system components, processes, and impacts in the area of investigation. This representation is usually shown graphically, e.g., as block models (see figure <a class="reference internal" href="#cmodel"><span class="std std-ref">A conceptual model showing different components of a hydrological system that can impact groundwater.</span></a>). It will be shown later that conceptual model in fact is the first block in the development of a mathematical model.</p>
 <div class="figure align-center" id="cmodel">
 <a class="reference internal image-reference" href="../../../_images/M11_f3.png"><img alt="../../../_images/M11_f3.png" src="../../../_images/M11_f3.png" style="width: 481.8px; height: 285.8px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 56 </span><span class="caption-text">A conceptual model showing different components of a hydrological system that can impact groundwater.</span><a class="headerlink" href="#cmodel" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 55 </span><span class="caption-text">A conceptual model showing different components of a hydrological system that can impact groundwater.</span><a class="headerlink" href="#cmodel" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="physically-based-models-and-empirical-models">
@@ -612,7 +616,7 @@
 <div class="cell_output docutils container">
 <img alt="../../../_images/31_intro_modeling_4_0.png" src="../../../_images/31_intro_modeling_4_0.png" />
 </div>
-<p class="caption"><span class="caption-number">Fig. 57 </span><span class="caption-text">Empirical relation between hydraulic head and discharge.</span><a class="headerlink" href="#empirical" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 56 </span><span class="caption-text">Empirical relation between hydraulic head and discharge.</span><a class="headerlink" href="#empirical" title="Permalink to this image">¶</a></p>
 </div>
 <p>In certain cases <strong>hybrid models</strong>, e.g. <strong>semi-empirical</strong> models can also occur. These models combines the components of empirical/numerical and analytical models. Darcy’s law in fact is a semi-empirical model. On the one hand, it is based on the momentum conservation.  On the other hand, it is not possible to <em>strictly</em> deduce the direct proportionality between flow rate and hydraulic gradient by averaging the flow behaviour over all pores.</p>
 </div>
@@ -629,7 +633,7 @@
 <p>Consider a conceptual model presented in the Figure <a class="reference internal" href="../../tools/1D_ditchflow.html#ditch"><span class="std std-ref">Conceptual model of a flow between two water bodies separated by unconfined aquifer</span></a>. The unconfined aquifer separates two surface exposed water bodies. The water body in the left has a higher hydraulic head (<span class="math notranslate nohighlight">\(h_0\)</span>, [L]) compared to that on the right (<span class="math notranslate nohighlight">\(h_u\)</span>). Thus the flow of water is from left water body to the right one along the separating aquifer. In this scenario one of the problem to address will be to understand how the aquifer reacts to change in heads of water bodies. Additionally, how additional water, e.g., from precipitation/recharge (<span class="math notranslate nohighlight">\(N\)</span>, [L/T]), will effect the aquifer water.</p>
 <div class="figure align-center" id="ditch">
 <a class="reference internal image-reference" href="../../../_images/M11_f4.png"><img alt="../../../_images/M11_f4.png" src="../../../_images/M11_f4.png" style="width: 456.40000000000003px; height: 172.60000000000002px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 58 </span><span class="caption-text">Conceptual model of a flow between two water bodies separated by unconfined aquifer</span><a class="headerlink" href="#ditch" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 57 </span><span class="caption-text">Conceptual model of a flow between two water bodies separated by unconfined aquifer</span><a class="headerlink" href="#ditch" title="Permalink to this image">¶</a></p>
 </div>
 <p>The conceptual problem can be addressed when assumptions such as steady condition prevails, Darcy’s law in aquifer is valid, recharge rate are relatively low. Based on the these assumptions, one of the <strong>mathematical model</strong> of this conceptual problem is:</p>
 <div class="math notranslate nohighlight">
@@ -703,7 +707,7 @@ The resulting head with head is 8.91 m
 <p>Analytical solutions are rather an exception. Natural aquifer or groundwater system are more complex (see figure below) and therefore analytical solution are not possible. The complexity in natural system are due to parameter heterogeneity and irregular model domain boundaries, and these must be included in underlying model equation.</p>
 <div class="figure align-center" id="nummodel">
 <a class="reference internal image-reference" href="../../../_images/M11_f5.png"><img alt="../../../_images/M11_f5.png" src="../../../_images/M11_f5.png" style="width: 525.0px; height: 315.0px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 59 </span><span class="caption-text">The numerical model of a natural aquifer</span><a class="headerlink" href="#nummodel" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 58 </span><span class="caption-text">The numerical model of a natural aquifer</span><a class="headerlink" href="#nummodel" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
@@ -727,7 +731,7 @@ The resulting head with head is 8.91 m
 </div></blockquote>
 <div class="figure align-center" id="id2">
 <a class="reference internal image-reference" href="../../../_images/M11_f6.png"><img alt="../../../_images/M11_f6.png" src="../../../_images/M11_f6.png" style="width: 568.1999999999999px; height: 363.59999999999997px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 60 </span><span class="caption-text">The numerical model of a natural aquifer</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 59 </span><span class="caption-text">The numerical model of a natural aquifer</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <p>The water budgeting part should include the sources of water inflowing to the system including the expected flow directions and exiting water. Estimate of Groundwater recharge, overland flow etc, are few examples of inflows. Likewise, estimate of baseflow to streams, evapotranspiration, abstraction wells etc. are outflows. Field data are required to prepare water budget.</p>
 <p>The type of numerical model, depending on the modeling goal and required/available data, is then decided. The model type is mostly time-related (transient, steady) and dimension-related (1D,2D, 3D).</p>
@@ -769,7 +773,7 @@ The resulting head with head is 8.91 m
 <p>Putting these information graphically, we get the following schematic:</p>
 <div class="figure align-center" id="nummodel-ex">
 <a class="reference internal image-reference" href="../../../_images/M11_f7.png"><img alt="../../../_images/M11_f7.png" src="../../../_images/M11_f7.png" style="width: 588.8000000000001px; height: 226.4px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 61 </span><span class="caption-text">Spatial extension of an example numerical model</span><a class="headerlink" href="#nummodel-ex" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 60 </span><span class="caption-text">Spatial extension of an example numerical model</span><a class="headerlink" href="#nummodel-ex" title="Permalink to this image">¶</a></p>
 </div>
 <p>The example model is 2D and we <em>assume</em> that vertical flow components can be neglected despite the recharge vertically entering the groundwater. These kinds of simplification are quite common in the development of the numerical model. These simplifications have to be justified when presenting model results.</p>
 <p><strong>Step 2</strong> - Hydraulic Properties</p>
@@ -793,7 +797,7 @@ The resulting head with head is 8.91 m
 <p>With these information available, our conceptual model takes the following form:</p>
 <div class="figure align-center" id="concept-model">
 <a class="reference internal image-reference" href="../../../_images/M11_f8.png"><img alt="../../../_images/M11_f8.png" src="../../../_images/M11_f8.png" style="width: 522.75px; height: 296.0px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 62 </span><span class="caption-text">The conceptual model of the example model</span><a class="headerlink" href="#concept-model" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 61 </span><span class="caption-text">The conceptual model of the example model</span><a class="headerlink" href="#concept-model" title="Permalink to this image">¶</a></p>
 </div>
 <p><strong>Step 4</strong> - The numerical approach</p>
 <p>This is discussed in the next lecture.</p>
@@ -861,7 +865,7 @@ The resulting head with head is 8.91 m
     </div>
 
     
-  <script src="../../../_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     

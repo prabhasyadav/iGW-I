@@ -1,0 +1,271 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Type curve and fitting pumping data tool ##\n",
+    "\n",
+    "### How to use this tool ###\n",
+    "\n",
+    "1. Go to the Binder by clicking the rocket button (top-right of the page)\n",
+    "\n",
+    "2. Execute the code cell with libraries \n",
+    "\n",
+    "3. Provide pumping data: **t_m** for time in _minutes_ and **s_m** for drawdown in _meters_. Pls. do not change the name **t_m** and **s_m**.\n",
+    "\n",
+    "4. Execute the data code cell - and in the table check top 5 data points. \n",
+    "\n",
+    "5. Execute the next code cell - 4 interactive boxes will appear change- discharge $Q$ and distant of observation $r$ value are known value. Change the default value in the box with your own values.\n",
+    "\n",
+    "6. Change the value of Transmissivity ($T$) and Storage coefficient ($S$) and check the fits in the graph.\n",
+    "\n",
+    "7. Step 6 should be continued until desired fit is observed in the graph.\n",
+    "\n",
+    "#### Running the tool offline ####\n",
+    "\n",
+    "+ In the offline mode, you can use your own data (user_data.csv). You should use the sample data file provided [here:](https://prabhasyadav.github.io/iGW-I/data/user_data.csv)\n",
+    "\n",
+    "+ In the cell where data is put, uncomment cells with this forms #1-3. And comment out (use #) the uncommented line t_m and s_m   \n",
+    "\n",
+    "+ Do not change the name of the csv file **user_data.csv** and also the column titles (**Time (min)** and **Drawdown (m)** ).\n",
+    "\n",
+    "+ Follow steps 4-7 from above. {doc}`/contents/flow/lecture_03/13_gw_storage` \n",
+    "\n",
+    "The codes are licensed under CC by 4.0 [(use anyways, but acknowledge the original work)](https://creativecommons.org/licenses/by/4.0/deed.en)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Python `Libraries` Cell ####\n",
+    "\n",
+    "`expi` function from `scipy.special`s that provides easy calculation of well function, and `interactive`, `widgets` and `Layout` from `ipywidget` - for interactive activities, are **special** functions used in this tool.\n",
+    "\n",
+    "`numpy` for computation, `matplotlib.pyplot` for plotting and `pandas` for tabulation, are most general libraries for our works.\n",
+    "\n",
+    "Please execute the cell before moving to the next step."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# used library\n",
+    "#usual libraries\n",
+    "import numpy as np\n",
+    "import pandas as pd\n",
+    "import matplotlib.pyplot as plt\n",
+    "\n",
+    "# specific libraries\n",
+    "from ipywidgets import interactive, widgets, Layout # for interactive plot with slider\n",
+    "from scipy.special import expi # for well function"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### `Input Data` Cell ####\n",
+    "\n",
+    "The next cell is for providing pumping data. You can change the value of variables **t_m** and **s_m**. Please do not change the name of the variable. Also, for offline mode - you have an option to upload your `.csv` data.\n",
+    "\n",
+    "Make sure to execute this cell below and check the output table before moving to the next step.\n",
+    "\n",
+    "(_Default data are from {doc}`/contents/tutorials/tutorial_07/tutorial_07`_)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>time (s)</th>\n",
+       "      <th>drawdown (m)</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>60</td>\n",
+       "      <td>0.01</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>120</td>\n",
+       "      <td>0.03</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>180</td>\n",
+       "      <td>0.05</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>240</td>\n",
+       "      <td>0.06</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>300</td>\n",
+       "      <td>0.07</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   time (s)  drawdown (m)\n",
+       "0        60          0.01\n",
+       "1       120          0.03\n",
+       "2       180          0.05\n",
+       "3       240          0.06\n",
+       "4       300          0.07"
+      ]
+     },
+     "execution_count": 2,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# input data must be in *.csv format. Time data must be in \"min\", and Drawdown in \"m\". \n",
+    "#This can only be done in offline mode currently. Remove numbered comments #1, from below\n",
+    "\n",
+    "#1 data = pd.read_csv(\"user_data.csv\", sep = \",\", usecols =[\"Time (min)\", \"Drawdown (m)\"])\n",
+    "\n",
+    "#2 t_m= data19.values[:,0] # extracting time data and converting to numpy array\n",
+    "#3 s_m= data19.values[:,1]\n",
+    "\n",
+    "# You can change the data in t_m and s_m. Pls. comment if you are using offline and import your date (csv file)\n",
+    "t_m =np.array([1, 2,    3,    4,    5,    7,    9,   12,   18,   23,   33, 41,   56,  126,  636, 1896])\n",
+    "s_m = np.array([0.01, 0.03, 0.05, 0.06, 0.07, 0.09, 0.12, 0.14, 0.16, 0.17, 0.18, 0.19, 0.2 , 0.22, 0.3 , 0.32])\n",
+    "\n",
+    "\n",
+    "t_s = t_m*60 # sec- converting time to sec.\n",
+    "\n",
+    "d = {'time (s)': t_s, 'drawdown (m)': s_m}\n",
+    "df = pd.DataFrame(data=d, index=None) \n",
+    "df.head(5) # change 5 to larger number if you want to see more data in the table."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### The **main** ``function`` cell ####\n",
+    "\n",
+    "The cell provide the main function `well_f` for running the tool. `well_f` requires 4 inputs in the order: **Transmissivity(m\\u00b2/s)**, **Storage coefficient (-)**, **distance to observation well (m)**, and **discharge (m\\u00b3/s)**\n",
+    "\n",
+    "These value should be appropriately modified to make data fit the Type curve. \n",
+    "\n",
+    "After the cell is executed, 4 boxes with default value of the arguments will appear. You can interactively change the values in the boxes and visually see the fit. \n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "0bbc4d1136f549b59db7ac07638a30a3",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "interactive(children=(FloatText(value=0.00322, description='Transmissivity  (m²/s):', layout=Layout(width='250…"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "def W(u):  \n",
+    "    return  -expi(-u) # provides the well function\n",
+    "\n",
+    "def well_f(T, S_c, r, Q): # provides the fit curve for given r and Q\n",
+    "    \n",
+    "        \n",
+    "    # calculated function see L07-slide 31\n",
+    "    u_1d = 4*T*t_s/(S_c*r**2) # calculating 1/u\n",
+    "    w_ud = 4*np.pi*s_m*T/Q   # well function\n",
+    "\n",
+    "    # plots\n",
+    "    u_1 = np.logspace(10,-1,250, base=10.0)\n",
+    "    w_u =W(1/u_1) \n",
+    "    \n",
+    "    plt.figure(figsize=(9,6));\n",
+    "    plt.loglog(u_1, w_u, label = \"Type curve\"); \n",
+    "    plt.loglog(u_1d, w_ud, \"o\", color=\"red\", label = \"data\")\n",
+    "    plt.ylim((0.1, 10));plt.xlim(1, 1e5)\n",
+    "    plt.grid(True, which=\"both\",ls=\"-\") \n",
+    "    plt.ylabel(r\"W(u)\");plt.xlabel(r\"1/u\")\n",
+    "    plt.legend()\n",
+    "    \n",
+    "style = {'description_width': 'initial'}\n",
+    "layout=Layout(width='250px')\n",
+    "interactive_plot = interactive(well_f, \n",
+    "                            T   = widgets.FloatText(value= 0.00322, description='Transmissivity  (m\\u00b2/s):', disabled=False, style=style, layout=layout,), \n",
+    "                            S_c = widgets.FloatText(value= 7.97e-03, description='Storage Coefficient (-):', disabled=False, style=style, layout=layout), \n",
+    "                            r   = widgets.FloatText(value= 9.85, description='Obs. well location (m):', disabled=False, style=style, layout=layout), \n",
+    "                            Q   = widgets.FloatText(value= 0.0025, description='Discharge (m\\u00b3/s):', disabled=False, style=style, layout=layout)) \n",
+    "display(interactive_plot)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

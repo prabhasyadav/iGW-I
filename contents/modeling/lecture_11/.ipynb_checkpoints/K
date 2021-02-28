@@ -1,0 +1,484 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Simulating Degradation ##"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Some Basics \n",
+    "\n",
+    "Degradation includes **all reactive processes** wich eventually lead to the removal of a chemical from the subsurface.\n",
+    "This is in contrast to sorption/desorption processes which only lead to a transfer of the chemical between the dissolved and the sorbed phase.\n",
+    "\n",
+    "Degradation can appear as\n",
+    "- radioactive decay \n",
+    "- mikrobial degradation (biodegradation)\n",
+    "- chemical degradation \n",
+    "\n",
+    "It is important to note that degradation **results in daughter products (metabolites).** This can reduce or increase the toxicity in the subsurface.\n",
+    "\n",
+    "Several laws were suggested to quantify degradation processes. All of them assume degradation to be **time-dependent (\"kinetics\").**"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## $n^{th}$- Order Degradation Kinetics\n",
+    "\n",
+    "The Equation for the degradation kinetics is\n",
+    "\n",
+    "$$ \\frac{dC}{dt}= - \\lambda \\cdot C^n $$\n",
+    "\n",
+    "with $t$ = time $[T]$, $C$ = solute concentration $[M/L^3]$, $n$ = order of the degradation kinetics $[-]$ and $\\lambda$ = degradation rate constant $[(M/L^3)^{1-n}/T]$\n",
+    "\n",
+    "When you solve this Equation for an initial concentration $C_0$ you get following equitions: \n",
+    "\n",
+    "$$C(t)=C_0 \\cdot e^{-\\lambda \\cdot t} \\quad  \\text{if} \\quad  n = 1 $$\n",
+    "\n",
+    "$$C(t)=[ C_0^{ 1-n} -(1-n) \\cdot \\lambda \\cdot t ]^{\\frac {1}{1-n}} \\quad  \\text{if} \\quad  n \\ne 1 $$\n",
+    "\n",
+    "The **half life** $T_{1/2}$ is the time span elapsing until the initial concentration is reduced by half. $T_{1/2}$ **depends on the initial concentration** in nearly all cases. An **exception is the $1^{st}$-order degradation** kinetics. \n",
+    "\n",
+    "For degradation kinetics of order $n<1$ the solute concentration reaches zero. While the degradation kinetics of orders $n \\geq 1$ the solute concentration only asymptotically approach zero."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Special Cases "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### $0^{st}$ - order kinetics (n = 0)\n",
+    "\n",
+    "An other special case is the dagradation of $0^{st}$ **- order.** \n",
+    "\n",
+    "For $n = 0$ the general equation becomes:\n",
+    "\n",
+    "$$C(t) = C_0  - \\lambda \\cdot t$$\n",
+    "\n",
+    "with $$T_{1/2}= \\frac{C_0}{2 \\cdot \\lambda} $$\n",
+    "\n",
+    "The **speed of the reaction is independent of the initital concentration** of the reaction partners. During a period of time, therefore, the same amount of substance is always converted, regardless of the respective concentration.\n",
+    "\n",
+    "$0^{st}$ **- order kinetics** can be\n",
+    "- enzyme reactions,\n",
+    "- photochemical reactions or\n",
+    "- reactions on solid surfaces"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The following example shows the enzymatic degradation of ethanol in the human and organism.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2021-01-09T10:24:21.406126Z",
+     "start_time": "2021-01-09T10:24:20.738489Z"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "import numpy as np \n",
+    "import matplotlib.pyplot as plt \n",
+    "import pandas as pd\n",
+    "from ipywidgets import interact, fixed\n",
+    "import ipywidgets as widgets"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2021-01-09T10:24:25.139090Z",
+     "start_time": "2021-01-09T10:24:24.887095Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "de69012197254a4c9f9c86236750d6b8",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "interactive(children=(FloatSlider(value=3.0, description='C0', max=8.1), FloatSlider(value=0.15, description='…"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/plain": [
+       "<function __main__.alcohol(C0, λ, t)>"
+      ]
+     },
+     "execution_count": 2,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "def alcohol(C0,λ,t):\n",
+    "    plt.figure()\n",
+    "    t = np.linspace(0, t, 1000)\n",
+    "    plt.plot(t, C0 - λ * t)\n",
+    "    plt.ylabel('Blood alcohol concentration [‰]')\n",
+    "    plt.title('enzymatic degradation of ethanol')\n",
+    "    plt.ylim(0,8.1) #the highest measured blood alcohol concentration in germany \n",
+    "    plt.xlabel('time [h]')\n",
+    "    plt.xlim(0,100)\n",
+    "    plt.show()\n",
+    "\n",
+    "    \n",
+    "interact(alcohol, C0 = widgets.FloatSlider(min=0, max= 8.1, step=0.1, value=3), \n",
+    "         t= fixed(200), λ=widgets.FloatSlider(min=0,max=1, value=0.15, step=0.01, readout_format='.2f'))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### $1^{st}$ - order kinetics (n = 1)\n",
+    "\n",
+    "The  $1^{st}$ - order kinetics represent one of the most important special cases of the general $n^{th}$ - order kinetics.\n",
+    "\n",
+    "For $n=1$ the general equation results in \n",
+    "\n",
+    "$$ C(t) = C_0 \\cdot e^{- \\lambda \\cdot t}$$\n",
+    "\n",
+    "with  $$T_{1/2} = \\frac{ln2}{\\lambda}$$\n",
+    "\n",
+    "The speed of this kinetics is proportional to the solute concentration. For example, this is the case with **radioactive decay.**\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The following diagram shows the degradation of the elements cobalt and strontium. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2021-01-09T10:24:31.214694Z",
+     "start_time": "2021-01-09T10:24:30.883315Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "57d5140ed5d7459bad0c185097a4db73",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "interactive(children=(IntSlider(value=100, description='C0'), FloatSlider(value=0.132, description='λ', max=1.…"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "190065061a33437d9d8ffbf2318b9053",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "interactive(children=(IntSlider(value=100, description='C0'), FloatSlider(value=0.025, description='λ', max=1.…"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/plain": [
+       "<function __main__.Sr(C0, λ, t)>"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "def Co(C0,λ,t): #define the funtion for the decay of cobalt\n",
+    "   \n",
+    "    plt.figure()\n",
+    "    t = np.linspace(0, t, 1000)\n",
+    "    y= C0 * np.exp(-(λ * t)) #equation for 0th-degradation kinetics\n",
+    "    plt.plot(t, y)\n",
+    "    plt.ylabel('solute concentration [mg/l]')\n",
+    "    plt.title('radioactive decay of cobalt')\n",
+    "    plt.ylim(0,100)\n",
+    "    plt.xlabel('time [a]')\n",
+    "    plt.xlim(0,200)\n",
+    "    plt.show()\n",
+    "\n",
+    "    \n",
+    "interact(Co, C0 = widgets.IntSlider(min=0, max= 100, step=1, value=100),\n",
+    "         t = fixed(1000),\n",
+    "         λ = widgets.FloatSlider(value=0.132, min=0, max=1, step=0.001, readout_format='.3f'))\n",
+    "\n",
+    "def Sr(C0,λ,t): #define the function for the decay of strontium\n",
+    "    plt.figure()\n",
+    "    t = np.linspace(0, t, 1000)\n",
+    "    y= C0 * np.exp(-(λ * t))\n",
+    "    plt.plot(t, y)\n",
+    "    plt.ylabel('solute concentration [mg/l]')\n",
+    "    plt.title('radioactive decay of strontium')\n",
+    "    plt.ylim(0,100)\n",
+    "    plt.xlabel('time [a]')\n",
+    "    plt.xlim(0,200)\n",
+    "    \n",
+    "\n",
+    "interact(Sr, C0 = widgets.IntSlider(min=0, max= 100, step=1, value=100),\n",
+    "         t= fixed(1000),\n",
+    "         λ=widgets.FloatSlider(min=0,max=1, value=0.025, step=0.001, readout_format='.3f'))\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Michaelis-Menten-Kinetics\n",
+    "\n",
+    "The Michaelis-Menten degradation kinetics behaves like a $0^{th}$-order kinetics for **\"short\" times** and like a $1^{st}$-order kinetics for **\"long\" times.** It describes the dependence of the speed of an enzyme-catalyzed reaction on the substrate concentration."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The Equation for the Michaelis-Menten degradation kinetics is:\n",
+    "\n",
+    "$$ \\frac{dC}{dt} = - \\frac{k \\cdot C}{k_m + C}$$\n",
+    "\n",
+    "with $t$ = time $[T]$, $C$ = solute concentration $[M/L^3]$, $k$ = rate constant $[M/L^3/T]$ and $k_m$ = degradation parameter $[M/L^3]$.\n",
+    "\n",
+    "$k_m$ characterizes the affinity of the enzyme to its substrate. It corresponds to the substrate concentration at wich half the maximum reaction rate is reached.\n",
+    "\n",
+    "When the equation is solved (implicit) for an initial concentration $C_0$, it becomes to:\n",
+    "\n",
+    "$$ t = \\frac{C_0-C(t)}{k}+\\frac{k_m}{k}\\cdot ln \\frac{C_0}{C(t)}$$\n",
+    "\n",
+    "The half life $T_{1/2}$ depends on the initial concentration $C_0$ as well as the $0^{th}$-order degradation kinetics. \n",
+    "\n",
+    "$$ T_{1/2} = \\frac{C_0}{2 \\cdot k} + \\frac{k_m}{k} \\cdot ln2 $$\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "### Simulating Michaelis-Menten-Kinetics"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 39,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "3d15d68bc97b4111af941ea45e527fed",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "interactive(children=(FloatSlider(value=1.0, description='C_i', max=10.0, min=0.001, step=0.01), IntSlider(val…"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/plain": [
+       "<function __main__.MM1(C_i, P_s, H_l, R_f, n_sim)>"
+      ]
+     },
+     "execution_count": 39,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "def MM1(C_i, P_s, H_l, R_f, n_sim):\n",
+    "    \n",
+    "    \"\"\"\n",
+    "    C_i = Initial concentration [M/L^3]\n",
+    "    P_s = Coefficient- shape factor [M/L^3]\n",
+    "    t\n",
+    "    \"\"\"\n",
+    "    \n",
+    "    #intermediate calculation\n",
+    "    MM_rc = (0.5*C_i+P_s*np.log(2))/H_l # [M/L^3/T], Michaelis-Menten rate constant\n",
+    "\n",
+    "    ZO_rc = MM_rc*C_i/(P_s+C_i) # [M/L^3/T], Zero order rate constant\n",
+    "\n",
+    "    ZO_hl = 0.5*C_i/ZO_rc # [T], half-life\n",
+    "    t_c0 = 2*ZO_hl # [T] time to reach C=0\n",
+    "\n",
+    "    FO_rc = MM_rc/P_s\n",
+    "    FO_hl = np.log(2)/FO_rc # [T], half-life\n",
+    "    FO_ci = C_i*np.exp(C_i/2) # [M/L^3]\n",
+    "\n",
+    "    # Main Computing\n",
+    "\n",
+    "    MM = np.zeros(n_sim)  # creat an array with zros\n",
+    "\n",
+    "    for i in range(0, n_sim-1):\n",
+    "        MM[0] = C_i\n",
+    "        MM[i+1] = MM[i]*R_f\n",
+    "#        MM[i]\n",
+    "\n",
+    "    time = (C_i-MM)/MM_rc - P_s/MM_rc * np.log(MM/C_i)\n",
+    "\n",
+    "    ZO = C_i-ZO_rc*time\n",
+    "    ZO[ZO < 0] = 0 # forcing -ve conc. to be zero\n",
+    "\n",
+    "    FO = FO_ci*np.exp(-FO_rc*time)\n",
+    "    FO[FO < 0] = 0 # forcing -ve conc. to be zero\n",
+    "\n",
+    "    \n",
+    "#    dict1 = {\"time [T]\": time, \"Michaelis-Menten\": MM[i], \"Zero-Order\":ZO, \"First-Order\": FO}\n",
+    "#    pd.DataFrame(dict1)\n",
+    "\n",
+    "    plt.plot(time, MM, \"-r\", label=\"Michaelis Menten\")\n",
+    "    plt.plot(time, FO,\"-g\", label=\"First Order\")\n",
+    "    plt.plot(time, ZO,\"-b\", label=\"Zero Order\")\n",
+    "    plt.xlabel(\"time [T]\"); plt.ylabel(r\"Concentration [M/L$^3$]\")\n",
+    "    plt.legend()    \n",
+    "    plt.grid()\n",
+    "\n",
+    "\n",
+    "interact(MM1, \n",
+    "         C_i = widgets.FloatSlider(min=0.001, max= 10., step=0.01, value=1.0, readout_format='.2f'),\n",
+    "         P_s = widgets.IntSlider(min=1, max= 10, step=1, value=2),\n",
+    "         H_l = widgets.FloatSlider(min=1., max= 1000., step=1., value=300., readout_format='.1f'),\n",
+    "         R_f = widgets.FloatSlider(min=0.01, max= 1., step=0.1, value=0.97, readout_format='.2f'),\n",
+    "         n_sim = widgets.IntSlider(min=1, max= 1000, step=1, value=150))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.3"
+  },
+  "latex_envs": {
+   "LaTeX_envs_menu_present": true,
+   "autoclose": false,
+   "autocomplete": true,
+   "bibliofile": "biblio.bib",
+   "cite_by": "apalike",
+   "current_citInitial": 1,
+   "eqLabelWithNumbers": true,
+   "eqNumInitial": 1,
+   "hotkeys": {
+    "equation": "Ctrl-E",
+    "itemize": "Ctrl-I"
+   },
+   "labels_anchors": false,
+   "latex_user_defs": false,
+   "report_style_numbering": false,
+   "user_envs_cfg": false
+  },
+  "toc": {
+   "base_numbering": 1,
+   "nav_menu": {},
+   "number_sections": true,
+   "sideBar": true,
+   "skip_h1_title": false,
+   "title_cell": "Table of Contents",
+   "title_sidebar": "Contents",
+   "toc_cell": false,
+   "toc_position": {},
+   "toc_section_display": true,
+   "toc_window_display": false
+  },
+  "varInspector": {
+   "cols": {
+    "lenName": 16,
+    "lenType": 16,
+    "lenVar": 40
+   },
+   "kernels_config": {
+    "python": {
+     "delete_cmd_postfix": "",
+     "delete_cmd_prefix": "del ",
+     "library": "var_list.py",
+     "varRefreshCmd": "print(var_dic_list())"
+    },
+    "r": {
+     "delete_cmd_postfix": ") ",
+     "delete_cmd_prefix": "rm(",
+     "library": "var_list.r",
+     "varRefreshCmd": "cat(var_dic_list()) "
+    }
+   },
+   "types_to_exclude": [
+    "module",
+    "function",
+    "builtin_function_or_method",
+    "instance",
+    "_Feature"
+   ],
+   "window_display": false
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
