@@ -248,10 +248,10 @@ print("The degree of saturation of the sample is: {0:.0%}".format(S))
 # Water is subject to capillary action when adhesion is strongr than cohesion. The capillary rise of water in a tube depends on the surface tension and the tube redius. The maximum capillary rise is given by:
 # 
 # 
-# $${h_{c}}=\frac{2\sigma{w}}{\rho_{w}{g}{r}}$$
+# $${h_{c}}=\frac{2\sigma_{w}}{\rho_{w}{g}{r}}$$
 # 
 # - ${h_{c}}$= maximum capillary rise
-# - $sigma{w}$= surface tension
+# - $\sigma_{w}$= surface tension
 # - $\rho_{w}$= water density
 # - ${g}$= acceleration of gravity
 # - ${r}$= radius of the tube
