@@ -190,7 +190,7 @@ print(" Total porosity is: {0:0.2f}%".format(n) )
 # - ${V_{w}}$= water volume
 # - ${V_{v}}$= voids volume
 # 
-# The degree of saturation is equal to $\frac{θ}{n}$ . S can vary between 0 to 1 (or between 0% to 100%), S=0 means no water in the voids, whereas S=100 means voids are completely filled with water.
+# The degree of saturation is equal to $\frac{\theta}{n}$ . $S$ can vary between 0 to 1 (or between 0% to 100%), in which $S=0$ means no water in the voids, whereas $S=100$ means voids are completely filled with water.
 # 
 
 # #### Example Problem #### 
