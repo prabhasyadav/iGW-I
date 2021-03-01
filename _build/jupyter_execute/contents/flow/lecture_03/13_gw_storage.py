@@ -394,7 +394,7 @@ print("The compressibility of porous media in aquifer {0:0.2e} m\u00b2/KN.".form
 # S = S_s \cdot m
 # $$
 # 
-# <img src="images/L03_f_14.png" alt="Reference volume for defining storativity"  width="500px" align="center"> 
+# <img src="images/L03_f_14.png" alt="Reference volume for defining storativity"  width="450px" align="center"> 
 # 
 # 
 # _Storativity_ can be interpreted as the volume of water released from an aquifer volume extending from the aquifer bottom up to the aquifer top over a unit area if the hydrostatic pressure is reduced by one unit. _Storativity_ is dimensionless.
