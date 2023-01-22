@@ -1,61 +1,60 @@
-- file: intro
+root: intro
+format: jb-book
 
-- part: Background
+parts:
+- caption: Basics
+  numbered: true
   chapters:
-  - file: contents/background/00_general
-  - file: contents/background/03_basic_hydrogeology
-
-- part: Flow
+  - file: content/background/00_general
+  - file: content/background/03_basic_hydrogeology
+- caption: Flow
+  numbered: true
   chapters:
-  - file: contents/flow/lecture_02/12_subsurface_structure
-  - file: contents/flow/lecture_03/13_gw_storage
-  - file: contents/flow/lecture_04/14_darcy_law_K
-  - file: contents/flow/lecture_05/15_het_iso
-  - file: contents/flow/lecture_06/16_darcy_law_3D
-  - file: contents/flow/lecture_07/17_quantify_flow
-  - file: contents/flow/lecture_08/18_wells
-
-- part: Transport
+  - file: content/flow/12_subsurface_structure
+  - file: content/flow/L3/13_gw_storage
+  - file: content/flow/L4/14_darcy_law_K
+  - file: content/flow/L5/15_het_iso
+  - file: content/flow/L6/16_darcy_law_3D
+  - file: content/flow/L7/17_quantify_flow
+  - file: content/flow/L8/18_wells
+  
+- caption: Transport
+  numbered: true
   chapters:
-  - file: contents/transport/lecture_09/21_conservative_transport
-  - file: contents/transport/lecture_10/22_reactive_transport
-
-- part: Modeling
+  - file: content/transport/L9/21_conservative_transport
+  - file: content/transport/L10/22_reactive_transport
+- caption: Modeling
+  numbered: true
   chapters:
-  - file: contents/modeling/lecture_11/31_intro_modeling
+  - file: content/modeling/31_intro_modeling.ipynb
 
-
-- part: Tutorials
+  
+- caption: Tutorials
+  numbered: true
   chapters:
-  - file: contents/tutorials/tutorial_01/01_python
-  - file: contents/tutorials/tutorial_01/02_jupyter
-  - file: contents/tutorials/tutorial_02/tutorial_02
-  - file: contents/tutorials/tutorial_03/tutorial_03
-  - file: contents/tutorials/tutorial_04/tutorial_04
-  - file: contents/tutorials/tutorial_05/tutorial_05
-  - file: contents/tutorials/tutorial_06/tutorial_06
-  - file: contents/tutorials/tutorial_07/tutorial_07
-  - file: contents/tutorials/tutorial_08/tutorial_08
-  - file: contents/tutorials/tutorial_09/tutorial_09
-
-
-
-- part: Tools
+  - file: content/background/01_python
+  - file: content/background/02_jupyter
+  - file: content/tutorials/T2/tutorial_02
+  - file: content/tutorials/T3/tutorial_03
+  - file: content/tutorials/T4/tutorial_04
+  - file: content/tutorials/T5/tutorial_05
+  - file: content/tutorials/T6/tutorial_06
+  - file: content/tutorials/T7/tutorial_07
+  - file: content/tutorials/T8/tutorial_08
+  - file: content/tutorials/T9/tutorial_09
+- caption: Tools
+  numbered: true
   chapters:
-  - file: contents/tools/decay
-  - file: contents/tools/sieve_analysis
-  - file: contents/tools/effective_K
-  - file: contents/tools/uniform_flow_and_well
-  - file: contents/tools/aniso2D
-  - file: contents/tools/type_curve_fit
-  - file: contents/tools/1D_advection_dispersion
-  - file: contents/tools/Kinetics_degradation
-  - file: contents/tools/1D_ditchflow
-
-
-
-- part: Question pool
+  - file: content/tools/decay
+  - file: content/tools/sieve_analysis
+  - file: content/tools/effective_K
+  - file: content/tools/uniform_flow_and_well
+  - file: content/tools/aniso2D
+  - file: content/tools/type_curve_fit
+  - file: content/tools/1D_advection_dispersion
+  - file: content/tools/Kinetics_degradation
+  - file: content/tools/1D_ditchflow
+- caption: Previous Years Q&A
+  numbered: true
   chapters:
-  - file: contents/questions/GW_exam_2019_20
-
-
+  - file: content/Q_and_A/GW_exam_2019_20

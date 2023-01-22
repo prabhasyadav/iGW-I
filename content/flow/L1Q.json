@@ -1,0 +1,177 @@
+[
+    {
+        "question": "Which is NOT the correct statement?",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Voids may have very different shape",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Voids are mostly connected to each other",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Voids may contain fluids (mostly air and/or water.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Voids are influential for the ability of the porous medium to store and transmit water",
+                "correct": false,
+                "feedback": "Incorrect"
+             }   
+        ]
+    },
+
+    {
+        "question": "The packing of porous media affects the porosity",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "True",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "False ",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+ 
+        ]
+    },
+    
+    {
+        "question": "Total porosity is defined as",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "A ratio of volume of voids and volume of water",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "A ratio of volume of water and volume of voids ",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "A ratio of volume of voids and the total volume of the porous media in consideration",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "A ratio of volume of water and the total volume of the porous media in consideration",
+                "correct": false,
+                "feedback": "Incorrect"
+             }   
+        ]
+    },
+    
+        {
+        "question": "The Relation \n $ d_{60}/d_{10} $ \n  is called",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Coefficient of uniformity",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Coefficient of conformity",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Particle size ratio",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Distribution coefficient",
+                "correct": false,
+                "feedback": "Incorrect"
+             }   
+        ]
+    },
+
+
+
+
+     
+    {
+        "question": "Arrange the order (lower to higher) of porosity based on soil type",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Silt, Sand , Clay, Gravel",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Silt, Clay, Gravel , Sand",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Clay, Gravel, Silt, Sand",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Sand, Silt, Gravel, Clay ",
+                "correct": false,
+                "feedback": "Incorrect"
+             }   
+        ]
+    },
+ 
+    {
+        "question": "Which are the force acting on the subterranean water",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Cohesion",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Gravity",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Adhession",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "All of the Above",
+                "correct": true,
+                "feedback": "Correct"
+             }   
+        ]
+    },
+     
+   {
+        "question": "Today's lecture made me feel that I should not be Absent from the Groundwater Lectures.",
+        "type": "multiple_choice",
+        "answers": [
+               {
+                "answer": "True",
+                "correct": true,
+                "feedback": "Thank You"
+            },
+            {
+                "answer": "False ",
+                "correct": false,
+                "feedback": "Hope you Like it Next Time"
+            }
+ 
+        ]
+    }
+
+]

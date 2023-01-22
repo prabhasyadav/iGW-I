@@ -1,0 +1,264 @@
+[  
+    {
+        "question": "In conservative transport:",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Groundwater velocity is not important",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Chemical reaction is not considered",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Effective porosity is never a component",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Is only concentration dependent ",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+ 
+        ]
+    },
+    {
+        "question": "Advection refers to",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Motion of particles due to groundwater flow",
+                "correct": true,
+                "feedback": "correct."
+            },
+            {
+                "answer": "Motion of particles due to spread of particles",
+                "correct": false,
+                "feedback": "Incorrect."
+            },            
+            {
+                "answer": "Motion of particles due to chemical reaction ",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Disruption of motion of particules",
+                "correct": false,
+                "feedback": "Incorrect"
+             }   
+        ]
+    },
+
+    {
+        "question": "Mechanical dispersion is  NOT  due to",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Different groundwater flow velocities across each individual pore",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Due to concentration of different compounds",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Different groundwater flow velocities in different pores",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "The movement of water around the solids along different flowpaths.",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+
+
+         ]
+        
+    },
+    
+    {
+        "question": "Dispersive mass flow due to mechanical dispersion  is NOT",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Proportional to the cross-sectional area",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Proportional to the linear velocity,",
+                "correct": false,
+                "feedback": "correct."
+            },
+            {
+                "answer": "Inversely proportional to the transport distance.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Inversely proportional to the difference in concentration,                                             ",
+                "correct": true,
+                "feedback": "Correct"
+            }
+ 
+        ]
+    },
+    
+    {
+        "question": "Dispersivity is ",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Product of velocity and dispersion coefficient",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Difference between velocity and dispersion coefficient",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": " Ratio of dispersion coefficient and velocity",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Product of velocity and concentration",
+                "correct": false,
+                "feedback": "Incorrect"
+             }   
+        ]
+    },
+    
+
+    
+        {
+        "question": "Hydrodynamic dispersion is",
+        
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Sum of mechanical dispersion and pore diffusion",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Sum of mechanical dispersion and advection",
+                "correct": true,
+                "feedback": "correct."
+            },
+            {
+                "answer": "Sum of pore diffusion and fluid diffusion",
+                "correct": false,
+                "feedback": "false."
+            },
+            {
+                "answer": "Product  of mechanical dispersion and pore diffusion",
+                "correct": false,
+                "feedback": "Incorrect"
+             }   
+        ]
+    },
+
+        {
+        "question": "Breakthrough curve refers to ",
+        "type" : "multiple_choice"  ,  
+        "answers": [
+            {
+                "answer": "Plot of concentration versus conductivity",
+                "correct": false,
+                "feedback": "Inorrect."
+            },
+           {
+                "answer": "Plot of concentration versus space",
+                "correct": false,
+                "feedback": "Incorrect."
+            } ,
+            {
+                "answer": "Plot of concentration versus time",
+                "correct": true,
+                "feedback": "correct."
+            } ,
+
+            {
+                "answer": "Plot of concentration versus groundwater velocity",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+ 
+        ]
+    },
+    
+    
+        {
+        "question": "Concentration profile refers to",
+        "type" : "multiple_choice"  ,  
+        "answers": [
+            {
+                "answer": "Plot of concentration versus conductivity",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+           {
+                "answer": "Plot of concentration versus time",
+                "correct": false,
+                "feedback": "Incorrect"
+            } ,
+            {
+                "answer": "Plot of concentration versus groundwater velocity",
+                "correct": false,
+                "feedback": "Incorrect."
+            } ,
+
+            {
+                "answer": "Plot of concentration versus space",
+                "correct": true,
+                "feedback": "correct."
+            }
+ 
+        ]
+    },
+    
+    
+                {
+        "question": "Diffusion is ",
+        "type" : "multiple_choice"  ,  
+        "answers": [
+            {
+                "answer": "Spread of chemical due to groundwater velocity",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+           {
+                "answer": "Spread of chemical due to dispersivity",
+                "correct": false,
+                "feedback": "Incorrect."
+            } ,
+            {
+                "answer": "Spread of chemical due to hydraulic gradient",
+                "correct": false,
+                "feedback": "Incorrect."
+            } ,
+
+            {
+                "answer": "Spread of chemical due to concentration gradient     ",
+                "correct": true,
+                "feedback": "Correct."
+            }
+ 
+        ]
+    }
+ ]
+
+
+
+    
+

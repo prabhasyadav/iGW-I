@@ -1,0 +1,293 @@
+[  
+    {
+        "question": "Dispersive mass flux in 2D is ",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "A mass gradient",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "A vector",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Equivalent to diffussion in 2D",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Velocity times concentration ",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+ 
+        ]
+    },
+    {
+        "question": "Dispersive and diffusive solute transport are driven by",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Concentration gradient",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Hydraulic head gradient",
+                "correct": false,
+                "feedback": "Incorrect."
+            },            
+            {
+                "answer": "Concentration difference ",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Conductivity",
+                "correct": false,
+                "feedback": "Incorrect"
+             }   
+        ]
+    },
+
+    {
+        "question": "In the equation: $ J_{disp, h} = -\\eta_e \\cdot A \\cdot D_{hyd} \\cdot \\frac{dC}{dx} $ $n_e$ is",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Total porosity",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Effective porosity",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Porosity",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Water content",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+
+
+         ]
+        
+    },
+    
+    {
+        "question": " In the relation: $ D_{hyd} = \\alpha \\cdot |v| + \\eta_e \\cdot \\text{grad}C $ the $ \\alpha$ represents:",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "dispersivity",
+                "correct": true,
+                "feedback": "Correct"
+
+            },
+            {
+                "answer": "conductivity",
+                "correct": false,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "mechanical dispersion coefficient",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "diffusion coefficient ",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+ 
+        ]
+    },
+    
+    {
+        "question": "In 2D and 3D solute transport, the dispersion is generally:",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "A Scalar quantity",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "A Vector",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": " A Tensor",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "A Constant",
+                "correct": false,
+                "feedback": "Incorrect"
+             }   
+        ]
+    },
+    
+
+    
+        {
+        "question": "Adsorption is the process of accumulation of  ",
+        
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Dissolved chemicals on other chemicals",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Flow dependent property",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+                        {
+                "answer": "Dissolved chemicals on the surface of a solid",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Dissolved chemicals on the surface of a solid",
+                "correct": true,
+                "feedback": "Correct."
+            }  
+        ]
+    },
+
+        {
+        "question": "Isotherms are: ",
+        "type" : "multiple_choice"  ,  
+        "answers": [
+            {
+                "answer": "Linear relation between adsorbate and adsorbent",
+                "correct": false,
+                "feedback": "Inorrect."
+            },
+           {
+                "answer": "Is time dependent quantity",
+                "correct": false,
+                "feedback": "Incorrect."
+            } ,
+            {
+                "answer": "Equilibrium relation between adsorbate and adsorbent ",
+                "correct": true,
+                "feedback": "Correct."
+            } ,
+
+            {
+                "answer": "Is a flow dependent property",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+ 
+        ]
+    },
+    
+    
+        {
+        "question": "Henry isotherm or linear isotherm",
+        "type" : "multiple_choice"  ,  
+        "answers": [
+            {
+                "answer": "Is valid only at room temperature",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+           {
+                "answer": "Is also called Freundlich isotherm",
+                "correct": false,
+                "feedback": "Incorrect"
+            } ,
+            {
+                "answer": "Is non-linear relation between adsorbate and adsorbent at equilibrium",
+                "correct": false,
+                "feedback": "Incorrect."
+            } ,
+
+            {
+                "answer": "Linear relation between adsorbate and adsorbent at equilibrium",
+                "correct": true,
+                "feedback": "Correct."
+            }
+ 
+        ]
+    },
+        
+        {
+        "question": "Degradation leads",
+        "type" : "multiple_choice"  ,  
+        "answers": [
+            {
+                "answer": "To first-order kinetics",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+           {
+                "answer": "To biological activity",
+                "correct": false,
+                "feedback": "Incorrect"
+            } ,
+            {
+                "answer": "To accumulation of chemical on the solid surface",
+                "correct": false,
+                "feedback": "Incorrect."
+            } ,
+
+            {
+                "answer": "To removal chemical from the subsurface",
+                "correct": true,
+                "feedback": "Correct."
+            }
+ 
+        ]
+    },
+    
+                {
+        "question": "Freundlich Isotherm",
+        "type" : "multiple_choice"  ,  
+        "answers": [
+            {
+                "answer": "Cannot be related to linear isotherm",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+           {
+                "answer": "Is valid only at room temperature",
+                "correct": false,
+                "feedback": "Incorrect."
+            } ,
+            {
+                "answer": "Linear relation between adsorbate and adsorbent at equilibrium",
+                "correct": false,
+                "feedback": "Incorrect."
+            } ,
+
+            {
+                "answer": "Is non-linear relation between adsorbate and adsorbent at equilibrium",
+                "correct": true,
+                "feedback": "Correct."
+            }
+ 
+        ]
+    }
+ ]
+
+
+
+    
+

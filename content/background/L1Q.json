@@ -1,0 +1,139 @@
+[
+    {
+        "question": "Hydrogeology is NOT the study of",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "The laws governing the movement of subterranean water",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "The mechanical, chemical and thermal interaction of this water with the porous solid ",
+                "correct": false,
+                "feedback": "Incorrect Feedback :"
+            },
+            {
+                "answer": "the transport of energy and chemical constituents by the flow",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "None of the above",
+                "correct": true,
+                "feedback": "Correct"
+             }   
+        ]
+    },
+
+    {
+        "question": "The hydrological balance is based on the conservation of water volume",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "True",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "False ",
+                "correct": true,
+                "feedback": "Correct."
+            }
+ 
+        ]
+    },
+    
+    {
+        "question": "The hydrologic balance equation expressed as: \n\n$P = ET + R + \\Delta S$\n\nis at the steady-state when",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Change in storage, $ \\Delta S $> 0",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Change in storages, $ \\Delta S = 0 $ ",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Change in storages,$ \\Delta S < 0 $ ",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "When P = 0",
+                "correct": false,
+                "feedback": "Incorrect"
+             }   
+        ]
+    },
+
+
+    {
+        "question": "Volume budget equation given as:\n$\\Delta V = Q_{in} \\cdot \\Delta t - Q_{out}  \\cdot \\Delta t$\n\nIs $\\Delta V$  time dependent when the system is at steady-state?",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "True",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "False ",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+ 
+        ]
+    },
+     
+    {
+        "question": "Mass and volume budgets are equivalent :",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "If there is no change of density with time",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "If there is change of density with time ",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "They can NEVER be equivalent",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "They are ALWAYS equivalent",
+                "correct": false,
+                "feedback": "Incorrect"
+             }   
+        ]
+    },
+ 
+
+   {
+        "question": "Today's lecture made me feel that I should not be Absent from the Groundwater Lectures.",
+        "type": "multiple_choice",
+        "answers": [
+               {
+                "answer": "True",
+                "correct": true,
+                "feedback": "Glad You Liked IT"
+            },
+            {
+                "answer": "False ",
+                "correct": false,
+                "feedback": "Hope You Like IT Next Time"
+            }
+ 
+        ]
+    }
+
+]

@@ -1,0 +1,297 @@
+[  
+
+    {
+        "question": "In the original Darcy's experiment, which is INCORRECT",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Column with constant cross section",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Saturated conditions",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Sand is the porous medium",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "All are correct statements ",
+                "correct": true,
+                "feedback": "Correct"
+             }   
+        ]
+    },
+
+    {
+        "question": "Water flow in porous media requires changes of",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Pressure head",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Elevation head",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Sum of pressure and elevation head",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Change of pressure head",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+
+         ]
+        
+    },
+    
+        {
+        "question": "Which is NOT true of Darcy‘s Law",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Discharge is  proportional to the cross-sectional area",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "discharge is proportional to the difference in hydraulic head",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Discharge and conductivity are not related",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Discharge is inversely proportional to the travel distance",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+
+         ]
+        
+    },
+    
+    
+    {
+        "question": "Hydraulic conductivity depends on",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Groundwater viscosity",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Groundwater density ",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Effective porosity",
+                "correct": false,
+                "feedback": "false."
+            },
+            {
+                "answer": "Grain size distribution",
+                "correct": false,
+                "feedback": "false."
+            },
+            {
+                "answer": "All of the Above",
+                "correct": true,
+                "feedback": "correct"
+             }   
+        ]
+    },
+    
+
+    
+        {
+        "question": "Hydraulic Conductivity can be measured using",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Using Permeameter",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Using Seive Analysis",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Using pumping test",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "All of the Above",
+                "correct": true,
+                "feedback": "Correct"
+             }   
+        ]
+    },
+     
+    {
+        "question": "In the realtion for Specific storage $S_s$ given as $ S_s $ = $\\Delta V_w $ / $V_T \\cdot \\Delta \\psi$ ",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "the properties of porous media only",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "the properties of fluid only ",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "the viscosity of fluid  ",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "the combined properties of porous media and fluid",
+                "correct": false,
+                "feedback": "false."
+            }
+  
+        ]
+    },
+ 
+    {
+        "question": "Darcy velocity Q and average groundwater velocity v:",
+        "type" : "multiple_choice",
+        "answers": [
+            {
+                "answer": "Are not related",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Darcy velocity = effective porosity times the average groundwater velocity",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Darcy velocity > average linear velocity",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Darcy velocity = total porosity times the average groundwater velocity",
+                "correct": true,
+                "feedback": "correct"
+             }   
+        ]
+    },
+    
+    
+     
+    {
+        "question": "In the original Darcy's experiment, which is INCORRECT",
+        "type" : "multiple_choice",
+        "answers": [
+            {
+                "answer": "Column with constant cross section",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Saturated conditions",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Constant discharge through the column",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Sand is the porous medium",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "All of the above",
+                "correct": true,
+                "feedback": "Correct"
+             }   
+        ]
+    },
+    
+        {
+        "question": "Intrinsic Permeability represents",
+        "type" : "multiple_choice",
+        "answers": [
+            {
+                "answer": "The properties of porous media only",
+                "correct": true,
+                "feedback": "correct."
+            },
+            {
+                "answer": "The properties of fluid only ",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "The combined properties of porous media and fluid",
+                "correct": false,
+                "feedback": "false."
+            },
+            {
+                "answer": "The viscosity of fluid",
+                "correct": false,
+                "feedback": "Incorrect"
+             }   
+        ]
+    },
+         
+
+    
+    
+        {
+        "question": "A pore volume is",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Volume of water in a column",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Average volume of water in pores",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "The travel time",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Is average groundwater flow velocity ",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+ 
+        ]
+    }
+
+]

@@ -1,0 +1,219 @@
+[  
+    {
+        "question": "German groundwater and International groundwater are identically defined",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "True",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "False ",
+                "correct": true,
+                "feedback": "Correct."
+            }
+ 
+        ]
+    },
+    {
+        "question": "Effective porosity requires",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "That pores are completely filled",
+                "correct": false,
+                "feedback": "Incorrect. Hint : Mobility of Water"
+            },
+            {
+                "answer": "That pores are partly filled",
+                "correct": false,
+                "feedback": "Incorrect.   Hint : Mobility of Water"
+            },
+            {
+                "answer": "Pores are interconnected allowing mobility of water",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Pores may or maynot be connected",
+                "correct": false,
+                "feedback": "Incorrect. Hint: Hint : Mobility of Water"
+             }   
+        ]
+    },
+
+    {
+        "question": "Specific retention is (please select all correct answers)",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "The difference between total porosity and effective porosity",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Equivalent to total porosity",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Also called field capacity",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "The volumetric share of water which is retained in the porous medium after drainage due to gravitation",
+                "correct": true,
+                "feedback": "Correct."
+            }
+
+         ]
+        
+    },
+    
+    {
+        "question": "Change in water volume in aquifer is dependent on the compressibility of porous media and compressibilty of water",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "True",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "False ",
+                "correct": true,
+                "feedback": "Correct."
+            }
+ 
+        ]
+    },
+    
+    {
+        "question": "Aquifer can",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Transmit groundwater",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": " Store and transmit significant (= exploitable) amounts of groundwater. ",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Can store groundwater but cannot transmit groundwater.",
+                "correct": false,
+                "feedback": "false."
+            },
+            {
+                "answer": "Can store and transmit groundwater but to a much lesser extent than an (adjacent) aquifer",
+                "correct": false,
+                "feedback": "Incorrect"
+             }   
+        ]
+    },
+    
+
+    
+        {
+        "question": "Pressure head is",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Equivalent to hydrostatic pressure",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Is equal to the pressure head and unit weight of water",
+                "correct": true,
+                "feedback": "correct."
+            },
+            {
+                "answer": "Is independent of hydrostatic pressure",
+                "correct": false,
+                "feedback": "false."
+            },
+            {
+                "answer": "Is nonlinearly related to the thickness of the aquifer",
+                "correct": false,
+                "feedback": "Incorrect"
+             }   
+        ]
+    },
+
+        {
+        "question": "Change in water volume in aquifer is dependent on the compressibility of porous media and compressibilty of water",
+        "type" : "multiple_choice"  ,  
+        "answers": [
+            {
+                "answer": "Yes",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "No",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+ 
+        ]
+    },
+
+
+     
+    {
+        "question": "In the realtion for Specific storage $S_s$ given as $ S_s $ = $\\Delta V_w $ / $V_T \\cdot \\Delta \\psi$ ",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Change is hydrostatic pressure",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "A unit change of hydraulic head ",
+                "correct": true,
+                "feedback": "correct."
+            },
+            {
+                "answer": "Chage of Water volume due to compressibilty of porous media pressure head",
+                "correct": false,
+                "feedback": "false."
+            }
+  
+        ]
+    },
+ 
+    {
+        "question": "Storativity is",
+        "type" : "multiple_choice",
+        "answers": [
+            {
+                "answer": "Ratio of specific storage and thickness of the aquifer",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Product of specific storage and hydrostatic head",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Storage property for 1D aquifer system",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Is a product of specific storage and confining thickness of the aquifer",
+                "correct": true,
+                "feedback": "Correct."
+             }   
+        ]
+    }
+
+]

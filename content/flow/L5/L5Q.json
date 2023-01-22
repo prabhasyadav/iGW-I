@@ -1,0 +1,227 @@
+[  
+    {
+        "question": "Which aquifer property is NOT direction dependent?",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Porosity",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Storage Coefficient",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Hydraulic head",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Conductivity",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+ 
+        ]
+    },
+    {
+        "question": "In equation $K = K(x,y,z)$ if $K_x = K_y = K_z$, then the aquifer is ",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Homogeneous",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Heterogeneous",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Can be both Homogeneous and Heterogeneous",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Neither Homogeneous not Heterogeneous",
+                "correct": false,
+                "feedback": "Incorrect"
+             }   
+        ]
+    },
+
+    {
+        "question": "Effective Hydraulic Conductivity represents",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "The maximum conductivity along horizontal flow direction",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "The maximum conductivity along vertical flow direction",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "The average K value in the layered aquifer",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Is equivalent to hydraulic resistance",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+
+         ]
+        
+    },
+    
+    {
+        "question": "In flow parallel to layering, the effective $K$",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Equals the weighted harmonic mean of layer conductivities.",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Equals the weighted arithmetic mean of layer conductivities.",
+                "correct": true,
+                "feedback": "correct."
+            },
+            {
+                "answer": "Is not dependent on the direction of flow",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Depends on arithmetic and harmonic mean",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+ 
+        ]
+    },
+    
+    {
+        "question": "Hydraulic resistance ($R$) and effective conductivity $K_{eff}$ are ",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Independent to each other",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Related with other through the Darcy velocity",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Are related to storage coefficient. ",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Are reciprocal to each other",
+                "correct": true,
+                "feedback": "Correct"
+             }   
+        ]
+    },
+    
+
+    
+        {
+        "question": "Effective Hydraulic Conductivty in flow parallel to layers can be estimated from the relation: $K$ = $\\frac{\\sum_{i=1}^n m_iK_i}{m}$",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "As the largest K value among the layer",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "As the lowest K value among the layer",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "As the reciprocal of the largest K value among the layer",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "As a ratio of largest and lowest K value among the layer",
+                "correct": false,
+                "feedback": "Incorrect"
+             }   
+        ]
+    },
+
+        {
+        "question": "Anisotropy relates the aquifer properties with",
+        "type" : "multiple_choice"  ,  
+        "answers": [
+            {
+                "answer": "the spatial dimension of the aquifer",
+                "correct": false,
+                "feedback": "Inorrect."
+            },
+           {
+                "answer": "their dependence on direction",
+                "correct": false,
+                "feedback": "Incorrect."
+            } ,
+            {
+                "answer": "their independence to spatial and direction ",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "None of the above",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+ 
+        ]
+    },
+
+
+     
+    {
+        "question": "The relation $K = \\frac{1}{\\frac{\\cos^2\\theta}{K_h}+\\frac{\\sin^2\\theta}{K_v}}$ represents ",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Effective hydraulic conductivity when flow is vertical to aquifer layers",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Effective hydraulic conductivity when flow is horizontal to aquifer layers",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+           {
+                "answer": "Effective hydraulic conductivity when flow is tangential to aquifer layers",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Effective hydraulic conductivity when flow is in arbitrary direction to aquifer layers",
+                "correct": true,
+                "feedback": "Correct"
+            }
+  
+        ]
+    }]
+    
+

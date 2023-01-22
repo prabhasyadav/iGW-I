@@ -1,0 +1,2040 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>1. Subsurface Structure &#8212; Groundwater I</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="../../_static/custom.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2. Groundwater as a reservoir" href="L3/13_gw_storage.html" />
+    <link rel="prev" title="2. Course Introduction &amp; Water Cycle" href="../background/03_basic_hydrogeology.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Groundwater I</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    The Interactive Groundwater-I Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Basics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../background/00_general.html">
+   1. About this Groundwater Course and Contents
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../background/03_basic_hydrogeology.html">
+   2. Course Introduction &amp; Water Cycle
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Flow
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   1. Subsurface Structure
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L3/13_gw_storage.html">
+   2. Groundwater as a reservoir
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L4/14_darcy_law_K.html">
+   3. Darcy’s Law and Conductivity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L5/15_het_iso.html">
+   4. Aquifer Heterogeneity and Anisotropy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L6/16_darcy_law_3D.html">
+   5. Steady-State Groundwater flow in 3D
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L7/17_quantify_flow.html">
+   6. Quantifying 3D Groundwater Flow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L8/18_wells.html">
+   7. Wells
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Transport
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../transport/L9/21_conservative_transport.html">
+   1. Conservative Transport
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../transport/L10/22_reactive_transport.html">
+   2. Reactive Mass Transport
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Modeling
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../modeling/31_intro_modeling.html">
+   1. Background of Groundwater Modeling
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../background/01_python.html">
+   1. Python Programming language
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../background/02_jupyter.html">
+   2. JUPYTER Notebook Interface for Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/T2/tutorial_02.html">
+   3. Aquifer and Storage Properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/T3/tutorial_03.html">
+   4. Darcy Law and Conductivity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/T4/tutorial_04.html">
+   5. Effective K &amp; Recitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/T5/tutorial_05.html">
+   6. Aquifer Heterogeneity/Anisotropy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/T6/tutorial_06.html">
+   7. Flow in Confined/Unconfined Aquifer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/T7/tutorial_07.html">
+   8. Wells
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/T8/tutorial_08.html">
+   9. Conservative transport
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/T9/tutorial_09.html">
+   10. Reactive transport
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tools
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tools/decay.html">
+   1. Simulating Mass Budget
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tools/sieve_analysis.html">
+   2. Simulating Seive Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tools/effective_K.html">
+   3. Simulating Effective hydraulic conductivity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tools/uniform_flow_and_well.html">
+   4. Uniform Flow and Well
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tools/aniso2D.html">
+   5. Simulating the Anisotropy and flow direction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tools/type_curve_fit.html">
+   6. Type curve and fitting pumping data tool
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tools/1D_advection_dispersion.html">
+   7. Tool for simulating 1D Conservative Transport (Laboratory Column)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tools/Kinetics_degradation.html">
+   8. Simulating Kinetics and Degradation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tools/1D_ditchflow.html">
+   9. Simulating 1D Trench Flow
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Previous Years Q&amp;A
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Q_and_A/GW_exam_2019_20.html">
+   1. Groundwater Exam Solution -  2019-2020
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/iGW-TU-Dresden/iGW_Book/main?urlpath=tree/content/flow/12_subsurface_structure.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/iGW-TU-Dresden/iGW_Book/blob/main/content/flow/12_subsurface_structure.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/iGW-TU-Dresden/iGW_Book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/iGW-TU-Dresden/iGW_Book/issues/new?title=Issue%20on%20page%20%2Fcontent/flow/12_subsurface_structure.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/content/flow/12_subsurface_structure.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#porous-media">
+   1.1. Porous Media
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#types-of-porous-media-in-the-subsurface">
+   1.2. Types of porous media in the subsurface
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#porosity-total-porosity">
+   1.3. Porosity (Total porosity):
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-problem">
+     1.3.1. Example Problem
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#total-porosity-of-artificial-porous-media">
+   1.4. Total porosity of artificial porous media:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#total-porosity-of-natural-unconsolidated-porous-media">
+   1.5. Total porosity of natural (unconsolidated) porous media:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#typical-porosity-values">
+   1.6. Typical porosity values:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#grain-size-distribution-of-unconsolidated-porous-media">
+   1.7. Grain size distribution of unconsolidated porous media
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#classification-schemes">
+   1.8. Classification schemes:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sieve-analysis">
+   1.9. Sieve analysis:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#subterranean-water">
+   1.10. Subterranean water
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#water-content">
+   1.11. Water content:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#degree-of-saturation">
+   1.12. Degree of saturation:
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     1.12.1. Example Problem
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#forces-acting-on-subterranean-water">
+   1.13. Forces acting on subterranean water:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#surface-tension">
+   1.14. Surface tension:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#capillary-action">
+   1.15. Capillary action:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#capillary-action-in-the-subsurface">
+   1.16. Capillary action in the subsurface:
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     1.16.1. Example Problem
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chapter-quiz">
+   1.17. Chapter Quiz
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Subsurface Structure</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#porous-media">
+   1.1. Porous Media
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#types-of-porous-media-in-the-subsurface">
+   1.2. Types of porous media in the subsurface
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#porosity-total-porosity">
+   1.3. Porosity (Total porosity):
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-problem">
+     1.3.1. Example Problem
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#total-porosity-of-artificial-porous-media">
+   1.4. Total porosity of artificial porous media:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#total-porosity-of-natural-unconsolidated-porous-media">
+   1.5. Total porosity of natural (unconsolidated) porous media:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#typical-porosity-values">
+   1.6. Typical porosity values:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#grain-size-distribution-of-unconsolidated-porous-media">
+   1.7. Grain size distribution of unconsolidated porous media
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#classification-schemes">
+   1.8. Classification schemes:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sieve-analysis">
+   1.9. Sieve analysis:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#subterranean-water">
+   1.10. Subterranean water
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#water-content">
+   1.11. Water content:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#degree-of-saturation">
+   1.12. Degree of saturation:
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     1.12.1. Example Problem
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#forces-acting-on-subterranean-water">
+   1.13. Forces acting on subterranean water:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#surface-tension">
+   1.14. Surface tension:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#capillary-action">
+   1.15. Capillary action:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#capillary-action-in-the-subsurface">
+   1.16. Capillary action in the subsurface:
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     1.16.1. Example Problem
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chapter-quiz">
+   1.17. Chapter Quiz
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="cell tag_hide-input tag_remove-input docutils container">
+</div>
+<aside class="sidebar">
+<p class="sidebar-title">Additional Material : Lecture Slides</p>
+<div class="toggle docutils container">
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR_8vqwCApfSxuUedcQtX1z_JVEJc6aE7l7Tp33g4SsQN89g6XHKnVQmeFGVWTDjQ/embed?start=false&loop=false&delayms=3000" frameborder="0" width="480" height="389" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+</div>
+</aside>
+<section id="subsurface-structure">
+<h1><span class="section-number">1. </span>Subsurface Structure<a class="headerlink" href="#subsurface-structure" title="Permalink to this headline">#</a></h1>
+<p><em>(The contents presented in this section were re-developed principally by M.Sc. Hanieh Mehrdad and Dr. P. K. Yadav. The original contents are from Prof. Rudolf Liedl)</em></p>
+<hr class="docutils" />
+<section id="porous-media">
+<h2><span class="section-number">1.1. </span>Porous Media<a class="headerlink" href="#porous-media" title="Permalink to this headline">#</a></h2>
+<p>The general definition of the porous media is a <strong>solid which contains voids</strong>. This definition applies to the subsurface contains solid material plus voids which represent storage and transmission of the water. The voids may have various shapes and contain fluids (mostly air and/or water). Moreover, voids may be connected to or disconnected from each other.
+Generally voids and their properties are important to determine water storage (how much water is or could be available?) and water transmission (How fast the water can move?).</p>
+</section>
+<section id="types-of-porous-media-in-the-subsurface">
+<h2><span class="section-number">1.2. </span>Types of porous media in the subsurface<a class="headerlink" href="#types-of-porous-media-in-the-subsurface" title="Permalink to this headline">#</a></h2>
+<a class="reference internal image-reference" href="../../_images/L02_fig1.png" id="porus-media"><img alt="../../_images/L02_fig1.png" class="align-center" id="porus-media" src="../../_images/L02_fig1.png" style="height: 250px;" /></a>
+<p><strong>Unconsolidated porous medium (Sediments)</strong>: it is non-cemented porous media and the grains can be taken away. The formation of such porous media is due to deposition of solid material mostly by water.</p>
+<a class="reference internal image-reference" href="../../_images/L02_fig3.png" id="unconsolidated-porous-medium"><img alt="../../_images/L02_fig3.png" class="align-center" id="unconsolidated-porous-medium" src="../../_images/L02_fig3.png" style="width: 500px;" /></a>
+<p><strong>Consolidated porous medium (Rocks)</strong>: the formation is due to increased pressure acting together with thermal and chemical processes. It has two types:</p>
+<blockquote>
+<div><p>Fractured porous media</p>
+</div></blockquote>
+<blockquote>
+<div><p>Karstified porous media</p>
+</div></blockquote>
+<a class="reference internal image-reference" href="../../_images/L02_fig4.png" id="id1"><img alt="../../_images/L02_fig4.png" class="align-center" id="id1" src="../../_images/L02_fig4.png" style="width: 600px;" /></a>
+</section>
+<section id="porosity-total-porosity">
+<h2><span class="section-number">1.3. </span>Porosity (Total porosity):<a class="headerlink" href="#porosity-total-porosity" title="Permalink to this headline">#</a></h2>
+<p>Is defined as the volumetric share of voids in a porous media. It is a number between 0 and 1 and can be expressed as percentage (0%: no voids, 100%:no solid)</p>
+<div class="math notranslate nohighlight">
+\[{n}=\frac{V_{v}}{V_{T}}\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n\)</span>= total porosity</p></li>
+<li><p><span class="math notranslate nohighlight">\({V_{v}}\)</span>= voids volume</p></li>
+<li><p><span class="math notranslate nohighlight">\({V_{T}}\)</span>= total volume</p></li>
+</ul>
+<section id="example-problem">
+<h3><span class="section-number">1.3.1. </span>Example Problem<a class="headerlink" href="#example-problem" title="Permalink to this headline">#</a></h3>
+<p>If the total volume of a media is 254 cubic meters, and the volume of the void is 27 cubic meters, what is the porosity (give as a percent)?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># input data</span>
+<span class="n">V_T</span><span class="o">=</span> <span class="mi">254</span> <span class="c1">#m^3 total volume</span>
+<span class="n">V_v</span><span class="o">=</span><span class="mi">27</span> <span class="c1">#m^3 voids volume</span>
+
+<span class="c1">#calculations</span>
+<span class="n">n</span><span class="o">=</span><span class="p">(</span><span class="n">V_v</span><span class="o">/</span><span class="n">V_T</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
+
+<span class="c1"># Output</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Total porosity is: </span><span class="si">{0:0.2f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Total porosity is: 10.63%
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="total-porosity-of-artificial-porous-media">
+<h2><span class="section-number">1.4. </span>Total porosity of artificial porous media:<a class="headerlink" href="#total-porosity-of-artificial-porous-media" title="Permalink to this headline">#</a></h2>
+<p>If “grains” have identical shape and are regularly arranged, it is possible to exactly compute total porosity, the pores should have the same size.</p>
+<a class="reference internal image-reference" href="../../_images/L02_fig5.png" id="id2"><img alt="../../_images/L02_fig5.png" class="align-center" id="id2" src="../../_images/L02_fig5.png" style="width: 300px;" /></a>
+<ul class="simple">
+<li><p>Loose packing(first picture): each hole placed on top of the hole underneath</p></li>
+<li><p>Dense packing (second picture): each hole is placed at the deepest position possible</p></li>
+</ul>
+<p>These schematics provides a practical range of porosity in the subsurface. The general range is between 25% to about 50%. In more extreme cases porosity higher than 60% is possible, e.g., cobbles, gravel. The other extreme, subsurface with no porosity (0%) is also encountered in the subsurface, e.g., in consolidated rocks.</p>
+</section>
+<section id="total-porosity-of-natural-unconsolidated-porous-media">
+<h2><span class="section-number">1.5. </span>Total porosity of natural (unconsolidated) porous media:<a class="headerlink" href="#total-porosity-of-natural-unconsolidated-porous-media" title="Permalink to this headline">#</a></h2>
+<p>Natural unconsolidated porous media consist of grains of different size. Total porosity depends on the grain size distribution.</p>
+<br>
+<a class="reference internal image-reference" href="../../_images/L02_fig5b.png" id="total-porosity-unconsolidated-mediaa"><img alt="../../_images/L02_fig5b.png" class="align-center" id="total-porosity-unconsolidated-mediaa" src="../../_images/L02_fig5b.png" style="width: 600px;" /></a>
+<br>
+<p>In general, well sorted unconsolidated porous media exhibit larger total poerosities than poorly sorted unconsolidated porous media. In the figure above on the left in which grain diameters cover a small range, i.e., <strong>well-sorted</strong>, the porosity can be approximated in the range 32%. Similary, in the (above) figure on the right in which the grain diameters cover a large range, i.e., <strong>poorly sorted</strong>, the porosity can be approximated in the range 17%.</p>
+</section>
+<section id="typical-porosity-values">
+<h2><span class="section-number">1.6. </span>Typical porosity values:<a class="headerlink" href="#typical-porosity-values" title="Permalink to this headline">#</a></h2>
+<p>Table below provide the total porosity of unconsolidated and consolidated media.</p>
+<p>Total porosity of consolidated porous media (rocks) is usually smaller than total porosity of unconsolidated porous media. However, weathering effect may lead to increase the value of porosity.
+only for unconsolidated porous media, total porosity tends to increase with decreasing grain size.</p>
+</section>
+<section id="grain-size-distribution-of-unconsolidated-porous-media">
+<h2><span class="section-number">1.7. </span>Grain size distribution of unconsolidated porous media<a class="headerlink" href="#grain-size-distribution-of-unconsolidated-porous-media" title="Permalink to this headline">#</a></h2>
+<p>Unconsolidated porous media are able to store and transmit water that can be influenced by grain size distribution. Therefore, the grain size distribution is frequently determined in laboratory experiments in order to deduce important flow properties.
+There are five major grain size classes (observed by increasing diameter): clay, silt, sand, and gravel (or debris). The classes for silt, clay and gavel are usually subdivided by “fine”, “medium”, and “coarse” (or “very fine”, “fine”, “medium”, “coarse”, and “very coarse”). Different ranges for individual grain size classes have been defined by different authorities or regulations. However, the standard method to determine the grain size distribution of a sample is sieve analysis.</p>
+</section>
+<section id="classification-schemes">
+<h2><span class="section-number">1.8. </span>Classification schemes:<a class="headerlink" href="#classification-schemes" title="Permalink to this headline">#</a></h2>
+<p>The diagrams below include a couple of classification schemes to define ranges of grain diameter for clay, silt, sand, and gravel:</p>
+<a class="reference internal image-reference" href="../../_images/L02_fig7.png" id="grain-size-distribution"><img alt="../../_images/L02_fig7.png" class="align-center" id="grain-size-distribution" src="../../_images/L02_fig7.png" style="width: 600px;" /></a>
+<p>As can be observed that there exist several standards. These are often based on local requirements e.g., based on countries. In Germany the DIN standards are used.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Click for the abbreviation</p>
+<p><em>USDA: United States Department of Agriculture</em>,
+<em>ISSS: International Soil Science Society (ISSS)</em>,
+<em>MIT: Massachusetts Institute of Technology</em>,
+<em>ASTM: American Society for Testing and Materials</em>,
+<em>AASHTO: American Association of State Highway and Transportation Officials</em>,
+<em>FAA: Federal Aviation Administration</em></p>
+</div>
+</section>
+<section id="sieve-analysis">
+<h2><span class="section-number">1.9. </span>Sieve analysis:<a class="headerlink" href="#sieve-analysis" title="Permalink to this headline">#</a></h2>
+<p>The results from a sample consist of different grain size fractions should be transferred on granulometric curve. This curve provides cumulative information; vertical axis shows the mass fraction, and horizontal axis shows the grain diameter. For example, if 1mm grain diameter has 80% of cumulative mass fraction it means that 80% of this sample contains 1mm grain diameter or less than 1 mm (see the picture below).</p>
+<p><strong>How to get granulometric curve?</strong>
+In order to perform sieve analysis we can use sieve machine. Sieve machine consist of sets of sieves from coarse sieve on top to fine sieve and a cup at the bottom. The mechanism is to shake the set. Finally, each sieve consists of grain sizes which are bigger than the sieve.</p>
+<a class="reference internal image-reference" href="../../_images/L02_fig15.png" id="id3"><img alt="../../_images/L02_fig15.png" class="align-center" id="id3" src="../../_images/L02_fig15.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../../_images/L02_fig8.png" id="id4"><img alt="../../_images/L02_fig8.png" class="align-center" id="id4" src="../../_images/L02_fig8.png" style="width: 600px;" /></a>
+<p><strong>dx and U</strong>: From the granulometric curve, several parameters can be determined in order to characterize the sample. <span class="math notranslate nohighlight">\({d_{x}}\)</span>   denotes the grain diameter for which x% (in mass or weight, not volume) of the sieve material is smaller than this diameter.</p>
+<a class="reference internal image-reference" href="../../_images/L02_fig9.png" id="id5"><img alt="../../_images/L02_fig9.png" class="align-center" id="id5" src="../../_images/L02_fig9.png" style="width: 400px;" /></a>
+<p>Grain diameters <span class="math notranslate nohighlight">\({d_{10}}, {d_{60}}, {d_{75}}\)</span> are of practical importance with regard to groundwater flow properties. The     ratio of d60 and d10 is called <strong>coefficient of uniformity, U</strong>:</p>
+<div class="math notranslate nohighlight">
+\[{U}=\frac{d_{60}}{d_{10}}\]</div>
+<p><span class="math notranslate nohighlight">\({d_{75}}\)</span> is specifically used for well construction purpose (not covered by this lecture)</p>
+</section>
+<section id="subterranean-water">
+<h2><span class="section-number">1.10. </span>Subterranean water<a class="headerlink" href="#subterranean-water" title="Permalink to this headline">#</a></h2>
+<p>The subsurface can be regarded as a three-phase system consisting of a solid phase (soil particles), a water phase, and a gas phase. a schematic illustration for voids or pores in an unconsolidated porous medium is given in the figure below. Each phase has similar density and other properties. Sometimes it is possible for the fourth phase which is contamination.Voids are filled with water and gas. The volumetric ratio of water in voids can be calculated by water content.</p>
+<a class="reference internal image-reference" href="../../_images/L02_fig10.png" id="id6"><img alt="../../_images/L02_fig10.png" class="align-center" id="id6" src="../../_images/L02_fig10.png" style="width: 400px;" /></a>
+</section>
+<section id="water-content">
+<h2><span class="section-number">1.11. </span>Water content:<a class="headerlink" href="#water-content" title="Permalink to this headline">#</a></h2>
+<p>Water content is defined as the share of water in the porous medium:</p>
+<div class="math notranslate nohighlight">
+\[ {\theta}=\frac{V_{w}}{V_{T}} \]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( {\theta}\)</span> = water content</p></li>
+<li><p><span class="math notranslate nohighlight">\( {V_{w}}\)</span> = water volume</p></li>
+<li><p><span class="math notranslate nohighlight">\( {V_{T}} \)</span> = total volume</p></li>
+</ul>
+<p>Water content cannot exceed the total porosity. i.e. θ≤n ( total porosity is independent of the fluid content of porous medium).</p>
+</section>
+<section id="degree-of-saturation">
+<h2><span class="section-number">1.12. </span>Degree of saturation:<a class="headerlink" href="#degree-of-saturation" title="Permalink to this headline">#</a></h2>
+<p>Another way to express the ratio of water in the porous medium is the degree of saturation, i.e. the ratio of water volume to void volume:</p>
+<div class="math notranslate nohighlight">
+\[{S}=\frac{V_{w}}{V_{v}}\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\({S}\)</span>= degree of saturation</p></li>
+<li><p><span class="math notranslate nohighlight">\({V_{w}}\)</span>= water volume</p></li>
+<li><p><span class="math notranslate nohighlight">\({V_{v}}\)</span>= voids volume</p></li>
+</ul>
+<p>The degree of saturation is equal to <span class="math notranslate nohighlight">\(\frac{\theta}{n}\)</span> . <span class="math notranslate nohighlight">\(S\)</span> can vary between 0 to 1 (or between 0% to 100%), in which <span class="math notranslate nohighlight">\(S=0\)</span> means no water in the voids, whereas <span class="math notranslate nohighlight">\(S=100\)</span> means voids are completely filled with water.</p>
+<section id="id7">
+<h3><span class="section-number">1.12.1. </span>Example Problem<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
+<p>The voids volume and the total air in the subsurface sample (0.2 m<span class="math notranslate nohighlight">\(^3\)</span>) was found to be 0.02 m<span class="math notranslate nohighlight">\(^3\)</span> and 0.001 m<span class="math notranslate nohighlight">\(^3\)</span>, respectively. How much water does the sample contain and what is the degree of saturation?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># solution</span>
+
+<span class="n">V_T</span> <span class="o">=</span> <span class="mf">0.2</span> <span class="c1"># m^3, Total sample.</span>
+<span class="n">V_v</span> <span class="o">=</span> <span class="mf">0.06</span> <span class="c1"># m^3, volume of voids</span>
+<span class="n">V_a</span> <span class="o">=</span> <span class="mf">0.004</span> <span class="c1"># m^3, volume of air</span>
+
+<span class="c1"># interim calculation</span>
+<span class="n">V_w</span> <span class="o">=</span> <span class="n">V_v</span> <span class="o">-</span> <span class="n">V_a</span> <span class="c1"># m^3, Vol. water,  the remaining volume</span>
+
+<span class="c1"># calculation</span>
+
+<span class="n">Theta</span> <span class="o">=</span> <span class="n">V_w</span><span class="o">/</span><span class="n">V_T</span> <span class="c1"># -, water content</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">V_w</span><span class="o">/</span><span class="n">V_v</span> <span class="c1"># # -, degree of saturation</span>
+
+<span class="c1"># print</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The water content of the sample is: </span><span class="si">{0:.0%}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Theta</span><span class="p">),</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The degree of saturation of the sample is: </span><span class="si">{0:.0%}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">S</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The water content of the sample is: 28% 
+
+The degree of saturation of the sample is: 93%
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="forces-acting-on-subterranean-water">
+<h2><span class="section-number">1.13. </span>Forces acting on subterranean water:<a class="headerlink" href="#forces-acting-on-subterranean-water" title="Permalink to this headline">#</a></h2>
+<p>Subterranean water is subject to several forces. The most important ones are:</p>
+<ul class="simple">
+<li><p>gravity</p></li>
+<li><p>attractive forces between the water molecules (cohesion)</p></li>
+<li><p>attractive forces between water and solids (adhesion)</p></li>
+</ul>
+<a class="reference internal image-reference" href="../../_images/L02_fig11.png" id="forces-on-subterranean-water"><img alt="../../_images/L02_fig11.png" class="align-center" id="forces-on-subterranean-water" src="../../_images/L02_fig11.png" style="width: 400px;" /></a>
+<p>In the figure above, dotted area represent the solid phase. In the pore channel the dominant force is gravity, shown as G. getting closer to the solid surface, adhesive force become more important. The numbers indicate the required pressure to remove the corresponding layer of water from the solid surface. As an example, in order to remove the last layer of water from the solid surface, 31 bar pressure needs to be applied. Another easy way to remove the water is boiling the sample in the oven.</p>
+</section>
+<section id="surface-tension">
+<h2><span class="section-number">1.14. </span>Surface tension:<a class="headerlink" href="#surface-tension" title="Permalink to this headline">#</a></h2>
+<p>Cohesive forces acting on water molecules compensate each other if the molecule is not located near water-air or water-solid interface. This is no longer true at an interface: cohesive interaction is reduced on one side. The resulting force tends to minimize the interface area. Macroscopically, this effect is parametrized by the “surface tension”, which is defined as the energy needed to increase the area of the interface by one unit.</p>
+<a class="reference internal image-reference" href="../../_images/L02_fig12.png" id="id8"><img alt="../../_images/L02_fig12.png" class="align-center" id="id8" src="../../_images/L02_fig12.png" style="width: 300px;" /></a>
+<p>Common units of the surface tension σ are <span class="math notranslate nohighlight">\(\frac{J}{m^2}\)</span> or <span class="math notranslate nohighlight">\(\frac{N}{m}\)</span> (Its dimension is <span class="math notranslate nohighlight">\(\frac{M}{T^2}\)</span>). The surface tension of water is about 7.5 . 10 -2 <span class="math notranslate nohighlight">\(\frac{N}{m}\)</span> at 10 ֯C.</p>
+</section>
+<section id="capillary-action">
+<h2><span class="section-number">1.15. </span>Capillary action:<a class="headerlink" href="#capillary-action" title="Permalink to this headline">#</a></h2>
+<a class="reference internal image-reference" href="../../_images/L02_fig13.png" id="id9"><img alt="../../_images/L02_fig13.png" class="align-center" id="id9" src="../../_images/L02_fig13.png" style="width: 200px;" /></a>
+<p>Water is subject to capillary action when adhesion is strongr than cohesion. The capillary rise of water in a tube depends on the surface tension and the tube redius. The maximum capillary rise is given by:</p>
+<div class="math notranslate nohighlight">
+\[{h_{c}}=\frac{2\sigma_{w}}{\rho_{w}{g}{r}}\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\({h_{c}}\)</span>= maximum capillary rise</p></li>
+<li><p><span class="math notranslate nohighlight">\(\sigma_{w}\)</span>= surface tension</p></li>
+<li><p><span class="math notranslate nohighlight">\(\rho_{w}\)</span>= water density</p></li>
+<li><p><span class="math notranslate nohighlight">\({g}\)</span>= acceleration of gravity</p></li>
+<li><p><span class="math notranslate nohighlight">\({r}\)</span>= radius of the tube</p></li>
+</ul>
+</section>
+<section id="capillary-action-in-the-subsurface">
+<h2><span class="section-number">1.16. </span>Capillary action in the subsurface:<a class="headerlink" href="#capillary-action-in-the-subsurface" title="Permalink to this headline">#</a></h2>
+<p>Capillary actions play a dominant role in the subsurface. The capillaries are given by individual pore channels. Poor channels in poorly sorted material may strongly differ in diameter, such that a certain variability in capillary rise is observed.</p>
+<a class="reference internal image-reference" href="../../_images/L02_fig14.png" id="capillary-action-in-the-subsurfac"><img alt="../../_images/L02_fig14.png" class="align-center" id="capillary-action-in-the-subsurfac" src="../../_images/L02_fig14.png" style="width: 300px;" /></a>
+<p>Left sketch shows the capillary rise in a perfectly sorted material which all the pores have the same size. So capillary rise is similar in every single pores. The right sketch, shows a real situation of subsurface. There are different grain size and then different pore channels, which <strong>results</strong> in various capillary rise.</p>
+<section id="id10">
+<h3><span class="section-number">1.16.1. </span>Example Problem<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h3>
+<p>For water at a tube with a radius <em>R</em>, the surface tension is 73 <span class="math notranslate nohighlight">\(\frac{g}{s^2}\)</span>, the density is 0.999 <span class="math notranslate nohighlight">\(\frac{g}{cm^3}\)</span>. Compute the rise of water in the capillary tube</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># input data</span>
+<span class="n">sigma</span><span class="o">=</span> <span class="mi">73</span> <span class="c1">#g/s^2 surface tension</span>
+<span class="n">rho</span><span class="o">=</span> <span class="mf">0.999</span> <span class="c1"># g/cm^3 water density</span>
+<span class="n">g</span><span class="o">=</span><span class="mi">980</span> <span class="c1">#cm/s^2 acceleration of gravity</span>
+
+<span class="c1">#calculation</span>
+<span class="n">h_c</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sigma</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">rho</span><span class="o">*</span><span class="n">g</span><span class="p">)</span>
+
+<span class="c1">#output</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The maximum water rise in this tube is: </span><span class="si">{0:0.2f}</span><span class="s2"> 1/R cm&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">h_c</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The maximum water rise in this tube is: 0.15 1/R cm
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="chapter-quiz">
+<h2><span class="section-number">1.17. </span>Chapter Quiz<a class="headerlink" href="#chapter-quiz" title="Permalink to this headline">#</a></h2>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="SXsjNhIFhXqr" data-shufflequestions="False"
+               data-shuffleanswers="True"
+               data-preserveresponses="false"
+               data-numquestions="1000000"> <style>:root {
+    --medium-slate-blue: #6f78ffff;
+    --orange-pantone: #f75c03ff;
+    --russian-violet: #392061ff;
+    --maximum-yellow-red: #ffc857ff;
+    --viridian-green: #119da4ff;
+    --incorrect-red: #c80202;
+    --correct-green: #009113;
+}
+
+.Quiz {
+    max-width: 600px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    line-height: 1.1;
+    font-size: 16pt;
+}
+
+.QuizCode {
+    font-size: 14pt;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.QuizCode>pre {
+    padding: 4px;
+}
+
+.Answer {
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+}
+
+.Feedback {
+    font-size: 16pt;
+    text-align: center;
+    min-height: 2em;
+}
+
+.Input {
+    align: left;
+    font-size: 20pt;
+}
+
+.Input-text {
+    display: block;
+    margin: 10px;
+    color: inherit;
+    width: 140px;
+    background-color: #c0c0c0;
+    color: #fff;
+    padding: 5px;
+    padding-left: 10px;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: inherit;
+    line-height: 20pt;
+    border: none;
+    border-radius: 0.2rem;
+    transition: box-shadow 0.1s);
+}
+
+.Input-text:focus {
+    outline: none;
+    background-color: #c0c0c0;
+    box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem #999999;
+}
+
+.MCButton {
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.MCButton p {
+    color: inherit;
+}
+
+.MultipleChoiceQn {
+    padding: 10px;
+    background: var(--medium-slate-blue);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
+.ManyChoiceQn {
+    padding: 10px;
+    background: var(--orange-pantone);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
+.NumericQn {
+    padding: 10px;
+    background: var(--russian-violet);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
+.NumericQn p {
+    color: inherit;
+}
+
+.InpLabel {
+    line-height: 34px;
+    float: left;
+    margin-right: 10px;
+    color: #101010;
+    font-size: 15pt;
+}
+
+.incorrect {
+    color: var(--incorrect-red);
+}
+
+.correct {
+    color: var(--correct-green);
+}
+
+.correctButton {
+    /*
+    background: var(--correct-green);
+   */
+    animation: correct-anim 0.6s ease;
+    animation-fill-mode: forwards;
+    color: #fafafa;
+    box-shadow: inset 0px 0px 5px #555555;
+    outline: none;
+}
+
+.incorrectButton {
+    animation: incorrect-anim 0.8s ease;
+    animation-fill-mode: forwards;
+    color: #fafafa;
+    box-shadow: inset 0px 0px 5px #555555;
+    outline: none;
+}
+
+@keyframes incorrect-anim {
+    100% {
+        background-color: var(--incorrect-red);
+    }
+}
+
+@keyframes correct-anim {
+    100% {
+        background-color: var(--correct-green);
+    }
+}</style></div><script type="application/javascript">var questionsSXsjNhIFhXqr=[{"question": "Which is NOT the correct statement?", "type": "multiple_choice", "answers": [{"answer": "Voids may have very different shape", "correct": false, "feedback": "Incorrect."}, {"answer": "Voids are mostly connected to each other", "correct": true, "feedback": "Correct"}, {"answer": "Voids may contain fluids (mostly air and/or water.", "correct": false, "feedback": "Incorrect."}, {"answer": "Voids are influential for the ability of the porous medium to store and transmit water", "correct": false, "feedback": "Incorrect"}]}, {"question": "The packing of porous media affects the porosity", "type": "multiple_choice", "answers": [{"answer": "True", "correct": true, "feedback": "Correct."}, {"answer": "False ", "correct": false, "feedback": "Incorrect."}]}, {"question": "Total porosity is defined as", "type": "multiple_choice", "answers": [{"answer": "A ratio of volume of voids and volume of water", "correct": true, "feedback": "Correct."}, {"answer": "A ratio of volume of water and volume of voids ", "correct": false, "feedback": "Incorrect."}, {"answer": "A ratio of volume of voids and the total volume of the porous media in consideration", "correct": false, "feedback": "Incorrect."}, {"answer": "A ratio of volume of water and the total volume of the porous media in consideration", "correct": false, "feedback": "Incorrect"}]}, {"question": "The Relation \n $ d_{60}/d_{10} $ \n  is called", "type": "multiple_choice", "answers": [{"answer": "Coefficient of uniformity", "correct": true, "feedback": "Correct."}, {"answer": "Coefficient of conformity", "correct": false, "feedback": "Incorrect."}, {"answer": "Particle size ratio", "correct": false, "feedback": "Incorrect."}, {"answer": "Distribution coefficient", "correct": false, "feedback": "Incorrect"}]}, {"question": "Arrange the order (lower to higher) of porosity based on soil type", "type": "multiple_choice", "answers": [{"answer": "Silt, Sand , Clay, Gravel", "correct": true, "feedback": "Correct."}, {"answer": "Silt, Clay, Gravel , Sand", "correct": false, "feedback": "Incorrect."}, {"answer": "Clay, Gravel, Silt, Sand", "correct": false, "feedback": "Incorrect."}, {"answer": "Sand, Silt, Gravel, Clay ", "correct": false, "feedback": "Incorrect"}]}, {"question": "Which are the force acting on the subterranean water", "type": "multiple_choice", "answers": [{"answer": "Cohesion", "correct": false, "feedback": "Incorrect."}, {"answer": "Gravity", "correct": false, "feedback": "Incorrect."}, {"answer": "Adhession", "correct": false, "feedback": "Incorrect."}, {"answer": "All of the Above", "correct": true, "feedback": "Correct"}]}, {"question": "Today's lecture made me feel that I should not be Absent from the Groundwater Lectures.", "type": "multiple_choice", "answers": [{"answer": "True", "correct": true, "feedback": "Thank You"}, {"answer": "False ", "correct": false, "feedback": "Hope you Like it Next Time"}]}];
+    // Make a random ID
+function makeid(length) {
+    var result = [];
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result.push(characters.charAt(Math.floor(Math.random() * charactersLength)));
+    }
+    return result.join('');
+}
+
+// Choose a random subset of an array. Can also be used to shuffle the array
+function getRandomSubarray(arr, size) {
+    var shuffled = arr.slice(0), i = arr.length, temp, index;
+    while (i--) {
+        index = Math.floor((i + 1) * Math.random());
+        temp = shuffled[index];
+        shuffled[index] = shuffled[i];
+        shuffled[i] = temp;
+    }
+    return shuffled.slice(0, size);
+}
+
+function printResponses(responsesContainer) {
+    var responses=JSON.parse(responsesContainer.dataset.responses);
+    var stringResponses='<B>IMPORTANT!</B>To preserve this answer sequence for submission, when you have finalized your answers: <ol> <li> Copy the text in this cell below "Answer String"</li> <li> Double click on the cell directly below the Answer String, labeled "Replace Me"</li> <li> Select the whole "Replace Me" text</li> <li> Paste in your answer string and press shift-Enter.</li><li>Save the notebook using the save icon or File->Save Notebook menu item</li></ul><br><br><br><b>Answer String:</b><br> ';
+    console.log(responses);
+    responses.forEach((response, index) => {
+        if (response) {
+            console.log(index + ': ' + response);
+            stringResponses+= index + ': ' + response +"<BR>";
+        }
+    });
+    responsesContainer.innerHTML=stringResponses;
+}
+function check_mc() {
+    var id = this.id.split('-')[0];
+    //var response = this.id.split('-')[1];
+    //console.log(response);
+    //console.log("In check_mc(), id="+id);
+    //console.log(event.srcElement.id)           
+    //console.log(event.srcElement.dataset.correct)   
+    //console.log(event.srcElement.dataset.feedback)
+
+    var label = event.srcElement;
+    //console.log(label, label.nodeName);
+    var depth = 0;
+    while ((label.nodeName != "LABEL") && (depth < 20)) {
+        label = label.parentElement;
+        console.log(depth, label);
+        depth++;
+    }
+
+
+
+    var answers = label.parentElement.children;
+
+    //console.log(answers);
+
+
+    // Split behavior based on multiple choice vs many choice:
+    var fb = document.getElementById("fb" + id);
+
+
+
+
+    if (fb.dataset.numcorrect == 1) {
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            //console.log(responsesContainer);
+            var response = label.firstChild.innerText;
+            if (label.querySelector(".QuizCode")){
+                response+= label.querySelector(".QuizCode").firstChild.innerText;
+            }
+            console.log(response);
+            //console.log(document.getElementById("quizWrap"+id));
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            console.log(responses);
+            responses[qnum]= response;
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End code to preserve responses
+        
+        for (var i = 0; i < answers.length; i++) {
+            var child = answers[i];
+            //console.log(child);
+            child.className = "MCButton";
+        }
+
+
+
+        if (label.dataset.correct == "true") {
+            // console.log("Correct action");
+            if ("feedback" in label.dataset) {
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Correct!";
+            }
+            label.classList.add("correctButton");
+
+            fb.className = "Feedback";
+            fb.classList.add("correct");
+
+        } else {
+            if ("feedback" in label.dataset) {
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Incorrect -- try again.";
+            }
+            //console.log("Error action");
+            label.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+    }
+    else {
+        var reset = false;
+        var feedback;
+         if (label.dataset.correct == "true") {
+            if ("feedback" in label.dataset) {
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Correct!";
+            }
+            if (label.dataset.answered <= 0) {
+                if (fb.dataset.answeredcorrect < 0) {
+                    fb.dataset.answeredcorrect = 1;
+                    reset = true;
+                } else {
+                    fb.dataset.answeredcorrect++;
+                }
+                if (reset) {
+                    for (var i = 0; i < answers.length; i++) {
+                        var child = answers[i];
+                        child.className = "MCButton";
+                        child.dataset.answered = 0;
+                    }
+                }
+                label.classList.add("correctButton");
+                label.dataset.answered = 1;
+                fb.className = "Feedback";
+                fb.classList.add("correct");
+
+            }
+        } else {
+            if ("feedback" in label.dataset) {
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Incorrect -- try again.";
+            }
+            if (fb.dataset.answeredcorrect > 0) {
+                fb.dataset.answeredcorrect = -1;
+                reset = true;
+            } else {
+                fb.dataset.answeredcorrect--;
+            }
+
+            if (reset) {
+                for (var i = 0; i < answers.length; i++) {
+                    var child = answers[i];
+                    child.className = "MCButton";
+                    child.dataset.answered = 0;
+                }
+            }
+            label.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            //console.log(responsesContainer);
+            var response = label.firstChild.innerText;
+            if (label.querySelector(".QuizCode")){
+                response+= label.querySelector(".QuizCode").firstChild.innerText;
+            }
+            console.log(response);
+            //console.log(document.getElementById("quizWrap"+id));
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            if (label.dataset.correct == "true") {
+                if (typeof(responses[qnum]) == "object"){
+                    if (!responses[qnum].includes(response))
+                        responses[qnum].push(response);
+                } else{
+                    responses[qnum]= [ response ];
+                }
+            } else {
+                responses[qnum]= response;
+            }
+            console.log(responses);
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End save responses stuff
+
+
+
+        var numcorrect = fb.dataset.numcorrect;
+        var answeredcorrect = fb.dataset.answeredcorrect;
+        if (answeredcorrect >= 0) {
+            fb.textContent = feedback + " [" + answeredcorrect + "/" + numcorrect + "]";
+        } else {
+            fb.textContent = feedback + " [" + 0 + "/" + numcorrect + "]";
+        }
+
+
+    }
+
+    if (typeof MathJax != 'undefined') {
+        var version = MathJax.version;
+        console.log('MathJax version', version);
+        if (version[0] == "2") {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        } else if (version[0] == "3") {
+            MathJax.typeset([fb]);
+        }
+    } else {
+        console.log('MathJax not detected');
+    }
+
+}
+
+function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
+    var shuffled;
+    if (shuffle_answers == "True") {
+        //console.log(shuffle_answers+" read as true");
+        shuffled = getRandomSubarray(qa.answers, qa.answers.length);
+    } else {
+        //console.log(shuffle_answers+" read as false");
+        shuffled = qa.answers;
+    }
+
+
+    var num_correct = 0;
+
+
+
+    shuffled.forEach((item, index, ans_array) => {
+        //console.log(answer);
+
+        // Make input element
+        var inp = document.createElement("input");
+        inp.type = "radio";
+        inp.id = "quizo" + id + index;
+        inp.style = "display:none;";
+        aDiv.append(inp);
+
+        //Make label for input element
+        var lab = document.createElement("label");
+        lab.className = "MCButton";
+        lab.id = id + '-' + index;
+        lab.onclick = check_mc;
+        var aSpan = document.createElement('span');
+        aSpan.classsName = "";
+        //qDiv.id="quizQn"+id+index;
+        if ("answer" in item) {
+            aSpan.innerHTML = jaxify(item.answer);
+            //aSpan.innerHTML=item.answer;
+        }
+        lab.append(aSpan);
+
+        // Create div for code inside question
+        var codeSpan;
+        if ("code" in item) {
+            codeSpan = document.createElement('span');
+            codeSpan.id = "code" + id + index;
+            codeSpan.className = "QuizCode";
+            var codePre = document.createElement('pre');
+            codeSpan.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML = item.code;
+            lab.append(codeSpan);
+            //console.log(codeSpan);
+        }
+
+        //lab.textContent=item.answer;
+
+        // Set the data attributes for the answer
+        lab.setAttribute('data-correct', item.correct);
+        if (item.correct) {
+            num_correct++;
+        }
+        if ("feedback" in item) {
+            lab.setAttribute('data-feedback', item.feedback);
+        }
+        lab.setAttribute('data-answered', 0);
+
+        aDiv.append(lab);
+
+    });
+
+    if (num_correct > 1) {
+        outerqDiv.className = "ManyChoiceQn";
+    } else {
+        outerqDiv.className = "MultipleChoiceQn";
+    }
+
+    return num_correct;
+
+}
+function check_numeric(ths, event) {
+
+    if (event.keyCode === 13) {
+        ths.blur();
+
+        var id = ths.id.split('-')[0];
+
+        var submission = ths.value;
+        if (submission.indexOf('/') != -1) {
+            var sub_parts = submission.split('/');
+            //console.log(sub_parts);
+            submission = sub_parts[0] / sub_parts[1];
+        }
+        //console.log("Reader entered", submission);
+
+        if ("precision" in ths.dataset) {
+            var precision = ths.dataset.precision;
+            // console.log("1:", submission)
+            submission = Math.round((1 * submission + Number.EPSILON) * 10 ** precision) / 10 ** precision;
+            // console.log("Rounded to ", submission, " precision=", precision  );
+        }
+
+
+        //console.log("In check_numeric(), id="+id);
+        //console.log(event.srcElement.id)           
+        //console.log(event.srcElement.dataset.feedback)
+
+        var fb = document.getElementById("fb" + id);
+        fb.style.display = "none";
+        fb.textContent = "Incorrect -- try again.";
+
+        var answers = JSON.parse(ths.dataset.answers);
+        //console.log(answers);
+
+        var defaultFB = "";
+        var correct;
+        var done = false;
+        answers.every(answer => {
+            //console.log(answer.type);
+
+            correct = false;
+            // if (answer.type=="value"){
+            if ('value' in answer) {
+                if (submission == answer.value) {
+                    fb.textContent = jaxify(answer.feedback);
+                    correct = answer.correct;
+                    //console.log(answer.correct);
+                    done = true;
+                }
+                // } else if (answer.type=="range") {
+            } else if ('range' in answer) {
+                //console.log(answer.range);
+                if ((submission >= answer.range[0]) && (submission < answer.range[1])) {
+                    fb.textContent = jaxify(answer.feedback);
+                    correct = answer.correct;
+                    //console.log(answer.correct);
+                    done = true;
+                }
+            } else if (answer.type == "default") {
+                defaultFB = answer.feedback;
+            }
+            if (done) {
+                return false; // Break out of loop if this has been marked correct
+            } else {
+                return true; // Keep looking for case that includes this as a correct answer
+            }
+        });
+
+        if ((!done) && (defaultFB != "")) {
+            fb.innerHTML = jaxify(defaultFB);
+            //console.log("Default feedback", defaultFB);
+        }
+
+        fb.style.display = "block";
+        if (correct) {
+            ths.className = "Input-text";
+            ths.classList.add("correctButton");
+            fb.className = "Feedback";
+            fb.classList.add("correct");
+        } else {
+            ths.className = "Input-text";
+            ths.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            console.log(submission);
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            //console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            console.log(responses);
+            if (submission == ths.value){
+                responses[qnum]= submission;
+            } else {
+                responses[qnum]= ths.value + "(" + submission +")";
+            }
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End code to preserve responses
+
+        if (typeof MathJax != 'undefined') {
+            var version = MathJax.version;
+            console.log('MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([fb]);
+            }
+        } else {
+            console.log('MathJax not detected');
+        }
+        return false;
+    }
+
+}
+
+function isValid(el, charC) {
+    //console.log("Input char: ", charC);
+    if (charC == 46) {
+        if (el.value.indexOf('.') === -1) {
+            return true;
+        } else if (el.value.indexOf('/') != -1) {
+            var parts = el.value.split('/');
+            if (parts[1].indexOf('.') === -1) {
+                return true;
+            }
+        }
+        else {
+            return false;
+        }
+    } else if (charC == 47) {
+        if (el.value.indexOf('/') === -1) {
+            if ((el.value != "") && (el.value != ".")) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    } else if (charC == 45) {
+        var edex = el.value.indexOf('e');
+        if (edex == -1) {
+            edex = el.value.indexOf('E');
+        }
+
+        if (el.value == "") {
+            return true;
+        } else if (edex == (el.value.length - 1)) { // If just after e or E
+            return true;
+        } else {
+            return false;
+        }
+    } else if (charC == 101) { // "e"
+        if ((el.value.indexOf('e') === -1) && (el.value.indexOf('E') === -1) && (el.value.indexOf('/') == -1)) {
+            // Prev symbol must be digit or decimal point:
+            if (el.value.slice(-1).search(/\d/) >= 0) {
+                return true;
+            } else if (el.value.slice(-1).search(/\./) >= 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    } else {
+        if (charC > 31 && (charC < 48 || charC > 57))
+            return false;
+    }
+    return true;
+}
+
+function numeric_keypress(evnt) {
+    var charC = (evnt.which) ? evnt.which : evnt.keyCode;
+
+    if (charC == 13) {
+        check_numeric(this, evnt);
+    } else {
+        return isValid(this, charC);
+    }
+}
+
+
+
+
+
+function make_numeric(qa, outerqDiv, qDiv, aDiv, id) {
+
+
+
+    //console.log(answer);
+
+
+    outerqDiv.className = "NumericQn";
+    aDiv.style.display = 'block';
+
+    var lab = document.createElement("label");
+    lab.className = "InpLabel";
+    lab.textContent = "Type numeric answer here:";
+    aDiv.append(lab);
+
+    var inp = document.createElement("input");
+    inp.type = "text";
+    //inp.id="input-"+id;
+    inp.id = id + "-0";
+    inp.className = "Input-text";
+    inp.setAttribute('data-answers', JSON.stringify(qa.answers));
+    if ("precision" in qa) {
+        inp.setAttribute('data-precision', qa.precision);
+    }
+    aDiv.append(inp);
+    //console.log(inp);
+
+    //inp.addEventListener("keypress", check_numeric);
+    //inp.addEventListener("keypress", numeric_keypress);
+    /*
+    inp.addEventListener("keypress", function(event) {
+        return numeric_keypress(this, event);
+    }
+                        );
+                        */
+    //inp.onkeypress="return numeric_keypress(this, event)";
+    inp.onkeypress = numeric_keypress;
+    inp.onpaste = event => false;
+
+    inp.addEventListener("focus", function (event) {
+        this.value = "";
+        return false;
+    }
+    );
+
+
+}
+function jaxify(string) {
+    var mystring = string;
+
+    var count = 0;
+    var loc = mystring.search(/([^\\]|^)(\$)/);
+
+    var count2 = 0;
+    var loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+
+    //console.log(loc);
+
+    while ((loc >= 0) || (loc2 >= 0)) {
+
+        /* Have to replace all the double $$ first with current implementation */
+        if (loc2 >= 0) {
+            if (count2 % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\[");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\]");
+            }
+            count2++;
+        } else {
+            if (count % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\(");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\)");
+            }
+            count++;
+        }
+        loc = mystring.search(/([^\\]|^)(\$)/);
+        loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+        //console.log(mystring,", loc:",loc,", loc2:",loc2);
+    }
+
+    //console.log(mystring);
+    return mystring;
+}
+
+
+function show_questions(json, mydiv) {
+    console.log('show_questions');
+    //var mydiv=document.getElementById(myid);
+    var shuffle_questions = mydiv.dataset.shufflequestions;
+    var num_questions = mydiv.dataset.numquestions;
+    var shuffle_answers = mydiv.dataset.shuffleanswers;
+
+    if (num_questions > json.length) {
+        num_questions = json.length;
+    }
+
+    var questions;
+    if ((num_questions < json.length) || (shuffle_questions == "True")) {
+        //console.log(num_questions+","+json.length);
+        questions = getRandomSubarray(json, num_questions);
+    } else {
+        questions = json;
+    }
+
+    //console.log("SQ: "+shuffle_questions+", NQ: " + num_questions + ", SA: ", shuffle_answers);
+
+    // Iterate over questions
+    questions.forEach((qa, index, array) => {
+        //console.log(qa.question); 
+
+        var id = makeid(8);
+        //console.log(id);
+
+
+        // Create Div to contain question and answers
+        var iDiv = document.createElement('div');
+        //iDiv.id = 'quizWrap' + id + index;
+        iDiv.id = 'quizWrap' + id;
+        iDiv.className = 'Quiz';
+        iDiv.setAttribute('data-qnum', index);
+        mydiv.appendChild(iDiv);
+        // iDiv.innerHTML=qa.question;
+
+        var outerqDiv = document.createElement('div');
+        outerqDiv.id = "OuterquizQn" + id + index;
+
+        iDiv.append(outerqDiv);
+
+        // Create div to contain question part
+        var qDiv = document.createElement('div');
+        qDiv.id = "quizQn" + id + index;
+        //qDiv.textContent=qa.question;
+        qDiv.innerHTML = jaxify(qa.question);
+
+        outerqDiv.append(qDiv);
+
+        // Create div for code inside question
+        var codeDiv;
+        if ("code" in qa) {
+            codeDiv = document.createElement('div');
+            codeDiv.id = "code" + id + index;
+            codeDiv.className = "QuizCode";
+            var codePre = document.createElement('pre');
+            codeDiv.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML = qa.code;
+            outerqDiv.append(codeDiv);
+            //console.log(codeDiv);
+        }
+
+
+        // Create div to contain answer part
+        var aDiv = document.createElement('div');
+        aDiv.id = "quizAns" + id + index;
+        aDiv.className = 'Answer';
+        iDiv.append(aDiv);
+
+        //console.log(qa.type);
+
+        var num_correct;
+        if (qa.type == "multiple_choice") {
+            num_correct = make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+        } else if (qa.type == "many_choice") {
+            num_correct = make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+        } else if (qa.type == "numeric") {
+            //console.log("numeric");
+            make_numeric(qa, outerqDiv, qDiv, aDiv, id);
+        }
+
+
+        //Make div for feedback
+        var fb = document.createElement("div");
+        fb.id = "fb" + id;
+        //fb.style="font-size: 20px;text-align:center;";
+        fb.className = "Feedback";
+        fb.setAttribute("data-answeredcorrect", 0);
+        fb.setAttribute("data-numcorrect", num_correct);
+        iDiv.append(fb);
+
+
+    });
+    var preserveResponses = mydiv.dataset.preserveresponses;
+    console.log(preserveResponses);
+    console.log(preserveResponses == "true");
+    if (preserveResponses == "true") {
+        console.log(preserveResponses);
+        // Create Div to contain record of answers
+        var iDiv = document.createElement('div');
+        iDiv.id = 'responses' + mydiv.id;
+        iDiv.className = 'JCResponses';
+        // Create a place to store responses as an empty array
+        iDiv.setAttribute('data-responses', '[]');
+
+        // Dummy Text
+        iDiv.innerHTML="<b>Select your answers and then follow the directions that will appear here.</b>"
+        //iDiv.className = 'Quiz';
+        mydiv.appendChild(iDiv);
+    }
+//console.log("At end of show_questions");
+    if (typeof MathJax != 'undefined') {
+        console.log("MathJax version", MathJax.version);
+        var version = MathJax.version;
+        setTimeout(function(){
+            var version = MathJax.version;
+            console.log('After sleep, MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            }
+        }, 500);
+if (typeof version == 'undefined') {
+        } else
+        {
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            } else {
+                console.log("MathJax not found");
+            }
+        }
+    }
+    return false;
+}
+
+        {
+        show_questions(questionsSXsjNhIFhXqr,  SXsjNhIFhXqr);
+        }
+        </script></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "iGW-TU-Dresden/iGW_Book",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content\flow"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../background/03_basic_hydrogeology.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">2. </span>Course Introduction &amp; Water Cycle</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="L3/13_gw_storage.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Groundwater as a reservoir</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Dr Prabhas K. Yadav<br/>
+  
+      &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
+      <div>
+ All content on this site (unless otherwise specified) is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">CC BY-NC-SA 4.0 license</a>
+</div>
+
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

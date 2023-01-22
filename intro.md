@@ -25,13 +25,14 @@ Codes are available at this [GitHUB repository](https://github.com/prabhasyadav/
 ### Main contributors of this version of the book
 
 The contents are developed by (not in any order):
+- Dr.rer. nat. Prabhas K Yadav (TU Dresden)
 - Prof. Rudolf Liedl (TU Dresden)
 - Prof. Peter Dietrich (UFZ Leipzig/Uni-Tübingen)
 - Prof. B. R. Chahar (Indian Institute of Technology Delhi, Delhi)
 - Prof Charles Werth (Uni-Texas Austin, US)
-- Dr.rer. nat. Prabhas K Yadav (TU Dresden)
 - Dr. Ing. Thomas Reimann (TU Dresden)
 - M.Sc. Hanieh Mehrdad (Student Assistant/Numerical contents- TU Dresden)
+- Vibhu Batheja (Student Assistnant - TU Dresden)
 
 and several students: Anton, Abhiral, Anne, Sophie, Alexander
 

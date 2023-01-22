@@ -1,0 +1,243 @@
+[  
+    {
+        "question": "Aquifers are frequently treated as two-dimensional (2D) systems. This is JUSTIFIED only when $V_f$",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "vertical flow components > > horizontal flow components ",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "vertical flow components < < horizontal flow components",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "vertical flow components =  horizontal flow components",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "vertical flow components/horizontal flow components = 20",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+ 
+        ]
+    },
+    {
+        "question": "Isolines (isosurfaces) are curves (surfaces) where a physical quantity assumes a (choose all correct answers)",
+        "type": "multiple_choice",
+        "answers": [
+
+            {
+                "answer": "same value ",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "value: 0 and 1",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "value: 0 or 1 or any other single value",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "multiple value",
+                "correct": false,
+                "feedback": "Incorrect"
+             }   
+        ]
+    },
+
+    {
+        "question": "Hydrologic traiangle can be used for",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "approximate of storage coefficient of an aquifer",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "approximate of conductivity",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+           {
+                "answer": "approximate head isolines",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Exact quantification of discharge in aquifer",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+
+
+         ]
+        
+    },
+    
+
+    
+    {
+        "question": "Streamlines or flowlines are curves",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Are in each point perpendicular to the flow direction.",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "That intersects each other.",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Which are in each point tangential to the flow direction.",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "All of the above statements are true.",
+                "correct": false,
+                "feedback": "Incorrect"
+             }   
+        ]
+    },
+    
+
+    
+        {
+        "question": "Rules for drawing , which of the below statement is NOT correct?",
+        
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Isolines and streamlines are drawn only for the saturated and unsaturated zone",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Impermeable boundaries represent a streamline.",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Boundaries with given constant head values represent isolines",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Neither isolines nor streamlines intersect each other.",
+                "correct": false,
+                "feedback": "Incorrect"
+             }   
+        ]
+    },
+
+        {
+        "question": "Isochrones are curves ",
+        "type" : "multiple_choice"  ,  
+        "answers": [
+            {
+                "answer": "Of identical hydraulic head",
+                "correct": false,
+                "feedback": "Inorrect"
+            },
+           {
+                "answer": "That intersect streamlines at 90°",
+                "correct": false,
+                "feedback": "Incorrect"
+            } ,
+            {
+                "answer": " Of identical travel times.",
+                "correct": true,
+                "feedback": "Correct"
+            } ,
+
+            {
+                "answer": "All the above answer are correct",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+ 
+        ]
+    },
+    
+    
+        {
+        "question": "Which aquifer properties are estimated using pumping tests:",
+        "type" : "multiple_choice"  ,  
+        "answers": [
+            {
+                "answer": "All of the following",
+                "correct": true,
+                "feedback": "Correct"
+            },
+           {
+                "answer": "Hydraulic conductivity",
+                "correct": false,
+                "feedback": "Incorrect"
+            } ,
+            {
+                "answer": "Storativity",
+                "correct": false,
+                "feedback": "Incorrect"
+            } ,
+
+            {
+                "answer": "Transmissivity",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+ 
+        ]
+    },
+    
+        
+        {
+        "question": "The three principal axes of hydraulic conducitivity are oriented",
+        "type" : "multiple_choice"  ,  
+        "answers": [
+            {
+                "answer": "Along the direction with maximum hydraulic conductivity",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Along the direction with minimum hydraulic conductivity",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+           {
+                "answer": "All of the above statements",
+                "correct": true,
+                "feedback": "Correct"
+            } ,
+            {
+                "answer": "Perpendicular to both.",
+                "correct": false,
+                "feedback": "Incorrect"
+            } 
+
+
+ 
+        ]
+    }
+    
+    
+
+ ]
+
+
+
+    
+

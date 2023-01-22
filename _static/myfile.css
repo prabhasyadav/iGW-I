@@ -1,5 +1,15 @@
 p {
     text-align: justify;
+    color:   #212061
 }
 
+h1 {
+    color: #db8a18 !important; 
+    font-weight: bold
+}
 
+@media print {
+    .bd-toc {
+        visibility: hidden;
+    }
+}

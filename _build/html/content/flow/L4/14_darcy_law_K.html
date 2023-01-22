@@ -1,0 +1,2504 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>3. Darcy’s Law and Conductivity &#8212; Groundwater I</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="../../../_static/custom.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="4. Aquifer Heterogeneity and Anisotropy" href="../L5/15_het_iso.html" />
+    <link rel="prev" title="2. Groundwater as a reservoir" href="../L3/13_gw_storage.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Groundwater I</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    The Interactive Groundwater-I Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Basics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../background/00_general.html">
+   1. About this Groundwater Course and Contents
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../background/03_basic_hydrogeology.html">
+   2. Course Introduction &amp; Water Cycle
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Flow
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../12_subsurface_structure.html">
+   1. Subsurface Structure
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../L3/13_gw_storage.html">
+   2. Groundwater as a reservoir
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   3. Darcy’s Law and Conductivity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../L5/15_het_iso.html">
+   4. Aquifer Heterogeneity and Anisotropy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../L6/16_darcy_law_3D.html">
+   5. Steady-State Groundwater flow in 3D
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../L7/17_quantify_flow.html">
+   6. Quantifying 3D Groundwater Flow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../L8/18_wells.html">
+   7. Wells
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Transport
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../transport/L9/21_conservative_transport.html">
+   1. Conservative Transport
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../transport/L10/22_reactive_transport.html">
+   2. Reactive Mass Transport
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Modeling
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../modeling/31_intro_modeling.html">
+   1. Background of Groundwater Modeling
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../background/01_python.html">
+   1. Python Programming language
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../background/02_jupyter.html">
+   2. JUPYTER Notebook Interface for Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/T2/tutorial_02.html">
+   3. Aquifer and Storage Properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/T3/tutorial_03.html">
+   4. Darcy Law and Conductivity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/T4/tutorial_04.html">
+   5. Effective K &amp; Recitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/T5/tutorial_05.html">
+   6. Aquifer Heterogeneity/Anisotropy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/T6/tutorial_06.html">
+   7. Flow in Confined/Unconfined Aquifer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/T7/tutorial_07.html">
+   8. Wells
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/T8/tutorial_08.html">
+   9. Conservative transport
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/T9/tutorial_09.html">
+   10. Reactive transport
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tools
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/decay.html">
+   1. Simulating Mass Budget
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/sieve_analysis.html">
+   2. Simulating Seive Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/effective_K.html">
+   3. Simulating Effective hydraulic conductivity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/uniform_flow_and_well.html">
+   4. Uniform Flow and Well
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/aniso2D.html">
+   5. Simulating the Anisotropy and flow direction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/type_curve_fit.html">
+   6. Type curve and fitting pumping data tool
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/1D_advection_dispersion.html">
+   7. Tool for simulating 1D Conservative Transport (Laboratory Column)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/Kinetics_degradation.html">
+   8. Simulating Kinetics and Degradation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/1D_ditchflow.html">
+   9. Simulating 1D Trench Flow
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Previous Years Q&amp;A
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Q_and_A/GW_exam_2019_20.html">
+   1. Groundwater Exam Solution -  2019-2020
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/iGW-TU-Dresden/iGW_Book/main?urlpath=tree/content/flow/L4/14_darcy_law_K.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/iGW-TU-Dresden/iGW_Book/blob/main/content/flow/L4/14_darcy_law_K.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/iGW-TU-Dresden/iGW_Book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/iGW-TU-Dresden/iGW_Book/issues/new?title=Issue%20on%20page%20%2Fcontent/flow/L4/14_darcy_law_K.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/content/flow/L4/14_darcy_law_K.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#energy-and-hydraulic-head">
+   3.1. Energy and hydraulic head
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hydraulic-head-and-discharge-when-there-is-no-discharge">
+     3.1.1. Hydraulic head and discharge - when there is no discharge
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hydraulic-head-and-discharge-when-there-will-be-a-discharge">
+     3.1.2. Hydraulic head and discharge - when there will be a discharge
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-problem">
+     3.1.3. Example problem
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#darcy-s-law">
+   3.2. Darcy’s Law
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     3.2.1. Example problem
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#darcy-s-law-and-analogous-physical-systems">
+     3.2.2. Darcy’s law and analogous physical systems
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hydraulic-conductivity-and-intrinsic-permeability">
+   3.3. Hydraulic Conductivity and Intrinsic Permeability
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#obtaining-hydraulic-conductivities">
+     3.3.1. Obtaining Hydraulic Conductivities
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#hydraulic-conductivities-estimations-from-sieve-analysis">
+       3.3.1.1. Hydraulic Conductivities estimations from Sieve analysis
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     3.3.2. Example problem
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#hydraulic-conductivities-estimations-from-darcy-s-law">
+       3.3.2.1. Hydraulic Conductivities estimations from Darcy’s Law
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     3.3.3. Example problem
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#intrinsic-permeability">
+     3.3.4. Intrinsic Permeability
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     3.3.5. Example problem
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#properties-of-intrinsic-permeability">
+     3.3.6. Properties of Intrinsic Permeability
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#darcy-velocity-and-interstitial-velocity">
+   3.4. Darcy velocity and Interstitial velocity
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     3.4.1. Example problem
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#typical-values-of-linear-velocities">
+     3.4.2. Typical values of linear velocities
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#travel-time-and-pore-volume">
+     3.4.3. Travel time and Pore volume
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     3.4.4. Example problem
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chapter-quiz">
+   3.5. Chapter Quiz
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Darcy’s Law and Conductivity</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#energy-and-hydraulic-head">
+   3.1. Energy and hydraulic head
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hydraulic-head-and-discharge-when-there-is-no-discharge">
+     3.1.1. Hydraulic head and discharge - when there is no discharge
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hydraulic-head-and-discharge-when-there-will-be-a-discharge">
+     3.1.2. Hydraulic head and discharge - when there will be a discharge
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-problem">
+     3.1.3. Example problem
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#darcy-s-law">
+   3.2. Darcy’s Law
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     3.2.1. Example problem
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#darcy-s-law-and-analogous-physical-systems">
+     3.2.2. Darcy’s law and analogous physical systems
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hydraulic-conductivity-and-intrinsic-permeability">
+   3.3. Hydraulic Conductivity and Intrinsic Permeability
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#obtaining-hydraulic-conductivities">
+     3.3.1. Obtaining Hydraulic Conductivities
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#hydraulic-conductivities-estimations-from-sieve-analysis">
+       3.3.1.1. Hydraulic Conductivities estimations from Sieve analysis
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     3.3.2. Example problem
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#hydraulic-conductivities-estimations-from-darcy-s-law">
+       3.3.2.1. Hydraulic Conductivities estimations from Darcy’s Law
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     3.3.3. Example problem
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#intrinsic-permeability">
+     3.3.4. Intrinsic Permeability
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     3.3.5. Example problem
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#properties-of-intrinsic-permeability">
+     3.3.6. Properties of Intrinsic Permeability
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#darcy-velocity-and-interstitial-velocity">
+   3.4. Darcy velocity and Interstitial velocity
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     3.4.1. Example problem
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#typical-values-of-linear-velocities">
+     3.4.2. Typical values of linear velocities
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#travel-time-and-pore-volume">
+     3.4.3. Travel time and Pore volume
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     3.4.4. Example problem
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chapter-quiz">
+   3.5. Chapter Quiz
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="cell tag_hide-input tag_remove-output tag_remove-input docutils container">
+</div>
+<aside class="sidebar">
+<p class="sidebar-title">Additional Material : Lecture Slides</p>
+<div class="toggle docutils container">
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRCUFNuu7UtEDluZ7aQB1B2mrKZjmkMqnvnypcijPvAYEpHCIWoyHeIVY_h4R3r7g/embed?start=false&loop=false&delayms=3000" frameborder="0" width="480" height="389" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+</div>
+</aside>
+<section class="tex2jax_ignore mathjax_ignore" id="darcy-s-law-and-conductivity">
+<h1><span class="section-number">3. </span>Darcy’s Law and Conductivity<a class="headerlink" href="#darcy-s-law-and-conductivity" title="Permalink to this headline">#</a></h1>
+<p><em>(The contents presented in this section were re-developed principally by <a class="reference external" href="http://web.iitd.ac.in/~chahar/">Prof. B. R. Chahar</a> and Dr. P. K. Yadav. The original contents are from Prof. Rudolf Liedl)</em></p>
+<section id="energy-and-hydraulic-head">
+<h2><span class="section-number">3.1. </span>Energy and hydraulic head<a class="headerlink" href="#energy-and-hydraulic-head" title="Permalink to this headline">#</a></h2>
+<p>In the last section we learned that <em>hydrostatic pressure difference</em> <span class="math notranslate nohighlight">\(p(z)\)</span> will not allow the fully quantify water flow. In fact in addition to <span class="math notranslate nohighlight">\(p(z)\)</span> other form of energy must also be considered.</p>
+<p>The energy available for groundwater flow is given the name <em>hydraulic head</em> <span class="math notranslate nohighlight">\((h)\)</span> or also called <em>piezometric head</em>:. It consists of three components, related to</p>
+<blockquote>
+<div><p><strong>elevation,
+pressure and
+velocity</strong>.</p>
+</div></blockquote>
+<p>The total energy head is expressed by the equation</p>
+<div class="math notranslate nohighlight">
+\[
+h = z + \frac{p}{\rho g} + \frac{v^2}{2g}
+\]</div>
+<p>where, <br>
+<span class="math notranslate nohighlight">\(z\)</span> is the <em>elevation</em> or <em>datum head</em> [L], <br>
+<span class="math notranslate nohighlight">\(p\)</span> is the <em>pressure</em>
+exerted by water column [M L<span class="math notranslate nohighlight">\(^{-1}\)</span> T<span class="math notranslate nohighlight">\(^{-2}\)</span>],<br>
+<span class="math notranslate nohighlight">\(\rho\)</span> is the density of fluid [M L<span class="math notranslate nohighlight">\(^{-3}\)</span>],<br>
+<span class="math notranslate nohighlight">\(g\)</span> is the acceleration due to gravity [LT<span class="math notranslate nohighlight">\(^{-2}\)</span>], and <br>
+<span class="math notranslate nohighlight">\(v\)</span> is velocity of flow [LT<span class="math notranslate nohighlight">\(^{-1}\)</span>].</p>
+<p>Note that the <span class="math notranslate nohighlight">\(h\)</span> has the dimension of length [L].  In groundwater flow, the velocity is so low
+that the energy contained in velocity can be neglected when computing the total energy.
+Thus, the hydraulic head (see figure below) is written as</p>
+<div class="math notranslate nohighlight">
+\[
+h = z + \frac{p}{\rho g} 
+\]</div>
+<p>The above equation says that Water flow is governed by differences in hydraulic head and not by differences in pressure head alone.</p>
+<p>It is to be noted that <span class="math notranslate nohighlight">\(z\)</span> depends on the orientation. In the above equation <span class="math notranslate nohighlight">\(+z\)</span> is considered oriented upward (based on conventional sign convention). If <span class="math notranslate nohighlight">\(z-\)</span>axis is oriented downwards, we have</p>
+<div class="math notranslate nohighlight">
+\[
+h = \frac{p}{\rho g}-z 
+\]</div>
+<section id="hydraulic-head-and-discharge-when-there-is-no-discharge">
+<h3><span class="section-number">3.1.1. </span>Hydraulic head and discharge - when there is no discharge<a class="headerlink" href="#hydraulic-head-and-discharge-when-there-is-no-discharge" title="Permalink to this headline">#</a></h3>
+<p>Consider the figure below:</p>
+<a class="reference internal image-reference" href="../../../_images/L4_f1.png" id="hydraulic-head"><img alt="../../../_images/L4_f1.png" class="align-center" id="hydraulic-head" src="../../../_images/L4_f1.png" style="height: 400px;" /></a>
+<p>The pressure head: <span class="math notranslate nohighlight">\(p(z) = p_L + \rho \cdot g \cdot (L-z)\)</span> <br>
+The hydraulic head (piezometric head): <span class="math notranslate nohighlight">\(h(z) = \frac{p(z)}{\rho \cdot g } + z = \frac{p_L + \rho \cdot g \cdot (L-z) }{\rho \cdot g } + z = \frac{p_L}{\rho \cdot g}+ L = \text{Const}\)</span><br></p>
+<p>In the figure above the hydraulic head difference between two points (<span class="math notranslate nohighlight">\(z=0\)</span> and <span class="math notranslate nohighlight">\(z=L\)</span>) are exactly equal, i.e., <span class="math notranslate nohighlight">\(\Delta h = 0\)</span>. This refers to the system with no energy gradient and hence a <em>no flow</em> system.</p>
+</section>
+<section id="hydraulic-head-and-discharge-when-there-will-be-a-discharge">
+<h3><span class="section-number">3.1.2. </span>Hydraulic head and discharge - when there will be a discharge<a class="headerlink" href="#hydraulic-head-and-discharge-when-there-will-be-a-discharge" title="Permalink to this headline">#</a></h3>
+<p>Now consider the figure below</p>
+<a class="reference internal image-reference" href="../../../_images/L4_f2.png" id="hydraulic-head-ii"><img alt="../../../_images/L4_f2.png" class="align-center" id="hydraulic-head-ii" src="../../../_images/L4_f2.png" style="height: 400px;" /></a>
+<p>Here there is clear difference between the elevation head (<span class="math notranslate nohighlight">\(z_1\)</span> and <span class="math notranslate nohighlight">\(z_2\)</span>), which is taken from a reference level (<span class="math notranslate nohighlight">\(z=0\)</span> in this case. Average Sea Level (ASL), is often use for this reference). Also differing are pressure heads (<span class="math notranslate nohighlight">\(p_1\)</span> and <span class="math notranslate nohighlight">\(p_2\)</span>). Therefore, the <span class="math notranslate nohighlight">\(h(z)\)</span> in this case are:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+h_1 &amp;= \frac{p_1}{\rho \cdot g} + z_1 \\
+h_2 &amp;= \frac{p_2}{\rho \cdot g} + z_2
+\end{align}
+\end{split}\]</div>
+<p>As can be observed from the figure, in this case <span class="math notranslate nohighlight">\(h_1&lt;h_2\)</span>. Thus, analogus to flow of energy - i.e., from higher energy level to the lower energy level, the flow in this example case is from cross-section 2 towards cross section 1.</p>
+<p>It is to be noted that the <em>magnitude</em> of the hydraulic head (<span class="math notranslate nohighlight">\(h\)</span>) rather than the <em>orientation</em> of the set-up determines the direction of discharge.</p>
+<p>Also, important to note is that the <em>differences of hydraulic head</em> <span class="math notranslate nohighlight">\((\Delta h)\)</span> is independent of of the position of the origin of the reference axis  (<span class="math notranslate nohighlight">\(z\)</span>-axis in the above case).</p>
+</section>
+<section id="example-problem">
+<h3><span class="section-number">3.1.3. </span>Example problem<a class="headerlink" href="#example-problem" title="Permalink to this headline">#</a></h3>
+<div class="admonition-energy-and-hydraulic-head admonition">
+<p class="admonition-title">Energy and hydraulic head</p>
+<p>At a place where the fluid pressure is <span class="math notranslate nohighlight">\(1500 \frac{N}{m^2}\)</span>, the distance above the reference elevation is <span class="math notranslate nohighlight">\(0,8 m\)</span> and the fluid density is <span class="math notranslate nohighlight">\(1000 \frac{kg}{m^3}\)</span>. The fluid moves at a speed of <span class="math notranslate nohighlight">\(1 \cdot 10^{-6} \frac{m}{s}\)</span>. Find the total energy head.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Let us find the total energy head.</span><span class="se">\n\n</span><span class="s2">Provided are:&quot;</span><span class="p">)</span>
+
+<span class="n">z</span> <span class="o">=</span> <span class="mf">0.8</span> <span class="c1">#elevation</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span> <span class="c1"># [m/s^2]</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mi">1500</span> <span class="c1"># fluid pressure [N/m^2]</span>
+<span class="n">rho</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1"># fluid density [kg/m^3]</span>
+<span class="n">v</span> <span class="o">=</span> <span class="mf">1e-6</span> <span class="c1">#velocity [m/s]</span>
+
+<span class="c1">#solution</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">z</span> <span class="o">+</span> <span class="n">p</span><span class="o">/</span><span class="p">(</span><span class="n">rho</span><span class="o">*</span><span class="n">g</span><span class="p">)</span><span class="o">+</span> <span class="n">v</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">g</span><span class="p">)</span> <span class="c1"># m, head</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;elevation = </span><span class="si">{}</span><span class="s2"> m</span><span class="se">\n</span><span class="s2">acceleration due to gravity = </span><span class="si">{}</span><span class="s2"> m</span><span class="se">\n</span><span class="s2">fluid pressure = </span><span class="si">{}</span><span class="s2"> m</span><span class="se">\n</span><span class="s2">fluid density = </span><span class="si">{}</span><span class="s2"> m, and</span><span class="se">\n</span><span class="s2">velocity = </span><span class="si">{}</span><span class="s2"> m/s&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">rho</span><span class="p">,</span><span class="n">v</span><span class="p">),</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The resulting total energy head is </span><span class="si">{0:0.2f}</span><span class="s2"> m&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Let us find the total energy head.
+
+Provided are:
+elevation = 0.8 m
+acceleration due to gravity = 9.81 m
+fluid pressure = 1500 m
+fluid density = 1000 m, and
+velocity = 1e-06 m/s 
+
+The resulting total energy head is 0.95 m
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="darcy-s-law">
+<h2><span class="section-number">3.2. </span>Darcy’s Law<a class="headerlink" href="#darcy-s-law" title="Permalink to this headline">#</a></h2>
+<p>Groundwater in its natural state is invariably moving. This movement is governed by
+established hydraulic principles. Darcy’s Law is a phenomenologically derived
+constitutive equation that describes the flow of a fluid through a porous medium.
+Darcy’s Law along with the equation of conservation of mass is equivalent to the
+groundwater flow equation, one of the basic relationships of hydrogeology. It is also
+used to describe oil, water, and gas flows through petroleum reservoirs.</p>
+<p>The law was formulated by Henry Darcy (Darcy, 1856) based on the results of experiments on the flow
+of water through beds of sand (Figure below shows a schematic setup). In the experiments, <em>area of cross section</em>  (<span class="math notranslate nohighlight">\(A\)</span> [L<span class="math notranslate nohighlight">\(^2\)</span>] <span class="math notranslate nohighlight">\(= \text{Const}\)</span>) was kept constant. Constant discharge (<span class="math notranslate nohighlight">\(Q= \text{Const}\)</span>) was applied and the sand medium was fully saturated, i.e., voids between sand grains were completely filled with water.</p>
+<a class="reference internal image-reference" href="../../../_images/L4_f3.png" id="darcy-s-set-up"><img alt="../../../_images/L4_f3.png" class="align-center" id="darcy-s-set-up" src="../../../_images/L4_f3.png" style="height: 400px;" /></a>
+<p>Darcy’s law is a simple mathematical statement which neatly summarizes several
+familiar properties that groundwater flowing in aquifers exhibits, including:</p>
+<blockquote>
+<div><p>If there
+is no hydraulic gradient (difference in hydraulic head over a distance), no flow occurs
+(this is hydrostatic conditions),</p>
+</div></blockquote>
+<blockquote>
+<div><p>If there is a hydraulic gradient, flow will occur from
+a high head towards a low head (opposite the direction of increasing gradient, hence the
+negative sign in Darcy’s law),</p>
+</div></blockquote>
+<blockquote>
+<div><p>The greater the hydraulic gradient (through the same
+aquifer material), the greater the discharge, and</p>
+</div></blockquote>
+<blockquote>
+<div><p>The discharge may be different
+through different aquifer materials (or even through the same material, in a different
+direction) even if the same hydraulic gradient exists.</p>
+</div></blockquote>
+<p>From the experiments Darcy observed that the <em>volume of water per unit time</em> passing through a porous medium</p>
+<ul class="simple">
+<li><p>is <em>directly proportional</em> to the  <span class="math notranslate nohighlight">\(A\)</span> [L<span class="math notranslate nohighlight">\(^2\)</span>] and the head difference between inlet and outlet <span class="math notranslate nohighlight">\((h_1 – h_2)\)</span> [L], and</p></li>
+<li><p>is inversely proportional to the <em>length of the medium</em> <span class="math notranslate nohighlight">\(L\)</span> [L]</p></li>
+</ul>
+<p>i.e.,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\text{Vol}}{t}= Q \propto A (h_1 - h_2)\frac{1}{L}
+\]</div>
+<p>which in terms of specific discharge <span class="math notranslate nohighlight">\(q\)</span>, or discharge velocity or Darcy velocity <span class="math notranslate nohighlight">\(v\)</span> [LT<span class="math notranslate nohighlight">\(^{-1}\)</span>] is</p>
+<div class="math notranslate nohighlight">
+\[
+q = v = \frac{Q}{A}= - K\frac{\partial h}{\partial L} = - K\,i
+\]</div>
+<p>where constant of proportionality <span class="math notranslate nohighlight">\(K =\)</span> <em>hydraulic conductivity</em> [LT<span class="math notranslate nohighlight">\(^{-1}\)</span>]; and <span class="math notranslate nohighlight">\(i = \partial h/ \partial L =\)</span>
+<em>hydraulic gradient</em> = rate of head loss per unit length of medium [ ]. The <em>negative sign</em>
+indicates that the total head is decreasing in the direction of flow because of friction or
+resistance</p>
+<section id="id1">
+<h3><span class="section-number">3.2.1. </span>Example problem<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<div class="admonition-darcy-s-law admonition">
+<p class="admonition-title">Darcy’s Law</p>
+<p>Calculate the specific discharge and the flow rate passing through the surface with the given parameters.</p>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Provided are:
+
+Conductivity = 0.0005 m/s
+Surface = 10 m²
+Hydraulic head at the inlet = 10 m
+Hydraulic head at the outlet = 2 m
+Lenght of the column = 5 m 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K</span> <span class="o">=</span> <span class="mf">5e-4</span> <span class="c1"># m/s, conductivity</span>
+<span class="n">A</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># m², surface</span>
+<span class="n">h_in</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># m, hydraulic head at the inlet</span>
+<span class="n">h_out</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># m, hydraulic head at the outlet</span>
+<span class="n">L</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1">#m, lenght of the column</span>
+
+<span class="c1">#intermediate calculation</span>
+<span class="n">I</span> <span class="o">=</span> <span class="p">(</span><span class="n">h_in</span><span class="o">-</span><span class="n">h_out</span><span class="p">)</span><span class="o">/</span><span class="n">L</span>
+
+<span class="c1">#solution</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">K</span><span class="o">*</span><span class="n">I</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="n">K</span><span class="o">*</span><span class="n">I</span><span class="o">*</span><span class="n">A</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Conductivity = </span><span class="si">{}</span><span class="s2"> m/s</span><span class="se">\n</span><span class="s2">Surface = </span><span class="si">{}</span><span class="s2"> m²</span><span class="se">\n</span><span class="s2">Hydraulic head at the inlet = </span><span class="si">{}</span><span class="s2"> m</span><span class="se">\n</span><span class="s2">Hydraulic head at the outlet = </span><span class="si">{}</span><span class="s2"> m</span><span class="se">\n</span><span class="s2">Lenght of the column = </span><span class="si">{}</span><span class="s2"> m&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">h_in</span><span class="p">,</span> <span class="n">h_out</span><span class="p">,</span> <span class="n">L</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Solution:</span><span class="se">\n</span><span class="s2">The resulting specific discharge is </span><span class="si">{0:0.0e}</span><span class="s2"> m/s&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">q</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">and the flow rate is </span><span class="si">{0:0.0e}</span><span class="s2"> m³/s&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Q</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Conductivity = 0.0005 m/s
+Surface = 10 m²
+Hydraulic head at the inlet = 10 m
+Hydraulic head at the outlet = 2 m
+Lenght of the column = 5 m 
+
+Solution:
+The resulting specific discharge is 8e-04 m/s 
+and the flow rate is 8e-03 m³/s
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="darcy-s-law-and-analogous-physical-systems">
+<h3><span class="section-number">3.2.2. </span>Darcy’s law and analogous physical systems<a class="headerlink" href="#darcy-s-law-and-analogous-physical-systems" title="Permalink to this headline">#</a></h3>
+<p>Darcy’s law is analogous to pipe flow in which energy is dissipated over the distance to overcome frictional loss resulting
+from fluid viscosity.</p>
+<p>It also forms the scientific basis of permeability used in the earth
+sciences.</p>
+<p>It may be noted Darcy’s law is analogous to Fourier’s law in the field of heat conduction, Ohm’s law in the field of electrical networks, or Fick’s law in diffusion theory.</p>
+</section>
+</section>
+<section id="hydraulic-conductivity-and-intrinsic-permeability">
+<h2><span class="section-number">3.3. </span>Hydraulic Conductivity and Intrinsic Permeability<a class="headerlink" href="#hydraulic-conductivity-and-intrinsic-permeability" title="Permalink to this headline">#</a></h2>
+<p><em>Hydraulic Conductivity (<span class="math notranslate nohighlight">\(K\)</span>)</em> appeared in the Darcy’s law as a constant of proportionality, i.e., it is the fundamental quantity that is required to describe groundwater flow. Therefore we illustrate this further,</p>
+<p>A medium has a <em>unit hydraulic conductivity</em> if it will transmit in <em>unit time</em> a <em>unit volume of groundwater</em> at the prevailing kinematic viscosity through a cross section of <em>unit area</em> measured at <em>right angles</em> to the direction of flow, under a <em>unit hydraulic gradient</em>.</p>
+<p>The hydraulic conductivity of a soil or rock depends on a variety of
+physical factors, important ones are:</p>
+<ul class="simple">
+<li><p>porosity,</p></li>
+<li><p>particle size and distribution,</p></li>
+<li><p>shape of particles,</p></li>
+<li><p>arrangement of particles.</p></li>
+</ul>
+<p>Also, hydraulic conductivity is depends on the property of the fluid e.g., density, viscosity</p>
+<p>In general for unconsolidated porous media,<span class="math notranslate nohighlight">\(K\)</span> varies with <em>square</em> of particle size; clayey materials exhibit low values of <span class="math notranslate nohighlight">\(K\)</span>, whereas
+sands and gravels display high values</p>
+<p>Typical values for hydraulic conductivity (see figure XX for more comprehensive listing):</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Media Type</p></th>
+<th class="text-align:right head"><p>hydraulic conductivity (m/s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Gravel</p></td>
+<td class="text-align:right"><p><span class="math notranslate nohighlight">\(10^{-2} – 10^{-1}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>coarse sand</p></td>
+<td class="text-align:right"><p><span class="math notranslate nohighlight">\(\approx 10^{-3}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>medium sand</p></td>
+<td class="text-align:right"><p><span class="math notranslate nohighlight">\(10 ^{-4} – 10^{-3}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>fine sand</p></td>
+<td class="text-align:right"><p><span class="math notranslate nohighlight">\(10^{-5} – 10^{-4}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Silt</p></td>
+<td class="text-align:right"><p><span class="math notranslate nohighlight">\(10^{-9}  – 10^{-6} \)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Clay</p></td>
+<td class="text-align:right"><p><span class="math notranslate nohighlight">\(&lt; 10^{-9} \)</span></p></td>
+</tr>
+</tbody>
+</table>
+<section id="obtaining-hydraulic-conductivities">
+<h3><span class="section-number">3.3.1. </span>Obtaining Hydraulic Conductivities<a class="headerlink" href="#obtaining-hydraulic-conductivities" title="Permalink to this headline">#</a></h3>
+<p>The hydraulic conductivity depends on properties of the fluid (density, viscosity,
+temperature) and on properties of the porous medium (effective porosity, grain size
+distribution). It can be obtained by calculation from formulas, laboratory methods, or
+field tests</p>
+<p>The laboratory method can be indirect method or direct method. For example,
+determination of the hydraulic conductivity based on the evaluation of sieve analysis
+data is the indirect laboratory method. On the other hand, the direct method of
+determination of the hydraulic conductivity (e.g. permeameter) is based on some version of Darcy‘s experiment. Advantages of laboratory methods include controlled
+conditions, small sample size (easy handling), lower costs, larger number of
+experiments, etc. While, the disadvantages of laboratory methods are disturbed
+samples, additional pathways at column walls, small sample size (randomly high or low
+K), flushing of fine material, etc.</p>
+<section id="hydraulic-conductivities-estimations-from-sieve-analysis">
+<h4><span class="section-number">3.3.1.1. </span>Hydraulic Conductivities estimations from Sieve analysis<a class="headerlink" href="#hydraulic-conductivities-estimations-from-sieve-analysis" title="Permalink to this headline">#</a></h4>
+<p>Sieve analysis data can be evaluated to estimate hydraulic conductivity of
+unconsolidated media. There are several <em>empirical methods</em>. The simplest one dates back to Hazen (1892):</p>
+<div class="math notranslate nohighlight">
+\[
+K = 0.0116 \cdot d_{10}^2
+\]</div>
+<p>where, <span class="math notranslate nohighlight">\(d_{10}\)</span> = grain diameter (mm) corresponding to <span class="math notranslate nohighlight">\(10
+\%\)</span> of cumulative mass fraction. It can be generalized by including temperature (<span class="math notranslate nohighlight">\(\theta\)</span> in <span class="math notranslate nohighlight">\(^\circ\)</span>C). Thus the Hazen formula becomes</p>
+<div class="math notranslate nohighlight">
+\[
+K = 0.0116 \cdot d_{10}^2 \cdot (0.7 + 0.03\cdot\theta)
+\]</div>
+<p>Hazen’s formula is only valid for the indicated units, i.e., conversion of the <em>unit</em> may be required before using the formula.</p>
+</section>
+</section>
+<section id="id2">
+<h3><span class="section-number">3.3.2. </span>Example problem<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<div class="admonition-hydraulic-conductivity-from-sieve-data admonition">
+<p class="admonition-title">Hydraulic Conductivity from sieve data</p>
+<p>An Aquifer with fine to medium sand was investigated with an sieve analysis. At a temperature of <span class="math notranslate nohighlight">\(20°C\)</span> a <span class="math notranslate nohighlight">\(d_{10}\)</span> of <span class="math notranslate nohighlight">\(0.13\)</span> mm was measured. Determine the hydraulic conductivity (using Hazen’s formula) and how it changes when the temperature rises by <span class="math notranslate nohighlight">\(5°C\)</span>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Let us find the hydraulic conductivities.</span><span class="se">\n\n</span><span class="s2">Provided are:&quot;</span><span class="p">)</span>
+
+<span class="n">d10</span> <span class="o">=</span> <span class="mf">0.13</span> <span class="c1"># mm,  grain diameter corresponding to 10% of cumulative mass fraction</span>
+<span class="n">T1</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># °C, Temperature</span>
+<span class="n">deltaT</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># °C, temperature change</span>
+
+<span class="c1">#intermediate calculation</span>
+<span class="n">T2</span> <span class="o">=</span> <span class="n">T1</span> <span class="o">+</span> <span class="n">deltaT</span>
+
+<span class="c1">#solution based on Hazen&#39;s formula</span>
+<span class="n">K1</span> <span class="o">=</span> <span class="mf">0.0116</span> <span class="o">*</span> <span class="n">d10</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mf">0.7</span> <span class="o">+</span> <span class="mf">0.03</span><span class="o">*</span><span class="n">T1</span><span class="p">)</span>
+<span class="n">K2</span> <span class="o">=</span> <span class="mf">0.0116</span> <span class="o">*</span> <span class="n">d10</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mf">0.7</span> <span class="o">+</span> <span class="mf">0.03</span><span class="o">*</span><span class="n">T2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;grain diameter corresponding to 10</span><span class="si">% o</span><span class="s2">f cumulative mass fraction = </span><span class="si">{}</span><span class="s2"> mm</span><span class="se">\n</span><span class="s2">Temperature = </span><span class="si">{}</span><span class="s2"> °C</span><span class="se">\n</span><span class="s2">temperature change = </span><span class="si">{}</span><span class="s2"> K&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">d10</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">deltaT</span><span class="p">),</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The resulting hydraulic Conductivity at 20°C is </span><span class="si">{0:0.2e}</span><span class="s2"> m/s&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">K1</span><span class="p">),</span>
+      <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">and the resulting hydraulic conductivity at 25°C is </span><span class="si">{0:0.2e}</span><span class="s2"> m/s&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">K2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Let us find the hydraulic conductivities.
+
+Provided are:
+grain diameter corresponding to 10% of cumulative mass fraction = 0.13 mm
+Temperature = 10 °C
+temperature change = 5 K 
+
+The resulting hydraulic Conductivity at 20°C is 1.96e-04 m/s 
+and the resulting hydraulic conductivity at 25°C is 2.25e-04 m/s
+</pre></div>
+</div>
+</div>
+</div>
+<section id="hydraulic-conductivities-estimations-from-darcy-s-law">
+<h4><span class="section-number">3.3.2.1. </span>Hydraulic Conductivities estimations from Darcy’s Law<a class="headerlink" href="#hydraulic-conductivities-estimations-from-darcy-s-law" title="Permalink to this headline">#</a></h4>
+<p><strong>Permeameter</strong> is an instrument used to determine hydraulic conductivity of soil samples
+in the laboratory as <em>direct method</em>. The design of permeameters is based on Darcy‘s
+experiment.</p>
+<a class="reference internal image-reference" href="../../../_images/L4_f4.png" id="permeameter"><img alt="../../../_images/L4_f4.png" class="align-center" id="permeameter" src="../../../_images/L4_f4.png" style="width: 200px;" /></a>
+<p>There are mainly two types of permeameters</p>
+<ol class="simple">
+<li><p>Constant-head permeameter, and</p></li>
+<li><p>Falling-head permeameter.</p></li>
+</ol>
+<p>In <strong>constant-head permeameters</strong> as
+shown in Figure the hydraulic heads at inflow and outflow of the Darcy column are
+constant in time. As a consequence, the discharge is not changing with time.</p>
+<a class="reference internal image-reference" href="../../../_images/L4_f5.png" id="constant-head-permeameter"><img alt="../../../_images/L4_f5.png" class="align-center" id="constant-head-permeameter" src="../../../_images/L4_f5.png" style="height: 200px;" /></a>
+<p>The hydraulic conductivity can be obtained by observing discharge and heads and then
+substituting in the below formula that is rearranged form of Darcy’s law from:</p>
+<div class="math notranslate nohighlight">
+\[
+K = \frac{QL}{A(h_{in}- h_{out}}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(Q\)</span> =discharge[L<span class="math notranslate nohighlight">\(^3\)</span>T<span class="math notranslate nohighlight">\(^{-1}\)</span>];<br>
+<span class="math notranslate nohighlight">\(L\)</span> = length of sample [L]; <br> <span class="math notranslate nohighlight">\(A\)</span> = cross-sectional area of sample [L<span class="math notranslate nohighlight">\(^2\)</span>]; <br>
+<span class="math notranslate nohighlight">\(h_{in}\)</span> = hydraulic head at column inlet [L];<br>
+<span class="math notranslate nohighlight">\(h_{out}\)</span> = hydraulic head at column outlet [L];<br>
+<span class="math notranslate nohighlight">\(\Delta h\)</span> = <span class="math notranslate nohighlight">\(h_{in} - h_{out}\)</span></p>
+<p><span class="math notranslate nohighlight">\(h_{out}\)</span> can be set equal to zero as only head differences are important.</p>
+</section>
+</section>
+<section id="id3">
+<h3><span class="section-number">3.3.3. </span>Example problem<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<div class="admonition-hydraulic-conductivity-from-constant-head-permeameter admonition">
+<p class="admonition-title">Hydraulic Conductivity from Constant head-permeameter</p>
+<p>A constant-head permeameter has a length of 15 cm and a cross-sectional area of <span class="math notranslate nohighlight">\(25\)</span> cm<span class="math notranslate nohighlight">\(^2\)</span>. With a head of 5 cm, a total Volume of 100 mL of water is collected in 12 min. Determine the hydraulic conductivity.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Let us find the hydraulic conductivity with a constant-head permeameter.</span><span class="se">\n\n</span><span class="s2">Provided are:&quot;</span><span class="p">)</span>
+
+<span class="n">L</span> <span class="o">=</span> <span class="mi">15</span> <span class="c1"># Length of the permeameter [cm]</span>
+<span class="n">A</span> <span class="o">=</span> <span class="mi">25</span> <span class="c1"># cross-sectional area [cm^2]</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># hydraulic head [cm]</span>
+<span class="n">V</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># Volume of collected water [mL = cm^3]</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mi">12</span> <span class="c1"># time [min]</span>
+
+<span class="c1">#solution</span>
+<span class="n">K1</span> <span class="o">=</span> <span class="p">(</span><span class="n">V</span> <span class="o">*</span> <span class="n">L</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">t</span> <span class="o">*</span> <span class="n">h</span><span class="p">)</span>
+<span class="n">K2</span> <span class="o">=</span> <span class="n">K1</span><span class="o">/</span><span class="p">(</span><span class="mi">60</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Length of the permeameter = </span><span class="si">{}</span><span class="s2"> cm </span><span class="se">\n</span><span class="s2">cross-sectional area = </span><span class="si">{}</span><span class="s2"> cm</span><span class="se">\u00b2\n</span><span class="s2">hydraulic head = </span><span class="si">{}</span><span class="s2"> cm </span><span class="se">\n</span><span class="s2">Volume = </span><span class="si">{}</span><span class="s2"> mL </span><span class="se">\n</span><span class="s2">time = </span><span class="si">{}</span><span class="s2"> min&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">h</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">t</span><span class="p">),</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The resulting hydraulic Conductivity is </span><span class="si">{0:2.0e}</span><span class="s2"> cm/min&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">K1</span><span class="p">),</span>
+      <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">and which is </span><span class="si">{:02.0e}</span><span class="s2"> m/s&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">K2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Let us find the hydraulic conductivity with a constant-head permeameter.
+
+Provided are:
+Length of the permeameter = 15 cm 
+cross-sectional area = 25 cm²
+hydraulic head = 5 cm 
+Volume = 100 mL 
+time = 12 min 
+
+The resulting hydraulic Conductivity is 1e+00 cm/min 
+and which is 2e-04 m/s
+</pre></div>
+</div>
+</div>
+</div>
+<p>In falling-head permeameter as shown in Figure the hydraulic head at the outflow of
+the Darcy column is not changing, but the hydraulic head at the inflow is decreasing
+with time.</p>
+<a class="reference internal image-reference" href="../../../_images/L4_f6.png" id="id4"><img alt="../../../_images/L4_f6.png" class="align-center" id="id4" src="../../../_images/L4_f6.png" style="height: 255px;" /></a>
+<p>As a result, the discharge also decreases with time. Rewriting Darcy’s law for a small time interval</p>
+<div class="math notranslate nohighlight">
+\[
+K \frac{\pi d_c^2}{4}\big(h_{in} - h_{out}\big)\frac{1}{L}\text{d}t = \frac{\pi d_t^2}{4}\text{d}h 
+\]</div>
+<p><span class="math notranslate nohighlight">\(K\)</span> can be obtained from the above equation by separating the variables and then integrating. The resulting expression for <span class="math notranslate nohighlight">\(K\)</span> will be</p>
+<div class="math notranslate nohighlight">
+\[
+K = \frac{d_t^2 L}{d_c^2}\ln \Bigg(\frac{h_{in}(0) - h_{out}}{h_{in}(t)-h_{out}}\Bigg)
+\]</div>
+<p>where, <br>
+<span class="math notranslate nohighlight">\(L\)</span> = length of sample [L];<br>
+<span class="math notranslate nohighlight">\(d_c\)</span> = diameter of sample cylinder [L];<br>
+<span class="math notranslate nohighlight">\(d_t\)</span> = diameter of piezometer tube [L]; <br>
+<span class="math notranslate nohighlight">\(h_{in}(0)\)</span> = initial hydraulic head at column inlet [L]; <br>
+<span class="math notranslate nohighlight">\(h_{in}(t)\)</span> = final hydraulic head at column inlet [L]; <br>
+<span class="math notranslate nohighlight">\(h_{out}\)</span> = hydraulic head at column outlet [L]; <br>
+<span class="math notranslate nohighlight">\(h_0 = h_{in}(0) - h_{out}\)</span>; <br>
+<span class="math notranslate nohighlight">\(h = h_{in}(t) - h_{out}\)</span></p>
+<p>and <span class="math notranslate nohighlight">\(h_{out}\)</span> can be set equal to zero as only head differences are
+important. The hydraulic conductivity can be obtained from the above equation using observed time and corresponding heads. Larger experimental time periods are needed for the falling-head permeameter, in particular if hydraulic conductivity is low. On the other hand, no measurement of discharge or water volume is required.</p>
+<p><strong>Field methods</strong> of determination of the hydraulic conductivity include tracer tests, auger hole tests, pumping tests of wells, etc. Field experiments are much more complicated and expensive than laboratory tests. Resulting hydraulic conductivities represent averages over an aquifer volume, which is covered by the experiment. The size of this
+volume depends on subsurface properties and on the experimental method used.</p>
+</section>
+<section id="intrinsic-permeability">
+<h3><span class="section-number">3.3.4. </span>Intrinsic Permeability<a class="headerlink" href="#intrinsic-permeability" title="Permalink to this headline">#</a></h3>
+<p>A convenient alternative is to write Darcy’s equation in a form of <strong>intrinsic permeability</strong>
+where the properties of the medium and the fluid are represented explicitly</p>
+<div class="math notranslate nohighlight">
+\[
+v = \frac{-k \cdot \rho\cdot g}{\mu}\frac{\partial h}{\partial L}
+\]</div>
+<p>where, <span class="math notranslate nohighlight">\(k\)</span> is the intrinsic permeability [L<span class="math notranslate nohighlight">\(^2\)</span>], and <span class="math notranslate nohighlight">\(\eta\)</span> is the dynamic viscosity of fluid [ML<span class="math notranslate nohighlight">\(^{-1}\)</span>T<span class="math notranslate nohighlight">\(^{-1}\)</span>] e.g., (Pa-S). The relation between <em>hydraulic conductivity</em> <em>intrinsic permeability</em>, therefore, is</p>
+<div class="math notranslate nohighlight">
+\[
+K = k\cdot \frac{ \rho \cdot g}{\eta}
+\]</div>
+<p>In terms of Kinematic viscosity [L<span class="math notranslate nohighlight">\(^2\)</span>T<span class="math notranslate nohighlight">\(^{-1}\)</span>}], <span class="math notranslate nohighlight">\(\eta = \rho \cdot \nu\)</span>, the above relation becomes</p>
+<div class="math notranslate nohighlight">
+\[
+K = k\cdot \frac{ g}{\nu}
+\]</div>
+<p>Both density and viscosity are temperature dependent quantites. Their values in field conditions <span class="math notranslate nohighlight">\(\approx 10 ^\circ\)</span>C and in the laboratory conditions <span class="math notranslate nohighlight">\(\approx 20 ^\circ\)</span>C are:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>10°C</p></th>
+<th class="head"><p>20°C</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>density (kg/m<span class="math notranslate nohighlight">\(^3\)</span>)</p></td>
+<td><p>999.7</p></td>
+<td><p>999.7</p></td>
+</tr>
+<tr class="row-odd"><td><p>kinematic viscosity (m<span class="math notranslate nohighlight">\(^2\)</span>/s)</p></td>
+<td><p>1.3101·10<span class="math notranslate nohighlight">\(^{-6}\)</span></p></td>
+<td><p>1.0105·100<span class="math notranslate nohighlight">\(^{-6}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>dynamic viscosity (Pa<span class="math notranslate nohighlight">\(\cdot\)</span>s)</p></td>
+<td><p>1.3097·10<span class="math notranslate nohighlight">\(^{-3}\)</span></p></td>
+<td><p>1.3097·100<span class="math notranslate nohighlight">\(^{-3}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p>The <em>intrinsic permeability</em> can be written in terms of specific weight or weight density [ML<span class="math notranslate nohighlight">\(^{-2}\)</span>T<span class="math notranslate nohighlight">\(^{-2}\)</span>] (or in metric unit- N/m<span class="math notranslate nohighlight">\(^3\)</span>), <span class="math notranslate nohighlight">\(\gamma = \rho\cdot g\)</span> as</p>
+<div class="math notranslate nohighlight">
+\[
+k = \frac{\eta}{\gamma}K
+\]</div>
+</section>
+<section id="id5">
+<h3><span class="section-number">3.3.5. </span>Example problem<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
+<div class="admonition-instrinsic-permeability admonition">
+<p class="admonition-title">Instrinsic Permeability</p>
+<p>The intrinsic permeability of a consolidated rock is <span class="math notranslate nohighlight">\(2,7 \cdot 10^{-11} cm^2\)</span>. What is the hydraulic conductivity for water at 20°C</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Let us find the hydraulic conductivity.&quot;</span><span class="p">)</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="mf">2.7e-15</span> <span class="c1"># intrinsic permeability [m^2]</span>
+<span class="n">rho</span> <span class="o">=</span> <span class="mf">999.7</span> <span class="c1"># density at 20°C [kg/m^3]</span>
+<span class="n">eta</span> <span class="o">=</span> <span class="mf">0.013097</span> <span class="c1"># dynamic viscosity at 20°C [Pa*s]</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span> <span class="c1"># [m/s^2]</span>
+
+<span class="c1"># solution</span>
+<span class="n">K</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="p">((</span><span class="n">rho</span> <span class="o">*</span> <span class="n">g</span><span class="p">)</span><span class="o">/</span><span class="n">eta</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;intrinsic permeability = </span><span class="si">{}</span><span class="s2"> m</span><span class="se">\u00b2\n</span><span class="s2">density = </span><span class="si">{}</span><span class="s2"> kg/m</span><span class="se">\u00b3\n</span><span class="s2">dynamic viscosity = </span><span class="si">{}</span><span class="s2"> Pa*s&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">eta</span><span class="p">),</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The resulting hydraulic conductivity at 20°C is </span><span class="si">{0:0.1e}</span><span class="s2"> m/s&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">K</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Let us find the hydraulic conductivity.
+intrinsic permeability = 2.7e-15 m²
+density = 999.7 kg/m³
+dynamic viscosity = 0.013097 Pa*s 
+
+The resulting hydraulic conductivity at 20°C is 2.0e-09 m/s
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="properties-of-intrinsic-permeability">
+<h3><span class="section-number">3.3.6. </span>Properties of Intrinsic Permeability<a class="headerlink" href="#properties-of-intrinsic-permeability" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>The value of intrinsic permeability of a porous medium
+equals 1 m<span class="math notranslate nohighlight">\(^2\)</span> if a fluid with dynamic viscosity of 1 Pa<span class="math notranslate nohighlight">\(\cdot\)</span>s can pass through the porous
+medium at a Darcy velocity of 1 m/s under a hydrostatic pressure gradient of 1 Pa/m
+(horizontal flow).</p></li>
+<li><p>The intrinsic permeability is <em>independent</em> of the fluid moving through the medium and depends only upon the medium properties. Intrinsic
+permeability of unconsolidated porous media is roughly proportional to the square of
+the pore diameter.</p></li>
+<li><p>The intrinsic permeability is used primarily when the density or the viscosity of the
+fluid varies with position.</p></li>
+<li><p>The dimension of <span class="math notranslate nohighlight">\(k\)</span> is [L<span class="math notranslate nohighlight">\(^2\)</span>], but when expressed in m<span class="math notranslate nohighlight">\(^2\)</span> is so small that square
+micrometers (<span class="math notranslate nohighlight">\(\mu\)</span> m)<span class="math notranslate nohighlight">\(^2  = 10^{-12}\)</span> m<span class="math notranslate nohighlight">\(^2\)</span> is used. In the petroleum industry it is expressed in <strong>Darcy</strong>
+(symbol: D) with conversion factor to SI units is:  1 D <span class="math notranslate nohighlight">\(= 0.987\cdot 10^{-12}\)</span> m<span class="math notranslate nohighlight">\(^2\)</span>.</p></li>
+<li><p>Intrinsic permeability for a weakly , well and
+highly permeable aquifers vary in the range 10<span class="math notranslate nohighlight">\(^{-4}\)</span> to 10<span class="math notranslate nohighlight">\(^{-1}\)</span> D, 10<span class="math notranslate nohighlight">\(^{-1}\)</span> to 10<span class="math notranslate nohighlight">\(^2\)</span> D, and <span class="math notranslate nohighlight">\(&gt; 10^2\)</span> D
+respectively</p></li>
+<li><p>Typical value of conductivity and intrinsic permeability is  provided in the fig (from Todd and Mays, 2004) below.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../../../_images/L4_f7.png" id="k-and-k"><img alt="../../../_images/L4_f7.png" class="align-center" id="k-and-k" src="../../../_images/L4_f7.png" style="height: 500px;" /></a>
+</section>
+</section>
+<section id="darcy-velocity-and-interstitial-velocity">
+<h2><span class="section-number">3.4. </span>Darcy velocity and Interstitial velocity<a class="headerlink" href="#darcy-velocity-and-interstitial-velocity" title="Permalink to this headline">#</a></h2>
+<p>Darcy velocity <span class="math notranslate nohighlight">\(v\)</span> is the <em>apparent velocity</em> or <em>fictitious velocity</em> or <em>Darcy flux</em> (discharge per
+unit area). This value of velocity, often referred to as the <em>apparent velocity</em>, is not the
+velocity which the water traveling through the pores is experiencing. The velocity <span class="math notranslate nohighlight">\(v\)</span> is
+referred to as the Darcy velocity because it assumes that flow occurs through the entire cross section of the material without regard to solids and pores. Actually water can flow
+though pores only and the pore spaces vary continuously with location within the
+medium. Therefore the actual velocity is nonuniform, involving endless accelerations,
+deceleration, and changes in direction. To define the <em>actual flow velocity</em> or <strong>interstitial
+velocity</strong>, one must consider the microstructure of the rock material.</p>
+<p>For naturally occurring geologic materials, the microstructure cannot be specified three-
+dimensionally; hence, actual velocities can only be quantified statistically.</p>
+<a class="reference internal image-reference" href="../../../_images/L4_f8.png" id="v-and-v-s"><img alt="../../../_images/L4_f8.png" class="align-center" id="v-and-v-s" src="../../../_images/L4_f8.png" style="height: 255px;" /></a>
+<p>Actually, the flow is limited to the pores (white spaces in Figure) only so that the
+<em>average interstitial velocity</em> or <em>actual velocity</em> or <em>seepage velocity</em> <span class="math notranslate nohighlight">\((v_s)\)</span> through pore space
+can be determined by applying continuity equation</p>
+<div class="math notranslate nohighlight">
+\[
+Q = A_s\cdot v_s = Av
+\]</div>
+<p>Leading to</p>
+<div class="math notranslate nohighlight">
+\[
+v_s = v\frac{A}{A_s} = \frac{v}{\nu_e}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(A\)</span> = total area of soil specimen, and <span class="math notranslate nohighlight">\(A_s\)</span> = area of pores only (see Figure). The velocity
+is divided by effective porosity (<span class="math notranslate nohighlight">\(\nu_e\)</span>) to account for the fact that only a fraction of the total aquifer
+volume is available for flow. This indicates that for a sand with a porosity of 33% the <span class="math notranslate nohighlight">\(v_s
+= 3 v\)</span>. Thus the average interstitial velocity or seepage velocity or linear velocity through
+pore space is never smaller than Darcy velocity. Sometimes, the average flow velocity of
+water in the pore space is termed <em>linear velocity</em>.</p>
+<section id="id6">
+<h3><span class="section-number">3.4.1. </span>Example problem<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+<div class="admonition-interstitial-velocity admonition">
+<p class="admonition-title">Interstitial velocity</p>
+<p>From the data below obtain the average interstitial velocity in the Darcy’s column.</p>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Provided data are:
+
+Flow rate = 0.005 m³/s
+total area = 1000 m²
+effective porosity = 0.4  
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Q</span> <span class="o">=</span> <span class="mf">0.005</span> <span class="c1"># Flow rate [m^3/s]</span>
+<span class="n">A</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1"># total area of soil specimen [m^2]</span>
+<span class="n">ne</span> <span class="o">=</span> <span class="mf">0.4</span> <span class="c1"># effective porosity [-] = </span>
+
+
+<span class="c1">#solution</span>
+<span class="n">vs</span> <span class="o">=</span> <span class="n">Q</span> <span class="o">/</span> <span class="p">(</span><span class="n">ne</span> <span class="o">*</span> <span class="n">A</span><span class="p">)</span><span class="o">*</span><span class="mi">3600</span><span class="o">*</span><span class="mi">24</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The resulting average interstitial velocity is </span><span class="si">{}</span><span class="s2"> m/d&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">vs</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The resulting average interstitial velocity is 1.08 m/d
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="typical-values-of-linear-velocities">
+<h3><span class="section-number">3.4.2. </span>Typical values of linear velocities<a class="headerlink" href="#typical-values-of-linear-velocities" title="Permalink to this headline">#</a></h3>
+<p>Typical values for average interstitial velocities or linear velocities in unconsolidated aquifers are 0.5 m/d to 1 m/d and 30
+m/d to 300 m/d in sand and gravel respectively.</p>
+<p>Linear velocities in fractured or
+karstified aquifers can be rather high along fractures or conduits e.g. 200 m/d to 1.2
+km/d along fractures and 3 km/d to 14 km/d in karst conduits.</p>
+<p>On the contrary, the
+linear velocities are very low in the rock matrix of consolidated aquifers (1 cm/d or
+even less).</p>
+</section>
+<section id="travel-time-and-pore-volume">
+<h3><span class="section-number">3.4.3. </span>Travel time and Pore volume<a class="headerlink" href="#travel-time-and-pore-volume" title="Permalink to this headline">#</a></h3>
+<p>The average linear/pore velocity is the velocity a conservative tracer/dye experiences if
+carried by water through the aquifer.</p>
+<p>The travel time of water through a column of
+length <span class="math notranslate nohighlight">\(L\)</span> is given by</p>
+<div class="math notranslate nohighlight">
+\[
+t = L/v_s
+\]</div>
+<p>It is to be noted that the linear/seepage velocity <span class="math notranslate nohighlight">\(v_s\)</span> has to be used in travel time computation, not the Darcy velocity. The term <em>residence time</em> is can also be found to be used for referring to <em>travel time</em> .</p>
+<p>Yet another important term that is often found in standard texts is <em>pore volume</em>. The _pore volume is the travel time through a column. It can be understood as the <em>time</em> needed to replace the water in the column. In this sense, the pore volume is not a <em>volume</em> but a <em>time</em> (i.e., 1 PV corresponds to the ratio <span class="math notranslate nohighlight">\(L/v_s\)</span> ). The pore volume (PV) is frequently used for <em>normalisation</em> purposes in order to better compare column
+experiments conducted under different flow velocities. This is mostly done for studying the transport behaviour of chemicals dissolved in water and their arrivals at the column outlets</p>
+</section>
+<section id="id7">
+<h3><span class="section-number">3.4.4. </span>Example problem<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
+<div class="admonition-travel-time-and-pore-volume admonition">
+<p class="admonition-title">Travel time and pore volume</p>
+<p>In a tracer test, the breaktrought was measured after 100 h at a distance of 200 m. Determine the linear velocity and the pore volume. what is the darcy velocity, if there is an effective porosity of 0.25.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Provided are:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># travel time of water [h]</span>
+<span class="n">L</span> <span class="o">=</span> <span class="mi">200</span> <span class="c1"># Distance from injection to measurement [m]</span>
+<span class="n">ne</span> <span class="o">=</span> <span class="mf">0.25</span> <span class="c1"># effective porosity [-] </span>
+
+
+<span class="c1">#solution</span>
+<span class="n">vs</span> <span class="o">=</span> <span class="n">L</span> <span class="o">/</span> <span class="n">t</span>
+<span class="n">PV</span> <span class="o">=</span> <span class="n">L</span> <span class="o">/</span> <span class="n">vs</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">vs</span> <span class="o">*</span> <span class="n">ne</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;travel time of water = </span><span class="si">{}</span><span class="s2"> s</span><span class="se">\n</span><span class="s2">Length = </span><span class="si">{}</span><span class="s2"> m</span><span class="se">\u00b2\n</span><span class="s2">effective porosity = </span><span class="si">{}</span><span class="s2"> &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">ne</span><span class="p">),</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The linear velocity is </span><span class="si">{}</span><span class="s2"> m/h </span><span class="se">\n</span><span class="s2">the pore volume is </span><span class="si">{}</span><span class="s2"> s, and </span><span class="se">\n</span><span class="s2">the darcy velocity is </span><span class="si">{}</span><span class="s2"> m/h&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">vs</span><span class="p">,</span> <span class="n">PV</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Provided are:
+
+travel time of water = 100 s
+Length = 200 m²
+effective porosity = 0.25  
+
+The linear velocity is 2.0 m/h 
+the pore volume is 100.0 s, and 
+the darcy velocity is 0.5 m/h
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="chapter-quiz">
+<h2><span class="section-number">3.5. </span>Chapter Quiz<a class="headerlink" href="#chapter-quiz" title="Permalink to this headline">#</a></h2>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="kTcLqFYxOOLh" data-shufflequestions="False"
+               data-shuffleanswers="True"
+               data-preserveresponses="false"
+               data-numquestions="1000000"> <style>:root {
+    --medium-slate-blue: #6f78ffff;
+    --orange-pantone: #f75c03ff;
+    --russian-violet: #392061ff;
+    --maximum-yellow-red: #ffc857ff;
+    --viridian-green: #119da4ff;
+    --incorrect-red: #c80202;
+    --correct-green: #009113;
+}
+
+.Quiz {
+    max-width: 600px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    line-height: 1.1;
+    font-size: 16pt;
+}
+
+.QuizCode {
+    font-size: 14pt;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.QuizCode>pre {
+    padding: 4px;
+}
+
+.Answer {
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+}
+
+.Feedback {
+    font-size: 16pt;
+    text-align: center;
+    min-height: 2em;
+}
+
+.Input {
+    align: left;
+    font-size: 20pt;
+}
+
+.Input-text {
+    display: block;
+    margin: 10px;
+    color: inherit;
+    width: 140px;
+    background-color: #c0c0c0;
+    color: #fff;
+    padding: 5px;
+    padding-left: 10px;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: inherit;
+    line-height: 20pt;
+    border: none;
+    border-radius: 0.2rem;
+    transition: box-shadow 0.1s);
+}
+
+.Input-text:focus {
+    outline: none;
+    background-color: #c0c0c0;
+    box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem #999999;
+}
+
+.MCButton {
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.MCButton p {
+    color: inherit;
+}
+
+.MultipleChoiceQn {
+    padding: 10px;
+    background: var(--medium-slate-blue);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
+.ManyChoiceQn {
+    padding: 10px;
+    background: var(--orange-pantone);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
+.NumericQn {
+    padding: 10px;
+    background: var(--russian-violet);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
+.NumericQn p {
+    color: inherit;
+}
+
+.InpLabel {
+    line-height: 34px;
+    float: left;
+    margin-right: 10px;
+    color: #101010;
+    font-size: 15pt;
+}
+
+.incorrect {
+    color: var(--incorrect-red);
+}
+
+.correct {
+    color: var(--correct-green);
+}
+
+.correctButton {
+    /*
+    background: var(--correct-green);
+   */
+    animation: correct-anim 0.6s ease;
+    animation-fill-mode: forwards;
+    color: #fafafa;
+    box-shadow: inset 0px 0px 5px #555555;
+    outline: none;
+}
+
+.incorrectButton {
+    animation: incorrect-anim 0.8s ease;
+    animation-fill-mode: forwards;
+    color: #fafafa;
+    box-shadow: inset 0px 0px 5px #555555;
+    outline: none;
+}
+
+@keyframes incorrect-anim {
+    100% {
+        background-color: var(--incorrect-red);
+    }
+}
+
+@keyframes correct-anim {
+    100% {
+        background-color: var(--correct-green);
+    }
+}</style></div><script type="application/javascript">var questionskTcLqFYxOOLh=[{"question": "In the original Darcy's experiment, which is INCORRECT", "type": "multiple_choice", "answers": [{"answer": "Column with constant cross section", "correct": false, "feedback": "Incorrect."}, {"answer": "Saturated conditions", "correct": false, "feedback": "Incorrect"}, {"answer": "Sand is the porous medium", "correct": false, "feedback": "Incorrect."}, {"answer": "All are correct statements ", "correct": true, "feedback": "Correct"}]}, {"question": "Water flow in porous media requires changes of", "type": "many_choice", "answers": [{"answer": "Pressure head", "correct": false, "feedback": "Incorrect."}, {"answer": "Elevation head", "correct": false, "feedback": "Incorrect."}, {"answer": "Sum of pressure and elevation head", "correct": true, "feedback": "Correct."}, {"answer": "Change of pressure head", "correct": false, "feedback": "Incorrect."}]}, {"question": "Which is NOT true of Darcy\u00e2\u20ac\u02dcs Law", "type": "multiple_choice", "answers": [{"answer": "Discharge is  proportional to the cross-sectional area", "correct": false, "feedback": "Incorrect."}, {"answer": "discharge is proportional to the difference in hydraulic head", "correct": false, "feedback": "Incorrect."}, {"answer": "Discharge and conductivity are not related", "correct": true, "feedback": "Correct."}, {"answer": "Discharge is inversely proportional to the travel distance", "correct": false, "feedback": "Incorrect."}]}, {"question": "Hydraulic conductivity depends on", "type": "multiple_choice", "answers": [{"answer": "Groundwater viscosity", "correct": false, "feedback": "Incorrect."}, {"answer": "Groundwater density ", "correct": false, "feedback": "Incorrect."}, {"answer": "Effective porosity", "correct": false, "feedback": "false."}, {"answer": "Grain size distribution", "correct": false, "feedback": "false."}, {"answer": "All of the Above", "correct": true, "feedback": "correct"}]}, {"question": "Hydraulic Conductivity can be measured using", "type": "multiple_choice", "answers": [{"answer": "Using Permeameter", "correct": false, "feedback": "Incorrect."}, {"answer": "Using Seive Analysis", "correct": false, "feedback": "Incorrect."}, {"answer": "Using pumping test", "correct": false, "feedback": "Incorrect."}, {"answer": "All of the Above", "correct": true, "feedback": "Correct"}]}, {"question": "In the realtion for Specific storage $S_s$ given as $ S_s $ = $\\Delta V_w $ / $V_T \\cdot \\Delta \\psi$ ", "type": "multiple_choice", "answers": [{"answer": "the properties of porous media only", "correct": true, "feedback": "Correct."}, {"answer": "the properties of fluid only ", "correct": false, "feedback": "Incorrect."}, {"answer": "the viscosity of fluid  ", "correct": true, "feedback": "Correct."}, {"answer": "the combined properties of porous media and fluid", "correct": false, "feedback": "false."}]}, {"question": "Darcy velocity Q and average groundwater velocity v:", "type": "multiple_choice", "answers": [{"answer": "Are not related", "correct": false, "feedback": "Incorrect."}, {"answer": "Darcy velocity = effective porosity times the average groundwater velocity", "correct": false, "feedback": "Incorrect."}, {"answer": "Darcy velocity > average linear velocity", "correct": false, "feedback": "Incorrect."}, {"answer": "Darcy velocity = total porosity times the average groundwater velocity", "correct": true, "feedback": "correct"}]}, {"question": "In the original Darcy's experiment, which is INCORRECT", "type": "multiple_choice", "answers": [{"answer": "Column with constant cross section", "correct": false, "feedback": "Incorrect."}, {"answer": "Saturated conditions", "correct": false, "feedback": "Incorrect."}, {"answer": "Constant discharge through the column", "correct": false, "feedback": "Incorrect"}, {"answer": "Sand is the porous medium", "correct": false, "feedback": "Incorrect."}, {"answer": "All of the above", "correct": true, "feedback": "Correct"}]}, {"question": "Intrinsic Permeability represents", "type": "multiple_choice", "answers": [{"answer": "The properties of porous media only", "correct": true, "feedback": "correct."}, {"answer": "The properties of fluid only ", "correct": false, "feedback": "Incorrect."}, {"answer": "The combined properties of porous media and fluid", "correct": false, "feedback": "false."}, {"answer": "The viscosity of fluid", "correct": false, "feedback": "Incorrect"}]}, {"question": "A pore volume is", "type": "multiple_choice", "answers": [{"answer": "Volume of water in a column", "correct": false, "feedback": "Incorrect."}, {"answer": "Average volume of water in pores", "correct": false, "feedback": "Incorrect."}, {"answer": "The travel time", "correct": true, "feedback": "Correct."}, {"answer": "Is average groundwater flow velocity ", "correct": false, "feedback": "Incorrect."}]}];
+    // Make a random ID
+function makeid(length) {
+    var result = [];
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result.push(characters.charAt(Math.floor(Math.random() * charactersLength)));
+    }
+    return result.join('');
+}
+
+// Choose a random subset of an array. Can also be used to shuffle the array
+function getRandomSubarray(arr, size) {
+    var shuffled = arr.slice(0), i = arr.length, temp, index;
+    while (i--) {
+        index = Math.floor((i + 1) * Math.random());
+        temp = shuffled[index];
+        shuffled[index] = shuffled[i];
+        shuffled[i] = temp;
+    }
+    return shuffled.slice(0, size);
+}
+
+function printResponses(responsesContainer) {
+    var responses=JSON.parse(responsesContainer.dataset.responses);
+    var stringResponses='<B>IMPORTANT!</B>To preserve this answer sequence for submission, when you have finalized your answers: <ol> <li> Copy the text in this cell below "Answer String"</li> <li> Double click on the cell directly below the Answer String, labeled "Replace Me"</li> <li> Select the whole "Replace Me" text</li> <li> Paste in your answer string and press shift-Enter.</li><li>Save the notebook using the save icon or File->Save Notebook menu item</li></ul><br><br><br><b>Answer String:</b><br> ';
+    console.log(responses);
+    responses.forEach((response, index) => {
+        if (response) {
+            console.log(index + ': ' + response);
+            stringResponses+= index + ': ' + response +"<BR>";
+        }
+    });
+    responsesContainer.innerHTML=stringResponses;
+}
+function check_mc() {
+    var id = this.id.split('-')[0];
+    //var response = this.id.split('-')[1];
+    //console.log(response);
+    //console.log("In check_mc(), id="+id);
+    //console.log(event.srcElement.id)           
+    //console.log(event.srcElement.dataset.correct)   
+    //console.log(event.srcElement.dataset.feedback)
+
+    var label = event.srcElement;
+    //console.log(label, label.nodeName);
+    var depth = 0;
+    while ((label.nodeName != "LABEL") && (depth < 20)) {
+        label = label.parentElement;
+        console.log(depth, label);
+        depth++;
+    }
+
+
+
+    var answers = label.parentElement.children;
+
+    //console.log(answers);
+
+
+    // Split behavior based on multiple choice vs many choice:
+    var fb = document.getElementById("fb" + id);
+
+
+
+
+    if (fb.dataset.numcorrect == 1) {
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            //console.log(responsesContainer);
+            var response = label.firstChild.innerText;
+            if (label.querySelector(".QuizCode")){
+                response+= label.querySelector(".QuizCode").firstChild.innerText;
+            }
+            console.log(response);
+            //console.log(document.getElementById("quizWrap"+id));
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            console.log(responses);
+            responses[qnum]= response;
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End code to preserve responses
+        
+        for (var i = 0; i < answers.length; i++) {
+            var child = answers[i];
+            //console.log(child);
+            child.className = "MCButton";
+        }
+
+
+
+        if (label.dataset.correct == "true") {
+            // console.log("Correct action");
+            if ("feedback" in label.dataset) {
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Correct!";
+            }
+            label.classList.add("correctButton");
+
+            fb.className = "Feedback";
+            fb.classList.add("correct");
+
+        } else {
+            if ("feedback" in label.dataset) {
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Incorrect -- try again.";
+            }
+            //console.log("Error action");
+            label.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+    }
+    else {
+        var reset = false;
+        var feedback;
+         if (label.dataset.correct == "true") {
+            if ("feedback" in label.dataset) {
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Correct!";
+            }
+            if (label.dataset.answered <= 0) {
+                if (fb.dataset.answeredcorrect < 0) {
+                    fb.dataset.answeredcorrect = 1;
+                    reset = true;
+                } else {
+                    fb.dataset.answeredcorrect++;
+                }
+                if (reset) {
+                    for (var i = 0; i < answers.length; i++) {
+                        var child = answers[i];
+                        child.className = "MCButton";
+                        child.dataset.answered = 0;
+                    }
+                }
+                label.classList.add("correctButton");
+                label.dataset.answered = 1;
+                fb.className = "Feedback";
+                fb.classList.add("correct");
+
+            }
+        } else {
+            if ("feedback" in label.dataset) {
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Incorrect -- try again.";
+            }
+            if (fb.dataset.answeredcorrect > 0) {
+                fb.dataset.answeredcorrect = -1;
+                reset = true;
+            } else {
+                fb.dataset.answeredcorrect--;
+            }
+
+            if (reset) {
+                for (var i = 0; i < answers.length; i++) {
+                    var child = answers[i];
+                    child.className = "MCButton";
+                    child.dataset.answered = 0;
+                }
+            }
+            label.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            //console.log(responsesContainer);
+            var response = label.firstChild.innerText;
+            if (label.querySelector(".QuizCode")){
+                response+= label.querySelector(".QuizCode").firstChild.innerText;
+            }
+            console.log(response);
+            //console.log(document.getElementById("quizWrap"+id));
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            if (label.dataset.correct == "true") {
+                if (typeof(responses[qnum]) == "object"){
+                    if (!responses[qnum].includes(response))
+                        responses[qnum].push(response);
+                } else{
+                    responses[qnum]= [ response ];
+                }
+            } else {
+                responses[qnum]= response;
+            }
+            console.log(responses);
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End save responses stuff
+
+
+
+        var numcorrect = fb.dataset.numcorrect;
+        var answeredcorrect = fb.dataset.answeredcorrect;
+        if (answeredcorrect >= 0) {
+            fb.textContent = feedback + " [" + answeredcorrect + "/" + numcorrect + "]";
+        } else {
+            fb.textContent = feedback + " [" + 0 + "/" + numcorrect + "]";
+        }
+
+
+    }
+
+    if (typeof MathJax != 'undefined') {
+        var version = MathJax.version;
+        console.log('MathJax version', version);
+        if (version[0] == "2") {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        } else if (version[0] == "3") {
+            MathJax.typeset([fb]);
+        }
+    } else {
+        console.log('MathJax not detected');
+    }
+
+}
+
+function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
+    var shuffled;
+    if (shuffle_answers == "True") {
+        //console.log(shuffle_answers+" read as true");
+        shuffled = getRandomSubarray(qa.answers, qa.answers.length);
+    } else {
+        //console.log(shuffle_answers+" read as false");
+        shuffled = qa.answers;
+    }
+
+
+    var num_correct = 0;
+
+
+
+    shuffled.forEach((item, index, ans_array) => {
+        //console.log(answer);
+
+        // Make input element
+        var inp = document.createElement("input");
+        inp.type = "radio";
+        inp.id = "quizo" + id + index;
+        inp.style = "display:none;";
+        aDiv.append(inp);
+
+        //Make label for input element
+        var lab = document.createElement("label");
+        lab.className = "MCButton";
+        lab.id = id + '-' + index;
+        lab.onclick = check_mc;
+        var aSpan = document.createElement('span');
+        aSpan.classsName = "";
+        //qDiv.id="quizQn"+id+index;
+        if ("answer" in item) {
+            aSpan.innerHTML = jaxify(item.answer);
+            //aSpan.innerHTML=item.answer;
+        }
+        lab.append(aSpan);
+
+        // Create div for code inside question
+        var codeSpan;
+        if ("code" in item) {
+            codeSpan = document.createElement('span');
+            codeSpan.id = "code" + id + index;
+            codeSpan.className = "QuizCode";
+            var codePre = document.createElement('pre');
+            codeSpan.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML = item.code;
+            lab.append(codeSpan);
+            //console.log(codeSpan);
+        }
+
+        //lab.textContent=item.answer;
+
+        // Set the data attributes for the answer
+        lab.setAttribute('data-correct', item.correct);
+        if (item.correct) {
+            num_correct++;
+        }
+        if ("feedback" in item) {
+            lab.setAttribute('data-feedback', item.feedback);
+        }
+        lab.setAttribute('data-answered', 0);
+
+        aDiv.append(lab);
+
+    });
+
+    if (num_correct > 1) {
+        outerqDiv.className = "ManyChoiceQn";
+    } else {
+        outerqDiv.className = "MultipleChoiceQn";
+    }
+
+    return num_correct;
+
+}
+function check_numeric(ths, event) {
+
+    if (event.keyCode === 13) {
+        ths.blur();
+
+        var id = ths.id.split('-')[0];
+
+        var submission = ths.value;
+        if (submission.indexOf('/') != -1) {
+            var sub_parts = submission.split('/');
+            //console.log(sub_parts);
+            submission = sub_parts[0] / sub_parts[1];
+        }
+        //console.log("Reader entered", submission);
+
+        if ("precision" in ths.dataset) {
+            var precision = ths.dataset.precision;
+            // console.log("1:", submission)
+            submission = Math.round((1 * submission + Number.EPSILON) * 10 ** precision) / 10 ** precision;
+            // console.log("Rounded to ", submission, " precision=", precision  );
+        }
+
+
+        //console.log("In check_numeric(), id="+id);
+        //console.log(event.srcElement.id)           
+        //console.log(event.srcElement.dataset.feedback)
+
+        var fb = document.getElementById("fb" + id);
+        fb.style.display = "none";
+        fb.textContent = "Incorrect -- try again.";
+
+        var answers = JSON.parse(ths.dataset.answers);
+        //console.log(answers);
+
+        var defaultFB = "";
+        var correct;
+        var done = false;
+        answers.every(answer => {
+            //console.log(answer.type);
+
+            correct = false;
+            // if (answer.type=="value"){
+            if ('value' in answer) {
+                if (submission == answer.value) {
+                    fb.textContent = jaxify(answer.feedback);
+                    correct = answer.correct;
+                    //console.log(answer.correct);
+                    done = true;
+                }
+                // } else if (answer.type=="range") {
+            } else if ('range' in answer) {
+                //console.log(answer.range);
+                if ((submission >= answer.range[0]) && (submission < answer.range[1])) {
+                    fb.textContent = jaxify(answer.feedback);
+                    correct = answer.correct;
+                    //console.log(answer.correct);
+                    done = true;
+                }
+            } else if (answer.type == "default") {
+                defaultFB = answer.feedback;
+            }
+            if (done) {
+                return false; // Break out of loop if this has been marked correct
+            } else {
+                return true; // Keep looking for case that includes this as a correct answer
+            }
+        });
+
+        if ((!done) && (defaultFB != "")) {
+            fb.innerHTML = jaxify(defaultFB);
+            //console.log("Default feedback", defaultFB);
+        }
+
+        fb.style.display = "block";
+        if (correct) {
+            ths.className = "Input-text";
+            ths.classList.add("correctButton");
+            fb.className = "Feedback";
+            fb.classList.add("correct");
+        } else {
+            ths.className = "Input-text";
+            ths.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            console.log(submission);
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            //console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            console.log(responses);
+            if (submission == ths.value){
+                responses[qnum]= submission;
+            } else {
+                responses[qnum]= ths.value + "(" + submission +")";
+            }
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End code to preserve responses
+
+        if (typeof MathJax != 'undefined') {
+            var version = MathJax.version;
+            console.log('MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([fb]);
+            }
+        } else {
+            console.log('MathJax not detected');
+        }
+        return false;
+    }
+
+}
+
+function isValid(el, charC) {
+    //console.log("Input char: ", charC);
+    if (charC == 46) {
+        if (el.value.indexOf('.') === -1) {
+            return true;
+        } else if (el.value.indexOf('/') != -1) {
+            var parts = el.value.split('/');
+            if (parts[1].indexOf('.') === -1) {
+                return true;
+            }
+        }
+        else {
+            return false;
+        }
+    } else if (charC == 47) {
+        if (el.value.indexOf('/') === -1) {
+            if ((el.value != "") && (el.value != ".")) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    } else if (charC == 45) {
+        var edex = el.value.indexOf('e');
+        if (edex == -1) {
+            edex = el.value.indexOf('E');
+        }
+
+        if (el.value == "") {
+            return true;
+        } else if (edex == (el.value.length - 1)) { // If just after e or E
+            return true;
+        } else {
+            return false;
+        }
+    } else if (charC == 101) { // "e"
+        if ((el.value.indexOf('e') === -1) && (el.value.indexOf('E') === -1) && (el.value.indexOf('/') == -1)) {
+            // Prev symbol must be digit or decimal point:
+            if (el.value.slice(-1).search(/\d/) >= 0) {
+                return true;
+            } else if (el.value.slice(-1).search(/\./) >= 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    } else {
+        if (charC > 31 && (charC < 48 || charC > 57))
+            return false;
+    }
+    return true;
+}
+
+function numeric_keypress(evnt) {
+    var charC = (evnt.which) ? evnt.which : evnt.keyCode;
+
+    if (charC == 13) {
+        check_numeric(this, evnt);
+    } else {
+        return isValid(this, charC);
+    }
+}
+
+
+
+
+
+function make_numeric(qa, outerqDiv, qDiv, aDiv, id) {
+
+
+
+    //console.log(answer);
+
+
+    outerqDiv.className = "NumericQn";
+    aDiv.style.display = 'block';
+
+    var lab = document.createElement("label");
+    lab.className = "InpLabel";
+    lab.textContent = "Type numeric answer here:";
+    aDiv.append(lab);
+
+    var inp = document.createElement("input");
+    inp.type = "text";
+    //inp.id="input-"+id;
+    inp.id = id + "-0";
+    inp.className = "Input-text";
+    inp.setAttribute('data-answers', JSON.stringify(qa.answers));
+    if ("precision" in qa) {
+        inp.setAttribute('data-precision', qa.precision);
+    }
+    aDiv.append(inp);
+    //console.log(inp);
+
+    //inp.addEventListener("keypress", check_numeric);
+    //inp.addEventListener("keypress", numeric_keypress);
+    /*
+    inp.addEventListener("keypress", function(event) {
+        return numeric_keypress(this, event);
+    }
+                        );
+                        */
+    //inp.onkeypress="return numeric_keypress(this, event)";
+    inp.onkeypress = numeric_keypress;
+    inp.onpaste = event => false;
+
+    inp.addEventListener("focus", function (event) {
+        this.value = "";
+        return false;
+    }
+    );
+
+
+}
+function jaxify(string) {
+    var mystring = string;
+
+    var count = 0;
+    var loc = mystring.search(/([^\\]|^)(\$)/);
+
+    var count2 = 0;
+    var loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+
+    //console.log(loc);
+
+    while ((loc >= 0) || (loc2 >= 0)) {
+
+        /* Have to replace all the double $$ first with current implementation */
+        if (loc2 >= 0) {
+            if (count2 % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\[");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\]");
+            }
+            count2++;
+        } else {
+            if (count % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\(");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\)");
+            }
+            count++;
+        }
+        loc = mystring.search(/([^\\]|^)(\$)/);
+        loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+        //console.log(mystring,", loc:",loc,", loc2:",loc2);
+    }
+
+    //console.log(mystring);
+    return mystring;
+}
+
+
+function show_questions(json, mydiv) {
+    console.log('show_questions');
+    //var mydiv=document.getElementById(myid);
+    var shuffle_questions = mydiv.dataset.shufflequestions;
+    var num_questions = mydiv.dataset.numquestions;
+    var shuffle_answers = mydiv.dataset.shuffleanswers;
+
+    if (num_questions > json.length) {
+        num_questions = json.length;
+    }
+
+    var questions;
+    if ((num_questions < json.length) || (shuffle_questions == "True")) {
+        //console.log(num_questions+","+json.length);
+        questions = getRandomSubarray(json, num_questions);
+    } else {
+        questions = json;
+    }
+
+    //console.log("SQ: "+shuffle_questions+", NQ: " + num_questions + ", SA: ", shuffle_answers);
+
+    // Iterate over questions
+    questions.forEach((qa, index, array) => {
+        //console.log(qa.question); 
+
+        var id = makeid(8);
+        //console.log(id);
+
+
+        // Create Div to contain question and answers
+        var iDiv = document.createElement('div');
+        //iDiv.id = 'quizWrap' + id + index;
+        iDiv.id = 'quizWrap' + id;
+        iDiv.className = 'Quiz';
+        iDiv.setAttribute('data-qnum', index);
+        mydiv.appendChild(iDiv);
+        // iDiv.innerHTML=qa.question;
+
+        var outerqDiv = document.createElement('div');
+        outerqDiv.id = "OuterquizQn" + id + index;
+
+        iDiv.append(outerqDiv);
+
+        // Create div to contain question part
+        var qDiv = document.createElement('div');
+        qDiv.id = "quizQn" + id + index;
+        //qDiv.textContent=qa.question;
+        qDiv.innerHTML = jaxify(qa.question);
+
+        outerqDiv.append(qDiv);
+
+        // Create div for code inside question
+        var codeDiv;
+        if ("code" in qa) {
+            codeDiv = document.createElement('div');
+            codeDiv.id = "code" + id + index;
+            codeDiv.className = "QuizCode";
+            var codePre = document.createElement('pre');
+            codeDiv.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML = qa.code;
+            outerqDiv.append(codeDiv);
+            //console.log(codeDiv);
+        }
+
+
+        // Create div to contain answer part
+        var aDiv = document.createElement('div');
+        aDiv.id = "quizAns" + id + index;
+        aDiv.className = 'Answer';
+        iDiv.append(aDiv);
+
+        //console.log(qa.type);
+
+        var num_correct;
+        if (qa.type == "multiple_choice") {
+            num_correct = make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+        } else if (qa.type == "many_choice") {
+            num_correct = make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+        } else if (qa.type == "numeric") {
+            //console.log("numeric");
+            make_numeric(qa, outerqDiv, qDiv, aDiv, id);
+        }
+
+
+        //Make div for feedback
+        var fb = document.createElement("div");
+        fb.id = "fb" + id;
+        //fb.style="font-size: 20px;text-align:center;";
+        fb.className = "Feedback";
+        fb.setAttribute("data-answeredcorrect", 0);
+        fb.setAttribute("data-numcorrect", num_correct);
+        iDiv.append(fb);
+
+
+    });
+    var preserveResponses = mydiv.dataset.preserveresponses;
+    console.log(preserveResponses);
+    console.log(preserveResponses == "true");
+    if (preserveResponses == "true") {
+        console.log(preserveResponses);
+        // Create Div to contain record of answers
+        var iDiv = document.createElement('div');
+        iDiv.id = 'responses' + mydiv.id;
+        iDiv.className = 'JCResponses';
+        // Create a place to store responses as an empty array
+        iDiv.setAttribute('data-responses', '[]');
+
+        // Dummy Text
+        iDiv.innerHTML="<b>Select your answers and then follow the directions that will appear here.</b>"
+        //iDiv.className = 'Quiz';
+        mydiv.appendChild(iDiv);
+    }
+//console.log("At end of show_questions");
+    if (typeof MathJax != 'undefined') {
+        console.log("MathJax version", MathJax.version);
+        var version = MathJax.version;
+        setTimeout(function(){
+            var version = MathJax.version;
+            console.log('After sleep, MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            }
+        }, 500);
+if (typeof version == 'undefined') {
+        } else
+        {
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            } else {
+                console.log("MathJax not found");
+            }
+        }
+    }
+    return false;
+}
+
+        {
+        show_questions(questionskTcLqFYxOOLh,  kTcLqFYxOOLh);
+        }
+        </script></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "iGW-TU-Dresden/iGW_Book",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content\flow\L4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../L3/13_gw_storage.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">2. </span>Groundwater as a reservoir</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../L5/15_het_iso.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Aquifer Heterogeneity and Anisotropy</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Dr Prabhas K. Yadav<br/>
+  
+      &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
+      <div>
+ All content on this site (unless otherwise specified) is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">CC BY-NC-SA 4.0 license</a>
+</div>
+
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

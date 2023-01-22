@@ -1,0 +1,2360 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>6. Quantifying 3D Groundwater Flow &#8212; Groundwater I</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="../../../_static/custom.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="7. Wells" href="../L8/18_wells.html" />
+    <link rel="prev" title="5. Steady-State Groundwater flow in 3D" href="../L6/16_darcy_law_3D.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Groundwater I</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    The Interactive Groundwater-I Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Basics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../background/00_general.html">
+   1. About this Groundwater Course and Contents
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../background/03_basic_hydrogeology.html">
+   2. Course Introduction &amp; Water Cycle
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Flow
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../12_subsurface_structure.html">
+   1. Subsurface Structure
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../L3/13_gw_storage.html">
+   2. Groundwater as a reservoir
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../L4/14_darcy_law_K.html">
+   3. Darcy’s Law and Conductivity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../L5/15_het_iso.html">
+   4. Aquifer Heterogeneity and Anisotropy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../L6/16_darcy_law_3D.html">
+   5. Steady-State Groundwater flow in 3D
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   6. Quantifying 3D Groundwater Flow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../L8/18_wells.html">
+   7. Wells
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Transport
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../transport/L9/21_conservative_transport.html">
+   1. Conservative Transport
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../transport/L10/22_reactive_transport.html">
+   2. Reactive Mass Transport
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Modeling
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../modeling/31_intro_modeling.html">
+   1. Background of Groundwater Modeling
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../background/01_python.html">
+   1. Python Programming language
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../background/02_jupyter.html">
+   2. JUPYTER Notebook Interface for Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/T2/tutorial_02.html">
+   3. Aquifer and Storage Properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/T3/tutorial_03.html">
+   4. Darcy Law and Conductivity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/T4/tutorial_04.html">
+   5. Effective K &amp; Recitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/T5/tutorial_05.html">
+   6. Aquifer Heterogeneity/Anisotropy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/T6/tutorial_06.html">
+   7. Flow in Confined/Unconfined Aquifer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/T7/tutorial_07.html">
+   8. Wells
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/T8/tutorial_08.html">
+   9. Conservative transport
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/T9/tutorial_09.html">
+   10. Reactive transport
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tools
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/decay.html">
+   1. Simulating Mass Budget
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/sieve_analysis.html">
+   2. Simulating Seive Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/effective_K.html">
+   3. Simulating Effective hydraulic conductivity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/uniform_flow_and_well.html">
+   4. Uniform Flow and Well
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/aniso2D.html">
+   5. Simulating the Anisotropy and flow direction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/type_curve_fit.html">
+   6. Type curve and fitting pumping data tool
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/1D_advection_dispersion.html">
+   7. Tool for simulating 1D Conservative Transport (Laboratory Column)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/Kinetics_degradation.html">
+   8. Simulating Kinetics and Degradation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/1D_ditchflow.html">
+   9. Simulating 1D Trench Flow
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Previous Years Q&amp;A
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Q_and_A/GW_exam_2019_20.html">
+   1. Groundwater Exam Solution -  2019-2020
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/iGW-TU-Dresden/iGW_Book/main?urlpath=tree/content/flow/L7/17_quantify_flow.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/iGW-TU-Dresden/iGW_Book/blob/main/content/flow/L7/17_quantify_flow.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/iGW-TU-Dresden/iGW_Book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/iGW-TU-Dresden/iGW_Book/issues/new?title=Issue%20on%20page%20%2Fcontent/flow/L7/17_quantify_flow.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/content/flow/L7/17_quantify_flow.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivation">
+   6.1. Motivation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quantification-of-three-dimension-3d-groundwater-flow">
+   6.2. Quantification of Three-Dimension (3D) Groundwater Flow
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#control-volume">
+     6.2.1. Control Volume
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classification-of-groundwater-flow-regimes">
+     6.2.2. Classification of Groundwater Flow Regimes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conservation-of-volume">
+     6.2.3. Conservation of Volume
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#darcy-s-law">
+     6.2.4. Darcy’s Law
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inflow-and-outflow">
+     6.2.5. Inflow and Outflow
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#budgeting">
+     6.2.6. Budgeting
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#further-versions-of-the-3d-groundwater-flow-equation">
+     6.2.7. Further Versions of the 3D Groundwater Flow Equation:
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#inclusion-of-sources-sinks-q">
+       6.2.7.1. Inclusion of sources/sinks (
+       <span class="math notranslate nohighlight">
+        \(q\)
+       </span>
+       )
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#inclusion-of-anisotropy">
+       6.2.7.2. Inclusion of Anisotropy
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#special-groundwater-problems-and-their-system-equations">
+     6.2.8. Special Groundwater Problems and Their System Equations
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-poisson-equation">
+       6.2.8.1. The Poisson equation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-laplace-equation">
+       6.2.8.2. The Laplace equation
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#two-dimensional-groundwater-flow-in-confined-aquifers">
+   6.3. Two-dimensional Groundwater Flow in Confined Aquifers
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-problem">
+     6.3.1. Example problem
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     6.3.2. Example problem
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-groundwater-flow-equations-for-confined-conditions">
+     6.3.3. 2D Groundwater Flow Equations for Confined Conditions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#two-dimensional-groundwater-flow-in-unconfined-aquifers">
+   6.4. Two-dimensional Groundwater Flow in Unconfined Aquifers
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dupuit-assumptions">
+     6.4.1. Dupuit Assumptions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#complete-formulation-of-groundwater-flow-problems">
+   6.5. Complete Formulation of Groundwater Flow Problems
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#boundary-conditions">
+     6.5.1. Boundary Conditions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#relationships-aquifer-flow-property-and-mathematical-formulation">
+     6.5.2. Relationships Aquifer/Flow Property and Mathematical Formulation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implementing-groundwater-flow-system-equation">
+     6.5.3. Implementing Groundwater Flow System Equation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chapter-quiz">
+   6.6. Chapter Quiz
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Quantifying 3D Groundwater Flow</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivation">
+   6.1. Motivation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quantification-of-three-dimension-3d-groundwater-flow">
+   6.2. Quantification of Three-Dimension (3D) Groundwater Flow
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#control-volume">
+     6.2.1. Control Volume
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classification-of-groundwater-flow-regimes">
+     6.2.2. Classification of Groundwater Flow Regimes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conservation-of-volume">
+     6.2.3. Conservation of Volume
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#darcy-s-law">
+     6.2.4. Darcy’s Law
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inflow-and-outflow">
+     6.2.5. Inflow and Outflow
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#budgeting">
+     6.2.6. Budgeting
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#further-versions-of-the-3d-groundwater-flow-equation">
+     6.2.7. Further Versions of the 3D Groundwater Flow Equation:
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#inclusion-of-sources-sinks-q">
+       6.2.7.1. Inclusion of sources/sinks (
+       <span class="math notranslate nohighlight">
+        \(q\)
+       </span>
+       )
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#inclusion-of-anisotropy">
+       6.2.7.2. Inclusion of Anisotropy
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#special-groundwater-problems-and-their-system-equations">
+     6.2.8. Special Groundwater Problems and Their System Equations
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-poisson-equation">
+       6.2.8.1. The Poisson equation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-laplace-equation">
+       6.2.8.2. The Laplace equation
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#two-dimensional-groundwater-flow-in-confined-aquifers">
+   6.3. Two-dimensional Groundwater Flow in Confined Aquifers
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-problem">
+     6.3.1. Example problem
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     6.3.2. Example problem
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-groundwater-flow-equations-for-confined-conditions">
+     6.3.3. 2D Groundwater Flow Equations for Confined Conditions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#two-dimensional-groundwater-flow-in-unconfined-aquifers">
+   6.4. Two-dimensional Groundwater Flow in Unconfined Aquifers
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dupuit-assumptions">
+     6.4.1. Dupuit Assumptions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#complete-formulation-of-groundwater-flow-problems">
+   6.5. Complete Formulation of Groundwater Flow Problems
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#boundary-conditions">
+     6.5.1. Boundary Conditions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#relationships-aquifer-flow-property-and-mathematical-formulation">
+     6.5.2. Relationships Aquifer/Flow Property and Mathematical Formulation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implementing-groundwater-flow-system-equation">
+     6.5.3. Implementing Groundwater Flow System Equation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chapter-quiz">
+   6.6. Chapter Quiz
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <aside class="sidebar">
+<p class="sidebar-title">Additional Material : Lecture Slides</p>
+<div class="toggle docutils container">
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQezZciHmBczLlVQb-Wtg51_3dCDS4xUN7Xpqv4bpnScuwIQ5WXfAlBpKubemXEqw/embed?start=false&loop=false&delayms=3000" frameborder="0" width="480" height="389" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+</div>
+</aside>
+<section class="tex2jax_ignore mathjax_ignore" id="quantifying-3d-groundwater-flow">
+<h1><span class="section-number">6. </span>Quantifying 3D Groundwater Flow<a class="headerlink" href="#quantifying-3d-groundwater-flow" title="Permalink to this headline">#</a></h1>
+<p><em>(The contents are based on the class lecture materials of Prof. R. Lied. Modifications mostly to fit this specific were done by Dr. P. K. Yadav, and numerical examples were contributed by  Ms. Anne Pförtner and Sophie Pförtner.)</em></p>
+<hr class="docutils" />
+<section id="motivation">
+<h2><span class="section-number">6.1. </span>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">#</a></h2>
+<p>In the previous lectures we attempted to understand and quantify the different sub-surface properties, e.g., hydraulic head, conductivity, and attempted to characterize them in space (homogeneous versus heterogeneous) and direction (isotropic versus anisotropic). Finally, introducing the Darcy’s law in all dimensions.</p>
+<p>In this lecture we will attempt to quantify groundwater flow by developing system equation. This we will begin with a confined aquifers, following that with unconfined aquifer and eventually, we will formulate an approach to quantify general groundwater flow problems.</p>
+</section>
+<section id="quantification-of-three-dimension-3d-groundwater-flow">
+<h2><span class="section-number">6.2. </span>Quantification of Three-Dimension (3D) Groundwater Flow<a class="headerlink" href="#quantification-of-three-dimension-3d-groundwater-flow" title="Permalink to this headline">#</a></h2>
+<section id="control-volume">
+<h3><span class="section-number">6.2.1. </span>Control Volume<a class="headerlink" href="#control-volume" title="Permalink to this headline">#</a></h3>
+<p>A concept of fictitious or mathematical volume is important to discuss before attempting to formulate system equation. The fictitious volume, called <strong>control volume</strong> is a portion of an aquifer which is</p>
+<blockquote>
+<div><p>much smaller than the regions of investigation</p>
+</div></blockquote>
+<blockquote>
+<div><p>much bigger than individual grains or pores</p>
+</div></blockquote>
+<blockquote>
+<div><p>Darcy’s law is fully applicable in the volume.</p>
+</div></blockquote>
+<p>The most important advantage is that the <em>control volume</em> can be advantageously adjusted to the coordinated system used (e.g., rectangular for Cartesian coordinates). The picture below is an attempt to depict a <em>control volume</em> in a natural aquifer.</p>
+<figure class="align-center" id="cv">
+<a class="reference internal image-reference" href="../../../_images/L07_f1.png"><img alt="../../../_images/L07_f1.png" src="../../../_images/L07_f1.png" style="width: 585.9px; height: 215.6px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.1 </span><span class="caption-text">A control volume</span><a class="headerlink" href="#cv" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="classification-of-groundwater-flow-regimes">
+<h3><span class="section-number">6.2.2. </span>Classification of Groundwater Flow Regimes<a class="headerlink" href="#classification-of-groundwater-flow-regimes" title="Permalink to this headline">#</a></h3>
+<p>Since we intend to formulate system equations for groundwater flow, it is important that we first classify the groundwater problems as per the flow regimes. In general such classification can contain:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Property</strong></p></th>
+<th class="head"><p><strong>Problem-Type</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Dimension-wise</strong></p></td>
+<td><p>1D, 2D or 3D</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Time-function</strong></p></td>
+<td><p>Stead-State or transient</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Space-dependent</strong></p></td>
+<td><p>Homogeneous or heterogeneous</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Direction-dependent</strong></p></td>
+<td><p>Isotropic or anisotropic</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Aquifer type</strong></p></td>
+<td><p>Confined or unconfined</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Source function</strong></p></td>
+<td><p>With or without source/sinks</p></td>
+</tr>
+</tbody>
+</table>
+<p>The combination presented in the table above amounts to 96 possible combinations and only very exceptional scenarios are possible. Each combination resulting from the table corresponds to a certain equation governing groundwater flow. Thus many similarities in formulation exist but only differences are with respect to details.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>All the formulations of groundwater system equation are based on <strong>just two</strong> principles. They are:</p>
+<ol class="simple">
+<li><p>The conservation of volume</p></li>
+<li><p>Darcy’s law</p></li>
+</ol>
+</div>
+<p>The above two principles are sufficient for formulation of system equations for consolidated aquifers. The system equations for consolidated aquifers can be bit more complicated. This course only very limitedly deals with such aquifers.</p>
+</section>
+<section id="conservation-of-volume">
+<h3><span class="section-number">6.2.3. </span>Conservation of Volume<a class="headerlink" href="#conservation-of-volume" title="Permalink to this headline">#</a></h3>
+<p>Let us consider a control volume with inlet and outlet as shown in the figure below.</p>
+<figure class="align-center" id="vol-bud">
+<a class="reference internal image-reference" href="../../../_images/L07_f2.png"><img alt="../../../_images/L07_f2.png" src="../../../_images/L07_f2.png" style="width: 467.6px; height: 341.6px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.2 </span><span class="caption-text">Conservation of volume</span><a class="headerlink" href="#vol-bud" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The volume budget in this control volume can be expressed as:</p>
+<p>\begin{equation}
+\frac{\Delta V_w}{\Delta t} = Q_{in} - Q_{out}
+\end{equation}</p>
+<p>The scenario that can be considered with the conservation of volume are:</p>
+<ul class="simple">
+<li><p>3D</p></li>
+<li><p>transient</p></li>
+<li><p>isotropic</p></li>
+<li><p>heterogeneous</p></li>
+<li><p>confined</p></li>
+<li><p>without sources/sinks</p></li>
+</ul>
+</section>
+<section id="darcy-s-law">
+<h3><span class="section-number">6.2.4. </span>Darcy’s Law<a class="headerlink" href="#darcy-s-law" title="Permalink to this headline">#</a></h3>
+<p>The generalized Darcy’s law is</p>
+<div class="math notranslate nohighlight">
+\[
+v_f = -K \cdot \text{grad}h
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(K\)</span> when the principal axes not aligned to the domain coordinates is gives as (see <a class="reference internal" href="../L6/16_darcy_law_3D.html"><span class="doc">Steady-State Groundwater flow in 3D</span></a>)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+K_{xx}, K_{xy},  K_{xz} \\
+K_{xy}, K_{yy}, K_{yz}\\
+K_{xz}, K_{yz}, K_{zz}
+\end{bmatrix}
+\end{split}\]</div>
+<p>It is to be noted that <span class="math notranslate nohighlight">\(K\)</span> is a scalar for isotropic aquifers and tensor (as above) for anisotropic aquifers. Further, in the Darcy’s law, the gradient vector [-] is oriented in the direction of the steepest <em>increase</em> in hydraulic head. The minus sign indicates that groundwater flow is directed from <strong>large</strong> to <strong>small</strong> head values.</p>
+</section>
+<section id="inflow-and-outflow">
+<h3><span class="section-number">6.2.5. </span>Inflow and Outflow<a class="headerlink" href="#inflow-and-outflow" title="Permalink to this headline">#</a></h3>
+<p>The importance of control volume can be now observed as we derive the system equations for groundwater flow. The control volume as stated earlier has a very small size compared to the region of investigation. This entails that the changes of Darcy velocity components across this volume can therefore considered to be linear, i.e., the flow components do not meander. With this assumption, the linear changes are obtained by multiplying first-order derivatives with corresponding distance (see figure below). Mathematically put we have</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="../../../_images/L07_f2.png"><img alt="../../../_images/L07_f2.png" src="../../../_images/L07_f2.png" style="width: 467.6px; height: 341.6px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.3 </span><span class="caption-text">Conservation of volume</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>The sum of all discharge at the inlets:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+Q_{in} = v_{fx}\Delta y \Delta z + v_{fy}\Delta x \Delta z + v_{fz}\Delta x \Delta y 
+\]</div>
+<p><strong>The sum of all discharge at the outlets:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+Q_{out} = \bigg(v_{fx}+\frac{\partial v_{fx}}{\partial x} \Delta x\bigg)\Delta y \Delta z + 
+\bigg(v_{fy}+\frac{\partial v_{fy}}{\partial y} \Delta y\bigg)\Delta x \Delta z +
+\bigg(v_{fz}+\frac{\partial v_{fz}}{\partial z} \Delta z\bigg)\Delta x \Delta y
+\]</div>
+<p><strong>The different in discharge between inlet and outlet</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+Q_{in}-Q_{out}=-\frac{\partial v_{fx}}{\partial x}\Delta x\Delta y \Delta z
+-\frac{\partial v_{fy}}{\partial y}\Delta x\Delta y \Delta z  
+-\frac{\partial v_{fz}}{\partial z}\Delta x\Delta y \Delta z 
+\]</div>
+<p>Now, as we discussed in <a class="reference internal" href="../L3/13_gw_storage.html"><span class="doc">Groundwater as a reservoir</span></a> it is known that change in water volume in an specific volumetric space is</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\Delta V_w}{\Delta x \Delta y \Delta z} \propto \Delta h
+\]</div>
+<p>which was formulated as</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta V_w = S_s\Delta h \Delta x \Delta y \Delta z  
+\]</div>
+<p>That is, the value of the storage coefficient corresponds to the change in water volume within a unit control volume if hydraulic head is increased/decreased by one unit.</p>
+</section>
+<section id="budgeting">
+<h3><span class="section-number">6.2.6. </span>Budgeting<a class="headerlink" href="#budgeting" title="Permalink to this headline">#</a></h3>
+<p>Equations (1), (2) and (3) can be combined to obtain the expression for the water budget, i.e., rate of change of water volume, which is</p>
+<div class="math notranslate nohighlight">
+\[
+S_s\frac{\Delta h}{\Delta t} = -\frac{\partial v_{fx}}{\partial x} - \frac{\partial v_{fy}}{\partial y} - \frac{\partial v_{fz}}{\partial z} 
+\]</div>
+<p>letting <strong><span class="math notranslate nohighlight">\(\Delta t \to 0\)</span>,</strong> the above expression transforms to</p>
+<div class="math notranslate nohighlight">
+\[
+S_s\frac{\partial h}{\partial t} = -\frac{\partial v_{fx}}{\partial x} - \frac{\partial v_{fy}}{\partial y} - \frac{\partial v_{fz}}{\partial z} 
+\]</div>
+<p>Now, replacing Darcy’s velocity vector by components:</p>
+<div class="math notranslate nohighlight">
+\[
+v_{fx}= -K \frac{\partial h}{\partial x},
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+v_{fy}= -K \frac{\partial h}{\partial y},\, \text{ and}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+v_{fz}= -K \frac{\partial h}{\partial z}
+\]</div>
+<p>we get the a system equation for a groundwater flow as</p>
+<div class="admonition-groundwater-system-equation-for-a-3d-transient-homogeneous-and-isotropic-aquifers admonition">
+<p class="admonition-title">Groundwater system equation for a 3D transient homogeneous and isotropic aquifers </p>
+<div class="math notranslate nohighlight">
+\[
+S_s\frac{\partial h}{\partial t} = \frac{\partial }{\partial x} \bigg(K \frac{\partial h}{\partial x}\bigg) + \frac{\partial}{\partial y} \bigg(K \frac{\partial h}{\partial y}\bigg) + \frac{\partial }{\partial z}\bigg(K \frac{\partial h}{\partial z} \bigg)
+\]</div>
+</div>
+</section>
+<section id="further-versions-of-the-3d-groundwater-flow-equation">
+<h3><span class="section-number">6.2.7. </span>Further Versions of the 3D Groundwater Flow Equation:<a class="headerlink" href="#further-versions-of-the-3d-groundwater-flow-equation" title="Permalink to this headline">#</a></h3>
+<p>The groundwater system equation derived above can be modified in several ways to align with the problem in question. Few modifications are presented below.</p>
+<section id="inclusion-of-sources-sinks-q">
+<h4><span class="section-number">6.2.7.1. </span>Inclusion of sources/sinks (<span class="math notranslate nohighlight">\(q\)</span>)<a class="headerlink" href="#inclusion-of-sources-sinks-q" title="Permalink to this headline">#</a></h4>
+<p><strong>Source</strong> in groundwater system can be for example water transferred to groundwater from river or more often encountered case of <em>water injection</em> through wells. Similarly, <strong>sinks</strong> can be <em>water abstraction</em> or drainage of groundwater to the river (or any other surface water bodies). The sources/sinks can be represented by term <span class="math notranslate nohighlight">\(q\)</span> [1/T] in the groundwater system equation, which leads to</p>
+<div class="math notranslate nohighlight">
+\[
+S_s\frac{\partial h}{\partial t} = \frac{\partial }{\partial x} \bigg(K \frac{\partial h}{\partial x}\bigg) + \frac{\partial}{\partial y} \bigg(K \frac{\partial h}{\partial y}\bigg) + \frac{\partial }{\partial z}\bigg(K \frac{\partial h}{\partial z} \bigg) + q
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There can be several sources and sinks term and they can be simply added to the equation. A care has to be taken on the dimension [1/T] of the sources and sinks</p>
+</div>
+</section>
+<section id="inclusion-of-anisotropy">
+<h4><span class="section-number">6.2.7.2. </span>Inclusion of Anisotropy<a class="headerlink" href="#inclusion-of-anisotropy" title="Permalink to this headline">#</a></h4>
+<p>For simplicity, we assume that principal axes of anisotropy are in parallel with the coordinate axes. This makes the groundwater equation take the form:</p>
+<div class="math notranslate nohighlight">
+\[
+S_s\frac{\partial h}{\partial t} = \frac{\partial }{\partial x} \bigg(K_x \frac{\partial h}{\partial x}\bigg) + \frac{\partial}{\partial y} \bigg(K_y \frac{\partial h}{\partial y}\bigg) + \frac{\partial }{\partial z}\bigg(K_z \frac{\partial h}{\partial z} \bigg) + q
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Every directional <span class="math notranslate nohighlight">\(K\)</span>’s have to be considered (see <a class="reference internal" href="../L6/16_darcy_law_3D.html"><span class="doc">Steady-State Groundwater flow in 3D</span></a>) if principal axes of anisotropy is not parallel with the considered coordinate axes.</p>
+</div>
+</section>
+</section>
+<section id="special-groundwater-problems-and-their-system-equations">
+<h3><span class="section-number">6.2.8. </span>Special Groundwater Problems and Their System Equations<a class="headerlink" href="#special-groundwater-problems-and-their-system-equations" title="Permalink to this headline">#</a></h3>
+<section id="the-poisson-equation">
+<h4><span class="section-number">6.2.8.1. </span>The Poisson equation<a class="headerlink" href="#the-poisson-equation" title="Permalink to this headline">#</a></h4>
+<p>The Poisson equation deals with groundwater problem with the following condition:</p>
+<ul class="simple">
+<li><p>Steady-state</p></li>
+<li><p>Homogeneous</p></li>
+<li><p>Isotropic</p></li>
+<li><p>Confined</p></li>
+<li><p>Sources/sinks</p></li>
+</ul>
+<p>The equation is given as</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial^2 h }{\partial x^2} + \frac{\partial^2 h}{\partial y^2} + \frac{\partial^2 h}{\partial z^2} = -\frac{q}{K} 
+\]</div>
+</section>
+<section id="the-laplace-equation">
+<h4><span class="section-number">6.2.8.2. </span>The Laplace equation<a class="headerlink" href="#the-laplace-equation" title="Permalink to this headline">#</a></h4>
+<p>The Laplace equation deals with groundwater problem with the following condition:</p>
+<ul class="simple">
+<li><p>Steady-state</p></li>
+<li><p>Homogeneous</p></li>
+<li><p>Isotropic</p></li>
+<li><p>Confined</p></li>
+<li><p>Without sources/sinks</p></li>
+</ul>
+<p>The equation is given as</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial^2 h }{\partial x^2} + \frac{\partial^2 h}{\partial y^2} + \frac{\partial^2 h}{\partial z^2} = 0 
+\]</div>
+</section>
+</section>
+</section>
+<section id="two-dimensional-groundwater-flow-in-confined-aquifers">
+<h2><span class="section-number">6.3. </span>Two-dimensional Groundwater Flow in Confined Aquifers<a class="headerlink" href="#two-dimensional-groundwater-flow-in-confined-aquifers" title="Permalink to this headline">#</a></h2>
+<p>For most unconsolidated aquifers it is observed that groundwater flow components perpendicular to layering are negligible (see figure below). Therefore, groundwater flow problems are frequently treated as two-dimensional, i.e., employing only two spaces coordinates.</p>
+<figure class="align-center" id="d-confined">
+<a class="reference internal image-reference" href="../../../_images/L07_f4.png"><img alt="../../../_images/L07_f4.png" src="../../../_images/L07_f4.png" style="width: 446.20000000000005px; height: 288.40000000000003px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.4 </span><span class="caption-text">2D- flow in confined aquifers</span><a class="headerlink" href="#d-confined" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The control volume in the confined aquifer is extended over the entire layer thickness of <span class="math notranslate nohighlight">\(m\)</span>. If an aquifer consists of several distinct major layers, the two-dimensional approach is used for each layer separately and, in addition, water transfer between layers is handled by appropriate source/sink terms (not shown in figure).</p>
+<p>The step from three to two dimensions requires to <strong>sum up</strong> hydraulic conductivity values over the entire layer thickness in order to correctly quantity two-dimensional groundwater flow. This is done by introducing <strong>transmissivities</strong> <span class="math notranslate nohighlight">\(T_x\)</span> and <span class="math notranslate nohighlight">\(T_y\)</span> [L<sup>2</sup>/T] as follows:</p>
+<div class="math notranslate nohighlight">
+\[
+T_x = K_x\cdot m, \text{and}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+T_y = K_y\cdot m
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(K_x\)</span> and <span class="math notranslate nohighlight">\(K_y\)</span> denote vertically averaged hydraulic conductivities [L/T] along the <span class="math notranslate nohighlight">\(x-\)</span> and <span class="math notranslate nohighlight">\(y-\)</span> coordinate, respectively. For a confined aquifer which is horizontally isotropic we simply have</p>
+<div class="math notranslate nohighlight">
+\[
+T = K\cdot m
+\]</div>
+<section id="example-problem">
+<h3><span class="section-number">6.3.1. </span>Example problem<a class="headerlink" href="#example-problem" title="Permalink to this headline">#</a></h3>
+<div class="admonition-hydraulic-gradient-in-2d admonition">
+<p class="admonition-title">Hydraulic gradient in 2D</p>
+<p>Calculate the transmissivity for an isotropic <strong>confined</strong> aquifer.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\033</span><span class="s2">[1mProvided are:</span><span class="se">\033</span><span class="s2">[0m</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">K</span> <span class="o">=</span> <span class="mf">5e-4</span> <span class="c1"># m/s, hydraulic conductivity</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">45</span> <span class="c1"># m, aquifer thickness</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hydraulic conductivity = </span><span class="si">{}</span><span class="s2"> m/s</span><span class="se">\n</span><span class="s2">aquifer thickness = </span><span class="si">{}</span><span class="s2"> m</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">m</span><span class="p">),)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Provided are:</span>
+
+hydraulic conductivity = 0.0005 m/s
+aquifer thickness = 45 m
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K</span> <span class="o">=</span> <span class="mf">5e-4</span> <span class="c1"># m/s, hydraulic conductivity</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">45</span> <span class="c1"># m, aquifer thickness</span>
+
+<span class="c1">#solution</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">K</span><span class="o">*</span><span class="n">m</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[1mSolution:</span><span class="se">\033</span><span class="s2">[0m</span><span class="se">\n</span><span class="s2">The resulting transmissivity is </span><span class="se">\033</span><span class="s2">[1m</span><span class="si">{:02.4}</span><span class="s2"> m²/s</span><span class="se">\033</span><span class="s2">[0m.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">T</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Solution:</span>
+The resulting transmissivity is <span class=" -Color -Color-Bold">0.0225 m²/s</span>.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id2">
+<h3><span class="section-number">6.3.2. </span>Example problem<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<div class="admonition-hydraulic-gradient-in-2d admonition">
+<p class="admonition-title">Hydraulic gradient in 2D</p>
+<p>Calculate the transmissivity for an isotropic <strong>unconfined aquifer</strong>.</p>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Provided are:</span>
+
+hydraulic conductivity = 0.0005 m/s
+hydraulic head = 130 m
+aquifer bottom elevation = 110 m
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K</span> <span class="o">=</span> <span class="mf">5e-4</span> <span class="c1"># m/s, hydraulich conducticity</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mi">130</span> <span class="c1"># m, hydraulic head</span>
+<span class="n">z_bot</span> <span class="o">=</span> <span class="mi">110</span> <span class="c1"># m, aquifer bottom elevation</span>
+
+<span class="c1">#solution</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">K</span><span class="o">*</span><span class="p">(</span><span class="n">h</span><span class="o">-</span><span class="n">z_bot</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[1mSolution:</span><span class="se">\033</span><span class="s2">[0m</span><span class="se">\n</span><span class="s2">The resulting transmissivity is </span><span class="se">\033</span><span class="s2">[1m</span><span class="si">{:02.4}</span><span class="s2"> m²/s</span><span class="se">\033</span><span class="s2">[0m.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">T</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Solution:</span>
+The resulting transmissivity is <span class=" -Color -Color-Bold">0.01 m²/s</span>.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="d-groundwater-flow-equations-for-confined-conditions">
+<h3><span class="section-number">6.3.3. </span>2D Groundwater Flow Equations for Confined Conditions<a class="headerlink" href="#d-groundwater-flow-equations-for-confined-conditions" title="Permalink to this headline">#</a></h3>
+<p>As was mentioned in <a class="reference internal" href="../L3/13_gw_storage.html"><span class="doc">Groundwater as a reservoir</span></a>, the storage coefficient <span class="math notranslate nohighlight">\(S\)</span> [-] is to be used instead of <span class="math notranslate nohighlight">\(S_s\)</span> [1/L] if vertical flow components are neglected. This results in the following 2D groundwater flow equations without sources/sinks:</p>
+<div class="math notranslate nohighlight">
+\[
+S\frac{\partial h}{\partial t} = \frac{\partial }{\partial x}\bigg(T_x\frac{\partial h}{\partial x}\bigg) + \frac{\partial }{\partial y}\bigg(T_y\frac{\partial h}{\partial y}\bigg)
+\]</div>
+<p>The 2D groundwater flow equation with sources/sinks:</p>
+<div class="math notranslate nohighlight">
+\[
+S\frac{\partial h}{\partial t} = \frac{\partial }{\partial x}\bigg(T_x\frac{\partial h}{\partial x}\bigg) + \frac{\partial }{\partial y}\bigg(T_y\frac{\partial h}{\partial y}\bigg) + N
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(N\)</span> denotes the volumetric flux due to source/sinks per unit surface area [L/T].</p>
+</section>
+</section>
+<section id="two-dimensional-groundwater-flow-in-unconfined-aquifers">
+<h2><span class="section-number">6.4. </span>Two-dimensional Groundwater Flow in Unconfined Aquifers<a class="headerlink" href="#two-dimensional-groundwater-flow-in-unconfined-aquifers" title="Permalink to this headline">#</a></h2>
+<p>For unconfined layers, the <em>control volume</em> extends from the aquifer bottom to the groundwater table (see figure below). This implies that the height of the control volume depends on the flow behaviour.</p>
+<figure class="align-center" id="d-unconfined">
+<a class="reference internal image-reference" href="../../../_images/L07_f5.png"><img alt="../../../_images/L07_f5.png" src="../../../_images/L07_f5.png" style="width: 371.20000000000005px; height: 316.40000000000003px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.5 </span><span class="caption-text">2D- flow in unconfined aquifers</span><a class="headerlink" href="#d-unconfined" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Since the height of the control volume depends on the flow behaviour, the transmissivities are defined by using hydraulic head <span class="math notranslate nohighlight">\(h\)</span> to account for the saturated thickness:</p>
+<div class="math notranslate nohighlight">
+\[
+T_x = K_x \cdot (h-z_{bot})
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+T_y = K_y \cdot (h-z_{bot})
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(z_{bot}\)</span> represents the elevation of the aquifer bottom [L]. Formally, the 2D groundwater flow equation for unconfined aquifers is the same as for the confined conditions, i.e.,</p>
+<div class="math notranslate nohighlight">
+\[
+S\frac{\partial h}{\partial t} = \frac{\partial }{\partial x}\bigg(T_x\frac{\partial h}{\partial x}\bigg) + \frac{\partial }{\partial y}\bigg(T_y\frac{\partial h}{\partial y}\bigg) + N
+\]</div>
+<p>However, transmissivities are computed in a different way. The above equation is also termed <strong>Boussinesq equation</strong>.</p>
+<section id="dupuit-assumptions">
+<h3><span class="section-number">6.4.1. </span>Dupuit Assumptions<a class="headerlink" href="#dupuit-assumptions" title="Permalink to this headline">#</a></h3>
+<p>The Boussinesq equation for 2D groundwater flow in unconfined aquifer is based on the following assumptions which are due to Dupuit (1863)<sup><a class="footnote-reference brackets" href="#dupuit" id="id3">1</a></sup>. The Dupuit’s work can be expressed in the figure below.</p>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="../../../_images/L07_f7.png"><img alt="../../../_images/L07_f7.png" src="../../../_images/L07_f7.png" style="width: 474.0px; height: 322.8px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.6 </span><span class="caption-text">Illustration of Dupuit’s assumptions</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>The Dupuit’s assumptions are</strong>:</p>
+<ul class="simple">
+<li><p>Groundwater flow is horizontal (no vertical flow components).</p></li>
+<li><p>The flow velocity does not vary with depth.</p></li>
+<li><p>Darcy’s law also holds at the water table.</p></li>
+</ul>
+</section>
+</section>
+<section id="complete-formulation-of-groundwater-flow-problems">
+<h2><span class="section-number">6.5. </span>Complete Formulation of Groundwater Flow Problems<a class="headerlink" href="#complete-formulation-of-groundwater-flow-problems" title="Permalink to this headline">#</a></h2>
+<p>The complete formulation of groundwater flow requires following the specific steps. These are:</p>
+<p><strong>Step I</strong> : Specify the geometric properties of the region of interest (dimensionality, shape). <br> <br></p>
+<p><strong>Step II</strong> : Specify values of aquifer parameters (hydraulic conductivity, storage coefficient) by considering spatial variability and anisotropy, if necessary. <br> <br></p>
+<p><strong>Step III</strong> : Select the appropriate flow equation. <br> <br></p>
+<p><strong>Step IV</strong> : Specify the initial condition. (IC):<br></p>
+<p>    <strong>A.</strong> head value at time. <span class="math notranslate nohighlight">\(t=0\)</span> <br>
+    <strong>B.</strong> This step is not required for steady-state problems. <br> <br></p>
+<p><strong>Step IV</strong> : Specify boundary conditions (BC):<br></p>
+<p>    <strong>A.</strong> BCs have to be given along the complete boundary (also at infinity if regions are assumed to be unbounded). <br>
+    <strong>B.</strong> BCs may be time-dependent. <br>
+    <strong>C.</strong> There are three major types of BCs . <br></p>
+<section id="boundary-conditions">
+<h3><span class="section-number">6.5.1. </span>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">#</a></h3>
+<p>The number of boundary conditions required corresponds to the highest space derivative for each coordinate in the flow equation. The three boundary conditions are:</p>
+<figure class="align-center" id="bc-pics">
+<a class="reference internal image-reference" href="../../../_images/L07_f10.png"><img alt="../../../_images/L07_f10.png" src="../../../_images/L07_f10.png" style="width: 780.0px; height: 258.40000000000003px;" /></a>
+</figure>
+<ol class="simple">
+<li><p><strong>Boundary condition of the first kind</strong> or <strong>Dirichlet Boundary condition:</strong> - The head value is given.</p></li>
+<li><p><strong>Boundary condition of the second kind</strong> or <strong>Neumann Boundary condition:</strong> - The component of the head gradient, which is perpendicular to the boundary, is given.</p></li>
+<li><p><strong>Boundary condition of the third kind</strong> or <strong>Cauchy boundary condition</strong> or <strong>Robin boundary condition</strong> (for completeness only): - A relationship between the head value and the component of the head gradient, which is perpendicular to the boundary, is given.</p></li>
+</ol>
+</section>
+<section id="relationships-aquifer-flow-property-and-mathematical-formulation">
+<h3><span class="section-number">6.5.2. </span>Relationships Aquifer/Flow Property and Mathematical Formulation<a class="headerlink" href="#relationships-aquifer-flow-property-and-mathematical-formulation" title="Permalink to this headline">#</a></h3>
+<p>The following table summarizes the relationship between aquifer flow property and the corresponding mathematical formulation.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Aquifer/Flow property</strong></p></th>
+<th class="head"><p><strong>Mathematical Formulation</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Transient</p></td>
+<td><p>with time derivative</p></td>
+</tr>
+<tr class="row-odd"><td><p>Confined</p></td>
+<td><p>linear partial differential equation</p></td>
+</tr>
+<tr class="row-even"><td><p>Anisotropic</p></td>
+<td><p><span class="math notranslate nohighlight">\(T_x \neq T_y\)</span> or <span class="math notranslate nohighlight">\(K_x \neq K_y\)</span>, resp.  (tensor)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Heterogeneous (inhomogeneous)</p></td>
+<td><p>coefficients depends on space coordinate(s)</p></td>
+</tr>
+<tr class="row-even"><td><p>With sources/sinks</p></td>
+<td><p>inhomogeneous differential equation  (contains a term without <span class="math notranslate nohighlight">\(h\)</span>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Fixed-head boundary condition</p></td>
+<td><p>boundary condition of the first kind  (Dirichlet)</p></td>
+</tr>
+<tr class="row-even"><td><p>Flux boundary condition  (in particular: <em>no flow</em>)</p></td>
+<td><p>boundary condition of the second kind (Neumann)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="implementing-groundwater-flow-system-equation">
+<h3><span class="section-number">6.5.3. </span>Implementing Groundwater Flow System Equation<a class="headerlink" href="#implementing-groundwater-flow-system-equation" title="Permalink to this headline">#</a></h3>
+<p>The figure below presents a groundwater problem with associated boundary conditions. The figure shows when a particular boundary condition is suitable. A zero flux or no flow boundary is streamline along boundaries 2-3 and 1-5. Likewise, the lake, whose water level can be constant is considered as prescribed head. From this example, it is evident that boundary conditions should be set based on geographical setting.</p>
+<figure class="align-center" id="concept-gw-problem">
+<a class="reference internal image-reference" href="../../../_images/L07_f11.png"><img alt="../../../_images/L07_f11.png" src="../../../_images/L07_f11.png" style="width: 771.6px; height: 359.4px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.7 </span><span class="caption-text">Setting a groundwater problem (from Kinzelbach, 1986<sup><a class="footnote-reference brackets" href="#kinzelbach1986" id="id5">2</a></sup>)</span><a class="headerlink" href="#concept-gw-problem" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The system equation including the boundary conditions makes a <strong>complete</strong> groundwater flow problem. The solution with inclusion of specific boundary conditions provides a unique or specific solution to the problem.</p>
+<p><strong>Numerical methods</strong> (discussed in lectures 11-13) are generally required to solve groundwater flow problems. In exceptional cases (e.g., single well, steady-state, isotropic and homogeneous), <strong>analytical solution</strong> are also possible (discussed in the next lecture).</p>
+</section>
+</section>
+<section id="chapter-quiz">
+<h2><span class="section-number">6.6. </span>Chapter Quiz<a class="headerlink" href="#chapter-quiz" title="Permalink to this headline">#</a></h2>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="LAOYfrfdPqez" data-shufflequestions="False"
+               data-shuffleanswers="True"
+               data-preserveresponses="false"
+               data-numquestions="1000000"> <style>:root {
+    --medium-slate-blue: #6f78ffff;
+    --orange-pantone: #f75c03ff;
+    --russian-violet: #392061ff;
+    --maximum-yellow-red: #ffc857ff;
+    --viridian-green: #119da4ff;
+    --incorrect-red: #c80202;
+    --correct-green: #009113;
+}
+
+.Quiz {
+    max-width: 600px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    line-height: 1.1;
+    font-size: 16pt;
+}
+
+.QuizCode {
+    font-size: 14pt;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.QuizCode>pre {
+    padding: 4px;
+}
+
+.Answer {
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+}
+
+.Feedback {
+    font-size: 16pt;
+    text-align: center;
+    min-height: 2em;
+}
+
+.Input {
+    align: left;
+    font-size: 20pt;
+}
+
+.Input-text {
+    display: block;
+    margin: 10px;
+    color: inherit;
+    width: 140px;
+    background-color: #c0c0c0;
+    color: #fff;
+    padding: 5px;
+    padding-left: 10px;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: inherit;
+    line-height: 20pt;
+    border: none;
+    border-radius: 0.2rem;
+    transition: box-shadow 0.1s);
+}
+
+.Input-text:focus {
+    outline: none;
+    background-color: #c0c0c0;
+    box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem #999999;
+}
+
+.MCButton {
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.MCButton p {
+    color: inherit;
+}
+
+.MultipleChoiceQn {
+    padding: 10px;
+    background: var(--medium-slate-blue);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
+.ManyChoiceQn {
+    padding: 10px;
+    background: var(--orange-pantone);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
+.NumericQn {
+    padding: 10px;
+    background: var(--russian-violet);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
+.NumericQn p {
+    color: inherit;
+}
+
+.InpLabel {
+    line-height: 34px;
+    float: left;
+    margin-right: 10px;
+    color: #101010;
+    font-size: 15pt;
+}
+
+.incorrect {
+    color: var(--incorrect-red);
+}
+
+.correct {
+    color: var(--correct-green);
+}
+
+.correctButton {
+    /*
+    background: var(--correct-green);
+   */
+    animation: correct-anim 0.6s ease;
+    animation-fill-mode: forwards;
+    color: #fafafa;
+    box-shadow: inset 0px 0px 5px #555555;
+    outline: none;
+}
+
+.incorrectButton {
+    animation: incorrect-anim 0.8s ease;
+    animation-fill-mode: forwards;
+    color: #fafafa;
+    box-shadow: inset 0px 0px 5px #555555;
+    outline: none;
+}
+
+@keyframes incorrect-anim {
+    100% {
+        background-color: var(--incorrect-red);
+    }
+}
+
+@keyframes correct-anim {
+    100% {
+        background-color: var(--correct-green);
+    }
+}</style></div><script type="application/javascript">var questionsLAOYfrfdPqez=[{"question": "Aquifers are frequently treated as two-dimensional (2D) systems. This is JUSTIFIED only when $V_f$", "type": "multiple_choice", "answers": [{"answer": "vertical flow components > > horizontal flow components ", "correct": false, "feedback": "Incorrect"}, {"answer": "vertical flow components < < horizontal flow components", "correct": true, "feedback": "Correct"}, {"answer": "vertical flow components =  horizontal flow components", "correct": false, "feedback": "Incorrect"}, {"answer": "vertical flow components/horizontal flow components = 20", "correct": false, "feedback": "Incorrect"}]}, {"question": "Isolines (isosurfaces) are curves (surfaces) where a physical quantity assumes a (choose all correct answers)", "type": "multiple_choice", "answers": [{"answer": "same value ", "correct": true, "feedback": "Correct"}, {"answer": "value: 0 and 1", "correct": true, "feedback": "Correct"}, {"answer": "value: 0 or 1 or any other single value", "correct": true, "feedback": "Correct"}, {"answer": "multiple value", "correct": false, "feedback": "Incorrect"}]}, {"question": "Hydrologic traiangle can be used for", "type": "many_choice", "answers": [{"answer": "approximate of storage coefficient of an aquifer", "correct": false, "feedback": "Incorrect"}, {"answer": "approximate of conductivity", "correct": false, "feedback": "Incorrect"}, {"answer": "approximate head isolines", "correct": true, "feedback": "Correct"}, {"answer": "Exact quantification of discharge in aquifer", "correct": false, "feedback": "Incorrect"}]}, {"question": "Streamlines or flowlines are curves", "type": "multiple_choice", "answers": [{"answer": "Are in each point perpendicular to the flow direction.", "correct": false, "feedback": "Incorrect"}, {"answer": "That intersects each other.", "correct": false, "feedback": "Incorrect"}, {"answer": "Which are in each point tangential to the flow direction.", "correct": true, "feedback": "Correct"}, {"answer": "All of the above statements are true.", "correct": false, "feedback": "Incorrect"}]}, {"question": "Rules for drawing , which of the below statement is NOT correct?", "type": "multiple_choice", "answers": [{"answer": "Isolines and streamlines are drawn only for the saturated and unsaturated zone", "correct": true, "feedback": "Correct"}, {"answer": "Impermeable boundaries represent a streamline.", "correct": false, "feedback": "Incorrect"}, {"answer": "Boundaries with given constant head values represent isolines", "correct": false, "feedback": "Incorrect"}, {"answer": "Neither isolines nor streamlines intersect each other.", "correct": false, "feedback": "Incorrect"}]}, {"question": "Isochrones are curves ", "type": "multiple_choice", "answers": [{"answer": "Of identical hydraulic head", "correct": false, "feedback": "Inorrect"}, {"answer": "That intersect streamlines at 90\u00c2\u00b0", "correct": false, "feedback": "Incorrect"}, {"answer": " Of identical travel times.", "correct": true, "feedback": "Correct"}, {"answer": "All the above answer are correct", "correct": false, "feedback": "Incorrect"}]}, {"question": "Which aquifer properties are estimated using pumping tests:", "type": "multiple_choice", "answers": [{"answer": "All of the following", "correct": true, "feedback": "Correct"}, {"answer": "Hydraulic conductivity", "correct": false, "feedback": "Incorrect"}, {"answer": "Storativity", "correct": false, "feedback": "Incorrect"}, {"answer": "Transmissivity", "correct": false, "feedback": "Incorrect"}]}, {"question": "The three principal axes of hydraulic conducitivity are oriented", "type": "multiple_choice", "answers": [{"answer": "Along the direction with maximum hydraulic conductivity", "correct": false, "feedback": "Incorrect"}, {"answer": "Along the direction with minimum hydraulic conductivity", "correct": false, "feedback": "Incorrect"}, {"answer": "All of the above statements", "correct": true, "feedback": "Correct"}, {"answer": "Perpendicular to both.", "correct": false, "feedback": "Incorrect"}]}];
+    // Make a random ID
+function makeid(length) {
+    var result = [];
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result.push(characters.charAt(Math.floor(Math.random() * charactersLength)));
+    }
+    return result.join('');
+}
+
+// Choose a random subset of an array. Can also be used to shuffle the array
+function getRandomSubarray(arr, size) {
+    var shuffled = arr.slice(0), i = arr.length, temp, index;
+    while (i--) {
+        index = Math.floor((i + 1) * Math.random());
+        temp = shuffled[index];
+        shuffled[index] = shuffled[i];
+        shuffled[i] = temp;
+    }
+    return shuffled.slice(0, size);
+}
+
+function printResponses(responsesContainer) {
+    var responses=JSON.parse(responsesContainer.dataset.responses);
+    var stringResponses='<B>IMPORTANT!</B>To preserve this answer sequence for submission, when you have finalized your answers: <ol> <li> Copy the text in this cell below "Answer String"</li> <li> Double click on the cell directly below the Answer String, labeled "Replace Me"</li> <li> Select the whole "Replace Me" text</li> <li> Paste in your answer string and press shift-Enter.</li><li>Save the notebook using the save icon or File->Save Notebook menu item</li></ul><br><br><br><b>Answer String:</b><br> ';
+    console.log(responses);
+    responses.forEach((response, index) => {
+        if (response) {
+            console.log(index + ': ' + response);
+            stringResponses+= index + ': ' + response +"<BR>";
+        }
+    });
+    responsesContainer.innerHTML=stringResponses;
+}
+function check_mc() {
+    var id = this.id.split('-')[0];
+    //var response = this.id.split('-')[1];
+    //console.log(response);
+    //console.log("In check_mc(), id="+id);
+    //console.log(event.srcElement.id)           
+    //console.log(event.srcElement.dataset.correct)   
+    //console.log(event.srcElement.dataset.feedback)
+
+    var label = event.srcElement;
+    //console.log(label, label.nodeName);
+    var depth = 0;
+    while ((label.nodeName != "LABEL") && (depth < 20)) {
+        label = label.parentElement;
+        console.log(depth, label);
+        depth++;
+    }
+
+
+
+    var answers = label.parentElement.children;
+
+    //console.log(answers);
+
+
+    // Split behavior based on multiple choice vs many choice:
+    var fb = document.getElementById("fb" + id);
+
+
+
+
+    if (fb.dataset.numcorrect == 1) {
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            //console.log(responsesContainer);
+            var response = label.firstChild.innerText;
+            if (label.querySelector(".QuizCode")){
+                response+= label.querySelector(".QuizCode").firstChild.innerText;
+            }
+            console.log(response);
+            //console.log(document.getElementById("quizWrap"+id));
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            console.log(responses);
+            responses[qnum]= response;
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End code to preserve responses
+        
+        for (var i = 0; i < answers.length; i++) {
+            var child = answers[i];
+            //console.log(child);
+            child.className = "MCButton";
+        }
+
+
+
+        if (label.dataset.correct == "true") {
+            // console.log("Correct action");
+            if ("feedback" in label.dataset) {
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Correct!";
+            }
+            label.classList.add("correctButton");
+
+            fb.className = "Feedback";
+            fb.classList.add("correct");
+
+        } else {
+            if ("feedback" in label.dataset) {
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Incorrect -- try again.";
+            }
+            //console.log("Error action");
+            label.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+    }
+    else {
+        var reset = false;
+        var feedback;
+         if (label.dataset.correct == "true") {
+            if ("feedback" in label.dataset) {
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Correct!";
+            }
+            if (label.dataset.answered <= 0) {
+                if (fb.dataset.answeredcorrect < 0) {
+                    fb.dataset.answeredcorrect = 1;
+                    reset = true;
+                } else {
+                    fb.dataset.answeredcorrect++;
+                }
+                if (reset) {
+                    for (var i = 0; i < answers.length; i++) {
+                        var child = answers[i];
+                        child.className = "MCButton";
+                        child.dataset.answered = 0;
+                    }
+                }
+                label.classList.add("correctButton");
+                label.dataset.answered = 1;
+                fb.className = "Feedback";
+                fb.classList.add("correct");
+
+            }
+        } else {
+            if ("feedback" in label.dataset) {
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Incorrect -- try again.";
+            }
+            if (fb.dataset.answeredcorrect > 0) {
+                fb.dataset.answeredcorrect = -1;
+                reset = true;
+            } else {
+                fb.dataset.answeredcorrect--;
+            }
+
+            if (reset) {
+                for (var i = 0; i < answers.length; i++) {
+                    var child = answers[i];
+                    child.className = "MCButton";
+                    child.dataset.answered = 0;
+                }
+            }
+            label.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            //console.log(responsesContainer);
+            var response = label.firstChild.innerText;
+            if (label.querySelector(".QuizCode")){
+                response+= label.querySelector(".QuizCode").firstChild.innerText;
+            }
+            console.log(response);
+            //console.log(document.getElementById("quizWrap"+id));
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            if (label.dataset.correct == "true") {
+                if (typeof(responses[qnum]) == "object"){
+                    if (!responses[qnum].includes(response))
+                        responses[qnum].push(response);
+                } else{
+                    responses[qnum]= [ response ];
+                }
+            } else {
+                responses[qnum]= response;
+            }
+            console.log(responses);
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End save responses stuff
+
+
+
+        var numcorrect = fb.dataset.numcorrect;
+        var answeredcorrect = fb.dataset.answeredcorrect;
+        if (answeredcorrect >= 0) {
+            fb.textContent = feedback + " [" + answeredcorrect + "/" + numcorrect + "]";
+        } else {
+            fb.textContent = feedback + " [" + 0 + "/" + numcorrect + "]";
+        }
+
+
+    }
+
+    if (typeof MathJax != 'undefined') {
+        var version = MathJax.version;
+        console.log('MathJax version', version);
+        if (version[0] == "2") {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        } else if (version[0] == "3") {
+            MathJax.typeset([fb]);
+        }
+    } else {
+        console.log('MathJax not detected');
+    }
+
+}
+
+function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
+    var shuffled;
+    if (shuffle_answers == "True") {
+        //console.log(shuffle_answers+" read as true");
+        shuffled = getRandomSubarray(qa.answers, qa.answers.length);
+    } else {
+        //console.log(shuffle_answers+" read as false");
+        shuffled = qa.answers;
+    }
+
+
+    var num_correct = 0;
+
+
+
+    shuffled.forEach((item, index, ans_array) => {
+        //console.log(answer);
+
+        // Make input element
+        var inp = document.createElement("input");
+        inp.type = "radio";
+        inp.id = "quizo" + id + index;
+        inp.style = "display:none;";
+        aDiv.append(inp);
+
+        //Make label for input element
+        var lab = document.createElement("label");
+        lab.className = "MCButton";
+        lab.id = id + '-' + index;
+        lab.onclick = check_mc;
+        var aSpan = document.createElement('span');
+        aSpan.classsName = "";
+        //qDiv.id="quizQn"+id+index;
+        if ("answer" in item) {
+            aSpan.innerHTML = jaxify(item.answer);
+            //aSpan.innerHTML=item.answer;
+        }
+        lab.append(aSpan);
+
+        // Create div for code inside question
+        var codeSpan;
+        if ("code" in item) {
+            codeSpan = document.createElement('span');
+            codeSpan.id = "code" + id + index;
+            codeSpan.className = "QuizCode";
+            var codePre = document.createElement('pre');
+            codeSpan.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML = item.code;
+            lab.append(codeSpan);
+            //console.log(codeSpan);
+        }
+
+        //lab.textContent=item.answer;
+
+        // Set the data attributes for the answer
+        lab.setAttribute('data-correct', item.correct);
+        if (item.correct) {
+            num_correct++;
+        }
+        if ("feedback" in item) {
+            lab.setAttribute('data-feedback', item.feedback);
+        }
+        lab.setAttribute('data-answered', 0);
+
+        aDiv.append(lab);
+
+    });
+
+    if (num_correct > 1) {
+        outerqDiv.className = "ManyChoiceQn";
+    } else {
+        outerqDiv.className = "MultipleChoiceQn";
+    }
+
+    return num_correct;
+
+}
+function check_numeric(ths, event) {
+
+    if (event.keyCode === 13) {
+        ths.blur();
+
+        var id = ths.id.split('-')[0];
+
+        var submission = ths.value;
+        if (submission.indexOf('/') != -1) {
+            var sub_parts = submission.split('/');
+            //console.log(sub_parts);
+            submission = sub_parts[0] / sub_parts[1];
+        }
+        //console.log("Reader entered", submission);
+
+        if ("precision" in ths.dataset) {
+            var precision = ths.dataset.precision;
+            // console.log("1:", submission)
+            submission = Math.round((1 * submission + Number.EPSILON) * 10 ** precision) / 10 ** precision;
+            // console.log("Rounded to ", submission, " precision=", precision  );
+        }
+
+
+        //console.log("In check_numeric(), id="+id);
+        //console.log(event.srcElement.id)           
+        //console.log(event.srcElement.dataset.feedback)
+
+        var fb = document.getElementById("fb" + id);
+        fb.style.display = "none";
+        fb.textContent = "Incorrect -- try again.";
+
+        var answers = JSON.parse(ths.dataset.answers);
+        //console.log(answers);
+
+        var defaultFB = "";
+        var correct;
+        var done = false;
+        answers.every(answer => {
+            //console.log(answer.type);
+
+            correct = false;
+            // if (answer.type=="value"){
+            if ('value' in answer) {
+                if (submission == answer.value) {
+                    fb.textContent = jaxify(answer.feedback);
+                    correct = answer.correct;
+                    //console.log(answer.correct);
+                    done = true;
+                }
+                // } else if (answer.type=="range") {
+            } else if ('range' in answer) {
+                //console.log(answer.range);
+                if ((submission >= answer.range[0]) && (submission < answer.range[1])) {
+                    fb.textContent = jaxify(answer.feedback);
+                    correct = answer.correct;
+                    //console.log(answer.correct);
+                    done = true;
+                }
+            } else if (answer.type == "default") {
+                defaultFB = answer.feedback;
+            }
+            if (done) {
+                return false; // Break out of loop if this has been marked correct
+            } else {
+                return true; // Keep looking for case that includes this as a correct answer
+            }
+        });
+
+        if ((!done) && (defaultFB != "")) {
+            fb.innerHTML = jaxify(defaultFB);
+            //console.log("Default feedback", defaultFB);
+        }
+
+        fb.style.display = "block";
+        if (correct) {
+            ths.className = "Input-text";
+            ths.classList.add("correctButton");
+            fb.className = "Feedback";
+            fb.classList.add("correct");
+        } else {
+            ths.className = "Input-text";
+            ths.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            console.log(submission);
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            //console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            console.log(responses);
+            if (submission == ths.value){
+                responses[qnum]= submission;
+            } else {
+                responses[qnum]= ths.value + "(" + submission +")";
+            }
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End code to preserve responses
+
+        if (typeof MathJax != 'undefined') {
+            var version = MathJax.version;
+            console.log('MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([fb]);
+            }
+        } else {
+            console.log('MathJax not detected');
+        }
+        return false;
+    }
+
+}
+
+function isValid(el, charC) {
+    //console.log("Input char: ", charC);
+    if (charC == 46) {
+        if (el.value.indexOf('.') === -1) {
+            return true;
+        } else if (el.value.indexOf('/') != -1) {
+            var parts = el.value.split('/');
+            if (parts[1].indexOf('.') === -1) {
+                return true;
+            }
+        }
+        else {
+            return false;
+        }
+    } else if (charC == 47) {
+        if (el.value.indexOf('/') === -1) {
+            if ((el.value != "") && (el.value != ".")) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    } else if (charC == 45) {
+        var edex = el.value.indexOf('e');
+        if (edex == -1) {
+            edex = el.value.indexOf('E');
+        }
+
+        if (el.value == "") {
+            return true;
+        } else if (edex == (el.value.length - 1)) { // If just after e or E
+            return true;
+        } else {
+            return false;
+        }
+    } else if (charC == 101) { // "e"
+        if ((el.value.indexOf('e') === -1) && (el.value.indexOf('E') === -1) && (el.value.indexOf('/') == -1)) {
+            // Prev symbol must be digit or decimal point:
+            if (el.value.slice(-1).search(/\d/) >= 0) {
+                return true;
+            } else if (el.value.slice(-1).search(/\./) >= 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    } else {
+        if (charC > 31 && (charC < 48 || charC > 57))
+            return false;
+    }
+    return true;
+}
+
+function numeric_keypress(evnt) {
+    var charC = (evnt.which) ? evnt.which : evnt.keyCode;
+
+    if (charC == 13) {
+        check_numeric(this, evnt);
+    } else {
+        return isValid(this, charC);
+    }
+}
+
+
+
+
+
+function make_numeric(qa, outerqDiv, qDiv, aDiv, id) {
+
+
+
+    //console.log(answer);
+
+
+    outerqDiv.className = "NumericQn";
+    aDiv.style.display = 'block';
+
+    var lab = document.createElement("label");
+    lab.className = "InpLabel";
+    lab.textContent = "Type numeric answer here:";
+    aDiv.append(lab);
+
+    var inp = document.createElement("input");
+    inp.type = "text";
+    //inp.id="input-"+id;
+    inp.id = id + "-0";
+    inp.className = "Input-text";
+    inp.setAttribute('data-answers', JSON.stringify(qa.answers));
+    if ("precision" in qa) {
+        inp.setAttribute('data-precision', qa.precision);
+    }
+    aDiv.append(inp);
+    //console.log(inp);
+
+    //inp.addEventListener("keypress", check_numeric);
+    //inp.addEventListener("keypress", numeric_keypress);
+    /*
+    inp.addEventListener("keypress", function(event) {
+        return numeric_keypress(this, event);
+    }
+                        );
+                        */
+    //inp.onkeypress="return numeric_keypress(this, event)";
+    inp.onkeypress = numeric_keypress;
+    inp.onpaste = event => false;
+
+    inp.addEventListener("focus", function (event) {
+        this.value = "";
+        return false;
+    }
+    );
+
+
+}
+function jaxify(string) {
+    var mystring = string;
+
+    var count = 0;
+    var loc = mystring.search(/([^\\]|^)(\$)/);
+
+    var count2 = 0;
+    var loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+
+    //console.log(loc);
+
+    while ((loc >= 0) || (loc2 >= 0)) {
+
+        /* Have to replace all the double $$ first with current implementation */
+        if (loc2 >= 0) {
+            if (count2 % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\[");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\]");
+            }
+            count2++;
+        } else {
+            if (count % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\(");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\)");
+            }
+            count++;
+        }
+        loc = mystring.search(/([^\\]|^)(\$)/);
+        loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+        //console.log(mystring,", loc:",loc,", loc2:",loc2);
+    }
+
+    //console.log(mystring);
+    return mystring;
+}
+
+
+function show_questions(json, mydiv) {
+    console.log('show_questions');
+    //var mydiv=document.getElementById(myid);
+    var shuffle_questions = mydiv.dataset.shufflequestions;
+    var num_questions = mydiv.dataset.numquestions;
+    var shuffle_answers = mydiv.dataset.shuffleanswers;
+
+    if (num_questions > json.length) {
+        num_questions = json.length;
+    }
+
+    var questions;
+    if ((num_questions < json.length) || (shuffle_questions == "True")) {
+        //console.log(num_questions+","+json.length);
+        questions = getRandomSubarray(json, num_questions);
+    } else {
+        questions = json;
+    }
+
+    //console.log("SQ: "+shuffle_questions+", NQ: " + num_questions + ", SA: ", shuffle_answers);
+
+    // Iterate over questions
+    questions.forEach((qa, index, array) => {
+        //console.log(qa.question); 
+
+        var id = makeid(8);
+        //console.log(id);
+
+
+        // Create Div to contain question and answers
+        var iDiv = document.createElement('div');
+        //iDiv.id = 'quizWrap' + id + index;
+        iDiv.id = 'quizWrap' + id;
+        iDiv.className = 'Quiz';
+        iDiv.setAttribute('data-qnum', index);
+        mydiv.appendChild(iDiv);
+        // iDiv.innerHTML=qa.question;
+
+        var outerqDiv = document.createElement('div');
+        outerqDiv.id = "OuterquizQn" + id + index;
+
+        iDiv.append(outerqDiv);
+
+        // Create div to contain question part
+        var qDiv = document.createElement('div');
+        qDiv.id = "quizQn" + id + index;
+        //qDiv.textContent=qa.question;
+        qDiv.innerHTML = jaxify(qa.question);
+
+        outerqDiv.append(qDiv);
+
+        // Create div for code inside question
+        var codeDiv;
+        if ("code" in qa) {
+            codeDiv = document.createElement('div');
+            codeDiv.id = "code" + id + index;
+            codeDiv.className = "QuizCode";
+            var codePre = document.createElement('pre');
+            codeDiv.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML = qa.code;
+            outerqDiv.append(codeDiv);
+            //console.log(codeDiv);
+        }
+
+
+        // Create div to contain answer part
+        var aDiv = document.createElement('div');
+        aDiv.id = "quizAns" + id + index;
+        aDiv.className = 'Answer';
+        iDiv.append(aDiv);
+
+        //console.log(qa.type);
+
+        var num_correct;
+        if (qa.type == "multiple_choice") {
+            num_correct = make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+        } else if (qa.type == "many_choice") {
+            num_correct = make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+        } else if (qa.type == "numeric") {
+            //console.log("numeric");
+            make_numeric(qa, outerqDiv, qDiv, aDiv, id);
+        }
+
+
+        //Make div for feedback
+        var fb = document.createElement("div");
+        fb.id = "fb" + id;
+        //fb.style="font-size: 20px;text-align:center;";
+        fb.className = "Feedback";
+        fb.setAttribute("data-answeredcorrect", 0);
+        fb.setAttribute("data-numcorrect", num_correct);
+        iDiv.append(fb);
+
+
+    });
+    var preserveResponses = mydiv.dataset.preserveresponses;
+    console.log(preserveResponses);
+    console.log(preserveResponses == "true");
+    if (preserveResponses == "true") {
+        console.log(preserveResponses);
+        // Create Div to contain record of answers
+        var iDiv = document.createElement('div');
+        iDiv.id = 'responses' + mydiv.id;
+        iDiv.className = 'JCResponses';
+        // Create a place to store responses as an empty array
+        iDiv.setAttribute('data-responses', '[]');
+
+        // Dummy Text
+        iDiv.innerHTML="<b>Select your answers and then follow the directions that will appear here.</b>"
+        //iDiv.className = 'Quiz';
+        mydiv.appendChild(iDiv);
+    }
+//console.log("At end of show_questions");
+    if (typeof MathJax != 'undefined') {
+        console.log("MathJax version", MathJax.version);
+        var version = MathJax.version;
+        setTimeout(function(){
+            var version = MathJax.version;
+            console.log('After sleep, MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            }
+        }, 500);
+if (typeof version == 'undefined') {
+        } else
+        {
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            } else {
+                console.log("MathJax not found");
+            }
+        }
+    }
+    return false;
+}
+
+        {
+        show_questions(questionsLAOYfrfdPqez,  LAOYfrfdPqez);
+        }
+        </script></div>
+</div>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="dupuit"><span class="brackets"><a class="fn-backref" href="#id3">1</a></span></dt>
+<dd><p>Dupuit, J. (1863), <em>Etudes Théoriques et Pratiques sur le mouvement des Eaux dans les canaux découverts et à travers les terrains perméables</em> (Second ed.). Paris: Dunod.</p>
+</dd>
+<dt class="label" id="kinzelbach1986"><span class="brackets"><a class="fn-backref" href="#id5">2</a></span></dt>
+<dd><p>Kinzelbach, W. (1986), <em>Groundwater Modelling: An Introduction with Sample Programs in BASIC,</em> Elsevier.</p>
+</dd>
+</dl>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "iGW-TU-Dresden/iGW_Book",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content\flow\L7"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../L6/16_darcy_law_3D.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">5. </span>Steady-State Groundwater flow in 3D</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../L8/18_wells.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Wells</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Dr Prabhas K. Yadav<br/>
+  
+      &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
+      <div>
+ All content on this site (unless otherwise specified) is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">CC BY-NC-SA 4.0 license</a>
+</div>
+
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

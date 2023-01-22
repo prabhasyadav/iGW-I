@@ -1,5 +1,5 @@
 {
-  "contents/modeling/lecture_11/31_intro_modeling": {
+  "content\\modeling\\31_intro_modeling": {
     "em_fit": {
       "data": {
         "application/papermill.record/image/png": null,
@@ -11,7 +11,7 @@
           "name": "em_fit"
         },
         "filenames": {
-          "image/png": "/home/prabhasyadav/Dropbox/Jupyterbook/jbook/_build/jupyter_execute/contents/modeling/lecture_11/31_intro_modeling_4_0.png"
+          "image/png": "C:\\Users\\vibhu\\gwtextbook\\_build\\jupyter_execute\\content\\modeling\\31_intro_modeling_4_0.png"
         }
       },
       "output_type": "display_data"

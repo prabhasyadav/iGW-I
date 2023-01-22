@@ -1,0 +1,314 @@
+[  
+    {
+        "question": "The equation $ T_x = K_x  \\cdot (h-Z_{bot}) $ relates the Transmissivity of",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Confined aquifer",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Unconfined aquifer",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Both confined and unconfined aquifer",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "The layered aquifer",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+ 
+        ]
+    },
+    {
+        "question": "Wells are usually operated at the steady-state?",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "True",
+                "correct": true,
+                "feedback": "Correct."
+            },
+
+            {
+                "answer": "False",
+                "correct": false,
+                "feedback": "Incorrect"
+             }   
+        ]
+    },
+
+    {
+        "question": "A well can be",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "A Fully penetrating only",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "A Partially penetrating only",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Neither of the above",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Either a fully penetrating ones or partially penetrating ones",
+                "correct": true,
+                "feedback": "Correct."
+            }
+
+
+         ]
+        
+    },
+    
+    {
+        "question": "Which is NOT a component of a well set in an unconfined aquifer",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Drawdown",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Radius of influence",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Confining layer thickness",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Transmissivity",
+                "correct": true,
+                "feedback": "Correct"
+            }
+ 
+        ]
+    },
+    
+    {
+        "question": "The discharge obtained from the equation $ Q = \\frac{2\\pi m K (H-h)}{2.3 \\log (R/r_w)} $ is for ",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Confined aquifer",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Unconfined aquifer",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "For both confined and unconfined aquifer",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "For partially penetrating well",
+                "correct": false,
+                "feedback": "Incorrect"
+             }   
+        ]
+    },
+    
+
+    
+        {
+        "question": "For a well in an unconfined aquifer, the hydraulic gradient is ",
+        
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Independent of radial distance from the well",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+            {
+                "answer": "Is dependent on the radial distance from the well",
+                "correct": true,
+                "feedback": "correct."
+            },
+            {
+                "answer": "Is related to radius of influence",
+                "correct": false,
+                "feedback": "false."
+            },
+            {
+                "answer": "Is equal to drawdown",
+                "correct": false,
+                "feedback": "Incorrect"
+             }   
+        ]
+    },
+
+        {
+        "question": "The equation $ R = 3000 s \\sqrt{K} $ is ",
+        "type" : "multiple_choice"  ,  
+        "answers": [
+            {
+                "answer": "An analytical equation to obtain radius of influence",
+                "correct": false,
+                "feedback": "Inorrect."
+            },
+           {
+                "answer": "Is commonly used for obtaining drawdown",
+                "correct": false,
+                "feedback": "Incorrect."
+            } ,
+            {
+                "answer": "An empirical equation to obtain radius of influence",
+                "correct": true,
+                "feedback": "correct."
+            } ,
+
+            {
+                "answer": "All the above answer are correct",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+ 
+        ]
+    },
+    
+    
+        {
+        "question": "Which aquifer properties are estimated using pumping tests:",
+        "type" : "multiple_choice"  ,  
+        "answers": [
+            {
+                "answer": "Hydraulic conductivity",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+           {
+                "answer": "Storativity",
+                "correct": false,
+                "feedback": "Incorrect"
+            } ,
+            {
+                "answer": "Transmissivity",
+                "correct": false,
+                "feedback": "Incorrect."
+            } ,
+
+            {
+                "answer": "All above are valid",
+                "correct": true,
+                "feedback": "correct."
+            }
+ 
+        ]
+    },
+    
+        
+        {
+        "question": "In which condition Theis Method CANNOT be used",
+        "type" : "multiple_choice"  ,  
+        "answers": [
+            {
+                "answer": "The aquifer thickness is uniform",
+                "correct": false,
+                "feedback": "Incorrect."
+            },
+           {
+                "answer": "The well is fully penetrating",
+                "correct": false,
+                "feedback": "Incorrect."
+            } ,
+            {
+                "answer": "The aquifer bottom is horizontal",
+                "correct": false,
+                "feedback": "Incorrect."
+            } ,
+
+            {
+                "answer": "For a transient pumping rate",
+                "correct": true,
+                "feedback": "Correct."
+            }
+ 
+        ]
+    },
+    
+    
+            {
+        "question": "In the Theis equation $ s(r,t) = \\frac{Q}{4\\pi T}\\cdot W(u) $ $W(u)$ is",
+        "type" : "multiple_choice"  ,  
+        "answers": [
+            {
+                "answer": "Called a water function",
+                "correct": false,
+                "feedback": "Correct."
+            },
+           {
+                "answer": "Called a well function",
+                "correct": true,
+                "feedback": "correct."
+            } ,
+            {
+                "answer": "Is universal function",
+                "correct": false,
+                "feedback": "Incorrect."
+            } ,
+
+            {
+                "answer": "Is a logarithmic function",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+ 
+        ]
+    },
+    
+                {
+        "question": "The so-called Type curve ",
+        "type" : "multiple_choice"  ,  
+        "answers": [
+            {
+                "answer": "Is aquifer property dependent curve",
+                "correct": true,
+                "feedback": "Correct."
+            },
+           {
+                "answer": "Always coincides with pumping test data",
+                "correct": false,
+                "feedback": "Incorrect."
+            } ,
+            {
+                "answer": "Relates to variation in pumping rate ",
+                "correct": false,
+                "feedback": "Incorrect."
+            } ,
+
+            {
+                "answer": "Is independent of aquifer property",
+                "correct": false,
+                "feedback": "Incorrect."
+            }
+ 
+        ]
+    }
+ ]
+
+
+
+    
+
