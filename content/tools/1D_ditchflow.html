@@ -1,0 +1,798 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>9. Simulating 1D Trench Flow &#8212; Groundwater I</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="../../_static/custom.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="1. Groundwater Exam Solution - 2019-2020" href="../Q_and_A/GW_exam_2019_20.html" />
+    <link rel="prev" title="8. Simulating Kinetics and Degradation" href="Kinetics_degradation.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Groundwater I</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    The Interactive Groundwater-I Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Basics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../background/00_general.html">
+   1. About this Groundwater Course and Contents
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../background/03_basic_hydrogeology.html">
+   2. Course Introduction &amp; Water Cycle
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Flow
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../flow/12_subsurface_structure.html">
+   1. Subsurface Structure
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../flow/L3/13_gw_storage.html">
+   2. Groundwater as a reservoir
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../flow/L4/14_darcy_law_K.html">
+   3. Darcy’s Law and Conductivity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../flow/L5/15_het_iso.html">
+   4. Aquifer Heterogeneity and Anisotropy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../flow/L6/16_darcy_law_3D.html">
+   5. Steady-State Groundwater flow in 3D
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../flow/L7/17_quantify_flow.html">
+   6. Quantifying 3D Groundwater Flow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../flow/L8/18_wells.html">
+   7. Wells
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Transport
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../transport/L9/21_conservative_transport.html">
+   1. Conservative Transport
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../transport/L10/22_reactive_transport.html">
+   2. Reactive Mass Transport
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Modeling
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../modeling/31_intro_modeling.html">
+   1. Background of Groundwater Modeling
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../background/01_python.html">
+   1. Python Programming language
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../background/02_jupyter.html">
+   2. JUPYTER Notebook Interface for Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/T2/tutorial_02.html">
+   3. Aquifer and Storage Properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/T3/tutorial_03.html">
+   4. Darcy Law and Conductivity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/T4/tutorial_04.html">
+   5. Effective K &amp; Recitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/T5/tutorial_05.html">
+   6. Aquifer Heterogeneity/Anisotropy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/T6/tutorial_06.html">
+   7. Flow in Confined/Unconfined Aquifer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/T7/tutorial_07.html">
+   8. Wells
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/T8/tutorial_08.html">
+   9. Conservative transport
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/T9/tutorial_09.html">
+   10. Reactive transport
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tools
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="decay.html">
+   1. Simulating Mass Budget
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sieve_analysis.html">
+   2. Simulating Seive Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="effective_K.html">
+   3. Simulating Effective hydraulic conductivity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="uniform_flow_and_well.html">
+   4. Uniform Flow and Well
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="aniso2D.html">
+   5. Simulating the Anisotropy and flow direction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="type_curve_fit.html">
+   6. Type curve and fitting pumping data tool
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1D_advection_dispersion.html">
+   7. Tool for simulating 1D Conservative Transport (Laboratory Column)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Kinetics_degradation.html">
+   8. Simulating Kinetics and Degradation
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   9. Simulating 1D Trench Flow
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Previous Years Q&amp;A
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Q_and_A/GW_exam_2019_20.html">
+   1. Groundwater Exam Solution -  2019-2020
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/iGW-TU-Dresden/iGW_Book/main?urlpath=tree/content/tools/1D_ditchflow.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/iGW-TU-Dresden/iGW_Book/blob/main/content/tools/1D_ditchflow.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/iGW-TU-Dresden/iGW_Book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/iGW-TU-Dresden/iGW_Book/issues/new?title=Issue%20on%20page%20%2Fcontent/tools/1D_ditchflow.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/content/tools/1D_ditchflow.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scenario-and-equation">
+   9.1. Scenario and Equation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-use-this-tool">
+     9.1.1. How to use this tool
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Simulating 1D Trench Flow</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scenario-and-equation">
+   9.1. Scenario and Equation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-use-this-tool">
+     9.1.1. How to use this tool
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="simulating-1d-trench-flow">
+<h1><span class="section-number">9. </span>Simulating 1D Trench Flow<a class="headerlink" href="#simulating-1d-trench-flow" title="Permalink to this headline">#</a></h1>
+<p>The tool simulates the effect on the water table due to model parameters.</p>
+<p><strong><em>Contributed by Ms. Anne Pförtner and Sophie Pförtner. The original concept from Prof. R. Liedl spreasheet code.</em></strong></p>
+<section id="scenario-and-equation">
+<h2><span class="section-number">9.1. </span>Scenario and Equation<a class="headerlink" href="#scenario-and-equation" title="Permalink to this headline">#</a></h2>
+<figure class="align-center" id="ditch">
+<a class="reference internal image-reference" href="../../_images/M11_f41.png"><img alt="../../_images/M11_f41.png" src="../../_images/M11_f41.png" style="width: 456.40000000000003px; height: 172.60000000000002px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 9.1 </span><span class="caption-text">Conceptual model of a flow between two water bodies separated by unconfined aquifer</span><a class="headerlink" href="#ditch" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>You can calculate the steady flow in an unconfined aquifer with this Equations<sup><a class="footnote-reference brackets" href="#fetter2017" id="id1">1</a></sup> :</p>
+<div class="math notranslate nohighlight">
+\[q' = \frac{1}{2} \cdot K \cdot \frac{H_o^2-H_u^2}{L}\]</div>
+<div class="math notranslate nohighlight">
+\[h(x)=\sqrt{H_o^2 - \frac{H_o^2-H_u^2}{L} \cdot x+\frac{R}{K} \cdot x \cdot(L-x)}\]</div>
+<p>with<br />
+<span class="math notranslate nohighlight">\(q'\)</span> = flow per unit width <span class="math notranslate nohighlight">\([m^2/s]\)</span>,
+<span class="math notranslate nohighlight">\(h\)</span> = head at x <span class="math notranslate nohighlight">\([m]\)</span>,<br />
+<span class="math notranslate nohighlight">\(x\)</span> = distance from the origin <span class="math notranslate nohighlight">\([m]\)</span>,
+<span class="math notranslate nohighlight">\(H_o\)</span> = head at the origin <span class="math notranslate nohighlight">\([m]\)</span>,
+<span class="math notranslate nohighlight">\(H_u\)</span> = head at L <span class="math notranslate nohighlight">\([m]\)</span>,
+<span class="math notranslate nohighlight">\(L\)</span> = distance from the origin at the point <span class="math notranslate nohighlight">\(H_u\)</span> is measured <span class="math notranslate nohighlight">\([m]\)</span>,
+<span class="math notranslate nohighlight">\(K\)</span> = hydraulic conductivity <span class="math notranslate nohighlight">\([m/s]\)</span>,
+<span class="math notranslate nohighlight">\(R\)</span> = recharge rate <span class="math notranslate nohighlight">\([m/s]\)</span></p>
+<section id="how-to-use-this-tool">
+<h3><span class="section-number">9.1.1. </span>How to use this tool<a class="headerlink" href="#how-to-use-this-tool" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>Go to the Binder by clicking the rocket button (top-right of the page)</p></li>
+<li><p>Execute the code cell with libraries and the code cell</p></li>
+<li><p>Interact with the sliders.</p></li>
+</ol>
+<p>This tool can also be downloaded and run locally. For that download the <a class="reference external" href="https://github.com/prabhasyadav/try1/blob/main/content/tools/1D_ditchflow.ipynb"><strong>1D_ditchflow.ipynb</strong></a> file from the book GitHub site, and execute the process in any editor (e.g., JUPYTER notebook, JUPYTER lab) that is able to read and execute this file-type.</p>
+<p>The codes are licensed under CC by 4.0 <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/deed.en">(use anyways, but acknowledge the original work)</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize librarys</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definition of the function</span>
+<span class="k">def</span> <span class="nf">head</span><span class="p">(</span><span class="n">Ho</span><span class="p">,</span> <span class="n">Hu</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">K</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Ho: inflow head in [m]</span>
+<span class="sd">    Hu: outflow head in [m]</span>
+<span class="sd">    L:  Domain length in [m]</span>
+<span class="sd">    R:  Recharge rate in [mm/d]</span>
+<span class="sd">    K: Hydraulic conductivity in [m/s]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span><span class="n">L</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span>
+    <span class="n">R</span><span class="o">=</span><span class="n">R</span><span class="o">/</span><span class="mi">1000</span><span class="o">/</span><span class="mf">365.25</span><span class="o">/</span><span class="mi">86400</span>
+    <span class="n">h</span><span class="o">=</span><span class="p">(</span><span class="n">Ho</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="p">(</span><span class="n">Ho</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="n">Hu</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">L</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="p">(</span><span class="n">R</span><span class="o">/</span><span class="n">K</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="n">L</span><span class="o">-</span><span class="n">x</span><span class="p">)))</span><span class="o">**</span><span class="mf">0.5</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;head [m]&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.5</span><span class="o">*</span><span class="n">Ho</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x [m]&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">L</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">style</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;description_width&#39;</span><span class="p">:</span> <span class="s1">&#39;initial&#39;</span><span class="p">}</span>  
+<span class="n">interact</span><span class="p">(</span><span class="n">head</span><span class="p">,</span>
+         <span class="n">Ho</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">BoundedFloatText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Ho:&#39;</span><span class="p">,</span> <span class="n">disabled</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+         <span class="n">Hu</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">BoundedFloatText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mf">7.5</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Hu:&#39;</span><span class="p">,</span> <span class="n">disabled</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+         <span class="n">L</span><span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">BoundedFloatText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">175</span><span class="p">,</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;L:&#39;</span> <span class="p">,</span> <span class="n">disabled</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+         <span class="n">R</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">500</span><span class="p">,</span><span class="mi">2500</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span>
+         <span class="n">K</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">FloatLogSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mf">0.0002</span><span class="p">,</span><span class="n">base</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="nb">min</span><span class="o">=-</span><span class="mi">6</span><span class="p">,</span> <span class="nb">max</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span><span class="n">readout_format</span><span class="o">=</span><span class="s1">&#39;.2e&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "1af9ed2390594e94ba6a12ddbd60178a", "version_major": 2, "version_minor": 0}
+</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.head(Ho, Hu, L, R, K)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="fetter2017"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>C. W. Fetter, Thomas Boving, David Kreamer (2017), <em>Contaminant Hydrogeology</em>: Third Edition, Waveland Press</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+
+
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {"0596f34ea5254164913d02bf37c6bef6": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "SliderStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "06f664593be944a78032f86517ce70f7": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "SliderStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "1af9ed2390594e94ba6a12ddbd60178a": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_24f6e9c3ce5245e781d4dae4515f98b3", "IPY_MODEL_9f034380f15f4c8ea26b66d6db15b149", "IPY_MODEL_88460004c4d44f418abb88e4e9e54328", "IPY_MODEL_e4a34fe0caec479c9b55350a56366aa8", "IPY_MODEL_851efa0fbb334383a38afb1cbb6832a4", "IPY_MODEL_9c0538e502af4e85963b5113634f229c"], "layout": "IPY_MODEL_1e86c58774f34c4f908a65ff5f455b2e"}}, "1e86c58774f34c4f908a65ff5f455b2e": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "24f6e9c3ce5245e781d4dae4515f98b3": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "BoundedFloatTextModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "BoundedFloatTextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "FloatTextView", "continuous_update": false, "description": "Ho:", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_50aa98bec1a74261ac597b957e2f6904", "max": 1000.0, "min": 0.0, "step": 0.1, "style": "IPY_MODEL_8828929ba7324045aa48e27577f55a32", "value": 10.0}}, "3f3e0e9ca1ce491783eb25425ee8c5cd": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "50aa98bec1a74261ac597b957e2f6904": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "5576a013f63a416cb5a8d98187299eb0": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "851efa0fbb334383a38afb1cbb6832a4": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatLogSliderModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatLogSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "FloatLogSliderView", "base": 10.0, "continuous_update": true, "description": "K", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_8731a20ca80d4aa8ace857ac81feceaf", "max": -2.0, "min": -6.0, "orientation": "horizontal", "readout": true, "readout_format": ".2e", "step": 0.0001, "style": "IPY_MODEL_06f664593be944a78032f86517ce70f7", "value": 0.0002}}, "8731a20ca80d4aa8ace857ac81feceaf": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "8828929ba7324045aa48e27577f55a32": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "88460004c4d44f418abb88e4e9e54328": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "BoundedFloatTextModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "BoundedFloatTextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "FloatTextView", "continuous_update": false, "description": "L:", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_c7319deb1cdb4ec3b0e9d7a602617209", "max": 10000.0, "min": 0.0, "step": 1.0, "style": "IPY_MODEL_a52ca22e077b440eb14e142265da813a", "value": 175.0}}, "9c0538e502af4e85963b5113634f229c": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_5576a013f63a416cb5a8d98187299eb0", "msg_id": "", "outputs": [{"data": {"image/png": "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\n", "text/plain": "<Figure size 432x288 with 1 Axes>"}, "metadata": {"needs_background": "light"}, "output_type": "display_data"}]}}, "9d793c50f297462e85e6bdecf357ca1b": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "9f034380f15f4c8ea26b66d6db15b149": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "BoundedFloatTextModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "BoundedFloatTextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "FloatTextView", "continuous_update": false, "description": "Hu:", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_c9e20bd55f2a4e019c7e53bccfbec8e7", "max": 1000.0, "min": 0.0, "step": 0.1, "style": "IPY_MODEL_3f3e0e9ca1ce491783eb25425ee8c5cd", "value": 7.5}}, "a52ca22e077b440eb14e142265da813a": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "c7319deb1cdb4ec3b0e9d7a602617209": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "c9e20bd55f2a4e019c7e53bccfbec8e7": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "e4a34fe0caec479c9b55350a56366aa8": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "IntSliderModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "R", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_9d793c50f297462e85e6bdecf357ca1b", "max": 2500, "min": -500, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 10, "style": "IPY_MODEL_0596f34ea5254164913d02bf37c6bef6", "value": 1000}}}, "version_major": 2, "version_minor": 0}
+</script>
+
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "iGW-TU-Dresden/iGW_Book",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content\tools"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Kinetics_degradation.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">8. </span>Simulating Kinetics and Degradation</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../Q_and_A/GW_exam_2019_20.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Groundwater Exam Solution -  2019-2020</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Dr Prabhas K. Yadav<br/>
+  
+      &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
+      <div>
+ All content on this site (unless otherwise specified) is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">CC BY-NC-SA 4.0 license</a>
+</div>
+
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -1,19 +1,19 @@
 Traceback (most recent call last):
-  File "/home/prabhasyadav/anaconda3/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+  File "C:\Users\vibhu\AppData\Local\Programs\Python\Python310\lib\site-packages\jupyter_cache\executors\utils.py", line 51, in single_nb_execution
     executenb(
-  File "/home/prabhasyadav/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 1107, in execute
+  File "C:\Users\vibhu\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 1204, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/home/prabhasyadav/anaconda3/lib/python3.8/site-packages/nbclient/util.py", line 74, in wrapped
+  File "C:\Users\vibhu\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\util.py", line 84, in wrapped
     return just_run(coro(*args, **kwargs))
-  File "/home/prabhasyadav/anaconda3/lib/python3.8/site-packages/nbclient/util.py", line 53, in just_run
+  File "C:\Users\vibhu\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\util.py", line 62, in just_run
     return loop.run_until_complete(coro)
-  File "/home/prabhasyadav/anaconda3/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+  File "C:\Users\vibhu\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 646, in run_until_complete
     return future.result()
-  File "/home/prabhasyadav/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 553, in async_execute
+  File "C:\Users\vibhu\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 663, in async_execute
     await self.async_execute_cell(
-  File "/home/prabhasyadav/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 852, in async_execute_cell
-    self._check_raise_for_error(cell, exec_reply)
-  File "/home/prabhasyadav/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 760, in _check_raise_for_error
+  File "C:\Users\vibhu\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\vibhu\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 862, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
@@ -65,15 +65,15 @@ interactive_plot
 
 ------------------
 
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m<ipython-input-8-ddcbb266e9f6>[0m in [0;36m<module>[0;34m[0m
-[1;32m     27[0m     [0;32mreturn[0m [0mprint[0m[0;34m([0m[0mdf[0m[0;34m.[0m[0mround[0m[0;34m([0m[0;36m2[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m     28[0m [0;34m[0m[0m
-[0;32m---> 29[0;31m [0mN[0m [0;34m=[0m [0mwidgets[0m[0;34m.[0m[0mBoundedIntText[0m[0;34m([0m[0mvalue[0m[0;34m=[0m[0;36m20[0m[0;34m,[0m[0mmin[0m[0;34m=[0m[0;36m0[0m[0;34m,[0m[0mmax[0m[0;34m=[0m[0;36m100[0m[0;34m,[0m[0mstep[0m[0;34m=[0m[0;36m1[0m[0;34m,[0m[0mdescription[0m[0;34m=[0m [0;34m'&Delta; t (day)'[0m[0;34m,[0m[0mdisabled[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m     30[0m [0;34m[0m[0m
-[1;32m     31[0m [0mA[0m [0;34m=[0m [0mwidgets[0m[0;34m.[0m[0mBoundedFloatText[0m[0;34m([0m[0mvalue[0m[0;34m=[0m[0;36m100[0m[0;34m,[0m[0mmin[0m[0;34m=[0m[0;36m0[0m[0;34m,[0m[0mmax[0m[0;34m=[0m[0;36m1000.0[0m[0;34m,[0m[0mstep[0m[0;34m=[0m[0;36m1[0m[0;34m,[0m[0mdescription[0m[0;34m=[0m[0;34m'M<sub>A</sub> (kg)'[0m[0;34m,[0m[0mdisabled[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mNameError[0m                                 Traceback (most recent call last)
+Input [1;32mIn [8][0m, in [0;36m<cell line: 29>[1;34m()[0m
+[0;32m     26[0m     df_pane [38;5;241m=[39m pn[38;5;241m.[39mpane[38;5;241m.[39mDataFrame(df)
+[0;32m     27[0m     [38;5;28;01mreturn[39;00m [38;5;28mprint[39m(df[38;5;241m.[39mround([38;5;241m2[39m)) 
+[1;32m---> 29[0m N [38;5;241m=[39m [43mwidgets[49m[38;5;241m.[39mBoundedIntText(value[38;5;241m=[39m[38;5;241m20[39m,[38;5;28mmin[39m[38;5;241m=[39m[38;5;241m0[39m,[38;5;28mmax[39m[38;5;241m=[39m[38;5;241m100[39m,step[38;5;241m=[39m[38;5;241m1[39m,description[38;5;241m=[39m [38;5;124m'[39m[38;5;124m&Delta; t (day)[39m[38;5;124m'[39m,disabled[38;5;241m=[39m[38;5;28;01mFalse[39;00m)
+[0;32m     31[0m A [38;5;241m=[39m widgets[38;5;241m.[39mBoundedFloatText(value[38;5;241m=[39m[38;5;241m100[39m,[38;5;28mmin[39m[38;5;241m=[39m[38;5;241m0[39m,[38;5;28mmax[39m[38;5;241m=[39m[38;5;241m1000.0[39m,step[38;5;241m=[39m[38;5;241m1[39m,description[38;5;241m=[39m[38;5;124m'[39m[38;5;124mM<sub>A</sub> (kg)[39m[38;5;124m'[39m,disabled[38;5;241m=[39m[38;5;28;01mFalse[39;00m)
+[0;32m     33[0m B [38;5;241m=[39m widgets[38;5;241m.[39mBoundedFloatText(value[38;5;241m=[39m[38;5;241m5[39m,[38;5;28mmin[39m[38;5;241m=[39m[38;5;241m0[39m,[38;5;28mmax[39m[38;5;241m=[39m[38;5;241m1000.0[39m,step[38;5;241m=[39m[38;5;241m1[39m,description[38;5;241m=[39m[38;5;124m'[39m[38;5;124mM<sub>B</sub> (kg)[39m[38;5;124m'[39m,disabled[38;5;241m=[39m[38;5;28;01mFalse[39;00m)
 
-[0;31mNameError[0m: name 'widgets' is not defined
+[1;31mNameError[0m: name 'widgets' is not defined
 NameError: name 'widgets' is not defined
 

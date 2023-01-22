@@ -1,0 +1,2201 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>4. Aquifer Heterogeneity and Anisotropy &#8212; Groundwater I</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="../../../_static/custom.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="5. Steady-State Groundwater flow in 3D" href="../L6/16_darcy_law_3D.html" />
+    <link rel="prev" title="3. Darcy’s Law and Conductivity" href="../L4/14_darcy_law_K.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Groundwater I</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    The Interactive Groundwater-I Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Basics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../background/00_general.html">
+   1. About this Groundwater Course and Contents
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../background/03_basic_hydrogeology.html">
+   2. Course Introduction &amp; Water Cycle
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Flow
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../12_subsurface_structure.html">
+   1. Subsurface Structure
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../L3/13_gw_storage.html">
+   2. Groundwater as a reservoir
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../L4/14_darcy_law_K.html">
+   3. Darcy’s Law and Conductivity
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   4. Aquifer Heterogeneity and Anisotropy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../L6/16_darcy_law_3D.html">
+   5. Steady-State Groundwater flow in 3D
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../L7/17_quantify_flow.html">
+   6. Quantifying 3D Groundwater Flow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../L8/18_wells.html">
+   7. Wells
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Transport
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../transport/L9/21_conservative_transport.html">
+   1. Conservative Transport
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../transport/L10/22_reactive_transport.html">
+   2. Reactive Mass Transport
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Modeling
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../modeling/31_intro_modeling.html">
+   1. Background of Groundwater Modeling
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../background/01_python.html">
+   1. Python Programming language
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../background/02_jupyter.html">
+   2. JUPYTER Notebook Interface for Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/T2/tutorial_02.html">
+   3. Aquifer and Storage Properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/T3/tutorial_03.html">
+   4. Darcy Law and Conductivity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/T4/tutorial_04.html">
+   5. Effective K &amp; Recitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/T5/tutorial_05.html">
+   6. Aquifer Heterogeneity/Anisotropy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/T6/tutorial_06.html">
+   7. Flow in Confined/Unconfined Aquifer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/T7/tutorial_07.html">
+   8. Wells
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/T8/tutorial_08.html">
+   9. Conservative transport
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorials/T9/tutorial_09.html">
+   10. Reactive transport
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tools
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/decay.html">
+   1. Simulating Mass Budget
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/sieve_analysis.html">
+   2. Simulating Seive Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/effective_K.html">
+   3. Simulating Effective hydraulic conductivity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/uniform_flow_and_well.html">
+   4. Uniform Flow and Well
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/aniso2D.html">
+   5. Simulating the Anisotropy and flow direction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/type_curve_fit.html">
+   6. Type curve and fitting pumping data tool
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/1D_advection_dispersion.html">
+   7. Tool for simulating 1D Conservative Transport (Laboratory Column)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/Kinetics_degradation.html">
+   8. Simulating Kinetics and Degradation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tools/1D_ditchflow.html">
+   9. Simulating 1D Trench Flow
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Previous Years Q&amp;A
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Q_and_A/GW_exam_2019_20.html">
+   1. Groundwater Exam Solution -  2019-2020
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/iGW-TU-Dresden/iGW_Book/main?urlpath=tree/content/flow/L5/15_het_iso.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/iGW-TU-Dresden/iGW_Book/blob/main/content/flow/L5/15_het_iso.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/iGW-TU-Dresden/iGW_Book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/iGW-TU-Dresden/iGW_Book/issues/new?title=Issue%20on%20page%20%2Fcontent/flow/L5/15_het_iso.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/content/flow/L5/15_het_iso.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivation">
+   4.1. Motivation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#heterogeneity">
+   4.2. Heterogeneity
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#effective-hydraulic-conductivity">
+     4.2.1. Effective Hydraulic Conductivity
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#layered-systems">
+   4.3. Layered Systems
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#case-i-flow-parallel-to-layering">
+     4.3.1. Case I - Flow Parallel to Layering
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-problem">
+     4.3.2. Example problem
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#case-2-flow-perpendicular-to-layering">
+     4.3.3. Case 2 - Flow Perpendicular to Layering
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     4.3.4. Example problem
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#summary-effective-conductivity-of-layered-aquifers">
+     4.3.5. Summary: Effective Conductivity of Layered Aquifers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hydraulic-resistance">
+   4.4. Hydraulic Resistance
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     4.4.1. Example problem
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aquifer-anisotropy">
+   4.5. Aquifer Anisotropy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#anisotropy-and-scale-effects">
+     4.5.1. Anisotropy and scale effects
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#indices-and-functional-arguments-to-describe-anisotropy">
+     4.5.2. Indices and functional arguments to describe anisotropy
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#concept-of-the-hydraulic-conductivity-ellipse">
+     4.5.3. Concept of the hydraulic conductivity ellipse
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     4.5.4. Example problem
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#combining-heterogeneity-and-anisotropy">
+   4.6. Combining Heterogeneity and Anisotropy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chapter-quiz">
+   4.7. Chapter Quiz
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Aquifer Heterogeneity and Anisotropy</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivation">
+   4.1. Motivation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#heterogeneity">
+   4.2. Heterogeneity
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#effective-hydraulic-conductivity">
+     4.2.1. Effective Hydraulic Conductivity
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#layered-systems">
+   4.3. Layered Systems
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#case-i-flow-parallel-to-layering">
+     4.3.1. Case I - Flow Parallel to Layering
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-problem">
+     4.3.2. Example problem
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#case-2-flow-perpendicular-to-layering">
+     4.3.3. Case 2 - Flow Perpendicular to Layering
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     4.3.4. Example problem
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#summary-effective-conductivity-of-layered-aquifers">
+     4.3.5. Summary: Effective Conductivity of Layered Aquifers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hydraulic-resistance">
+   4.4. Hydraulic Resistance
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     4.4.1. Example problem
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aquifer-anisotropy">
+   4.5. Aquifer Anisotropy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#anisotropy-and-scale-effects">
+     4.5.1. Anisotropy and scale effects
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#indices-and-functional-arguments-to-describe-anisotropy">
+     4.5.2. Indices and functional arguments to describe anisotropy
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#concept-of-the-hydraulic-conductivity-ellipse">
+     4.5.3. Concept of the hydraulic conductivity ellipse
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     4.5.4. Example problem
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#combining-heterogeneity-and-anisotropy">
+   4.6. Combining Heterogeneity and Anisotropy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chapter-quiz">
+   4.7. Chapter Quiz
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <aside class="sidebar">
+<p class="sidebar-title">Additional Material : Lecture Slides</p>
+<div class="toggle docutils container">
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSV04S9lhhZF2brpVIleI_UJYLVbrErYTtzE_XAY97ypV4QsGUpzkqxJ0BB3AZhpA/embed?start=false&loop=false&delayms=3000" frameborder="0" width="480" height="389" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+</div>
+</aside>
+<section class="tex2jax_ignore mathjax_ignore" id="aquifer-heterogeneity-and-anisotropy">
+<h1><span class="section-number">4. </span>Aquifer Heterogeneity and Anisotropy<a class="headerlink" href="#aquifer-heterogeneity-and-anisotropy" title="Permalink to this headline">#</a></h1>
+<p><em>(The contents presented in this section were re-developed principally by <a class="reference external" href="http://web.iitd.ac.in/~chahar/">Prof. B. R. Chahar</a> and Dr. P. K. Yadav. The original contents are from Prof. Rudolf Liedl)</em></p>
+<hr class="docutils" />
+<section id="motivation">
+<h2><span class="section-number">4.1. </span>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">#</a></h2>
+<p>The last lecture introduces aquifer properties such hydraulic conductivity, storativity, porosity. The key assumption in that lecture was that the aquifer is an 1D unit, e.g., the Darcy column, and that its properties do not vary in space. In contrast to these, an aquifer is more accurately represented by a 3D system and its properties vary both in space and directions. In fact variations of hydraulic conductivity (<span class="math notranslate nohighlight">\(K\)</span>), a most critical aquifer quantity, are dominant in most cases. Variations of <span class="math notranslate nohighlight">\(K\)</span> can be observed at very small spatial scales and directions. Thus, aquifer properties that depends on <span class="math notranslate nohighlight">\(K\)</span> also varies. Consequently, aquifer properties such as <span class="math notranslate nohighlight">\(K\)</span> takes a tensor form- a quantity whose magnitude is space and direction dependent.</p>
+<p>In the picture below (<a class="reference internal" href="#aquifer-het"><span class="std std-numref">Fig. 4.1</span></a>) the 3-D spatial variability of aquifer properties is illustrated by a 2-D vertical cross-section. The picture of the outcrop show some form of a layered system, with each layer likely possessing individual subsurface properties.</p>
+<figure class="align-center" id="aquifer-het">
+<a class="reference internal image-reference" href="../../../_images/L5_f1.png"><img alt="../../../_images/L5_f1.png" src="../../../_images/L5_f1.png" style="width: 615.3px; height: 209.29999999999998px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.1 </span><span class="caption-text">Aquifer Heterogeneity</span><a class="headerlink" href="#aquifer-het" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="heterogeneity">
+<h2><span class="section-number">4.2. </span>Heterogeneity<a class="headerlink" href="#heterogeneity" title="Permalink to this headline">#</a></h2>
+<p>A solid or a porous medium is <strong>homogeneous</strong> if its property do not vary in space. In contrast, the porous medium is <strong>heterogeneous</strong>, or also sometime termed inhomogeneous, if at least one of its properties varies in space. In groundwater studies, heterogeneity or homogeneity is generally associated with hydraulic conductivity <span class="math notranslate nohighlight">\((K)\)</span> of the aquifer. In many practical applications, properties such as strativity and porosity are treated as spatially constant or homogeneous. This is usually done for two reasons:</p>
+<ul class="simple">
+<li><p>the spatial variability of hydraulic conductivity is much more pronounced than that of storativity and porosity, and</p></li>
+<li><p>very limited data are available of the spatial variability of storativity and porosity.</p></li>
+</ul>
+<p>Thus, an aquifer is:</p>
+<blockquote>
+<div><p>homogeneous if <span class="math notranslate nohighlight">\(K (x, y, z) = K\)</span>, and</p>
+</div></blockquote>
+<blockquote>
+<div><p>heterogeneous if <span class="math notranslate nohighlight">\(K (x, y, z) \neq K\)</span></p>
+</div></blockquote>
+<p>For heterogeneous aquifer it is not required that <span class="math notranslate nohighlight">\(K\)</span> is varying in all directions, i.e., varying of <span class="math notranslate nohighlight">\(K\)</span> can be restricted to one or two spatial coordinates.</p>
+<p>Heterogeneity in aquifer can exist in many configurations. But they are broadly categorized to the following three classes:</p>
+<blockquote>
+<div><p><strong>layered heterogeneity</strong>: common in sedimentary systems and unconsolidated deposits.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>discontinuous heterogeneity</strong>: due to presence of faults, e.g., at the contact between overburden-bedrock.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>trending heterogeneity</strong>: Common in the aquifers with active sedimentation processes</p>
+</div></blockquote>
+<p>Aquifer properties such as storativity and porosity are affected by heterogeneity but they are often considered spatially constant in practical applications. This is because</p>
+<ul class="simple">
+<li><p>The spatial variability of hydraulic conductivity is much more pronounced than any other aquifer property, and</p></li>
+<li><p>Only limited spatial variability data are available for storativity or porosity.</p></li>
+</ul>
+<p>Heterogeneity play a significant role in controlling the flow of groundwater, but its quantification is more relevant to the transport of chemicals in groundwater.</p>
+<section id="effective-hydraulic-conductivity">
+<h3><span class="section-number">4.2.1. </span>Effective Hydraulic Conductivity<a class="headerlink" href="#effective-hydraulic-conductivity" title="Permalink to this headline">#</a></h3>
+<p>It is possible to represent the spatial distribution of
+hydraulic conductivity in a heterogeneous aquifer by an <em>average</em>
+value such that steady-state groundwater discharge remains the
+same as in the heterogeneous case. Such obtained <em>average</em> <span class="math notranslate nohighlight">\(K\)</span> value is termed as <strong>effective hydraulic conductivity</strong>. In other words, it can be mentioned that the effective hydraulic conductivity characterizes a
+fictitious homogeneous aquifer with the same discharge and the
+same overall head difference under steady-state conditions as some
+heterogeneous aquifer to be investigated.</p>
+<p>The quantification of <em>effective hydraulic conductivity</em> is straight-forward for perfectly layered systems, which can be seen as an idealized representation of natural layering. In more natural systems with complex heterogeneous configurations, cumbersome mathematical derivations are required to obtain effective <span class="math notranslate nohighlight">\(K\)</span>.</p>
+<p>In the next few sections, effective hydraulic conductivity for ideal layered system is derived.</p>
+</section>
+</section>
+<section id="layered-systems">
+<h2><span class="section-number">4.3. </span>Layered Systems<a class="headerlink" href="#layered-systems" title="Permalink to this headline">#</a></h2>
+<section id="case-i-flow-parallel-to-layering">
+<h3><span class="section-number">4.3.1. </span>Case I - Flow Parallel to Layering<a class="headerlink" href="#case-i-flow-parallel-to-layering" title="Permalink to this headline">#</a></h3>
+<p>A confined aquifer consisting of <span class="math notranslate nohighlight">\(n\)</span> layers is considered. In the set-up (see <a class="reference internal" href="#flow-parallel"><span class="std std-numref">Fig. 4.2</span></a>), the layer boundaries are parallel to each other and groundwater flow is parallel to the layering.</p>
+<figure class="align-center" id="flow-parallel">
+<a class="reference internal image-reference" href="../../../_images/L5_f2.png"><img alt="../../../_images/L5_f2.png" src="../../../_images/L5_f2.png" style="width: 233.0px; height: 370.5px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.2 </span><span class="caption-text">Flow parallel to layering</span><a class="headerlink" href="#flow-parallel" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The analysis is required to consider the aquifer as a <em>single entire aquifer unit</em> and a set of <em>layered aquifer unit</em>. Data of both units are to be considered.</p>
+<p>With these informations available, using volumetric budget and Darcy’s law the <em>effective hydraulic conductivity</em> <span class="math notranslate nohighlight">\(K\)</span> can be quantified from the following steps:</p>
+<p>I. Total thickness: <span class="math notranslate nohighlight">\(m = \sum\limits_{i=1}^n m_i\)</span></p>
+<p>II. Volumetric budget: <span class="math notranslate nohighlight">\(Q =  \sum\limits_{i=1}^n Q_i\)</span></p>
+<p>III. Head loss in <span class="math notranslate nohighlight">\(i^{th}\)</span> layer: <span class="math notranslate nohighlight">\(\Delta h_i = \Delta h\)</span></p>
+<p>IV. Darcy’s law for <span class="math notranslate nohighlight">\(i^{th}\)</span> layer: <span class="math notranslate nohighlight">\(Q_i = - wm_iK_i\frac{\Delta h}{L} \)</span></p>
+<p>V. Darcy’s law for the homogeneous aquifer to replace the layered system: <span class="math notranslate nohighlight">\(Q = -wmK\frac{\Delta h}{L}\)</span></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As flow is parallel to the layering, the head loss in individual layer equals the total head loss (step. 3)</p>
+</div>
+<p>Summing the discharge in each layer (step 4) will result to the discharge of the homogeneous aquifer (step 5), i.e., we can equate step 4 and step 5 as:</p>
+<div class="math notranslate nohighlight">
+\[
+- w \cdot m \cdot K \cdot \frac{\Delta h}{L} = \sum\limits_{i=1}^n\bigg(- w \cdot m_i \cdot K_i\cdot\frac{\Delta h}{L}\bigg)
+\]</div>
+<p>Constant quantities from the right-hand side can be taken out of summation and equated with the left side. This leads to:</p>
+<div class="math notranslate nohighlight">
+\[
+{- w}\cdot m \cdot K \cdot \frac{\Delta h}{L} = {- w} \cdot \frac{\Delta h}{L} \cdot \sum\limits_{i=1}^n( m_iK_i)
+\]</div>
+<p>providing</p>
+<div class="math notranslate nohighlight">
+\[
+m\cdot K = \sum\limits_{i=1}^n( m_iK_i)
+\]</div>
+<p>As a result, the effective hydraulic conductivity of a layered system when the flow is parallel to the layering equals</p>
+<div class="math notranslate nohighlight">
+\[
+K = \frac{\sum\limits_{i=1}^n(m_i K_i)}{m}
+\]</div>
+<p>In the above equation, effective hydraulic conductivity <span class="math notranslate nohighlight">\(K\)</span> is obtained as the <em>weighted arithmetic average</em> of layer conductivities <span class="math notranslate nohighlight">\(K_i\)</span>. Weights correspond to relative thickness <span class="math notranslate nohighlight">\(m_i/m\)</span>. Thus, the <em>largest term</em> in the sum contributes most to the arithmetic average. Thus, the effective hydraulic conductivity <span class="math notranslate nohighlight">\(K\)</span> can be approximated from</p>
+<div class="math notranslate nohighlight">
+\[
+K \approx \frac{\max (m_i\cdot K_i)}{m}
+\]</div>
+</section>
+<section id="example-problem">
+<h3><span class="section-number">4.3.2. </span>Example problem<a class="headerlink" href="#example-problem" title="Permalink to this headline">#</a></h3>
+<div class="admonition-flow-parallel-to-layering admonition">
+<p class="admonition-title">Flow parallel to layering</p>
+<p>Calculate the effective hydraulic conductivity of the layer system consisting of 3 layers if the flow is parallel to the stratification.</p>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold"> Provided are: </span> 
+
+thickness of layer 1 = 3 m
+thickness of layer 2 = 2.5 m
+thickness of layer 3 = 1.75 m
+
+conductivity of layer 1 = 3.5e-03 m/s
+conductivity of layer 2 = 2.0e-02 m/s
+conductivity of layer 3 5.0e-04 m/s
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1">#Thickness of i-th layer [m]</span>
+<span class="n">m1</span> <span class="o">=</span> <span class="mi">3</span> 
+<span class="n">m2</span> <span class="o">=</span> <span class="mf">2.5</span>
+<span class="n">m3</span> <span class="o">=</span> <span class="mf">1.75</span>
+
+<span class="c1">#conductivity of i-th layer [m/s]</span>
+<span class="n">K1</span> <span class="o">=</span> <span class="mf">3.5e-3</span>
+<span class="n">K2</span> <span class="o">=</span> <span class="mf">2e-2</span>
+<span class="n">K3</span> <span class="o">=</span> <span class="mf">5e-4</span>
+
+<span class="c1">#intermediate calculation</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">m1</span><span class="o">+</span><span class="n">m2</span><span class="o">+</span><span class="n">m3</span>
+
+<span class="c1">#solution</span>
+<span class="n">K</span> <span class="o">=</span> <span class="p">(</span><span class="n">m1</span><span class="o">*</span><span class="n">K1</span><span class="o">+</span><span class="n">m2</span><span class="o">*</span><span class="n">K2</span><span class="o">+</span><span class="n">m3</span><span class="o">*</span><span class="n">K3</span><span class="p">)</span><span class="o">/</span><span class="n">m</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\033</span><span class="s2">[1mSolution:</span><span class="se">\033</span><span class="s2">[0m</span><span class="se">\n</span><span class="s2">The resulting hydraulic conductivity of the layer system is </span><span class="se">\033</span><span class="s2">[1m</span><span class="si">{:02.1e}</span><span class="s2"> m/s</span><span class="se">\033</span><span class="s2">[0m.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">K</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Solution:</span>
+The resulting hydraulic conductivity of the layer system is <span class=" -Color -Color-Bold">8.5e-03 m/s</span>.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="case-2-flow-perpendicular-to-layering">
+<h3><span class="section-number">4.3.3. </span>Case 2 - Flow Perpendicular to Layering<a class="headerlink" href="#case-2-flow-perpendicular-to-layering" title="Permalink to this headline">#</a></h3>
+<p>In the second case the the flow <em>perpendicular</em> to the layering is considered. Just as in the <em>parallel</em> flow case, the aquifer in this case also is a confined aquifer with <span class="math notranslate nohighlight">\(n\)</span> layers (see <a class="reference internal" href="#flow-perpendicular"><span class="std std-numref">Fig. 4.3</span></a>).</p>
+<figure class="align-center" id="flow-perpendicular">
+<a class="reference internal image-reference" href="../../../_images/L5_f3.png"><img alt="../../../_images/L5_f3.png" src="../../../_images/L5_f3.png" style="width: 211.5px; height: 364.0px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.3 </span><span class="caption-text">Flow perpendicular to layering</span><a class="headerlink" href="#flow-perpendicular" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>These data combined with <em>equation of continuity</em> and <em>Darcy’s Law</em> can be used to obtain the effective hydraulic conductivity of the system in which flow is perpendicular to the layers. The following steps are required:</p>
+<p>I. Total thickness: <span class="math notranslate nohighlight">\(m = \sum\limits_{i=1}^n m_i \)</span></p>
+<p>II.   Equation of continuity: <span class="math notranslate nohighlight">\(Q_i = Q\)</span></p>
+<p>II.  Cross-sectional area for layer: <span class="math notranslate nohighlight">\(A_i = A \)</span></p>
+<p>IV. Decomposition of head loss: <span class="math notranslate nohighlight">\(\Delta h = \sum\limits_{i=1}^n \Delta h_i \)</span></p>
+<p>V. Darcy’s law for layer <span class="math notranslate nohighlight">\(i\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[Q_i = - A_i K_i \frac{\Delta h_i}{m_i}\]</div>
+<div class="math notranslate nohighlight">
+\[\Delta h_i = -\frac{Q_i m_i}{A_i K_i} = - \frac{Q m_i}{A K_i}\]</div>
+<p>VI. Similarly the Darcy’s law for the homogeneous aquifer to replace the layered system:</p>
+<div class="math notranslate nohighlight">
+\[Q = - A K \frac{\Delta h}{m}\]</div>
+<div class="math notranslate nohighlight">
+\[\Delta h = - \frac{Q m}{A K }\]</div>
+<p>VII. The head loss from step 4 can be equated with the sum of head loss of each layered unit (from step 5), i.e.,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{Q\cdot m}{A\cdot K}
+=\sum\limits_{i=1}^n\frac{Q\cdot m}{A\cdot K}
+\]</div>
+<p>The constants <span class="math notranslate nohighlight">\(Q\)</span> and <span class="math notranslate nohighlight">\(A\)</span> can be taken out of the summation, this leads to</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{ {-Q}\cdot m}{ A\cdot K}
+=\frac{ {-Q}}{A}\sum\limits_{i=1}^n\frac{m_i}{K_i}
+\]</div>
+<p>As a result, the effective hydraulic conductivity of a layered system for a flow perpendicular to the layering equals</p>
+<div class="math notranslate nohighlight">
+\[
+K = \frac{m}{\sum\limits_{i=1}^n\frac{m_i}{K_i}}
+\]</div>
+<p>In the above equation, effective hydraulic conductivity <span class="math notranslate nohighlight">\(K\)</span> is obtained as the <em>weighted harmonic average</em> of layer conductivities <span class="math notranslate nohighlight">\(K_i\)</span>. Weights
+correspond to relative thicknesses <span class="math notranslate nohighlight">\(m_i/m\)</span>. Thus, the largest term in the sum contributes most to
+the harmonic average and therefore, the effective hydraulic conductivity can be approximated from</p>
+<div class="math notranslate nohighlight">
+\[
+K \approx \frac{m}{{\max\big(\frac{m_i}{K_i}}\big)}
+\]</div>
+</section>
+<section id="id1">
+<h3><span class="section-number">4.3.4. </span>Example problem<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<div class="admonition-flow-perpendicular-to-layering admonition">
+<p class="admonition-title">Flow perpendicular to layering</p>
+<p>Calculate the effective hydraulic conductivity of the layer system consisting of 3 layers if the flow is perpendicular to the layering.</p>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold"> Provided are:</span>
+thickness of layer 1 = 3 m
+thickness of layer 2 = 2.5 m
+thickness of layer 3 = 1.75 m
+
+conductivity of layer 1 = 3.5e-03 m/s
+conductivity of layer 2 = 2.0e-02 m/s
+conductivity of layer 3 5.0e-04 m/s
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Thickness of i-th layer [m]</span>
+<span class="n">m1</span> <span class="o">=</span> <span class="mi">3</span> 
+<span class="n">m2</span> <span class="o">=</span> <span class="mf">2.5</span>
+<span class="n">m3</span> <span class="o">=</span> <span class="mf">1.75</span>
+
+<span class="c1">#conductivity of i-th layer [m/s]</span>
+<span class="n">K1</span> <span class="o">=</span> <span class="mf">3.5e-3</span>
+<span class="n">K2</span> <span class="o">=</span> <span class="mf">2e-2</span>
+<span class="n">K3</span> <span class="o">=</span> <span class="mf">5e-4</span>
+
+<span class="c1">#intermediate calculation</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">m1</span><span class="o">+</span><span class="n">m2</span><span class="o">+</span><span class="n">m3</span>
+
+<span class="c1">#solution</span>
+<span class="n">K</span> <span class="o">=</span> <span class="n">m</span><span class="o">/</span><span class="p">(</span><span class="n">m1</span><span class="o">/</span><span class="n">K1</span><span class="o">+</span><span class="n">m2</span><span class="o">/</span><span class="n">K2</span><span class="o">+</span><span class="n">m3</span><span class="o">/</span><span class="n">K3</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\033</span><span class="s2">[1mSolution:</span><span class="se">\033</span><span class="s2">[0m</span><span class="se">\n</span><span class="s2">The resulting hydraulic conductivity of the layer system is </span><span class="se">\033</span><span class="s2">[1m</span><span class="si">{:02.1e}</span><span class="s2"> m/s</span><span class="se">\033</span><span class="s2">[0m.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">K</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Solution:</span>
+The resulting hydraulic conductivity of the layer system is <span class=" -Color -Color-Bold">1.6e-03 m/s</span>.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="summary-effective-conductivity-of-layered-aquifers">
+<h3><span class="section-number">4.3.5. </span>Summary: Effective Conductivity of Layered Aquifers<a class="headerlink" href="#summary-effective-conductivity-of-layered-aquifers" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>For flow parallel to layering:</strong> <br>
+Effective hydraulic conductivity equals the <em>weighted arithmetic mean</em> of layer conductivities.</p></li>
+<li><p><strong>Flow perpendicular to layering:</strong> <br>
+Effective hydraulic conductivity equals the <em>weighted harmonic mean</em> of layer conductivities.</p></li>
+<li><p><strong>Weights</strong> in both cases are given by relative layer thicknesses <span class="math notranslate nohighlight">\(m_i/m\)</span></p></li>
+<li><p>It can be mathematically shown that the harmonic mean of a set of
+positive numbers cannot exceed the arithmetic mean of the same set. Both means are identical only if all numbers in the set are identical.
+Apart from this very special case, we have</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<blockquote>
+<div><p><em><strong><em>harmonic mean &lt; arithmetic mean.</em></strong></em></p>
+</div></blockquote>
+</div>
+<p>This implies that the flow direction perpendicular to the layering is associated with a smaller effective hydraulic conductivity than the flow direction parallel to the layering.</p>
+</section>
+</section>
+<section id="hydraulic-resistance">
+<h2><span class="section-number">4.4. </span>Hydraulic Resistance<a class="headerlink" href="#hydraulic-resistance" title="Permalink to this headline">#</a></h2>
+<p>The <em>Hydraulic Resistance</em> <span class="math notranslate nohighlight">\((R)\)</span> provide an alternative approach to express conductivity. It is defined as a reciprocal to hydraulic conductivity <span class="math notranslate nohighlight">\((K)\)</span>, i.e.,</p>
+<div class="math notranslate nohighlight">
+\[
+R = \frac{1}{K}
+\]</div>
+<p>This implies that large <span class="math notranslate nohighlight">\(K\)</span> corresponds to small <span class="math notranslate nohighlight">\(R\)</span> and vice-versa. Considerations about effective hydraulic conductivities of layered
+aquifers can be transferred to hydraulic resistances by recalling
+that the arithmetic mean of positive numbers coincides with the
+harmonic mean of reciprocal numbers and vice versa. This can be used in the following manner:</p>
+<ul class="simple">
+<li><p><strong>For <em>flow parallel to layering</em>:</strong></p></li>
+</ul>
+<p>As Effective hydraulic conductivity equals the weighted arithmetic mean of layer conductivities, the reciprocal of this, i.e., the effective hydraulic resistance, will equal the weighted harmonic mean of layer resistances.</p>
+<p>Furthermore, if all layer thicknesses are identical <span class="math notranslate nohighlight">\((m_i =\)</span> const.) and flow is parallel to layering, the largest discharge passes through the layer with
+highest hydraulic conductivity (smallest hydraulic resistance). In this case, the discharge through each layer is proportional to layer conductivity or inversely proportional to layer resistance.</p>
+<ul class="simple">
+<li><p><strong>For <em>flow perpendicular to layering</em>:</strong></p></li>
+</ul>
+<p>In this case the effective hydraulic conductivity equals the weighted harmonic
+mean of layer conductivities. This leads to Effective hydraulic resistance equaling the weighted arithmetic mean of layer resistances.</p>
+<p>Similar to the <em>flow parallel to the layering,</em> if all layer thicknesses are identical (<span class="math notranslate nohighlight">\(m_i =\)</span> const.) and flow is perpendicular to layering, the largest hydraulic gradient is across the layer with lowest hydraulic conductivity (highest hydraulic resistance). In this case, the <em>head gradient</em> across each layer is proportional to layer resistance or inversely proportional to layer conductivity.</p>
+<section id="id2">
+<h3><span class="section-number">4.4.1. </span>Example problem<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<div class="admonition-hydraulic-resistance admonition">
+<p class="admonition-title">Hydraulic Resistance</p>
+<p>Find the hydraulic resistance with the given hydraulic counductivity</p>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold"> Provided are:</span> 
+
+Hydraulic conductivity = 5.0e-04 m/s
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K</span> <span class="o">=</span> <span class="mf">5e-4</span> <span class="c1"># m/s, hydraulic conductivity</span>
+<span class="c1">#solution</span>
+<span class="n">R</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">K</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\033</span><span class="s2">[1mSolution:</span><span class="se">\033</span><span class="s2">[0m</span><span class="se">\n\n</span><span class="s2">The resulting hydraulic resistance is </span><span class="se">\033</span><span class="s2">[1m</span><span class="si">{:02.1e}</span><span class="s2"> s/m</span><span class="se">\033</span><span class="s2">[0m.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">R</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Solution:</span>
+
+The resulting hydraulic resistance is <span class=" -Color -Color-Bold">2.0e+03 s/m</span>.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="aquifer-anisotropy">
+<h2><span class="section-number">4.5. </span>Aquifer Anisotropy<a class="headerlink" href="#aquifer-anisotropy" title="Permalink to this headline">#</a></h2>
+<p>A solid or a porous medium is <strong>isotropic</strong> if its (all) properties are independent of <em>direction.</em> Conversely, a solid or a porous medium is <strong>anisotropic</strong> if at least one of its property is dependent on direction. Thus, isotropic (or anisotropic) property of porous media refines the concept of homogeneity (or heterogeneity). The key difference being that anisotropy of aquifer is associated only with hydraulic conductivity as other aquifer properties like storativity or porosity cannot depend on direction. Groundwater flow (and more so solute transport) is affected by anisotropy. However, in unconsolidated aquifers the impact of heterogeneity is usually more important.</p>
+<p>Figure below (<a class="reference internal" href="#iso-anisotropy"><span class="std std-numref">Fig. 4.4</span></a>) explains the concept of isotropy more clearly. The direction dependency of <span class="math notranslate nohighlight">\(K\)</span> is represented by the arrows diagram.</p>
+<figure class="align-center" id="iso-anisotropy">
+<a class="reference internal image-reference" href="../../../_images/L5_f4.png"><img alt="../../../_images/L5_f4.png" src="../../../_images/L5_f4.png" style="width: 637.2px; height: 421.6px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.4 </span><span class="caption-text">Isotropy and Anisotropy in aquifers</span><a class="headerlink" href="#iso-anisotropy" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="anisotropy-and-scale-effects">
+<h3><span class="section-number">4.5.1. </span>Anisotropy and scale effects<a class="headerlink" href="#anisotropy-and-scale-effects" title="Permalink to this headline">#</a></h3>
+<p>The effective hydraulic conductivity of layered aquifers was shown earlier to depend on the orientation of the flow direction relative to layering, i.e., parallel versus perpendicular. On a larger scale, it may not be possible to identify or resolve heterogeneities associated with example thin layers, small lenses, shape and orientation of grains (see figure above). Nevertheless, <span class="math notranslate nohighlight">\(K\)</span> is found to be direction-dependent when groundwater flow is quantified at the larger scale. In these case, small-scale heterogeneity (e.g., due to layering) expresses itself as anisotropy of hydraulic conductivity at the larger scale.</p>
+</section>
+<section id="indices-and-functional-arguments-to-describe-anisotropy">
+<h3><span class="section-number">4.5.2. </span>Indices and functional arguments to describe anisotropy<a class="headerlink" href="#indices-and-functional-arguments-to-describe-anisotropy" title="Permalink to this headline">#</a></h3>
+<p>One could consider heterogeneity as a property of entirety. While function arguments point towards heterogeneity, <em>indices</em> are
+used to express that hydraulic conductivity depends on direction. Considering a 3-D Cartesian coordinate system, the directional dependent hydraulic conductivity can be represented by <span class="math notranslate nohighlight">\(K_x\)</span>, <span class="math notranslate nohighlight">\(K_y\)</span> and <span class="math notranslate nohighlight">\(K_z\)</span> in parallel with the <span class="math notranslate nohighlight">\(x-\)</span>, <span class="math notranslate nohighlight">\(y-\)</span> and <span class="math notranslate nohighlight">\(z-\)</span>axis, respectively. Within these, one could distinguish between horizontal conductivities (<span class="math notranslate nohighlight">\(K_x\)</span> and <span class="math notranslate nohighlight">\(K_y\)</span>) with the vertical conductivity <span class="math notranslate nohighlight">\(K_z\)</span>. More often, anisotropy is observed only between horizontal and vertical directions (i.e., along <span class="math notranslate nohighlight">\(x\)</span> or <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(z\)</span> directions), while isotropy is observed along horizontal directions (<span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> direction). Thus, symbols <span class="math notranslate nohighlight">\(K_h\)</span> representing <span class="math notranslate nohighlight">\(K_x = K_y\)</span> and <span class="math notranslate nohighlight">\(K_v\)</span> representing <span class="math notranslate nohighlight">\(K_z\)</span> can be used to denote horizontal and vertical hydraulic conductivity, respectively.</p>
+</section>
+<section id="concept-of-the-hydraulic-conductivity-ellipse">
+<h3><span class="section-number">4.5.3. </span>Concept of the hydraulic conductivity ellipse<a class="headerlink" href="#concept-of-the-hydraulic-conductivity-ellipse" title="Permalink to this headline">#</a></h3>
+<p>Let us consider an aquifer with horizontal conductivity <span class="math notranslate nohighlight">\(K_h\)</span> and vertical hydraulic conductivity <span class="math notranslate nohighlight">\(K_v\)</span>. Let us assume that the flow in the aquifer is in some arbitrary direction characterized by the angle <span class="math notranslate nohighlight">\(\theta\)</span> between the flow direction and horizontal plane (see <a class="reference internal" href="#k-ellipse"><span class="std std-numref">Fig. 4.5</span></a>).</p>
+<figure class="align-center" id="k-ellipse">
+<a class="reference internal image-reference" href="../../../_images/L5_f5.png"><img alt="../../../_images/L5_f5.png" src="../../../_images/L5_f5.png" style="width: 469.70000000000005px; height: 249.15000000000003px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.5 </span><span class="caption-text">hydraulic conductivity ellipse</span><a class="headerlink" href="#k-ellipse" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In this case, it can be shown that the effective hydraulic conductivity <span class="math notranslate nohighlight">\(K\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+K = \frac{1}{\frac{\cos^2\theta}{K_h}+\frac{\sin^2\theta}{K_v}} 
+\]</div>
+<p>If the angle <span class="math notranslate nohighlight">\(\theta\)</span> is varied, the above equation defines an ellipse (also called “hydraulic conductivity ellipse”) with semi-axes equal to <span class="math notranslate nohighlight">\(\surd{K_h}\)</span> and <span class="math notranslate nohighlight">\(\surd{K_v}\)</span>, respectively. The square root of <span class="math notranslate nohighlight">\(K\)</span> can be visualised by the length of a line segment parallel to the direction of flow. This line segment extends from the centre to the perimeter of the ellipse.</p>
+</section>
+<section id="id3">
+<h3><span class="section-number">4.5.4. </span>Example problem<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<div class="admonition-hydraulic-resistance admonition">
+<p class="admonition-title">Hydraulic Resistance</p>
+<p>Find resulting hydraulic conductivity from provided horizontal and vertical conductivities.</p>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Provided are:</span>
+
+horizontal hydraulic conductivity = 1.0e-03 m/s
+vertical hydraulic conductivity = 1.0e-04 m/s
+angle = 50°
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#solution</span>
+<span class="n">K</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">Kh</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">Kv</span><span class="p">))</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[1mSolution:</span><span class="se">\033</span><span class="s2">[0m</span><span class="se">\n\n</span><span class="s2">The resulting hydraulic conductivity is </span><span class="se">\033</span><span class="s2">[1m</span><span class="si">{:02.1e}</span><span class="s2"> m/s</span><span class="se">\033</span><span class="s2">[0m.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">K</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Solution:</span>
+
+The resulting hydraulic conductivity is <span class=" -Color -Color-Bold">6.2e-04 m/s</span>.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="combining-heterogeneity-and-anisotropy">
+<h2><span class="section-number">4.6. </span>Combining Heterogeneity and Anisotropy<a class="headerlink" href="#combining-heterogeneity-and-anisotropy" title="Permalink to this headline">#</a></h2>
+<p>The distinction between_Homogeneous, Heterogeneous, isotropic and anisotropic aquifer or any combination of them can be more clearly understood from the figure (for vertical <span class="math notranslate nohighlight">\(x-z\)</span> plane).</p>
+<figure class="align-center" id="het-aniso">
+<a class="reference internal image-reference" href="../../../_images/L5_f6.png"><img alt="../../../_images/L5_f6.png" src="../../../_images/L5_f6.png" style="width: 705.6500000000001px; height: 523.0500000000001px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.6 </span><span class="caption-text">Heterogeneity and Anisotropy in aquifer</span><a class="headerlink" href="#het-aniso" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="chapter-quiz">
+<h2><span class="section-number">4.7. </span>Chapter Quiz<a class="headerlink" href="#chapter-quiz" title="Permalink to this headline">#</a></h2>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="hdOPxMpVHkgZ" data-shufflequestions="False"
+               data-shuffleanswers="True"
+               data-preserveresponses="false"
+               data-numquestions="1000000"> <style>:root {
+    --medium-slate-blue: #6f78ffff;
+    --orange-pantone: #f75c03ff;
+    --russian-violet: #392061ff;
+    --maximum-yellow-red: #ffc857ff;
+    --viridian-green: #119da4ff;
+    --incorrect-red: #c80202;
+    --correct-green: #009113;
+}
+
+.Quiz {
+    max-width: 600px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    line-height: 1.1;
+    font-size: 16pt;
+}
+
+.QuizCode {
+    font-size: 14pt;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.QuizCode>pre {
+    padding: 4px;
+}
+
+.Answer {
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+}
+
+.Feedback {
+    font-size: 16pt;
+    text-align: center;
+    min-height: 2em;
+}
+
+.Input {
+    align: left;
+    font-size: 20pt;
+}
+
+.Input-text {
+    display: block;
+    margin: 10px;
+    color: inherit;
+    width: 140px;
+    background-color: #c0c0c0;
+    color: #fff;
+    padding: 5px;
+    padding-left: 10px;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: inherit;
+    line-height: 20pt;
+    border: none;
+    border-radius: 0.2rem;
+    transition: box-shadow 0.1s);
+}
+
+.Input-text:focus {
+    outline: none;
+    background-color: #c0c0c0;
+    box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem #999999;
+}
+
+.MCButton {
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.MCButton p {
+    color: inherit;
+}
+
+.MultipleChoiceQn {
+    padding: 10px;
+    background: var(--medium-slate-blue);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
+.ManyChoiceQn {
+    padding: 10px;
+    background: var(--orange-pantone);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
+.NumericQn {
+    padding: 10px;
+    background: var(--russian-violet);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
+.NumericQn p {
+    color: inherit;
+}
+
+.InpLabel {
+    line-height: 34px;
+    float: left;
+    margin-right: 10px;
+    color: #101010;
+    font-size: 15pt;
+}
+
+.incorrect {
+    color: var(--incorrect-red);
+}
+
+.correct {
+    color: var(--correct-green);
+}
+
+.correctButton {
+    /*
+    background: var(--correct-green);
+   */
+    animation: correct-anim 0.6s ease;
+    animation-fill-mode: forwards;
+    color: #fafafa;
+    box-shadow: inset 0px 0px 5px #555555;
+    outline: none;
+}
+
+.incorrectButton {
+    animation: incorrect-anim 0.8s ease;
+    animation-fill-mode: forwards;
+    color: #fafafa;
+    box-shadow: inset 0px 0px 5px #555555;
+    outline: none;
+}
+
+@keyframes incorrect-anim {
+    100% {
+        background-color: var(--incorrect-red);
+    }
+}
+
+@keyframes correct-anim {
+    100% {
+        background-color: var(--correct-green);
+    }
+}</style></div><script type="application/javascript">var questionshdOPxMpVHkgZ=[{"question": "Which aquifer property is NOT direction dependent?", "type": "multiple_choice", "answers": [{"answer": "Porosity", "correct": false, "feedback": "Incorrect."}, {"answer": "Storage Coefficient", "correct": false, "feedback": "Incorrect"}, {"answer": "Hydraulic head", "correct": true, "feedback": "Correct."}, {"answer": "Conductivity", "correct": false, "feedback": "Incorrect."}]}, {"question": "In equation $K = K(x,y,z)$ if $K_x = K_y = K_z$, then the aquifer is ", "type": "multiple_choice", "answers": [{"answer": "Homogeneous", "correct": true, "feedback": "Correct."}, {"answer": "Heterogeneous", "correct": false, "feedback": "Incorrect"}, {"answer": "Can be both Homogeneous and Heterogeneous", "correct": false, "feedback": "Incorrect."}, {"answer": "Neither Homogeneous not Heterogeneous", "correct": false, "feedback": "Incorrect"}]}, {"question": "Effective Hydraulic Conductivity represents", "type": "many_choice", "answers": [{"answer": "The maximum conductivity along horizontal flow direction", "correct": false, "feedback": "Incorrect."}, {"answer": "The maximum conductivity along vertical flow direction", "correct": false, "feedback": "Incorrect."}, {"answer": "The average K value in the layered aquifer", "correct": true, "feedback": "Correct."}, {"answer": "Is equivalent to hydraulic resistance", "correct": false, "feedback": "Incorrect."}]}, {"question": "In flow parallel to layering, the effective $K$", "type": "multiple_choice", "answers": [{"answer": "Equals the weighted harmonic mean of layer conductivities.", "correct": false, "feedback": "Incorrect."}, {"answer": "Equals the weighted arithmetic mean of layer conductivities.", "correct": true, "feedback": "correct."}, {"answer": "Is not dependent on the direction of flow", "correct": false, "feedback": "Incorrect."}, {"answer": "Depends on arithmetic and harmonic mean", "correct": false, "feedback": "Incorrect."}]}, {"question": "Hydraulic resistance ($R$) and effective conductivity $K_{eff}$ are ", "type": "multiple_choice", "answers": [{"answer": "Independent to each other", "correct": false, "feedback": "Incorrect."}, {"answer": "Related with other through the Darcy velocity", "correct": false, "feedback": "Incorrect."}, {"answer": "Are related to storage coefficient. ", "correct": false, "feedback": "Incorrect."}, {"answer": "Are reciprocal to each other", "correct": true, "feedback": "Correct"}]}, {"question": "Effective Hydraulic Conductivty in flow parallel to layers can be estimated from the relation: $K$ = $\\frac{\\sum_{i=1}^n m_iK_i}{m}$", "type": "multiple_choice", "answers": [{"answer": "As the largest K value among the layer", "correct": true, "feedback": "Correct."}, {"answer": "As the lowest K value among the layer", "correct": false, "feedback": "Incorrect."}, {"answer": "As the reciprocal of the largest K value among the layer", "correct": false, "feedback": "Incorrect."}, {"answer": "As a ratio of largest and lowest K value among the layer", "correct": false, "feedback": "Incorrect"}]}, {"question": "Anisotropy relates the aquifer properties with", "type": "multiple_choice", "answers": [{"answer": "the spatial dimension of the aquifer", "correct": false, "feedback": "Inorrect."}, {"answer": "their dependence on direction", "correct": false, "feedback": "Incorrect."}, {"answer": "their independence to spatial and direction ", "correct": true, "feedback": "Correct."}, {"answer": "None of the above", "correct": false, "feedback": "Incorrect."}]}, {"question": "The relation $K = \\frac{1}{\\frac{\\cos^2\\theta}{K_h}+\\frac{\\sin^2\\theta}{K_v}}$ represents ", "type": "multiple_choice", "answers": [{"answer": "Effective hydraulic conductivity when flow is vertical to aquifer layers", "correct": false, "feedback": "Incorrect."}, {"answer": "Effective hydraulic conductivity when flow is horizontal to aquifer layers", "correct": false, "feedback": "Incorrect."}, {"answer": "Effective hydraulic conductivity when flow is tangential to aquifer layers", "correct": false, "feedback": "Incorrect."}, {"answer": "Effective hydraulic conductivity when flow is in arbitrary direction to aquifer layers", "correct": true, "feedback": "Correct"}]}];
+    // Make a random ID
+function makeid(length) {
+    var result = [];
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result.push(characters.charAt(Math.floor(Math.random() * charactersLength)));
+    }
+    return result.join('');
+}
+
+// Choose a random subset of an array. Can also be used to shuffle the array
+function getRandomSubarray(arr, size) {
+    var shuffled = arr.slice(0), i = arr.length, temp, index;
+    while (i--) {
+        index = Math.floor((i + 1) * Math.random());
+        temp = shuffled[index];
+        shuffled[index] = shuffled[i];
+        shuffled[i] = temp;
+    }
+    return shuffled.slice(0, size);
+}
+
+function printResponses(responsesContainer) {
+    var responses=JSON.parse(responsesContainer.dataset.responses);
+    var stringResponses='<B>IMPORTANT!</B>To preserve this answer sequence for submission, when you have finalized your answers: <ol> <li> Copy the text in this cell below "Answer String"</li> <li> Double click on the cell directly below the Answer String, labeled "Replace Me"</li> <li> Select the whole "Replace Me" text</li> <li> Paste in your answer string and press shift-Enter.</li><li>Save the notebook using the save icon or File->Save Notebook menu item</li></ul><br><br><br><b>Answer String:</b><br> ';
+    console.log(responses);
+    responses.forEach((response, index) => {
+        if (response) {
+            console.log(index + ': ' + response);
+            stringResponses+= index + ': ' + response +"<BR>";
+        }
+    });
+    responsesContainer.innerHTML=stringResponses;
+}
+function check_mc() {
+    var id = this.id.split('-')[0];
+    //var response = this.id.split('-')[1];
+    //console.log(response);
+    //console.log("In check_mc(), id="+id);
+    //console.log(event.srcElement.id)           
+    //console.log(event.srcElement.dataset.correct)   
+    //console.log(event.srcElement.dataset.feedback)
+
+    var label = event.srcElement;
+    //console.log(label, label.nodeName);
+    var depth = 0;
+    while ((label.nodeName != "LABEL") && (depth < 20)) {
+        label = label.parentElement;
+        console.log(depth, label);
+        depth++;
+    }
+
+
+
+    var answers = label.parentElement.children;
+
+    //console.log(answers);
+
+
+    // Split behavior based on multiple choice vs many choice:
+    var fb = document.getElementById("fb" + id);
+
+
+
+
+    if (fb.dataset.numcorrect == 1) {
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            //console.log(responsesContainer);
+            var response = label.firstChild.innerText;
+            if (label.querySelector(".QuizCode")){
+                response+= label.querySelector(".QuizCode").firstChild.innerText;
+            }
+            console.log(response);
+            //console.log(document.getElementById("quizWrap"+id));
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            console.log(responses);
+            responses[qnum]= response;
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End code to preserve responses
+        
+        for (var i = 0; i < answers.length; i++) {
+            var child = answers[i];
+            //console.log(child);
+            child.className = "MCButton";
+        }
+
+
+
+        if (label.dataset.correct == "true") {
+            // console.log("Correct action");
+            if ("feedback" in label.dataset) {
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Correct!";
+            }
+            label.classList.add("correctButton");
+
+            fb.className = "Feedback";
+            fb.classList.add("correct");
+
+        } else {
+            if ("feedback" in label.dataset) {
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Incorrect -- try again.";
+            }
+            //console.log("Error action");
+            label.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+    }
+    else {
+        var reset = false;
+        var feedback;
+         if (label.dataset.correct == "true") {
+            if ("feedback" in label.dataset) {
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Correct!";
+            }
+            if (label.dataset.answered <= 0) {
+                if (fb.dataset.answeredcorrect < 0) {
+                    fb.dataset.answeredcorrect = 1;
+                    reset = true;
+                } else {
+                    fb.dataset.answeredcorrect++;
+                }
+                if (reset) {
+                    for (var i = 0; i < answers.length; i++) {
+                        var child = answers[i];
+                        child.className = "MCButton";
+                        child.dataset.answered = 0;
+                    }
+                }
+                label.classList.add("correctButton");
+                label.dataset.answered = 1;
+                fb.className = "Feedback";
+                fb.classList.add("correct");
+
+            }
+        } else {
+            if ("feedback" in label.dataset) {
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Incorrect -- try again.";
+            }
+            if (fb.dataset.answeredcorrect > 0) {
+                fb.dataset.answeredcorrect = -1;
+                reset = true;
+            } else {
+                fb.dataset.answeredcorrect--;
+            }
+
+            if (reset) {
+                for (var i = 0; i < answers.length; i++) {
+                    var child = answers[i];
+                    child.className = "MCButton";
+                    child.dataset.answered = 0;
+                }
+            }
+            label.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            //console.log(responsesContainer);
+            var response = label.firstChild.innerText;
+            if (label.querySelector(".QuizCode")){
+                response+= label.querySelector(".QuizCode").firstChild.innerText;
+            }
+            console.log(response);
+            //console.log(document.getElementById("quizWrap"+id));
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            if (label.dataset.correct == "true") {
+                if (typeof(responses[qnum]) == "object"){
+                    if (!responses[qnum].includes(response))
+                        responses[qnum].push(response);
+                } else{
+                    responses[qnum]= [ response ];
+                }
+            } else {
+                responses[qnum]= response;
+            }
+            console.log(responses);
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End save responses stuff
+
+
+
+        var numcorrect = fb.dataset.numcorrect;
+        var answeredcorrect = fb.dataset.answeredcorrect;
+        if (answeredcorrect >= 0) {
+            fb.textContent = feedback + " [" + answeredcorrect + "/" + numcorrect + "]";
+        } else {
+            fb.textContent = feedback + " [" + 0 + "/" + numcorrect + "]";
+        }
+
+
+    }
+
+    if (typeof MathJax != 'undefined') {
+        var version = MathJax.version;
+        console.log('MathJax version', version);
+        if (version[0] == "2") {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        } else if (version[0] == "3") {
+            MathJax.typeset([fb]);
+        }
+    } else {
+        console.log('MathJax not detected');
+    }
+
+}
+
+function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
+    var shuffled;
+    if (shuffle_answers == "True") {
+        //console.log(shuffle_answers+" read as true");
+        shuffled = getRandomSubarray(qa.answers, qa.answers.length);
+    } else {
+        //console.log(shuffle_answers+" read as false");
+        shuffled = qa.answers;
+    }
+
+
+    var num_correct = 0;
+
+
+
+    shuffled.forEach((item, index, ans_array) => {
+        //console.log(answer);
+
+        // Make input element
+        var inp = document.createElement("input");
+        inp.type = "radio";
+        inp.id = "quizo" + id + index;
+        inp.style = "display:none;";
+        aDiv.append(inp);
+
+        //Make label for input element
+        var lab = document.createElement("label");
+        lab.className = "MCButton";
+        lab.id = id + '-' + index;
+        lab.onclick = check_mc;
+        var aSpan = document.createElement('span');
+        aSpan.classsName = "";
+        //qDiv.id="quizQn"+id+index;
+        if ("answer" in item) {
+            aSpan.innerHTML = jaxify(item.answer);
+            //aSpan.innerHTML=item.answer;
+        }
+        lab.append(aSpan);
+
+        // Create div for code inside question
+        var codeSpan;
+        if ("code" in item) {
+            codeSpan = document.createElement('span');
+            codeSpan.id = "code" + id + index;
+            codeSpan.className = "QuizCode";
+            var codePre = document.createElement('pre');
+            codeSpan.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML = item.code;
+            lab.append(codeSpan);
+            //console.log(codeSpan);
+        }
+
+        //lab.textContent=item.answer;
+
+        // Set the data attributes for the answer
+        lab.setAttribute('data-correct', item.correct);
+        if (item.correct) {
+            num_correct++;
+        }
+        if ("feedback" in item) {
+            lab.setAttribute('data-feedback', item.feedback);
+        }
+        lab.setAttribute('data-answered', 0);
+
+        aDiv.append(lab);
+
+    });
+
+    if (num_correct > 1) {
+        outerqDiv.className = "ManyChoiceQn";
+    } else {
+        outerqDiv.className = "MultipleChoiceQn";
+    }
+
+    return num_correct;
+
+}
+function check_numeric(ths, event) {
+
+    if (event.keyCode === 13) {
+        ths.blur();
+
+        var id = ths.id.split('-')[0];
+
+        var submission = ths.value;
+        if (submission.indexOf('/') != -1) {
+            var sub_parts = submission.split('/');
+            //console.log(sub_parts);
+            submission = sub_parts[0] / sub_parts[1];
+        }
+        //console.log("Reader entered", submission);
+
+        if ("precision" in ths.dataset) {
+            var precision = ths.dataset.precision;
+            // console.log("1:", submission)
+            submission = Math.round((1 * submission + Number.EPSILON) * 10 ** precision) / 10 ** precision;
+            // console.log("Rounded to ", submission, " precision=", precision  );
+        }
+
+
+        //console.log("In check_numeric(), id="+id);
+        //console.log(event.srcElement.id)           
+        //console.log(event.srcElement.dataset.feedback)
+
+        var fb = document.getElementById("fb" + id);
+        fb.style.display = "none";
+        fb.textContent = "Incorrect -- try again.";
+
+        var answers = JSON.parse(ths.dataset.answers);
+        //console.log(answers);
+
+        var defaultFB = "";
+        var correct;
+        var done = false;
+        answers.every(answer => {
+            //console.log(answer.type);
+
+            correct = false;
+            // if (answer.type=="value"){
+            if ('value' in answer) {
+                if (submission == answer.value) {
+                    fb.textContent = jaxify(answer.feedback);
+                    correct = answer.correct;
+                    //console.log(answer.correct);
+                    done = true;
+                }
+                // } else if (answer.type=="range") {
+            } else if ('range' in answer) {
+                //console.log(answer.range);
+                if ((submission >= answer.range[0]) && (submission < answer.range[1])) {
+                    fb.textContent = jaxify(answer.feedback);
+                    correct = answer.correct;
+                    //console.log(answer.correct);
+                    done = true;
+                }
+            } else if (answer.type == "default") {
+                defaultFB = answer.feedback;
+            }
+            if (done) {
+                return false; // Break out of loop if this has been marked correct
+            } else {
+                return true; // Keep looking for case that includes this as a correct answer
+            }
+        });
+
+        if ((!done) && (defaultFB != "")) {
+            fb.innerHTML = jaxify(defaultFB);
+            //console.log("Default feedback", defaultFB);
+        }
+
+        fb.style.display = "block";
+        if (correct) {
+            ths.className = "Input-text";
+            ths.classList.add("correctButton");
+            fb.className = "Feedback";
+            fb.classList.add("correct");
+        } else {
+            ths.className = "Input-text";
+            ths.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            console.log(submission);
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            //console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            console.log(responses);
+            if (submission == ths.value){
+                responses[qnum]= submission;
+            } else {
+                responses[qnum]= ths.value + "(" + submission +")";
+            }
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End code to preserve responses
+
+        if (typeof MathJax != 'undefined') {
+            var version = MathJax.version;
+            console.log('MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([fb]);
+            }
+        } else {
+            console.log('MathJax not detected');
+        }
+        return false;
+    }
+
+}
+
+function isValid(el, charC) {
+    //console.log("Input char: ", charC);
+    if (charC == 46) {
+        if (el.value.indexOf('.') === -1) {
+            return true;
+        } else if (el.value.indexOf('/') != -1) {
+            var parts = el.value.split('/');
+            if (parts[1].indexOf('.') === -1) {
+                return true;
+            }
+        }
+        else {
+            return false;
+        }
+    } else if (charC == 47) {
+        if (el.value.indexOf('/') === -1) {
+            if ((el.value != "") && (el.value != ".")) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    } else if (charC == 45) {
+        var edex = el.value.indexOf('e');
+        if (edex == -1) {
+            edex = el.value.indexOf('E');
+        }
+
+        if (el.value == "") {
+            return true;
+        } else if (edex == (el.value.length - 1)) { // If just after e or E
+            return true;
+        } else {
+            return false;
+        }
+    } else if (charC == 101) { // "e"
+        if ((el.value.indexOf('e') === -1) && (el.value.indexOf('E') === -1) && (el.value.indexOf('/') == -1)) {
+            // Prev symbol must be digit or decimal point:
+            if (el.value.slice(-1).search(/\d/) >= 0) {
+                return true;
+            } else if (el.value.slice(-1).search(/\./) >= 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    } else {
+        if (charC > 31 && (charC < 48 || charC > 57))
+            return false;
+    }
+    return true;
+}
+
+function numeric_keypress(evnt) {
+    var charC = (evnt.which) ? evnt.which : evnt.keyCode;
+
+    if (charC == 13) {
+        check_numeric(this, evnt);
+    } else {
+        return isValid(this, charC);
+    }
+}
+
+
+
+
+
+function make_numeric(qa, outerqDiv, qDiv, aDiv, id) {
+
+
+
+    //console.log(answer);
+
+
+    outerqDiv.className = "NumericQn";
+    aDiv.style.display = 'block';
+
+    var lab = document.createElement("label");
+    lab.className = "InpLabel";
+    lab.textContent = "Type numeric answer here:";
+    aDiv.append(lab);
+
+    var inp = document.createElement("input");
+    inp.type = "text";
+    //inp.id="input-"+id;
+    inp.id = id + "-0";
+    inp.className = "Input-text";
+    inp.setAttribute('data-answers', JSON.stringify(qa.answers));
+    if ("precision" in qa) {
+        inp.setAttribute('data-precision', qa.precision);
+    }
+    aDiv.append(inp);
+    //console.log(inp);
+
+    //inp.addEventListener("keypress", check_numeric);
+    //inp.addEventListener("keypress", numeric_keypress);
+    /*
+    inp.addEventListener("keypress", function(event) {
+        return numeric_keypress(this, event);
+    }
+                        );
+                        */
+    //inp.onkeypress="return numeric_keypress(this, event)";
+    inp.onkeypress = numeric_keypress;
+    inp.onpaste = event => false;
+
+    inp.addEventListener("focus", function (event) {
+        this.value = "";
+        return false;
+    }
+    );
+
+
+}
+function jaxify(string) {
+    var mystring = string;
+
+    var count = 0;
+    var loc = mystring.search(/([^\\]|^)(\$)/);
+
+    var count2 = 0;
+    var loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+
+    //console.log(loc);
+
+    while ((loc >= 0) || (loc2 >= 0)) {
+
+        /* Have to replace all the double $$ first with current implementation */
+        if (loc2 >= 0) {
+            if (count2 % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\[");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\]");
+            }
+            count2++;
+        } else {
+            if (count % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\(");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\)");
+            }
+            count++;
+        }
+        loc = mystring.search(/([^\\]|^)(\$)/);
+        loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+        //console.log(mystring,", loc:",loc,", loc2:",loc2);
+    }
+
+    //console.log(mystring);
+    return mystring;
+}
+
+
+function show_questions(json, mydiv) {
+    console.log('show_questions');
+    //var mydiv=document.getElementById(myid);
+    var shuffle_questions = mydiv.dataset.shufflequestions;
+    var num_questions = mydiv.dataset.numquestions;
+    var shuffle_answers = mydiv.dataset.shuffleanswers;
+
+    if (num_questions > json.length) {
+        num_questions = json.length;
+    }
+
+    var questions;
+    if ((num_questions < json.length) || (shuffle_questions == "True")) {
+        //console.log(num_questions+","+json.length);
+        questions = getRandomSubarray(json, num_questions);
+    } else {
+        questions = json;
+    }
+
+    //console.log("SQ: "+shuffle_questions+", NQ: " + num_questions + ", SA: ", shuffle_answers);
+
+    // Iterate over questions
+    questions.forEach((qa, index, array) => {
+        //console.log(qa.question); 
+
+        var id = makeid(8);
+        //console.log(id);
+
+
+        // Create Div to contain question and answers
+        var iDiv = document.createElement('div');
+        //iDiv.id = 'quizWrap' + id + index;
+        iDiv.id = 'quizWrap' + id;
+        iDiv.className = 'Quiz';
+        iDiv.setAttribute('data-qnum', index);
+        mydiv.appendChild(iDiv);
+        // iDiv.innerHTML=qa.question;
+
+        var outerqDiv = document.createElement('div');
+        outerqDiv.id = "OuterquizQn" + id + index;
+
+        iDiv.append(outerqDiv);
+
+        // Create div to contain question part
+        var qDiv = document.createElement('div');
+        qDiv.id = "quizQn" + id + index;
+        //qDiv.textContent=qa.question;
+        qDiv.innerHTML = jaxify(qa.question);
+
+        outerqDiv.append(qDiv);
+
+        // Create div for code inside question
+        var codeDiv;
+        if ("code" in qa) {
+            codeDiv = document.createElement('div');
+            codeDiv.id = "code" + id + index;
+            codeDiv.className = "QuizCode";
+            var codePre = document.createElement('pre');
+            codeDiv.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML = qa.code;
+            outerqDiv.append(codeDiv);
+            //console.log(codeDiv);
+        }
+
+
+        // Create div to contain answer part
+        var aDiv = document.createElement('div');
+        aDiv.id = "quizAns" + id + index;
+        aDiv.className = 'Answer';
+        iDiv.append(aDiv);
+
+        //console.log(qa.type);
+
+        var num_correct;
+        if (qa.type == "multiple_choice") {
+            num_correct = make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+        } else if (qa.type == "many_choice") {
+            num_correct = make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+        } else if (qa.type == "numeric") {
+            //console.log("numeric");
+            make_numeric(qa, outerqDiv, qDiv, aDiv, id);
+        }
+
+
+        //Make div for feedback
+        var fb = document.createElement("div");
+        fb.id = "fb" + id;
+        //fb.style="font-size: 20px;text-align:center;";
+        fb.className = "Feedback";
+        fb.setAttribute("data-answeredcorrect", 0);
+        fb.setAttribute("data-numcorrect", num_correct);
+        iDiv.append(fb);
+
+
+    });
+    var preserveResponses = mydiv.dataset.preserveresponses;
+    console.log(preserveResponses);
+    console.log(preserveResponses == "true");
+    if (preserveResponses == "true") {
+        console.log(preserveResponses);
+        // Create Div to contain record of answers
+        var iDiv = document.createElement('div');
+        iDiv.id = 'responses' + mydiv.id;
+        iDiv.className = 'JCResponses';
+        // Create a place to store responses as an empty array
+        iDiv.setAttribute('data-responses', '[]');
+
+        // Dummy Text
+        iDiv.innerHTML="<b>Select your answers and then follow the directions that will appear here.</b>"
+        //iDiv.className = 'Quiz';
+        mydiv.appendChild(iDiv);
+    }
+//console.log("At end of show_questions");
+    if (typeof MathJax != 'undefined') {
+        console.log("MathJax version", MathJax.version);
+        var version = MathJax.version;
+        setTimeout(function(){
+            var version = MathJax.version;
+            console.log('After sleep, MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            }
+        }, 500);
+if (typeof version == 'undefined') {
+        } else
+        {
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            } else {
+                console.log("MathJax not found");
+            }
+        }
+    }
+    return false;
+}
+
+        {
+        show_questions(questionshdOPxMpVHkgZ,  hdOPxMpVHkgZ);
+        }
+        </script></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "iGW-TU-Dresden/iGW_Book",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content\flow\L5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../L4/14_darcy_law_K.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">3. </span>Darcy’s Law and Conductivity</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../L6/16_darcy_law_3D.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Steady-State Groundwater flow in 3D</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Dr Prabhas K. Yadav<br/>
+  
+      &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
+      <div>
+ All content on this site (unless otherwise specified) is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">CC BY-NC-SA 4.0 license</a>
+</div>
+
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

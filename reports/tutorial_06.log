@@ -1,0 +1,70 @@
+Traceback (most recent call last):
+  File "C:\Users\vibhu\AppData\Local\Programs\Python\Python310\lib\site-packages\jupyter_cache\executors\utils.py", line 51, in single_nb_execution
+    executenb(
+  File "C:\Users\vibhu\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "C:\Users\vibhu\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "C:\Users\vibhu\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "C:\Users\vibhu\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 646, in run_until_complete
+    return future.result()
+  File "C:\Users\vibhu\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\vibhu\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\vibhu\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+#
+r3_1 = pn.pane.Markdown("""
+## ##
+
+
+**A**. Derive an expression for hydraulic conductivity K for the constant-head permeameter shown in the figure.<br><br>
+**B**. The hydraulic conductivity of a sample (length 10 cm, diameter 4 cm) is to be determined. 
+The water depths a<sub>1</sub> and a<sub>2</sub> equal 6 cm and 3 cm, resp. A water volume of 250 ml 
+passed the sample during an experimental period of 36 s. <br> <br>
+**C**. Which material could be contained in the sample?
+""", style={'font-size': '12pt'})
+spacer2=pn.Spacer(width=50)
+r3_2 = pn.pane.PNG("images/T06_TH3.png", width=500)
+pn.Row(r3_1,spacer2, r3_2)  
+------------------
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mValueError[0m                                Traceback (most recent call last)
+Input [1;32mIn [2][0m, in [0;36m<cell line: 13>[1;34m()[0m
+[0;32m      2[0m r3_1 [38;5;241m=[39m pn[38;5;241m.[39mpane[38;5;241m.[39mMarkdown([38;5;124m"""[39m
+[0;32m      3[0m [38;5;124m## ##[39m
+[0;32m      4[0m 
+[1;32m   (...)[0m
+[0;32m     10[0m [38;5;124m**C**. Which material could be contained in the sample?[39m
+[0;32m     11[0m [38;5;124m"""[39m, style[38;5;241m=[39m{[38;5;124m'[39m[38;5;124mfont-size[39m[38;5;124m'[39m: [38;5;124m'[39m[38;5;124m12pt[39m[38;5;124m'[39m})
+[0;32m     12[0m spacer2[38;5;241m=[39mpn[38;5;241m.[39mSpacer(width[38;5;241m=[39m[38;5;241m50[39m)
+[1;32m---> 13[0m r3_2 [38;5;241m=[39m [43mpn[49m[38;5;241;43m.[39;49m[43mpane[49m[38;5;241;43m.[39;49m[43mPNG[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mimages/T06_TH3.png[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[43mwidth[49m[38;5;241;43m=[39;49m[38;5;241;43m500[39;49m[43m)[49m
+[0;32m     14[0m pn[38;5;241m.[39mRow(r3_1,spacer2, r3_2)
+
+File [1;32m~\AppData\Local\Programs\Python\Python310\lib\site-packages\panel\pane\image.py:36[0m, in [0;36mFileBase.__init__[1;34m(self, object, **params)[0m
+[0;32m     34[0m [38;5;28;01mif[39;00m [38;5;28misinstance[39m([38;5;28mobject[39m, PurePath):
+[0;32m     35[0m     [38;5;28mobject[39m [38;5;241m=[39m [38;5;28mstr[39m([38;5;28mobject[39m)
+[1;32m---> 36[0m [38;5;28msuper[39m()[38;5;241m.[39m[38;5;21m__init__[39m([38;5;28mobject[39m[38;5;241m=[39m[38;5;28mobject[39m, [38;5;241m*[39m[38;5;241m*[39mparams)
+
+File [1;32m~\AppData\Local\Programs\Python\Python310\lib\site-packages\panel\pane\base.py:143[0m, in [0;36mPaneBase.__init__[1;34m(self, object, **params)[0m
+[0;32m    141[0m applies [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mapplies([38;5;28mobject[39m, [38;5;241m*[39m[38;5;241m*[39m(params [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39m_applies_kw [38;5;28;01melse[39;00m {}))
+[0;32m    142[0m [38;5;28;01mif[39;00m ([38;5;28misinstance[39m(applies, [38;5;28mbool[39m) [38;5;129;01mand[39;00m [38;5;129;01mnot[39;00m applies) [38;5;129;01mand[39;00m [38;5;28mobject[39m [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m :
+[1;32m--> 143[0m     [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_type_error[49m[43m([49m[38;5;28;43mobject[39;49m[43m)[49m
+[0;32m    145[0m [38;5;28msuper[39m()[38;5;241m.[39m[38;5;21m__init__[39m([38;5;28mobject[39m[38;5;241m=[39m[38;5;28mobject[39m, [38;5;241m*[39m[38;5;241m*[39mparams)
+[0;32m    146[0m kwargs [38;5;241m=[39m {k: v [38;5;28;01mfor[39;00m k, v [38;5;129;01min[39;00m params[38;5;241m.[39mitems() [38;5;28;01mif[39;00m k [38;5;129;01min[39;00m Layoutable[38;5;241m.[39mparam}
+
+File [1;32m~\AppData\Local\Programs\Python\Python310\lib\site-packages\panel\pane\image.py:40[0m, in [0;36mFileBase._type_error[1;34m(self, object)[0m
+[0;32m     38[0m [38;5;28;01mdef[39;00m [38;5;21m_type_error[39m([38;5;28mself[39m, [38;5;28mobject[39m):
+[0;32m     39[0m     [38;5;28;01mif[39;00m [38;5;28misinstance[39m([38;5;28mobject[39m, [38;5;28mstr[39m):
+[1;32m---> 40[0m         [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([38;5;124m"[39m[38;5;132;01m%s[39;00m[38;5;124m pane cannot parse string that is not a filename [39m[38;5;124m"[39m
+[0;32m     41[0m                          [38;5;124m"[39m[38;5;124mor URL.[39m[38;5;124m"[39m [38;5;241m%[39m [38;5;28mtype[39m([38;5;28mself[39m)[38;5;241m.[39m[38;5;18m__name__[39m)
+[0;32m     42[0m     [38;5;28msuper[39m()[38;5;241m.[39m_type_error([38;5;28mobject[39m)
+
+[1;31mValueError[0m: PNG pane cannot parse string that is not a filename or URL.
+ValueError: PNG pane cannot parse string that is not a filename or URL.
+
