@@ -11,7 +11,7 @@ number_equations: false
 #favicon_path: logo.jpg
 
 baseurl: "/onlinegroundwaterbook" # the subpath of your site, e.g. /blog. If there is no subpath for your site, use an empty string ""
-url: "https://vibhubatheja.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://prabhasyadav.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 #######################################################################################
 # A default configuration that will be loaded for all jupyter books
@@ -76,7 +76,7 @@ launch_buttons:
   colab_url                 : https://colab.research.google.com
 
 repository:
-  url                       : https://github.com/iGW-TU-Dresden/iGW_Book  # The URL to your book's repository
+  url                       : https://github.com/prabhasyadav/iGW-I # The URL to your book's repository
   path_to_book              : ""  # A path to your book's folder, relative to the repository root.
   branch                    : main   # Which branch of the repository should be used when creating links
 
